@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="20dp"
+        android:text="질병:"
+        android:textColor="#292929"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTV"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#555555"
+        android:completionHint="검색어를 입력하세요"
+        android:completionThreshold="2"
+        android:backgroundTint="#292929"
+        android:ems="10"
+        android:textColor="#292929"
+        android:textSize="18sp"/>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background= "#FFFFFF"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.shuhart.stepview.StepView
+        android:id="@+id/step_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:sv_animationType="All"
+        app:sv_animationDuration="200"
+        app:sv_doneCircleColor="#4CAF50"
+        app:sv_doneCircleRadius="18dp"
+        app:sv_doneStepLineColor="#4CAF50"
+        app:sv_doneStepMarkColor="#FDFFEB"
+        app:sv_nextStepLineColor="#CDCDCD"
+        app:sv_nextTextColor="#CDCDCD"
+        app:sv_selectedCircleColor="#4CAF50"
+        app:sv_selectedCircleRadius="18dp"
+        app:sv_selectedStepNumberColor="#FFFFFF"
+        app:sv_selectedTextColor="#4CAF50"
+        app:sv_stepLineWidth="2dp"
+        app:sv_stepNumberTextSize="18sp"
+        app:sv_stepPadding="5dp"
+        app:sv_stepViewStyle="@style/StepView"
+        app:sv_stepsNumber="3" />
+
+    <FrameLayout
+        android:id="@+id/stepFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_view">
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/firstStepFinishBtn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:background="#4CAF50"
+        android:text="완료"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
