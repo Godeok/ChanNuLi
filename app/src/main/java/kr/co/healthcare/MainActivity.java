@@ -22,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         mainActivity = MainActivity.this;
         //초기화 연습용
-        PreferenceManger.clear(this);
+        //커밋 추가 연습
+        //PreferenceManger.clear(this);
 
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");
         if (!isTutorialFinished) {
