@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainActivity = MainActivity.this;
+        //초기화 연습용
+        PreferenceManger.clear(this);
+
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");
         if (!isTutorialFinished) {
             intent = new Intent(getApplicationContext(), TutorialActivity.class);

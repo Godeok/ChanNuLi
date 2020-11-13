@@ -9,25 +9,36 @@
         android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="식사를 보통 몇 시에 하시나요?"
+        android:text="식사"
         android:textColor="#292929"
-        android:textSize="26sp"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="아침"
+        android:layout_marginBottom="5dp"
+        android:textColor="#292929"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
             android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#292929"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
             android:ems="10"
+            android:layout_marginRight="5dp"
             android:inputType="number"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_marginRight="20dp"
@@ -35,47 +46,186 @@
             android:layout_height="wrap_content"
             android:text="시"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#292929"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
             android:ems="10"
+            android:layout_marginRight="5dp"
             android:inputType="number"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="분"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="점심"
+        android:layout_marginBottom="5dp"
+        android:textColor="#292929"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
+            android:ems="10"
+            android:layout_marginRight="5dp"
+            android:inputType="number"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
+            android:ems="10"
+            android:layout_marginRight="5dp"
+            android:inputType="number"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="저녁"
+        android:layout_marginBottom="5dp"
+        android:textColor="#292929"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
+            android:ems="10"
+            android:layout_marginRight="5dp"
+            android:inputType="number"
+            android:textColor="#292929"
+            android:textSize="24sp"/>
+
+        <TextView
+            android:layout_marginRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
+            android:ems="10"
+            android:layout_marginRight="5dp"
+            android:inputType="number"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="식사 시간"
+        android:layout_marginBottom="5dp"
+        android:textColor="#292929"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_marginBottom="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
+            android:ems="10"
+            android:layout_marginRight="5dp"
+            android:inputType="number"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분 동안"
+            android:textColor="#292929"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <TextView
         android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="평소에 몇 시에 주무시나요?"
+        android:text="취침"
         android:textColor="#292929"
-        android:textSize="26sp"
+        android:textSize="28sp"
         android:textStyle="bold" />
 
     <LinearLayout
+        android:layout_marginBottom="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
         <EditText
             android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#292929"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
             android:ems="10"
+            android:layout_marginRight="5dp"
             android:inputType="number"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_marginRight="20dp"
@@ -83,25 +233,55 @@
             android:layout_height="wrap_content"
             android:text="시"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <EditText
             android:layout_width="60dp"
-            android:layout_height="40dp"
-            android:backgroundTint="#292929"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
             android:ems="10"
+            android:layout_marginRight="5dp"
             android:inputType="number"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="분"
             android:textColor="#292929"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="취침 시간"
+        android:layout_marginBottom="5dp"
+        android:textColor="#292929"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_normal"
+            android:ems="10"
+            android:layout_marginRight="5dp"
+            android:inputType="number"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="분 동안"
+            android:textColor="#292929"
+            android:textSize="24sp" />
+    </LinearLayout>
 </LinearLayout>

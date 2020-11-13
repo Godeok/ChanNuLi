@@ -68,7 +68,6 @@ public class PreferenceManger {
         SharedPreferences.Editor edit = prefs.edit();
         edit.remove(key);
         edit.apply();
-
     }
 
     //모든 저장 데이터 삭제
