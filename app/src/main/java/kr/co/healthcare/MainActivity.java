@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //초기화 연습용
-        PreferenceManger.clear(this);
+        //커밋 추가 연습
+        //PreferenceManger.clear(this);
 
         //튜토리얼 완료 확인
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");
