@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.shuhart.stepview.StepView;
-
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
     private Boolean isTutorialFinished = false;
@@ -20,20 +18,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainActivity = MainActivity.this;
         //초기화 연습용
         PreferenceManger.clear(this);
 
+        //튜토리얼 완료 확인
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");
-        if (!isTutorialFinished) {
-            intent = new Intent(getApplicationContext(), TutorialActivity.class);
+        mainActivity = MainActivity.this;
+        if (!isTutorialFinished) {  //튜토리얼 미완료 시
+            intent = new Intent(getApplicationContext(), TutorialStartActivity.class);
             startActivity(intent);
             mainActivity.finish();
-        }else{
+        }else{ // 튜토리얼 완료 시
             TextView userNameTV = findViewById(R.id.userName);
             userNameTV.setText(PreferenceManger.getString(this, "name"));
         }
 
+        //마이페이지
         final Button mypageBtn = (Button) findViewById(R.id.mypageBtn);
         mypageBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background= "#FFFFFF"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.shuhart.stepview.StepView
+        android:id="@+id/step_view"
+        android:layout_width="193dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:padding="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:sv_animationDuration="200"
+        app:sv_animationType="All"
+        app:sv_doneCircleColor="#4CAF50"
+        app:sv_doneCircleRadius="18dp"
+        app:sv_doneStepLineColor="#4CAF50"
+        app:sv_doneStepMarkColor="#FDFFEB"
+        app:sv_nextStepLineColor="#CDCDCD"
+        app:sv_nextTextColor="#CDCDCD"
+        app:sv_selectedCircleColor="#4CAF50"
+        app:sv_selectedCircleRadius="18dp"
+        app:sv_selectedStepNumberColor="#FFFFFF"
+        app:sv_selectedTextColor="#4CAF50"
+        app:sv_stepLineWidth="2dp"
+        app:sv_stepNumberTextSize="18sp"
+        app:sv_stepPadding="5dp"
+        app:sv_stepViewStyle="@style/StepView"
+        app:sv_stepsNumber="2" />
+
+    <FrameLayout
+        android:id="@+id/stepFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_view">
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/firstStepFinishBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/step_view"
+        app:layout_constraintVertical_bias="0.28">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="질병 검색"
+            android:textColor="#292929"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTV"
+            android:layout_width="227dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/edittext_normal"
+            android:completionHint="검색어를 입력하세요"
+            android:completionThreshold="2"
+            android:ems="10"
+            android:padding="5dp"
+            android:singleLine="true"
+            android:textColor="#292929"
+            android:textColorHint="#555555"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/firstStepFinishBtn"
+        android:layout_width="334dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="36dp"
+        android:background="#4CAF50"
+        android:text="완료"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@ import androidx.fragment.app.DialogFragment;
 import com.shuhart.stepview.StepView;
 
 import java.util.List;
-
+/*
 public class TutorialActivity extends AppCompatActivity {
     //변수
     public static Activity tutorialActivity;
@@ -112,7 +112,6 @@ public class TutorialActivity extends AppCompatActivity {
 
     //두 번째 데이터 저장
     void setDataAndChangeViewbyStep2(StepView sv) {
-        /*
         //fixme 함수 효율적으로 짜기
         String diseases = "";
         for(int i =0; i<diseasesArr.length-1; i++){
@@ -120,7 +119,6 @@ public class TutorialActivity extends AppCompatActivity {
         }
         diseases += diseasesArr[diseasesArr.length];
         PreferenceManger.setString(mcontext,"disease", diseases);
-        */
         sv.go(++step, true);
         changeView(step);
     }
@@ -149,12 +147,10 @@ public class TutorialActivity extends AppCompatActivity {
                 break;
             case 1 :
                 view = inflater.inflate(R.layout.tutorial_second_step, frame, false) ;
-                /*
                 AutoCompleteTextView autoCompleteTV = (AutoCompleteTextView) findViewById(R.id.autoCompleteTV);
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                         android.R.layout.simple_dropdown_item_1line, diseasesData);
                 autoCompleteTV.setAdapter(adapter);
-                */
                 break ;
             case 2 :
                 view = inflater.inflate(R.layout.tutorial_third_step, frame, false) ;
@@ -180,3 +176,6 @@ public class TutorialActivity extends AppCompatActivity {
         dateBtn.setText(dateMessage);
     }
 }
+
+
+ */
