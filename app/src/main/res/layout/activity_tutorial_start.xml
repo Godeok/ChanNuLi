@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="쉽고 간편한\n건강관리"
+        android:lineSpacingExtra="10dp"
         android:textColor="#292929"
         android:textSize="32sp"
         android:textStyle="bold"

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         //튜토리얼 완료 확인
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");
         mainActivity = MainActivity.this;
+
         if (!isTutorialFinished) {  //튜토리얼 미완료 시
             intent = new Intent(getApplicationContext(), TutorialStartActivity.class);
             startActivity(intent);

@@ -7,7 +7,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.shuhart.stepview.StepView
-        android:id="@+id/step_view"
+        android:id="@+id/step_view_step2"
         android:layout_width="193dp"
         android:layout_height="75dp"
         android:layout_marginStart="50dp"
@@ -44,7 +44,7 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view">
+        app:layout_constraintTop_toBottomOf="@+id/step_view_step2">
     </FrameLayout>
 
     <LinearLayout
@@ -56,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view"
+        app:layout_constraintTop_toBottomOf="@+id/step_view_step2"
         app:layout_constraintVertical_bias="0.0">
 
         <TextView

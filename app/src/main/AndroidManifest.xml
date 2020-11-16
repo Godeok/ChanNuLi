@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TutorialActivity"/>
+        <activity android:name=".TutorialStartActivity"/>
+        <activity android:name=".Tutorial1StepActivity"/>
+        <activity android:name=".Tutorial2StepActivity"/>
         <activity android:name=".MypageActivity"/>
     </application>
 
