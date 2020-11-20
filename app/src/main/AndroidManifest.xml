@@ -15,10 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TutorialStartActivity"/>
-        <activity android:name=".Tutorial1StepActivity"/>
+        <activity android:name=".tutorial.TutorialStartActivity"/>
+        <activity android:name=".tutorial.Tutorial1StepActivity" android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".DatePickerActivity" android:theme="@android:style/Theme.Dialog"/>
-        <activity android:name=".Tutorial2StepActivity"/>
+        <activity android:name=".tutorial.Tutorial2StepActivity" android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".MypageActivity"/>
         <activity android:name=".self.SelfMainActivity"/>
         <activity android:name=".self.SelfDiagnosisActivity"/>

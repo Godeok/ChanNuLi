@@ -1,4 +1,4 @@
-package kr.co.healthcare;
+package kr.co.healthcare.tutorial;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import kr.co.healthcare.R;
 
 public class TutorialStartActivity  extends AppCompatActivity {
     @Override

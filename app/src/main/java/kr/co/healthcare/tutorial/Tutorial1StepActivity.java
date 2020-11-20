@@ -1,4 +1,4 @@
-package kr.co.healthcare;
+package kr.co.healthcare.tutorial;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,13 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import kr.co.healthcare.DatePickerActivity;
+import kr.co.healthcare.exception.NoneBirthSelectedException;
+import kr.co.healthcare.exception.NoneInputException;
+import kr.co.healthcare.exception.NoneSexSelectedException;
+import kr.co.healthcare.PreferenceManger;
+import kr.co.healthcare.R;
 
 public class Tutorial1StepActivity extends AppCompatActivity {
     private int ACT_SET_BIRTH = 1;
@@ -65,7 +72,7 @@ public class Tutorial1StepActivity extends AppCompatActivity {
             if(etName.getText().toString().length() != 0)
                 PreferenceManger.setString(this,"name", etName.getText().toString());
             else
-                throw new NameCountZeroException();
+                throw new NoneInputException();
 
             //생년월일 예외처리: 날짜를 체크해야 함.
             if(!isBirthChecked) throw new NoneBirthSelectedException();
@@ -80,7 +87,7 @@ public class Tutorial1StepActivity extends AppCompatActivity {
 
             changeView();
         }
-        catch (NameCountZeroException e) {
+        catch (NoneInputException e) {
             etName.setError("이름을 한 글자 이상 입력해 주세요.");
         }
         catch (NoneBirthSelectedException e) {

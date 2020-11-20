@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import kr.co.healthcare.self.SelfMainActivity;
+import kr.co.healthcare.tutorial.TutorialStartActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
@@ -20,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //PreferenceManger.clear(this);
+        //튜토리얼에서 입력한 데이터 초기화 -> 튜토리얼 편집하려고 추가한 문장
+        //진서는 생략하세요
+        PreferenceManger.clear(this);
 
         //튜토리얼 완료 확인
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");

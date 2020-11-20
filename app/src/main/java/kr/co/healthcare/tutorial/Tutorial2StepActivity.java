@@ -1,20 +1,30 @@
-package kr.co.healthcare;
+package kr.co.healthcare.tutorial;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import kr.co.healthcare.DataAdapter;
+import kr.co.healthcare.Diseases;
+import kr.co.healthcare.MainActivity;
+import kr.co.healthcare.PreferenceManger;
+import kr.co.healthcare.R;
 
 public class Tutorial2StepActivity extends AppCompatActivity {
     public List<Diseases> diseasesList;
@@ -39,12 +49,33 @@ public class Tutorial2StepActivity extends AppCompatActivity {
         String[] DISEASES = diseasesNameList.toArray(new String[diseasesNameList.size()]);
 
         //자동완성 설정
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, DISEASES);
-        AutoCompleteTextView autoCompleteTextViewTV = (AutoCompleteTextView)findViewById(R.id.autoCompleteTV);
-        autoCompleteTextViewTV.setAdapter(adapter);
+        final AutoCompleteTextView autoCompleteTextViewTV = (AutoCompleteTextView)findViewById(R.id.autoCompleteTV);
+        autoCompleteTextViewTV.setAdapter(autoCompleteAdapter);
 
-        //두 번째 튜토리얼 완료 시
+        //질병 리스트 연결
+        RecyclerView recyclerView = findViewById(R.id.diseasesRecyclerView);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        final DiseasesListAdapter diseasesListAdapter = new DiseasesListAdapter();
+        recyclerView.setAdapter(diseasesListAdapter);
+
+        //질병 추가 버튼
+        final Button addDiseaseBtn = (Button) findViewById(R.id.addDiseaseBtn);
+        addDiseaseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String diseaseN = autoCompleteTextViewTV.getText().toString();
+                diseasesListAdapter.addItem(diseaseN);
+                diseasesListAdapter.notifyDataSetChanged();
+                autoCompleteTextViewTV.setText("");
+            }
+        });
+
+        //두 번째 튜토리얼 완료 버튼
         final Button secondStepFinishBtn = (Button) findViewById(R.id.secondStepFinishBtn);
         secondStepFinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override

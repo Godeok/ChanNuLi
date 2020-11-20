@@ -37,52 +37,89 @@
         app:sv_stepViewStyle="@style/StepView"
         app:sv_stepsNumber="2" />
 
-    <FrameLayout
-        android:id="@+id/stepFrame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/step_view_step2">
-    </FrameLayout>
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_width="253dp"
+        android:layout_height="433dp"
+        android:layout_marginTop="36dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/firstStepFinishBtn"
+        app:layout_constraintBottom_toTopOf="@+id/secondStepFinishBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/step_view_step2"
-        app:layout_constraintVertical_bias="0.169">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="30dp"
             android:text="질병 및 장애 검색"
             android:textColor="#292929"
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTV"
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/edittext_normal"
-            android:hint="검색어를 입력하세요"
-            android:completionThreshold="1"
-            android:ems="10"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
-            android:singleLine="true"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTV"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_normal"
+                android:completionThreshold="1"
+                android:ems="10"
+                android:hint="검색어를 입력하세요"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="10dp"
+                android:singleLine="true"
+                android:textColor="#292929"
+                android:textColorHint="#878787"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/addDiseaseBtn"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="+" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="내가 추가한 질병"
             android:textColor="#292929"
-            android:textColorHint="#878787"
-            android:textSize="22sp"/>
+            android:textSize="24sp"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="#DADADA"
+            android:layout_marginBottom="5dp"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/diseasesRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
     </LinearLayout>
 
     <Button

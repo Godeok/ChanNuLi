@@ -22,11 +22,12 @@ public class DatePickerActivity extends Activity {
         layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
         layoutParams.dimAmount  = 0.7f;
         getWindow().setAttributes(layoutParams);*/
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_date_picker);
         Calendar calendar = new GregorianCalendar();
         mYear = calendar.get(Calendar.YEAR);
-        mMonth = calendar.get(Calendar.MONTH);
+        mMonth = calendar.get(Calendar.MONTH)+1;
         mDay = calendar.get(Calendar.DAY_OF_MONTH);
         DatePicker datePicker = findViewById(R.id.vDatePicker);
         datePicker.init(mYear, mMonth, mDay,mOnDateChangedListener);
@@ -35,7 +36,7 @@ public class DatePickerActivity extends Activity {
     public void mOnClick(View v){
         Intent intent = new Intent();
         intent.putExtra("mYear",mYear);
-        intent.putExtra("mMonth",mMonth);
+        intent.putExtra("mMonth",mMonth+1);
         intent.putExtra("mDay", mDay);
         setResult(RESULT_OK, intent);
         finish();
