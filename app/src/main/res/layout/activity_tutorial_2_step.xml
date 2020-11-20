@@ -69,17 +69,20 @@
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTV"
-            android:layout_width="227dp"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
             android:background="@drawable/edittext_normal"
-            android:completionHint="검색어를 입력하세요"
-            android:completionThreshold="0"
+            android:hint="검색어를 입력하세요"
+            android:completionThreshold="1"
             android:ems="10"
-            android:padding="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             android:singleLine="true"
             android:textColor="#292929"
-            android:textColorHint="#555555"
-            android:textSize="24sp" />
+            android:textColorHint="#878787"
+            android:textSize="22sp"/>
     </LinearLayout>
 
     <Button

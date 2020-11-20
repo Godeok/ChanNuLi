@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".TutorialStartActivity"/>
         <activity android:name=".Tutorial1StepActivity"/>
+        <activity android:name=".DatePickerActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".Tutorial2StepActivity"/>
         <activity android:name=".MypageActivity"/>
     </application>
