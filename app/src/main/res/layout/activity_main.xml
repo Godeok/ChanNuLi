@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/selfBtn"
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:layout_marginBottom="25dp"

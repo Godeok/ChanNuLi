@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import kr.co.healthcare.self.SelfMainActivity;
+
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
     private Boolean isTutorialFinished = false;
@@ -18,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //초기화 연습용
-        //커밋 추가 연습
         //PreferenceManger.clear(this);
 
         //튜토리얼 완료 확인
@@ -41,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intent = new Intent(getApplicationContext(), MypageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //자가진단
+        final Button selfBtn = (Button)findViewById(R.id.selfBtn);
+        selfBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), SelfMainActivity.class);
                 startActivity(intent);
             }
         });

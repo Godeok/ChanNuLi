@@ -20,6 +20,10 @@
         <activity android:name=".DatePickerActivity" android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".Tutorial2StepActivity"/>
         <activity android:name=".MypageActivity"/>
+        <activity android:name=".self.SelfMainActivity"/>
+        <activity android:name=".self.SelfDiagnosisActivity"/>
+        <activity android:name=".self.SelfResultActivity"/>
+        <activity android:name=".self.SelfShowResult"/>
     </application>
 
 </manifest>
