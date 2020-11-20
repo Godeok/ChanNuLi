@@ -1,5 +1,6 @@
 package kr.co.healthcare;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,11 +18,13 @@ import java.util.List;
 
 public class Tutorial2StepActivity extends AppCompatActivity {
     public List<Diseases> diseasesList;
+    Context mcontext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial_2_step);
+        mcontext=this;
 
         final StepView svStep2 = findViewById(R.id.step_view_step2);
         svStep2.go(1, true);
@@ -46,8 +49,9 @@ public class Tutorial2StepActivity extends AppCompatActivity {
         secondStepFinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(getApplicationContext(), Tutorial2StepActivity.class);
-                //startActivity(intent);
+                PreferenceManger.setBoolean(mcontext, "isTutorialFinished",true);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }
