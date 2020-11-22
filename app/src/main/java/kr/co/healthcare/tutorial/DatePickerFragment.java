@@ -1,4 +1,4 @@
-package kr.co.healthcare;
+package kr.co.healthcare.tutorial;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 
 import java.util.Calendar;
 
+import kr.co.healthcare.tutorial.Tutorial1StepActivity;
 import kr.co.healthcare.tutorial.TutorialStartActivity;
 
 /**
@@ -27,15 +28,14 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog dialog = new DatePickerDialog(getActivity(), this, year, month, day);
+        DatePickerDialog dialog = new DatePickerDialog(getActivity(), android.R.style.Theme_Holo_Light_Dialog,this, year, month, day);
         dialog.getDatePicker().setMaxDate(c.getTimeInMillis());
-        //dialog.calendarViewShown("false");
-        return  dialog;
+        return dialog;
     }
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        TutorialStartActivity activity = (TutorialStartActivity)getActivity();
-        //activity.processDatePickerResult(year,month,day);
+        Tutorial1StepActivity activity = (Tutorial1StepActivity)getActivity();
+        activity.processDatePickerResult(year,month,day);
     }
 }
