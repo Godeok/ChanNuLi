@@ -2,8 +2,8 @@ package kr.co.healthcare;
 
 public class Diseases
 {
-    public String id;
-    public String name;
+    private String id;
+    private String name;
 
     public void setId(String _id) {
         id = _id;
@@ -11,5 +11,13 @@ public class Diseases
 
     public void setName(String _name) {
         name = _name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
     }
 }

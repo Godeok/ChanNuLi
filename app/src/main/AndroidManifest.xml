@@ -18,7 +18,7 @@
         <activity android:name=".tutorial.TutorialStartActivity"/>
         <activity android:name=".tutorial.Tutorial1StepActivity" android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".tutorial.Tutorial2StepActivity" android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".MypageActivity"/>
+        <activity android:name=".mypage.MypageActivity"/>
         <activity android:name=".self.SelfMainActivity"/>
         <activity android:name=".self.SelfDiagnosisActivity"/>
         <activity android:name=".self.SelfResultActivity"/>

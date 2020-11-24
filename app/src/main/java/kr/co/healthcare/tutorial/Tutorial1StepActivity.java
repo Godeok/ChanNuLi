@@ -13,7 +13,7 @@ import androidx.fragment.app.DialogFragment;
 
 import kr.co.healthcare.exception.NoneBirthSelectedException;
 import kr.co.healthcare.exception.NoneInputException;
-import kr.co.healthcare.exception.NoneSexSelectedException;
+import kr.co.healthcare.exception.NoneGenderSelectedException;
 import kr.co.healthcare.PreferenceManger;
 import kr.co.healthcare.R;
 
@@ -40,17 +40,13 @@ public class Tutorial1StepActivity extends AppCompatActivity {
     }
 
     public void processDatePickerResult(int year, int month, int day){
-        String year_string = Integer.toString(year);
-        String month_string = Integer.toString(month+1);
-        String day_string = Integer.toString(day);
-
-        PreferenceManger.setString(this,"year", year_string);
-        PreferenceManger.setString(this,"month", month_string);
-        PreferenceManger.setString(this,"day", day_string);
+        PreferenceManger.setInt(this,"year", year);
+        PreferenceManger.setInt(this,"month", month+1);
+        PreferenceManger.setInt(this,"day", day);
         isBirthChecked = true;
 
         final Button dateBtn = (Button) findViewById(R.id.dateBtn);
-        dateBtn.setText(year_string+ "-" + month_string + "-" + day_string);
+        dateBtn.setText(String.format("%s-%s-%s", Integer.toString(year), Integer.toString(month+1), Integer.toString(day)));
     }
 
     //이름, 생년월일, 성별 데이터 저장 후 다음 튜토리얼 스텝으로 화면 변경
@@ -69,11 +65,11 @@ public class Tutorial1StepActivity extends AppCompatActivity {
 
             //성별 예외처리: 남/여 중 하나는 체크해야 함.
             if(rg.getCheckedRadioButtonId() == (R.id.radioBtnMale))
-                PreferenceManger.setString(this,"sex", "Male");
+                PreferenceManger.setString(this,"gender", "male");
             else if(rg.getCheckedRadioButtonId() == (R.id.radioBtnFemale))
-                PreferenceManger.setString(this,"sex", "Female");
+                PreferenceManger.setString(this,"gender", "female");
             else
-                throw new NoneSexSelectedException();
+                throw new NoneGenderSelectedException();
 
             changeView();
         }
@@ -83,7 +79,7 @@ public class Tutorial1StepActivity extends AppCompatActivity {
         catch (NoneBirthSelectedException e) {
             e.printStackTrace();
         }
-        catch (NoneSexSelectedException e) {
+        catch (NoneGenderSelectedException e) {
             e.printStackTrace();
         }
     }
