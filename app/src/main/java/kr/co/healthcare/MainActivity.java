@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self.SelfMainActivity;
 import kr.co.healthcare.tutorial.TutorialStartActivity;
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         //튜토리얼에서 입력한 데이터 초기화 -> 튜토리얼 편집하려고 추가한 문장
         //진서는 생략하세요
-        PreferenceManger.clear(this);
+        //PreferenceManger.clear(this);
 
         //튜토리얼 완료 확인
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");
@@ -38,16 +39,6 @@ public class MainActivity extends AppCompatActivity {
             userNameTV.setText(PreferenceManger.getString(this, "name"));
         }
 
-        //마이페이지
-        final Button mypageBtn = (Button) findViewById(R.id.mypageBtn);
-        mypageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(getApplicationContext(), MypageActivity.class);
-                startActivity(intent);
-            }
-        });
-
         //자가진단
         final Button selfBtn = (Button)findViewById(R.id.selfBtn);
         selfBtn.setOnClickListener(new View.OnClickListener() {
@@ -57,5 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    //마이페이지
+    public void showMyPage(View view){
+        intent = new Intent(getApplicationContext(), MypageActivity.class);
+        startActivity(intent);
     }
 }

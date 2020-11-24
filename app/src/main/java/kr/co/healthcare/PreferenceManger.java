@@ -33,7 +33,6 @@ public class PreferenceManger {
     }
 
     //int 값 저장
-
     public static void setInt(Context context, String key, int value) {
         SharedPreferences prefs = getPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
