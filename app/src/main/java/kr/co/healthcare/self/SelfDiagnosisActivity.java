@@ -12,7 +12,7 @@ import kr.co.healthcare.R;
 
 public class SelfDiagnosisActivity extends AppCompatActivity {
 
-    int num=0, countYes=0;
+    int num=0, countYes=0, disease_num;
     private TextView tv_title, tv_question, tv_number;
     private Button btn_yes, btn_no;
     public List<Questions> questionsList;
@@ -36,7 +36,7 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("str");
-        int disease_num = intent.getIntExtra("disease_num", -1);
+        disease_num = intent.getIntExtra("disease_num", -1);
 
         tv_title.setText(title);
 
@@ -48,7 +48,7 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
             public void onClick(View v) {
                 countYes++;
                 if(++num>2)
-                    showResult(countYes);
+                    showResult(countYes, disease_num);
                 else {
                     showQuestions(num);
                 }
@@ -59,7 +59,7 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(++num>2)
-                    showResult(countYes);
+                    showResult(countYes, disease_num);
                 else
                     showQuestions(num);
             }
@@ -74,9 +74,10 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
         tv_question.setText(questionsList.get(number).getQuestion());
     }
 
-    protected void showResult(int count){
+    protected void showResult(int count, int disease_num){
         Intent intent = new Intent(SelfDiagnosisActivity.this, SelfShowResult.class);
         intent.putExtra("count", count);
+        intent.putExtra("disease_num", disease_num);
         startActivity(intent);
     }
 }
