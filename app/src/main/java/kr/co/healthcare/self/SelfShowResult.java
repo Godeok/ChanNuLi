@@ -3,17 +3,37 @@ package kr.co.healthcare.self;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Date;
+
 import kr.co.healthcare.R;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class SelfShowResult extends AppCompatActivity {
 
-    TextView tv_result, tv_desc;
+    //private SimpleDateFormat mFormat = new SimpleDateFormat("yyyy.M.d"); // 날짜 포맷
 
-    //SharedPreferences sf = getSharedPreferences("saveResult", MODE_PRIVATE);
+    public class SaveResult {
+        Date date;
+        int disease_num;
+        int countYes;
+
+        SaveResult(Date date, int disease_num, int countYes) {
+            this.date = date;
+            this.disease_num = disease_num;
+            this.countYes = countYes;
+        }
+    }
+
+    TextView tv_result, tv_desc;
+    ArrayList<SaveResult> saveResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +53,43 @@ public class SelfShowResult extends AppCompatActivity {
         else if (count<3) tv_desc.setText("주의 단계입니다.");
         else tv_desc.setText("위험 단계입니다.");
 
+        Date date = new Date();
+        //String time = mFormat.format(date);
+
+        saveResult = new ArrayList<>();
+
+        saveResult.add(new SaveResult(date, disease_num, count));
+
+        SaveResultData(saveResult);
+
+
         //shared preferences : 자가진단 결과 저장
-        SharedPreferences sp = getSharedPreferences("saveResult", MODE_PRIVATE);
+        /*
+        SharedPreferences sp = getSharedPreferences("saveResults", MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
         String result = Integer.toString(disease_num) + String.format("%02d", count);
-        editor.putString("date", result);     //key-value. 날짜-진단결과(_문제번호 __카운트)
+        editor.putString("date", result);          //날짜별 : 날짜&진단결과(_문제번호 __카운트)
         editor.commit();
+        */
+    }
+
+    public void SaveResultData(ArrayList<SaveResult> result) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(result);
+        editor.putString("MyResults", json);
+        editor.commit();
+    }
+
+    public ArrayList<SaveResult> ReadResultData() {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Gson gson = new Gson();
+        String json = sharedPrefs.getString("MyFriends", "EMPTY");
+        Type type = new TypeToken<ArrayList<SaveResult>>() {
+        }.getType();
+        ArrayList<SaveResult> arrayList = gson.fromJson(json, type);
+        return arrayList;
     }
 }
