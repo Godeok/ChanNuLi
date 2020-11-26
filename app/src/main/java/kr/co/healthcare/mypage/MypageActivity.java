@@ -41,7 +41,7 @@ public class MypageActivity extends AppCompatActivity {
         birth_TV.setText(
                 String.format("%d-%d-%d (%d세)",
                         PreferenceManger.getInt(this, "year"),
-                        PreferenceManger.getInt(this, "month"),
+                        PreferenceManger.getInt(this, "month")+1,
                         PreferenceManger.getInt(this, "day"),
                         calculateAge())
         );
@@ -54,7 +54,7 @@ public class MypageActivity extends AppCompatActivity {
         dieases_TV.setText(PreferenceManger.getString(this, "diseases"));
     }
 
-    int calculateAge(){
+    public int calculateAge(){
         Calendar cal = Calendar.getInstance();
         int current_year = cal.get(Calendar.YEAR);
         int birth_year = PreferenceManger.getInt(this, "year");
