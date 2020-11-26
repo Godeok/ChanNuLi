@@ -45,7 +45,7 @@ public class SelfMainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(SelfMainActivity.this, SelfDiagnosisActivity.class);
                     intent.putExtra("str", buttonText);
-                    intent.putExtra("disease_num", INDEX+1);
+                    intent.putExtra("disease_num", INDEX);
                     startActivity(intent);
                 }
             });
