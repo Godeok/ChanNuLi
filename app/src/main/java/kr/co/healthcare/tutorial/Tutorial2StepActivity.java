@@ -28,6 +28,7 @@ import kr.co.healthcare.R;
 
 public class Tutorial2StepActivity extends AppCompatActivity {
     public List<Diseases> diseasesList;
+    private DiseasesListAdapter mAdapter;
     Context mcontext;
 
     @Override
@@ -43,8 +44,7 @@ public class Tutorial2StepActivity extends AppCompatActivity {
         initLoadDB();
         List<String> diseasesNameList = new ArrayList<>();
         for(Diseases object : diseasesList){
-            System.out.println(object.name);
-            diseasesNameList.add(object.name);
+            diseasesNameList.add(object.getName());
         }
         String[] DISEASES = diseasesNameList.toArray(new String[diseasesNameList.size()]);
 
@@ -60,8 +60,8 @@ public class Tutorial2StepActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        final DiseasesListAdapter diseasesListAdapter = new DiseasesListAdapter();
-        recyclerView.setAdapter(diseasesListAdapter);
+        mAdapter = new DiseasesListAdapter();
+        recyclerView.setAdapter(mAdapter);
 
         //질병 추가 버튼
         final Button addDiseaseBtn = (Button) findViewById(R.id.addDiseaseBtn);
@@ -69,17 +69,26 @@ public class Tutorial2StepActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String diseaseN = autoCompleteTextViewTV.getText().toString();
-                diseasesListAdapter.addItem(diseaseN);
-                diseasesListAdapter.notifyDataSetChanged();
+                mAdapter.addItem(diseaseN);
+                mAdapter.notifyDataSetChanged();
                 autoCompleteTextViewTV.setText("");
             }
         });
+
 
         //두 번째 튜토리얼 완료 버튼
         final Button secondStepFinishBtn = (Button) findViewById(R.id.secondStepFinishBtn);
         secondStepFinishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //질병 데이터 저장
+                String data = "";
+                ArrayList<String> diseasesList = ((DiseasesListAdapter) mAdapter).getDiseasesList();
+                for (int i = 0; i < diseasesList.size(); i++) {
+                    String disease = diseasesList.get(i);
+                    data = data + "\n" + disease;
+                }
+                PreferenceManger.setString(mcontext, "diseases",data);
                 PreferenceManger.setBoolean(mcontext, "isTutorialFinished",true);
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);

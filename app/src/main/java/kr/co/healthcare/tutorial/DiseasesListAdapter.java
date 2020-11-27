@@ -43,6 +43,11 @@ public class DiseasesListAdapter extends RecyclerView.Adapter<DiseasesListAdapte
         diseasesList.add(diseaseName);
     }
 
+    //질병 리스트 반환
+    public ArrayList<String> getDiseasesList() {
+        return diseasesList;
+    }
+
     // RecyclerView의 핵심인 ViewHolder 입니다.
     // 여기서 subView를 setting 해줍니다.
     static class ItemViewHolder extends RecyclerView.ViewHolder {

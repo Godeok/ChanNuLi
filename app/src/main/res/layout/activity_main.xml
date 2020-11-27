@@ -55,6 +55,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@drawable/btn_main_mypage"
+            android:onClick="showMyPage"
             android:text="마이페이지"
             android:textSize="18sp" />
     </LinearLayout>
