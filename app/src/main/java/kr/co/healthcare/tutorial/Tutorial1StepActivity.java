@@ -1,73 +1,77 @@
 package kr.co.healthcare.tutorial;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
-import kr.co.healthcare.DatePickerActivity;
 import kr.co.healthcare.exception.NoneBirthSelectedException;
 import kr.co.healthcare.exception.NoneInputException;
-import kr.co.healthcare.exception.NoneSexSelectedException;
+import kr.co.healthcare.exception.NoneGenderSelectedException;
 import kr.co.healthcare.PreferenceManger;
 import kr.co.healthcare.R;
 
 public class Tutorial1StepActivity extends AppCompatActivity {
-    private int ACT_SET_BIRTH = 1;
-    Button dateBtn;
+    private Button dateBtn;
     private boolean isBirthChecked = false;
+    private TextView nameWarningMsg, dateWarningMsg, genderWarningMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial_1_step);
 
-        //생년월일 버튼 클릭 시
         dateBtn = (Button) findViewById(R.id.dateBtn);
-        dateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Tutorial1StepActivity.this, DatePickerActivity.class);
-                startActivityForResult(intent, ACT_SET_BIRTH);
-            }
-        });
+        nameWarningMsg = (TextView) findViewById(R.id.name_unvalid);
+        dateWarningMsg = (TextView) findViewById(R.id.date_notChecked);
+        genderWarningMsg = (TextView) findViewById(R.id.gender_notChecked);
+        nameWarningMsg.setTextColor(Color.WHITE);
+        dateWarningMsg.setTextColor(Color.WHITE);
+        genderWarningMsg.setTextColor(Color.WHITE);
 
-        //첫 번째 튜토리얼 완료 버튼 클릭 시
-        final Button firstStepFinishBtn = (Button) findViewById(R.id.firstStepFinishBtn);
-        firstStepFinishBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setDataAndChangeView();
-            }
-        });
+        PreferenceManger.setBoolean(this, "isDateSelected",false);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
-                //생년월일 데이터 받기
-                String result = data.getIntExtra("mYear", 0) + "-"
-                        + data.getIntExtra("mMonth", 1) + "-"
-                        + data.getIntExtra("mDay", 1);
-                dateBtn.setText(result);
-                isBirthChecked = true;
-            }
-        }
+    //생년월일 버튼 클릭 시
+    public void showDatePicker(View view) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getSupportFragmentManager(),"datePicker");
+    }
+
+    //첫 번째 튜토리얼 완료 버튼 클릭 시
+    public void firstStepFinish(View view){
+        setDataAndChangeView();
+    }
+
+    public void processDatePickerResult(int year, int month, int day){
+        PreferenceManger.setInt(this,"year", year);
+        PreferenceManger.setInt(this,"month", month);
+        PreferenceManger.setInt(this,"day", day);
+        isBirthChecked = true;
+
+        dateBtn.setText(String.format("%s-%s-%s", Integer.toString(year), Integer.toString(month+1), Integer.toString(day)));
     }
 
     //이름, 생년월일, 성별 데이터 저장 후 다음 튜토리얼 스텝으로 화면 변경
-
-    void setDataAndChangeView(){
+    private void setDataAndChangeView(){
         EditText etName = (EditText)findViewById(R.id.editTextPersonName);
         RadioGroup rg = (RadioGroup) findViewById(R.id.rdGroup);
-        try {
 
+        etName.setBackgroundResource(R.drawable.edittext_normal);
+        dateBtn.setBackgroundResource(R.drawable.edittext_normal);
+        nameWarningMsg.setTextColor(Color.WHITE);
+        dateWarningMsg.setTextColor(Color.WHITE);
+        genderWarningMsg.setTextColor(Color.WHITE);
+
+        try {
             //이름 예외처리: 최소 1글자 이상이여야 함.
             if(etName.getText().toString().length() != 0)
                 PreferenceManger.setString(this,"name", etName.getText().toString());
@@ -79,26 +83,28 @@ public class Tutorial1StepActivity extends AppCompatActivity {
 
             //성별 예외처리: 남/여 중 하나는 체크해야 함.
             if(rg.getCheckedRadioButtonId() == (R.id.radioBtnMale))
-                PreferenceManger.setString(this,"sex", "Male");
+                PreferenceManger.setString(this,"gender", "male");
             else if(rg.getCheckedRadioButtonId() == (R.id.radioBtnFemale))
-                PreferenceManger.setString(this,"sex", "Female");
+                PreferenceManger.setString(this,"gender", "female");
             else
-                throw new NoneSexSelectedException();
+                throw new NoneGenderSelectedException();
 
             changeView();
         }
-        catch (NoneInputException e) {
-            etName.setError("이름을 한 글자 이상 입력해 주세요.");
+        catch (NoneInputException e) {  //이름 예외처리
+            etName.setBackgroundResource(R.drawable.invalid);
+            nameWarningMsg.setTextColor(Color.RED);
         }
-        catch (NoneBirthSelectedException e) {
-            e.printStackTrace();
+        catch (NoneBirthSelectedException e) {  //생년월일 예외처리
+            dateBtn.setBackgroundResource(R.drawable.invalid);
+            dateWarningMsg.setTextColor(Color.RED);
         }
-        catch (NoneSexSelectedException e) {
-            e.printStackTrace();
+        catch (NoneGenderSelectedException e) {  //성별 예외처리
+            genderWarningMsg.setTextColor(Color.RED);
         }
     }
 
-    void changeView(){
+    private void changeView(){
         Intent intent = new Intent(getApplicationContext(), Tutorial2StepActivity.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
