@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //튜토리얼에서 입력한 데이터 초기화 -> 튜토리얼 편집하려고 추가한 문장
-        PreferenceManger.clear(this);
+        //PreferenceManger.clear(this);
 
         //튜토리얼 완료 확인
         isTutorialFinished = PreferenceManger.getBoolean(this, "isTutorialFinished");

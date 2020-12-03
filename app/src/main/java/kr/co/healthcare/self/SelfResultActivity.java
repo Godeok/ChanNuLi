@@ -4,33 +4,53 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import kr.co.healthcare.R;
+import kr.co.healthcare.self.resultDB.AppDatabase;
+import kr.co.healthcare.self.resultDB.Result;
 
 public class SelfResultActivity extends AppCompatActivity {
 
-    //ArrayList<SelfShowResult.SaveResult> selfShowResult = new SelfShowResult().ReadResultData();
-    ArrayList<String> list = new ArrayList<>();
+    RecyclerView recyclerView;
+    //RecyclerView.Adapter adapter;
+    SelfRecyclerAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_result);
 
-        for (int i=0; i<10; i++) {
-            list.add(String.format("검사 번호 #%d", i));
-            //list.add(String.format("검사 날짜 : %s", selfShowResult.get(i).date.toString()));
-            //list.add(String.format("검사한 질병 : %d\n", selfShowResult.get(i).disease_num));
-            //list.add(String.format("검사 결과 : %d개 응답에서 '예'\n", selfShowResult.get(i).countYes));
+        recyclerView = findViewById(R.id.recycler1);
+        List<Result> results; // = new ArrayList<>();
+
+
+
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "result-db")
+                .allowMainThreadQueries()
+                .build();
+
+        results = db.resultDao().getAllResults();
+
+        /*
+        for (int i=0; i<10; i++){
+            Result result = new Result(1, 3, "12.04");
+            results.add(result);
         }
+        */
 
 
-        // 리사이클러뷰에 LinearLayoutManager 객체 지정.
-        RecyclerView recyclerView = findViewById(R.id.recycler1) ;
-        recyclerView.setLayoutManager(new LinearLayoutManager(this)) ;
 
-        // 리사이클러뷰에 SimpleTextAdapter 객체 지정.
-        SelfRecyclerAdapter adapter = new SelfRecyclerAdapter(list) ;
-        recyclerView.setAdapter(adapter) ;
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        adapter = new SelfRecyclerAdapter(results);
+        recyclerView.setAdapter(adapter);
+
+
     }
 }

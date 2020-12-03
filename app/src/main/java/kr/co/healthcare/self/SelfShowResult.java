@@ -1,39 +1,28 @@
 package kr.co.healthcare.self;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kr.co.healthcare.R;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import kr.co.healthcare.self.resultDB.AppDatabase;
+import kr.co.healthcare.self.resultDB.Result;
 
 public class SelfShowResult extends AppCompatActivity {
 
-    //private SimpleDateFormat mFormat = new SimpleDateFormat("yyyy.M.d"); // 날짜 포맷
-
-    public class SaveResult {
-        Date date;
-        int disease_num;
-        int countYes;
-
-        SaveResult(Date date, int disease_num, int countYes) {
-            this.date = date;
-            this.disease_num = disease_num;
-            this.countYes = countYes;
-        }
-    }
-
+    private static final String TAG="SelfShowResult";
+    Button add_data_btn;
     TextView tv_result, tv_desc;
-    ArrayList<SaveResult> saveResult;
+
+    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다골증", "치매"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +31,12 @@ public class SelfShowResult extends AppCompatActivity {
 
         tv_result = findViewById(R.id.tv_result);
         tv_desc = findViewById(R.id.tv_desc);
+        add_data_btn = findViewById(R.id.add_data_btn);
+
 
         Intent intent = getIntent();
-        int count = intent.getIntExtra("count", -1);
-        int disease_num = intent.getIntExtra("disease_num", -1);
+        final int count = intent.getIntExtra("count", -1);
+        final int disease_num = intent.getIntExtra("disease_num", -1);
 
         tv_result.setText("검사 결과 총 "+count+"개의 항목에서 '예'라고 답했습니다.");
 
@@ -53,43 +44,22 @@ public class SelfShowResult extends AppCompatActivity {
         else if (count<3) tv_desc.setText("주의 단계입니다.");
         else tv_desc.setText("위험 단계입니다.");
 
-        Date date = new Date();
-        //String time = mFormat.format(date);
+        long now = System.currentTimeMillis();
+        Date nowDate = new Date(now);
+        SimpleDateFormat mFormat = new SimpleDateFormat("yyyy. MM. dd");
+        final String date = mFormat.format(nowDate);
 
-        saveResult = new ArrayList<>();
+        final AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "result-db")
+                .allowMainThreadQueries()
+                .build();
 
-        saveResult.add(new SaveResult(date, disease_num, count));
-
-        SaveResultData(saveResult);
-
-
-        //shared preferences : 자가진단 결과 저장
-        /*
-        SharedPreferences sp = getSharedPreferences("saveResults", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sp.edit();
-
-        String result = Integer.toString(disease_num) + String.format("%02d", count);
-        editor.putString("date", result);          //날짜별 : 날짜&진단결과(_문제번호 __카운트)
-        editor.commit();
-        */
-    }
-
-    public void SaveResultData(ArrayList<SaveResult> result) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor editor = preferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(result);
-        editor.putString("MyResults", json);
-        editor.commit();
-    }
-
-    public ArrayList<SaveResult> ReadResultData() {
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        Gson gson = new Gson();
-        String json = sharedPrefs.getString("MyFriends", "EMPTY");
-        Type type = new TypeToken<ArrayList<SaveResult>>() {
-        }.getType();
-        ArrayList<SaveResult> arrayList = gson.fromJson(json, type);
-        return arrayList;
+        add_data_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //DB에 저장
+                db.resultDao().insertAll(new Result(disease_list[disease_num], count, "date"));
+                //startActivity(new Intent(SelfShowResult.this, SelfMainActivity.class));
+            }
+        });
     }
 }
