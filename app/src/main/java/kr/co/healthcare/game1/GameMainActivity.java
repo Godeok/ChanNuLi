@@ -25,7 +25,8 @@ public class GameMainActivity extends AppCompatActivity {
         move_lv1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Lv1Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                intent.putExtra("level", 1);
                 startActivity(intent);
             }
         });
@@ -33,7 +34,8 @@ public class GameMainActivity extends AppCompatActivity {
         move_lv2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Lv2Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                intent.putExtra("level", 2);
                 startActivity(intent);
             }
         });
@@ -41,8 +43,9 @@ public class GameMainActivity extends AppCompatActivity {
         move_lv3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Lv3Activity.class);
-                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                intent.putExtra("level", 3);
+                startActivity(intent);;
             }
         });
     }

@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".game1.Game1Result"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,10 +30,11 @@
         <activity android:name=".self.SelfShowResult" />
         <activity android:name=".game1.GameMainActivity" />
         <activity
-            android:name=".game1.Game1Lv1Activity"
-            android:noHistory="true" />
-        <activity android:name=".game1.Game1Lv2Activity" />
-        <activity android:name=".game1.Game1Lv3Activity" />
+            android:name=".game1.Game1Result"
+            android:noHistory="true"/>
+        <activity
+            android:name=".game1.Game1Activity"
+            android:noHistory="true"/>
     </application>
 
 </manifest>
