@@ -9,11 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
+
 import kr.co.healthcare.R;
 
 
 public class Game1Activity extends AppCompatActivity{
 
+    TextView level_tv;
     ImageButton user_btn1;
     ImageButton user_btn2;
     ImageView com_iv1;
@@ -34,7 +38,9 @@ public class Game1Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game1);
 
+        level_tv = findViewById(R.id.level_tv);
         level = getIntent().getIntExtra("level", -1);
+        show_level(level);
         loadActivity();
     }
 
@@ -146,6 +152,13 @@ public class Game1Activity extends AppCompatActivity{
                 check_result(button_num, p, result_tv);
             }
         }
+    }
+
+    //레벨 표시
+    void show_level(int level){
+        if(level==1) level_tv.setText("쉬움");
+        else if(level==2) level_tv.setText("중간");
+        else level_tv.setText("어려운");
     }
 
     //사진 흐리게
@@ -270,6 +283,7 @@ public class Game1Activity extends AppCompatActivity{
                     score=0;
                     Intent intent = new Intent(getApplicationContext(), Game1Result.class);
                     intent.putExtra("score", score2);
+                    intent.putExtra("level", level);
                     startActivity(intent);
                 }
                 //화면 전환 효과 없애기

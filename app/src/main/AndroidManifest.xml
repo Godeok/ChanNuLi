@@ -28,7 +28,7 @@
         <activity android:name=".self.SelfDiagnosisActivity" />
         <activity android:name=".self.SelfResultActivity" />
         <activity android:name=".self.SelfShowResult" />
-        <activity android:name=".game1.GameMainActivity" />
+        <activity android:name=".game1.Game1MainActivity" />
         <activity
             android:name=".game1.Game1Result"
             android:noHistory="true"/>

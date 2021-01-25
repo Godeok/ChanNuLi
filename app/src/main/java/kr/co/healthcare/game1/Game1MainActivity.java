@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import kr.co.healthcare.R;
 
 
-public class GameMainActivity extends AppCompatActivity {
+public class Game1MainActivity extends AppCompatActivity {
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_main);
+        setContentView(R.layout.activity_game1_main);
 
         Button move_lv1 = findViewById(R.id.move_lv1);
         Button move_lv2 = findViewById(R.id.move_lv2);
