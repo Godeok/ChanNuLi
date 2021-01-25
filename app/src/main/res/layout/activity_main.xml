@@ -92,7 +92,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/game_btn"
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:background="@drawable/btn_main_menu"

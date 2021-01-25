@@ -19,10 +19,16 @@
         <activity android:name=".tutorial.Tutorial1StepActivity" android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".tutorial.Tutorial2StepActivity" android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".mypage.MypageActivity"/>
+
         <activity android:name=".self.SelfMainActivity"/>
         <activity android:name=".self.SelfDiagnosisActivity"/>
         <activity android:name=".self.SelfResultActivity"/>
         <activity android:name=".self.SelfShowResult"/>
+
+        <activity android:name=".game1.GameMainActivity"/>
+        <activity android:name=".game1.Game1Lv1Activity" android:noHistory="true"/>
+        <activity android:name=".game1.Game1Lv2Activity"/>
+        <activity android:name=".game1.Game1Lv3Activity"/>
     </application>
 
 </manifest>

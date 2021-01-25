@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import kr.co.healthcare.game1.GameMainActivity;
 import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self.SelfMainActivity;
 import kr.co.healthcare.tutorial.TutorialStartActivity;
@@ -47,6 +48,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        //게임
+        final Button game_btn = (Button)findViewById(R.id.game_btn);
+        game_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getApplicationContext(), GameMainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     //마이페이지
@@ -54,4 +66,6 @@ public class MainActivity extends AppCompatActivity {
         intent = new Intent(getApplicationContext(), MypageActivity.class);
         startActivity(intent);
     }
+
+
 }
