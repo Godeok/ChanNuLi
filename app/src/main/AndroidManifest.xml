@@ -9,26 +9,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".game1.Game1Result"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tutorial.TutorialStartActivity"/>
-        <activity android:name=".tutorial.Tutorial1StepActivity" android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".tutorial.Tutorial2StepActivity" android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".mypage.MypageActivity"/>
-
-        <activity android:name=".self.SelfMainActivity"/>
-        <activity android:name=".self.SelfDiagnosisActivity"/>
-        <activity android:name=".self.SelfResultActivity"/>
-        <activity android:name=".self.SelfShowResult"/>
-
-        <activity android:name=".game1.GameMainActivity"/>
-        <activity android:name=".game1.Game1Lv1Activity" android:noHistory="true"/>
-        <activity android:name=".game1.Game1Lv2Activity"/>
-        <activity android:name=".game1.Game1Lv3Activity"/>
+        <activity android:name=".tutorial.TutorialStartActivity" />
+        <activity
+            android:name=".tutorial.Tutorial1StepActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".tutorial.Tutorial2StepActivity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".mypage.MypageActivity" />
+        <activity android:name=".self.SelfMainActivity" />
+        <activity android:name=".self.SelfDiagnosisActivity" />
+        <activity android:name=".self.SelfResultActivity" />
+        <activity android:name=".self.SelfShowResult" />
+        <activity android:name=".game1.GameMainActivity" />
+        <activity
+            android:name=".game1.Game1Lv1Activity"
+            android:noHistory="true" />
+        <activity android:name=".game1.Game1Lv2Activity" />
+        <activity android:name=".game1.Game1Lv3Activity" />
     </application>
 
 </manifest>

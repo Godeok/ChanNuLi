@@ -29,37 +29,10 @@ public class Game1Lv1Activity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game1_lv1);
-        /*
-        TimerTask myTask = new TimerTask() {
-            public void run() {
-                loadActivity();
-            }
-        };
-        Timer	timer = new Timer();
-        //timer.schedule(myTask, 5000);  // 5초후 실행하고 종료
-        timer.schedule(myTask, 0, 5000); // 5초후 첫실행, 3초마다 계속실행
 
-         */
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         loadActivity();
-        cnt++;
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                onRestart();
-            }
-        }, 3000); //딜레이 타임 조절
-    }
 
     private void loadActivity(){
 
@@ -71,6 +44,8 @@ public class Game1Lv1Activity extends AppCompatActivity{
         final TextView result_tv = findViewById(R.id.result_tv);
         final ImageView com_img = findViewById(R.id.com_img);
         final ImageView user_img = findViewById(R.id.user_img);
+
+        cnt++;
 
         //가위, 바위, 보 랜덤함수로 결정
         rand1 = (int)(Math.random()*3);
@@ -109,9 +84,7 @@ public class Game1Lv1Activity extends AppCompatActivity{
                 }
 
                 blurred_image(rand1, rand2, rand3, rand4);
-
-                Intent intent = new Intent(getApplicationContext(), Game1Lv1Activity.class);
-                startActivity(intent);
+                next_lv();
             }
         });
 
@@ -134,8 +107,7 @@ public class Game1Lv1Activity extends AppCompatActivity{
                 }
 
                 blurred_image(rand1, rand2, rand3, rand4);
-                Intent intent = new Intent(getApplicationContext(), Game1Lv1Activity.class);
-                startActivity(intent);
+                next_lv();
             }
         });
     }
@@ -196,4 +168,27 @@ public class Game1Lv1Activity extends AppCompatActivity{
         else tv.setText("졌습니다");
     }
 
+    //다음 단계로 넘어가는 메소드
+    void next_lv(){
+
+        Handler mHandler = new Handler();
+        mHandler.postDelayed(new Runnable()  {
+            public void run() {
+                if(cnt<4){
+                    Intent intent = new Intent(getApplicationContext(), Game1Lv1Activity.class);
+                    startActivity(intent);
+                    //화면 전환 효과 없애기
+                    overridePendingTransition(0, 0);
+                }
+                else{
+                    cnt=0;
+                    Intent intent = new Intent(getApplicationContext(), Game1Result.class);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                }
+            }
+        }, 1000); // 0.5초후
+
+
+    }
 }
