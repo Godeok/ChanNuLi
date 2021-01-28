@@ -24,7 +24,8 @@ public class Game1Result extends AppCompatActivity {
     SharedPreferences pref;
     SharedPreferences.Editor editor;
 
-    int best_score;
+    int best_score_lv1, best_score_lv2, best_score_lv3;
+    int score, level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,27 +39,21 @@ public class Game1Result extends AppCompatActivity {
         end_btn = findViewById(R.id.end_btn);
 
 
-
         //shared preference 초기화
         pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
         editor = pref.edit();
 
         //저장한 값 불러오기
-        best_score = pref.getInt("best_score", 0);
+        best_score_lv1 = pref.getInt("best_score_lv1", 0);
+        best_score_lv2 = pref.getInt("best_score_lv2", 0);
+        best_score_lv3 = pref.getInt("best_score_lv3", 0);
 
 
-        int score = getIntent().getIntExtra("score", -1);
-        int level = getIntent().getIntExtra("level", -1);
+        //이전 액티비티에서 점수와 레벨 받아오기
+        score = getIntent().getIntExtra("score", -1);
+        level = getIntent().getIntExtra("level", -1);
         show_level(level);
-
-        if(score>best_score){
-            best_score = score;
-            editor.putInt("best_score", best_score);
-            editor.apply(); //저장
-        }
-        showBest_tv.setText(best_score+"점");
-        score_tv.setText(score+"점");
-
+        save_score(level);
 
 
         restart_btn.setOnClickListener(new View.OnClickListener() {
@@ -77,9 +72,39 @@ public class Game1Result extends AppCompatActivity {
         });
     }
 
+    void save_score(int level){
+        if(level==1) {
+            if(score>best_score_lv1){
+                best_score_lv1 = score;
+                editor.putInt("best_score_lv1", best_score_lv1);
+                editor.apply(); //저장
+            }
+            showBest_tv.setText("[쉬움] "+best_score_lv1+"점");
+            score_tv.setText(score+"점");
+        }
+        else if(level==2) {
+            if(score>best_score_lv2){
+                best_score_lv2 = score;
+                editor.putInt("best_score_lv2", best_score_lv2);
+                editor.apply(); //저장
+            }
+            showBest_tv.setText("[중간] "+best_score_lv2+"점");
+            score_tv.setText(score+"점");
+        }
+        else {
+            if(score>best_score_lv3){
+                best_score_lv3 = score;
+                editor.putInt("best_score_lv3", best_score_lv3);
+                editor.apply(); //저장
+            }
+            showBest_tv.setText("[어려움] "+best_score_lv3+"점");
+            score_tv.setText(score+"점");
+        }
+    }
+
     void show_level(int level){
-        if(level==1) level_tv.setText("쉬움");
-        else if(level==2) level_tv.setText("중간");
-        else level_tv.setText("어려움");
+        if(level==1) level_tv.setText("쉬움"+level);
+        else if(level==2) level_tv.setText("중간"+level);
+        else level_tv.setText("어려움"+level);
     }
 }

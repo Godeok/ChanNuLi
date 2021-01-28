@@ -7,11 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.w3c.dom.Text;
-
 import kr.co.healthcare.R;
 
 
@@ -158,7 +154,7 @@ public class Game1Activity extends AppCompatActivity{
     void show_level(int level){
         if(level==1) level_tv.setText("쉬움");
         else if(level==2) level_tv.setText("중간");
-        else level_tv.setText("어려운");
+        else level_tv.setText("어려움");
     }
 
     //사진 흐리게
@@ -206,12 +202,13 @@ public class Game1Activity extends AppCompatActivity{
     void check_result(int user, int com, TextView tv){
         if ((user==0 && com==0) || (user==1 && com==1) || (user==2 && com==2)){
             tv.setText("무승부입니다");
-            score++;
+            score+=100;
+            score_tv.setText(score+"점");
         }
 
         else if ((user==0 && com==2) || (user==1 && com==0) || (user==2 && com==1)) {
             tv.setText("이겼습니다");
-            score+=2;
+            score+=200;
             score_tv.setText(score+"점");
         }
 
@@ -273,14 +270,17 @@ public class Game1Activity extends AppCompatActivity{
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
+                //게임 반복 횟수가 다 안 찼을 경우
                 if(cnt<2){
                     Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                     startActivity(intent);
                 }
                 else{
-                    cnt=0;
+                    int level = getIntent().getIntExtra("level", -1);
                     int score2 = score;
                     score=0;
+                    cnt=0;
+
                     Intent intent = new Intent(getApplicationContext(), Game1Result.class);
                     intent.putExtra("score", score2);
                     intent.putExtra("level", level);
