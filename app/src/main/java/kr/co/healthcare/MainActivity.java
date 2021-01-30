@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import kr.co.healthcare.game1.Game1MainActivity;
+import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self.SelfMainActivity;
 import kr.co.healthcare.tutorial.TutorialStartActivity;
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         game_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getApplicationContext(), Game1MainActivity.class);
+                intent = new Intent(getApplicationContext(), GameMainActivity.class);
                 startActivity(intent);
             }
         });

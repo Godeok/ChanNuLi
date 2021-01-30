@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game.Game1ResultActivity">
+    tools:context=".game.Game2ResultActivity">
 
     <TextView
         android:id="@+id/score_tv"
@@ -37,7 +37,7 @@
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="90dp"
-        android:text="하나빼기"
+        android:text="계산하기"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

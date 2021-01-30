@@ -28,13 +28,21 @@
         <activity android:name=".self.SelfDiagnosisActivity" />
         <activity android:name=".self.SelfResultActivity" />
         <activity android:name=".self.SelfShowResult" />
-        <activity android:name=".game1.Game1MainActivity" />
+
+
+        <activity android:name=".game.GameMainActivity" />
         <activity
-            android:name=".game1.Game1Result"
-            android:noHistory="true"/>
+            android:name=".game.Game1ResultActivity"
+            android:noHistory="true" />
         <activity
-            android:name=".game1.Game1Activity"
-            android:noHistory="true"/>
+            android:name=".game.Game1Activity"
+            android:noHistory="true" />
+        <activity
+            android:name=".game.Game2ResultActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".game.Game2Activity"
+            android:noHistory="true" />
     </application>
 
 </manifest>

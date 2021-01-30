@@ -1,6 +1,4 @@
-package kr.co.healthcare.game1;
-
-import androidx.appcompat.app.AppCompatActivity;
+package kr.co.healthcare.game;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import kr.co.healthcare.R;
 
-public class Game1Result extends AppCompatActivity {
+public class Game2ResultActivity extends AppCompatActivity {
 
     TextView level_tv;
     TextView score_tv;
@@ -30,7 +30,7 @@ public class Game1Result extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game1_result);
+        setContentView(R.layout.activity_game2_result);
 
         level_tv = findViewById(R.id.level_tv);
         score_tv = findViewById(R.id.score_tv);
@@ -59,7 +59,7 @@ public class Game1Result extends AppCompatActivity {
         restart_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
                 startActivity(intent);
             }
         });

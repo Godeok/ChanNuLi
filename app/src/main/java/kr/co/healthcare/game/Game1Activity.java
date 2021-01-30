@@ -1,4 +1,4 @@
-package kr.co.healthcare.game1;
+package kr.co.healthcare.game;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -315,7 +315,7 @@ public class Game1Activity extends AppCompatActivity{
                     score=0;
                     cnt=0;
 
-                    Intent intent = new Intent(getApplicationContext(), Game1Result.class);
+                    Intent intent = new Intent(getApplicationContext(), Game1ResultActivity.class);
                     intent.putExtra("score", score2);
                     intent.putExtra("level", level);
                     startActivity(intent);
