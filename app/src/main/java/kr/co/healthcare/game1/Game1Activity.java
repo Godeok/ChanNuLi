@@ -1,5 +1,6 @@
 package kr.co.healthcare.game1;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import kr.co.healthcare.R;
 
@@ -14,6 +17,7 @@ import kr.co.healthcare.R;
 public class Game1Activity extends AppCompatActivity{
 
     TextView level_tv;
+    TextView quiz_tv;
     ImageButton user_btn1;
     ImageButton user_btn2;
     ImageView com_iv1;
@@ -37,12 +41,43 @@ public class Game1Activity extends AppCompatActivity{
         level_tv = findViewById(R.id.level_tv);
         level = getIntent().getIntExtra("level", -1);
         show_level(level);
+
         loadActivity();
+    }
+
+    @Override
+    public void onBackPressed() {
+        // AlertDialog 빌더를 이용해 종료시 발생시킬 창을 띄운다
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
+        alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
+
+        alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cnt=0;
+                score=0;
+                //게임이 실행되던 액티비티 종료
+                finish();
+            }
+        });
+
+        alBuilder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+
+        alBuilder.setTitle("프로그램 종료");
+        alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
 
 
     private void loadActivity(){
 
+        cnt++;
+
+        quiz_tv = findViewById(R.id.quiz_tv);
         user_btn1 = findViewById(R.id.user_btn1);
         user_btn2 = findViewById(R.id.user_btn2);
         com_iv1 = findViewById(R.id.com_iv1);
@@ -51,8 +86,6 @@ public class Game1Activity extends AppCompatActivity{
         result_tv = findViewById(R.id.result_tv);
         com_img = findViewById(R.id.com_img);
         user_img = findViewById(R.id.user_img);
-
-        cnt++;
 
         //가위, 바위, 보 랜덤함수로 결정
         rand1 = (int)(Math.random()*3);
@@ -75,6 +108,7 @@ public class Game1Activity extends AppCompatActivity{
         show_rsp_imgbtn(rand3, user_btn1);
         show_rsp_imgbtn(rand4, user_btn2);
         score_tv.setText(score+"점");
+        quiz_tv.setText(cnt+"/3");
 
 
         //첫 번째 이미지 버튼을 눌렀을 경우
@@ -271,7 +305,7 @@ public class Game1Activity extends AppCompatActivity{
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 //게임 반복 횟수가 다 안 찼을 경우
-                if(cnt<2){
+                if(cnt<3){
                     Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                     startActivity(intent);
                 }
