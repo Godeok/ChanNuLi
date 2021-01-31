@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".game.Game1Activity">
 
 
@@ -17,6 +18,7 @@
         android:layout_marginBottom="18dp"
         android:text="상대방"
         android:textSize="30dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/com_iv1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,7 +28,7 @@
         android:id="@+id/com_img"
         android:layout_width="160dp"
         android:layout_height="140dp"
-        android:layout_marginTop="268dp"
+        android:layout_marginTop="292dp"
         android:src="@drawable/nothing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -37,7 +39,7 @@
         android:id="@+id/user_img"
         android:layout_width="160dp"
         android:layout_height="140dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="128dp"
         android:src="@drawable/nothing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,6 +54,7 @@
         android:text=""
         android:textAlignment="center"
         android:textSize="40dp"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/user_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -94,6 +97,7 @@
         android:layout_marginRight="19dp"
         android:layout_marginBottom="16dp"
         android:scaleType="fitCenter"
+        android:background="@drawable/btn_game_imgbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/user_btn2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -107,6 +111,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:scaleType="fitCenter"
+        android:background="@drawable/btn_game_imgbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/user_btn1" />
@@ -120,6 +125,7 @@
         android:layout_marginRight="24dp"
         android:text="0점"
         android:textSize="30dp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -130,6 +136,7 @@
         android:layout_marginTop="24dp"
         android:text="단계"
         android:textSize="30dp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,6 +151,7 @@
         android:layout_marginTop="24dp"
         android:text="레벨"
         android:textSize="30dp"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
