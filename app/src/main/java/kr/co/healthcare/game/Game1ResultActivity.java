@@ -56,21 +56,23 @@ public class Game1ResultActivity extends AppCompatActivity {
         save_score(level);
 
 
+        //다시하기
         restart_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                intent.putExtra("level", level);
                 startActivity(intent);
             }
         });
 
-        end_btn.setOnClickListener(new View.OnClickListener() {
+        //끝내기
+         end_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick(View v) { finish();
             }
         });
-    }
+        }
 
     void save_score(int level){
         if(level==1) {
@@ -103,8 +105,8 @@ public class Game1ResultActivity extends AppCompatActivity {
     }
 
     void show_level(int level){
-        if(level==1) level_tv.setText("쉬움"+level);
-        else if(level==2) level_tv.setText("중간"+level);
-        else level_tv.setText("어려움"+level);
+        if(level==1) level_tv.setText("쉬움");
+        else if(level==2) level_tv.setText("중간");
+        else level_tv.setText("어려움");
     }
 }

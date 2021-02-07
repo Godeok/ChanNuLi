@@ -308,6 +308,7 @@ public class Game1Activity extends AppCompatActivity{
                 //게임 반복 횟수가 다 안 찼을 경우
                 if(cnt<3){
                     Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                    intent.putExtra("level", level);
                     startActivity(intent);
                 }
                 else{
