@@ -2,7 +2,6 @@ package kr.co.healthcare.game;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -302,6 +301,12 @@ public class Game1Activity extends AppCompatActivity{
 
     //다음 단계로 넘어가는 메소드
     void next_lv(){
+        //버튼 비활성화
+        user_btn1 = findViewById(R.id.user_btn1);
+        user_btn2 = findViewById(R.id.user_btn2);
+        user_btn1.setEnabled(false);
+        user_btn2.setEnabled(false);
+
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {

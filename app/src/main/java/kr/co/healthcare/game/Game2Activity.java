@@ -493,6 +493,16 @@ public class Game2Activity extends AppCompatActivity{
 
     //다음 단계로 넘어가는 메소드
     void next_lv(){
+        //버튼 비활성화
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+        btn1.setEnabled(false);
+        btn2.setEnabled(false);
+        btn3.setEnabled(false);
+        btn4.setEnabled(false);
+
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
