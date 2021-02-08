@@ -1,5 +1,7 @@
 package kr.co.healthcare.game;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,8 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import kr.co.healthcare.R;
 
@@ -40,7 +40,7 @@ public class Game2ResultActivity extends AppCompatActivity {
 
 
         //shared preference 초기화
-        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        pref = getSharedPreferences("pref2", Activity.MODE_PRIVATE);
         editor = pref.edit();
 
         //저장한 값 불러오기
@@ -56,18 +56,20 @@ public class Game2ResultActivity extends AppCompatActivity {
         save_score(level);
 
 
+        //다시하기
         restart_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
+                intent.putExtra("level", level);
                 startActivity(intent);
             }
         });
 
+        //끝내기
         end_btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                finish();
+            public void onClick(View v) { finish();
             }
         });
     }
@@ -103,8 +105,8 @@ public class Game2ResultActivity extends AppCompatActivity {
     }
 
     void show_level(int level){
-        if(level==1) level_tv.setText("쉬움"+level);
-        else if(level==2) level_tv.setText("중간"+level);
-        else level_tv.setText("어려움"+level);
+        if(level==1) level_tv.setText("쉬움");
+        else if(level==2) level_tv.setText("중간");
+        else level_tv.setText("어려움");
     }
 }
