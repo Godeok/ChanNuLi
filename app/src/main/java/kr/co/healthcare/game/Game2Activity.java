@@ -7,12 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
 
 import kr.co.healthcare.R;
 
@@ -24,17 +24,12 @@ public class Game2Activity extends AppCompatActivity{
     TextView question_tv;
     TextView answer_tv;
     TextView result_tv;
-    Button btn1;
-    Button btn2;
-    Button btn3;
-    Button btn4;
+    Button btn1, btn2, btn3, btn4;
 
     int[] opt = new int[4];
 
-    static int score=0;
-    static int cnt=0;
-    static int checked=0;
-    static int a=0;           //정답 저장
+    //점수, 게임 횟수, 정답 번호, 정답 값, 사용자가 누른 번호
+    static int score=0, cnt=0, checked=0, a=0, num=0;
     int level;
 
 
@@ -61,46 +56,38 @@ public class Game2Activity extends AppCompatActivity{
         //첫 화면 설정
         score_tv.setText(score+"점");
 
-
         //레벨 설정
-        final int num = lv1_1();
+        num = start_game(level);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checked=1;
-                answer_tv.setText(""+opt[0]);
-                check_answer(num);
+                btn_method(1);
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checked=2;
-                answer_tv.setText(""+opt[1]);
-                check_answer(num);
+                btn_method(2);
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checked=3;
-                answer_tv.setText(""+opt[2]);
-                check_answer(num);
+                btn_method(3);
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checked=4;
-                answer_tv.setText(""+opt[3]);
-                check_answer(num);
+                btn_method(4);
             }
         });
     }
+
 
     @Override
     public void onBackPressed() {
@@ -129,8 +116,7 @@ public class Game2Activity extends AppCompatActivity{
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
 
-
-
+    //레벨별 게임 함수
     int lv1_1(){
         //한자리 + 한자리
         int q1 = (int)(Math.random()*10);
@@ -140,16 +126,100 @@ public class Game2Activity extends AppCompatActivity{
         question_tv.setText(q1+"+"+q2);
 
         int num = fill_opt(a);
-        return num;
+        return num; //정답 보기 번호
     }
 
     int lv1_2(){
         //두자리 +- 한자리
-        int q1 = (int)(Math.random()*10);
+        Random rnd = new Random();
+        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+        int q1 = rnd.nextInt(91)+10;
         int q2 = (int)(Math.random()*10);
-        a = q1+q2;
+        int rand = (int)(Math.random()*2);
+
+        if(rand==0){
+            question_tv.setText(q1+"+"+q2);
+            a = q1+q2;
+        }
+        else{
+            question_tv.setText(q1+"-"+q2);
+            a = q1-q2;
+        }
+
+        int num = fill_opt(a);
+        return num;
+    }
+
+    int lv1_3(){
+        return 0;
+    }
+
+    int lv2_1(){
+        //두자리 + 두자리
+        Random rnd = new Random();
+        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+        int q1 = rnd.nextInt(41)+30;    //30~70
+        int q2 = rnd.nextInt(21)+10;    //10~30
 
         question_tv.setText(q1+"+"+q2);
+        a = q1+q2;
+
+        int num = fill_opt(a);
+        return num;
+    }
+
+    int lv2_2(){
+        //두자리 + 두자리
+        Random rnd = new Random();
+        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+        int q1 = rnd.nextInt(901)+100;      //100~1000
+        int q2 = (int)(Math.random()*10 + 1);      //1~10
+
+        question_tv.setText(q1+"-"+q2);
+        a = q1-q2;
+
+        int num = fill_opt(a);
+        return num;
+    }
+
+    int lv2_3(){
+        return 0;
+    }
+
+    int lv3_1(){
+        //두자리 +- 한자리
+        Random rnd = new Random();
+        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+        int q1 = rnd.nextInt(41)+30;    //30~70
+        int q2 = rnd.nextInt(21)+10;    //10~30
+        int rand = (int)(Math.random()*2);
+
+        if(rand==0){
+            question_tv.setText(q1+"+"+q2);
+            a = q1+q2;
+        }
+        else{
+            question_tv.setText(q1+"-"+q2);
+            a = q1-q2;
+        }
+
+        int num = fill_opt(a);
+        return num;
+    }
+
+    int lv3_2(){
+        return 0;
+    }
+
+    int lv3_3(){
+        //두자리 + 두자리
+        Random rnd = new Random();
+        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+        int q1 = rnd.nextInt(91)+10;   //10~100
+        int q2 = (int)(Math.random()*10);     //1~10
+
+        question_tv.setText(q1+"x"+q2);
+        a = q1*q2;
 
         int num = fill_opt(a);
         return num;
@@ -162,8 +232,8 @@ public class Game2Activity extends AppCompatActivity{
 
         //보기에 들어갈 수 저장
         for(int i=0; i<4; i++){
-            rand1 = (int)(Math.random()*5)+1;
-            rand2 = (int)(Math.random()*2);
+            rand1 = (int)(Math.random()*5)+1;   //정답과 1~5 차이나는 수를 위한 난수
+            rand2 = (int)(Math.random()*2);     //정답보다 작은 수 만들지 큰 수 만들지 결정하는 난수
 
             if(rand2==0) opt[i] = answer+rand1;
             else opt[i] = answer-rand1;
@@ -204,36 +274,11 @@ public class Game2Activity extends AppCompatActivity{
         }
     }
 
-    //버튼 연결
-    void button(){
-
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checked=1;
-            }
-        });
-
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checked=2;
-            }
-        });
-
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checked=3;
-            }
-        });
-
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checked=4;
-            }
-        });
+    //버튼 실행시
+    void btn_method(int number){
+        checked=number;
+        answer_tv.setText(""+opt[number-1]);
+        check_answer(num);
     }
 
     //답 확인
@@ -241,7 +286,9 @@ public class Game2Activity extends AppCompatActivity{
         if (num==checked){
             result_tv.setText("정답입니다");
             answer_tv.setText(""+a);
+            answer_tv.setTextColor(Color.parseColor("#4CAF50"));
             score += 200;
+            score_tv.setText(score+"점");
         }
         else {
             result_tv.setText("틀렸습니다");
@@ -251,6 +298,27 @@ public class Game2Activity extends AppCompatActivity{
         next_lv();
     }
 
+    //레벨별 다른 함수를 실행
+    int start_game(int level){
+        int num;
+        //cnt 순서대로 4 7
+        if(level==1){
+            if(cnt<2) num=lv1_1();
+            else if(cnt<3) num=lv1_2();
+            else num=lv1_3();
+        }
+        else if(level==2){
+            if(cnt<2) num=lv2_1();
+            else if(cnt<3) num=lv2_2();
+            else num=lv2_3();
+        }
+        else{
+            if(cnt<2) num=lv3_1();
+            else if(cnt<3) num=lv3_2();
+            else num=lv3_3();
+        }
+        return num;
+    }
 
     //레벨 표시
     void show_level(int level){
