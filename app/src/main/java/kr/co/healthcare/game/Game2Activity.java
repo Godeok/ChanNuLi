@@ -164,7 +164,7 @@ public class Game2Activity extends AppCompatActivity{
         int[] value;
         int rand = (int)(Math.random()*4);
 
-        value = fill_blanks(q1, q2, rand);
+        value = play_fill_blanks(q1, q2, rand);
 
         number = value[0];
         q3 = value[1];
@@ -192,7 +192,7 @@ public class Game2Activity extends AppCompatActivity{
     }
 
     int lv2_2(){
-        //두자리 + 두자리
+        //세자리 - 한자리
         Random rnd = new Random();
         //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
         int q1 = rnd.nextInt(901)+100;      //100~1000
@@ -206,7 +206,41 @@ public class Game2Activity extends AppCompatActivity{
     }
 
     int lv2_3(){
-        return 0;
+        //두자리 [더하기,나누기] 두자리 = 답
+        //세자리 [더하기,나누기] 한자리 = 답
+        operator = true;
+        Random rnd = new Random();
+        int q1, q2, q3, number;
+        int[] value;
+        int rand = (int)(Math.random()*2);
+        int rand2 = (int)(Math.random()*2);
+
+        //두자리_두자리
+        if(rand2==0){
+            //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+            q1 = rnd.nextInt(41)+30;    //30~70
+            q2 = rnd.nextInt(21)+10;    //10~30
+            while(q2>q1) q2 = rnd.nextInt(21)+10;
+        }
+        //세자리_한자리
+        else{
+            //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+            q1 = rnd.nextInt(901)+100;      //100~1000
+            q2 = (int)(Math.random()*10 + 1);      //1~10
+            while(q2>q1) q2 = (int)(Math.random()*10 + 1);
+        }
+
+        value = play_fill_blanks_lv2(q1, q2, rand);
+
+        number = value[0];
+        q3 = value[1];
+
+        question_tv.setText(q1 + " □ " + q2 + " = " + q3);
+        equal_tv.setText("");
+        fill_opt_op();
+
+        //정답의 보기 번호 반환
+        return number;
     }
 
     int lv3_1(){
@@ -231,7 +265,32 @@ public class Game2Activity extends AppCompatActivity{
     }
 
     int lv3_2(){
-        return 0;
+        //두자리 [곱하기, 나누기] 한자리 = 답
+        operator = true;
+        Random rnd = new Random();
+        int q1, q2, q3, number;
+
+        //두자리_두자리
+        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+        q1 = rnd.nextInt(41)+30;    //30~70
+        q2 = rnd.nextInt(9)+2;     //2~10
+        while(q2>q1) q2 = rnd.nextInt(21)+10;
+
+
+        int[] value;
+        int rand = (int)(Math.random()*2);
+
+        value = play_fill_blanks(q1, q2, rand);
+
+        number = value[0];
+        q3 = value[1];
+
+        question_tv.setText(q1 + " □ " + q2 + " = " + q3);
+        equal_tv.setText("");
+        fill_opt_op();
+
+        //정답의 보기 번호 반환
+        return number;
     }
 
     int lv3_3(){
@@ -250,7 +309,7 @@ public class Game2Activity extends AppCompatActivity{
 
 
     //빈칸 채우기 문제 내기
-    int[] fill_blanks(int q1, int q2, int rand){
+    int[] play_fill_blanks(int q1, int q2, int rand){
         int number=0, q3=-1;
         int[] return_value = new int[2];
 
@@ -279,6 +338,28 @@ public class Game2Activity extends AppCompatActivity{
         else if(rand==2){
             q3 = q1 * q2;
             number=3;
+        }
+
+        return_value[0] = number;
+        return_value[1] = q3;
+
+        return return_value;
+    }
+
+    //빈칸 채우기 문제 내기
+    int[] play_fill_blanks_lv2(int q1, int q2, int rand){
+        int number=0, q3=-1;
+        int[] return_value = new int[2];
+
+        //나눗셈의 경우
+        if(rand==0){
+            q3 = q1 + q2;
+            number=1;
+        }
+
+        else if(rand==1){
+            q3 = q1 - q2;
+            number=2;
         }
 
         return_value[0] = number;
@@ -371,13 +452,12 @@ public class Game2Activity extends AppCompatActivity{
             answer_tv.setTextColor(Color.parseColor("#4CAF50"));
             score += 200;
             score_tv.setText(score+"점");
-            operator=false;
         }
         else {
             result_tv.setText("틀렸습니다");
             answer_tv.setTextColor(Color.parseColor("#FF0000"));
         }
-
+        operator=false;
         next_lv();
     }
 
