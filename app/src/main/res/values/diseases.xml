@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="질병">
+        <item>고혈압</item>
+        <item>골관절염</item>
+        <item>고지혈증</item>
+        <item>요통/좌골신경통</item>
+        <item>당뇨병</item>
+        <item>골다공증</item>
+        <item>치매</item>
+    </string-array>
+</resources>

@@ -33,6 +33,9 @@ public interface ResultDAO {
     List<Result> getAllByDate();
 
     //질병별 최신순
+    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=0 ORDER BY Result_num DESC")
+    List<Result> getAllByDisease0();
+
     @Query("SELECT * FROM Result_table WHERE Result_DISEASE=1 ORDER BY Result_num DESC")
     List<Result> getAllByDisease1();
 
@@ -51,8 +54,7 @@ public interface ResultDAO {
     @Query("SELECT * FROM Result_table WHERE Result_DISEASE=6 ORDER BY Result_num DESC")
     List<Result> getAllByDisease6();
 
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=7 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease7();
+
 
 
     @Query("DELETE FROM Result_table")

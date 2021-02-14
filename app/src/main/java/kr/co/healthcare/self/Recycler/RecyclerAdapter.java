@@ -16,11 +16,14 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
     private ArrayList<Result> resultData = new ArrayList<>();
+    String[]
+            disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_self_recycler_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_self_recycler_item,parent,false);
         return new MyViewHolder(view);
     }
 
@@ -57,7 +60,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public void onBind(final Result result, int position) {
             String s = "" + (position+1);
             tv_num.setText(""+s);
-            tv_disease.setText(""+result.getDisease());
+            tv_disease.setText(""+disease_list[result.getDisease()]);
             tv_date.setText(""+result.getDate());
             tv_count.setText(""+result.getCount());
         }

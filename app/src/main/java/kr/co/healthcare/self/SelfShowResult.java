@@ -23,8 +23,6 @@ public class SelfShowResult extends AppCompatActivity {
     Button add_data_btn, finish_btn;
     TextView tv_result, tv_desc;
 
-    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다골증", "치매"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

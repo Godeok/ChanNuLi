@@ -29,7 +29,12 @@
         <activity android:name=".self.SelfMainActivity" />
         <activity android:name=".self.SelfDiagnosisActivity" />
         <activity android:name=".self.SelfShowResult" />
-        <activity android:name=".self.SelfResultActivity" />
+        <activity
+            android:name=".self.SelfResultDateActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".self.SelfResultSymptomActivity"
+            android:noHistory="true" />
 
 
         <activity android:name=".game.GameMainActivity" />
