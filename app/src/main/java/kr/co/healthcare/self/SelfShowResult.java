@@ -7,19 +7,20 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self.resultDB.AppDatabase;
-import kr.co.healthcare.self.resultDB.Result;
+import kr.co.healthcare.self.ResultDB.AppDatabase;
+import kr.co.healthcare.self.ResultDB.Result;
+
 
 public class SelfShowResult extends AppCompatActivity {
 
     private static final String TAG="SelfShowResult";
-    Button add_data_btn;
+    private AppDatabase db;
+    Button add_data_btn, finish_btn;
     TextView tv_result, tv_desc;
 
     String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다골증", "치매"};
@@ -32,7 +33,8 @@ public class SelfShowResult extends AppCompatActivity {
         tv_result = findViewById(R.id.tv_result);
         tv_desc = findViewById(R.id.tv_desc);
         add_data_btn = findViewById(R.id.add_data_btn);
-
+        finish_btn = findViewById(R.id.finish_btn);
+        db = AppDatabase.getInstance(this);
 
         Intent intent = getIntent();
         final int count = intent.getIntExtra("count", -1);
@@ -44,21 +46,27 @@ public class SelfShowResult extends AppCompatActivity {
         else if (count<3) tv_desc.setText("주의 단계입니다.");
         else tv_desc.setText("위험 단계입니다.");
 
+        //검사 날짜
         long now = System.currentTimeMillis();
         Date nowDate = new Date(now);
         SimpleDateFormat mFormat = new SimpleDateFormat("yyyy. MM. dd");
         final String date = mFormat.format(nowDate);
 
-        final AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "result-db")
-                .allowMainThreadQueries()
-                .build();
-
+        //DB에 자가진단 결과 저장
         add_data_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                //DB에 저장
-                db.resultDao().insertAll(new Result(disease_list[disease_num], count, "date"));
-                //startActivity(new Intent(SelfShowResult.this, SelfMainActivity.class));
+                Result result = new Result(disease_num, count, date);
+                db.resultDAO().insert(result);
+                finish();
+            }
+        });
+
+        //종료
+        finish_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
