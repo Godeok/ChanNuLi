@@ -14,7 +14,7 @@ public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance = null;
 
     //싱글톤
-    //데이터에 수정 하고싶을때에는 version 올리고, fallbackToDestructiveMigration 사용해
+    //데이터에 수정 하고싶을때에는 version 올리고, fallbackToDestructiveMigration 사용
     public static synchronized AppDatabase getInstance(Context context){
         if(instance == null){
             instance =  Room.databaseBuilder(context.getApplicationContext(),

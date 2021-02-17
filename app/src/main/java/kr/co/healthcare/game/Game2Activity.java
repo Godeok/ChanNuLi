@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,7 @@ public class Game2Activity extends AppCompatActivity{
     TextView answer_tv;
     TextView result_tv;
     TextView equal_tv;
+    TextView timer_tv;
     Button btn1, btn2, btn3, btn4;
 
     int[] opt = new int[4];
@@ -32,6 +34,7 @@ public class Game2Activity extends AppCompatActivity{
     //점수, 게임 횟수, 사용자가 누른 번호, 정답 값, 정답 보기 번호
     static int score=0, cnt=0, checked=0, a=0, num=0;
     static boolean operator = false;
+    static String total_time = "0010";       //타이머 돌릴 시간(분-- 초--)
     int level;
 
 
@@ -52,6 +55,7 @@ public class Game2Activity extends AppCompatActivity{
         answer_tv = findViewById(R.id.answer_tv);
         result_tv = findViewById(R.id.result_tv);
         equal_tv = findViewById(R.id.equal_tv);
+        timer_tv = findViewById(R.id.timer_tv);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
@@ -60,6 +64,9 @@ public class Game2Activity extends AppCompatActivity{
         //첫 화면 설정
         score_tv.setText(score+"점");
         equal_tv.setText("=");
+
+        //타이머
+        countDown(total_time);
 
         //레벨 설정
         num = start_game(level);
@@ -90,7 +97,6 @@ public class Game2Activity extends AppCompatActivity{
         });
     }
 
-
     @Override
     public void onBackPressed() {
         // AlertDialog 빌더를 이용해 종료시 발생시킬 창을 띄운다
@@ -102,6 +108,7 @@ public class Game2Activity extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 cnt=0;
                 score=0;
+                total_time="0010";
                 //게임이 실행되던 액티비티 종료
                 finish();
             }
@@ -117,6 +124,83 @@ public class Game2Activity extends AppCompatActivity{
         alBuilder.setTitle("프로그램 종료");
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
+
+    //타이머
+    public void countDown(String time) {
+
+        long conversionTime = 0;
+        //1000 단위가 1초, 60000 단위가 1분, 60000 * 3600 = 1시간
+
+        String getMin = time.substring(0, 2);
+        String getSecond = time.substring(2, 4);
+
+        // "00"이 아니고, 첫번째 자리가 0 이면 제거
+        if (getMin.substring(0, 1)=="0") getMin = getMin.substring(1, 2);
+        if (getSecond.substring(0, 1)=="0") getSecond = getSecond.substring(1, 2);
+
+        // 변환시간
+        conversionTime = Long.valueOf(getMin) * 60 * 1000 + Long.valueOf(getSecond) * 1000;
+
+        //첫번째 인자 : 원하는 시간 (예를들어 30초면 30 x 1000(주기))
+        //두번째 인자 : 주기(1000 = 1초)
+        new CountDownTimer(conversionTime, 1000) {
+
+            //타이머에 보이는 시간 변경
+            public void onTick(long millisUntilFinished) {
+                //분단위
+                long getMin = millisUntilFinished - (millisUntilFinished / (60 * 60 * 1000)) ;
+                String min = String.valueOf(getMin / (60 * 1000)); // 몫
+
+                //초단위
+                String second = String.valueOf((getMin % (60 * 1000)) / 1000); // 나머지
+
+                //밀리세컨드 단위
+                String millis = String.valueOf((getMin % (60 * 1000)) % 1000); // 몫
+
+                //숫자가 한 자리면 앞에 0을 붙임
+                if (min.length()==1) min = "0" + min;
+                if (second.length() == 1) second = "0" + second;
+
+                timer_tv.setText(min + ":" + second);
+                total_time = min+second;
+                //total_time = String.valueOf(min) + String.valueOf(second);
+            }
+
+            //제한시간 종료시
+            public void onFinish() {
+
+                btn1.setEnabled(false);
+                btn2.setEnabled(false);
+                btn3.setEnabled(false);
+                btn4.setEnabled(false);
+
+                timer_tv.setText("시간 종료!");
+
+                //1초 지연 후 결과 페이지로 이동
+                Handler mHandler = new Handler();
+                mHandler.postDelayed(new Runnable()  {
+                    public void run() {
+                        int level = getIntent().getIntExtra("level", -1);
+                        int score2 = score;
+                        score=0;
+                        cnt=0;
+                        total_time="0010";
+
+                        Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
+                        intent.putExtra("score", score2);
+                        intent.putExtra("level", level);
+                        startActivity(intent);
+
+                        //화면 전환 효과 없애기
+                        overridePendingTransition(0, 0);
+                    }
+                }, 1000); // 1초후
+
+
+            }
+        }.start();
+    }
+
 
     //레벨별 게임 함수
     int lv1_1(){
@@ -494,10 +578,6 @@ public class Game2Activity extends AppCompatActivity{
     //다음 단계로 넘어가는 메소드
     void next_lv(){
         //버튼 비활성화
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
         btn1.setEnabled(false);
         btn2.setEnabled(false);
         btn3.setEnabled(false);
@@ -506,28 +586,14 @@ public class Game2Activity extends AppCompatActivity{
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
-                //게임 반복 횟수가 다 안 찼을 경우
-                if(cnt<6){
-                    Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
-                    intent.putExtra("level", level);
-                    startActivity(intent);
-                }
-                else{
-                    int level = getIntent().getIntExtra("level", -1);
-                    int score2 = score;
-                    score=0;
-                    cnt=0;
+                //시간이 끝나기 전까지 액티비티 반복
+                Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
+                intent.putExtra("level", level);
+                startActivity(intent);
 
-                    Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
-                    intent.putExtra("score", score2);
-                    intent.putExtra("level", level);
-                    startActivity(intent);
-                }
                 //화면 전환 효과 없애기
                 overridePendingTransition(0, 0);
             }
         }, 1000); // 1초후
-
-
     }
 }
