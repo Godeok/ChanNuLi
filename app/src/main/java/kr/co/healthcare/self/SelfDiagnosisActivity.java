@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 import kr.co.healthcare.R;
+import kr.co.healthcare.self.QuestionDB.DataAdapter;
+import kr.co.healthcare.self.QuestionDB.Questions;
 
 
 public class SelfDiagnosisActivity extends AppCompatActivity {

@@ -82,7 +82,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/btn_self_main"
             android:textSize="30dp"
-            android:text="골다골증"/>
+            android:text="골다공증"/>
 
         <Button
             android:id="@+id/btn_07"
@@ -116,7 +116,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/btn_self_main"
-                android:text="날짜별"
+                android:text="날짜순"
                 android:textSize="30dp" />
 
             <Button
