@@ -1,4 +1,4 @@
-package kr.co.healthcare.self.ResultDB;
+package kr.co.healthcare.self_diagnosis.ResultDB;
 
 import android.os.Parcel;
 import android.os.Parcelable;
