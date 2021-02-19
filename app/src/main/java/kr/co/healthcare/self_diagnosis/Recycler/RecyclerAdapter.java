@@ -1,4 +1,4 @@
-package kr.co.healthcare.self.Recycler;
+package kr.co.healthcare.self_diagnosis.Recycler;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self.ResultDB.Result;
+import kr.co.healthcare.self_diagnosis.ResultDB.Result;
 
 import java.util.ArrayList;
 

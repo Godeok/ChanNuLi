@@ -1,4 +1,4 @@
-package kr.co.healthcare.self;
+package kr.co.healthcare.self_diagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;

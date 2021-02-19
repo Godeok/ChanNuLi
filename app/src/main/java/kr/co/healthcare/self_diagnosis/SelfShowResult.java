@@ -1,4 +1,4 @@
-package kr.co.healthcare.self;
+package kr.co.healthcare.self_diagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self.ResultDB.AppDatabase;
-import kr.co.healthcare.self.ResultDB.Result;
+import kr.co.healthcare.self_diagnosis.ResultDB.AppDatabase;
+import kr.co.healthcare.self_diagnosis.ResultDB.Result;
 
 
 public class SelfShowResult extends AppCompatActivity {

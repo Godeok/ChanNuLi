@@ -1,4 +1,4 @@
-package kr.co.healthcare.self;
+package kr.co.healthcare.self_diagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self.ResultDB.AppDatabase;
-import kr.co.healthcare.self.ResultDB.*;
-import kr.co.healthcare.self.Recycler.RecyclerAdapter;
+import kr.co.healthcare.self_diagnosis.ResultDB.AppDatabase;
+import kr.co.healthcare.self_diagnosis.ResultDB.*;
+import kr.co.healthcare.self_diagnosis.Recycler.RecyclerAdapter;
 
 
 public class SelfResultDateActivity extends AppCompatActivity {
@@ -40,10 +40,10 @@ public class SelfResultDateActivity extends AppCompatActivity {
         btn_toDate = findViewById(R.id.btn_toDate);
         btn_toSymptom = findViewById(R.id.btn_toSymptom);
         tv_resultTitle = findViewById(R.id.tv_resultTitle);
-        tv_resultTitle.setText("결과 확인(날짜순)");
+        tv_resultTitle.setText("결과 확인");
 
+        //DB에서 정보 가져오기
         initialized();
-
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adapter);
 

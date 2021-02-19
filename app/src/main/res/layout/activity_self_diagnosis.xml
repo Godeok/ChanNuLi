@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="self.SelfDiagnosisActivity">
+    tools:context="self_diagnosis.SelfDiagnosisActivity">
 
     <TextView
         android:id="@+id/tv_title"

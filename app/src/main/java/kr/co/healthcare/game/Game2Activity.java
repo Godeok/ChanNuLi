@@ -139,12 +139,11 @@ public class Game2Activity extends AppCompatActivity{
         if (getSecond.substring(0, 1)=="0") getSecond = getSecond.substring(1, 2);
 
         // 변환시간
-        conversionTime = Long.valueOf(getMin) * 60 * 1000 + Long.valueOf(getSecond) * 1000;
+        conversionTime = Long.valueOf(getMin)*60*1000 + Long.valueOf(getSecond)*1000;
 
         //첫번째 인자 : 원하는 시간 (예를들어 30초면 30 x 1000(주기))
         //두번째 인자 : 주기(1000 = 1초)
         new CountDownTimer(conversionTime, 1000) {
-
             //타이머에 보이는 시간 변경
             public void onTick(long millisUntilFinished) {
                 //분단위
@@ -168,7 +167,6 @@ public class Game2Activity extends AppCompatActivity{
 
             //제한시간 종료시
             public void onFinish() {
-
                 btn1.setEnabled(false);
                 btn2.setEnabled(false);
                 btn3.setEnabled(false);
@@ -195,8 +193,6 @@ public class Game2Activity extends AppCompatActivity{
                         overridePendingTransition(0, 0);
                     }
                 }, 1000); // 1초후
-
-
             }
         }.start();
     }

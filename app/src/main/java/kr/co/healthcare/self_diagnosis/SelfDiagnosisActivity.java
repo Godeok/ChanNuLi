@@ -1,4 +1,4 @@
-package kr.co.healthcare.self;
+package kr.co.healthcare.self_diagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 import kr.co.healthcare.R;
-import kr.co.healthcare.self.QuestionDB.DataAdapter;
-import kr.co.healthcare.self.QuestionDB.Questions;
+import kr.co.healthcare.self_diagnosis.QuestionDB.DataAdapter;
+import kr.co.healthcare.self_diagnosis.QuestionDB.Questions;
 
 
 public class SelfDiagnosisActivity extends AppCompatActivity {
