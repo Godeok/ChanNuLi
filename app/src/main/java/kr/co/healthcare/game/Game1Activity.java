@@ -68,7 +68,7 @@ public class Game1Activity extends AppCompatActivity{
             }
         });
 
-        alBuilder.setTitle("프로그램 종료");
+        alBuilder.setTitle("게임 종료");
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
 

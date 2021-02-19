@@ -85,6 +85,7 @@ public class SelfResultSymptomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SelfResultSymptomActivity.this, SelfResultDateActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         });
 
@@ -93,6 +94,7 @@ public class SelfResultSymptomActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SelfResultSymptomActivity.this, SelfResultSymptomActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         });
     }

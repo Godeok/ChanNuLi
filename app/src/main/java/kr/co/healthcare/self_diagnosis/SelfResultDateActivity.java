@@ -52,6 +52,7 @@ public class SelfResultDateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SelfResultDateActivity.this, SelfResultDateActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         });
 
@@ -60,6 +61,7 @@ public class SelfResultDateActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SelfResultDateActivity.this, SelfResultSymptomActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         });
     }
