@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import java.util.Random;
 
@@ -28,6 +29,7 @@ public class Game2Activity extends AppCompatActivity{
     TextView equal_tv;
     TextView timer_tv;
     Button btn1, btn2, btn3, btn4;
+    Boolean game;
 
     int[] opt = new int[4];
 
@@ -108,7 +110,7 @@ public class Game2Activity extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 cnt=0;
                 score=0;
-                total_time="0010";
+                total_time="0020";
                 //게임이 실행되던 액티비티 종료
                 finish();
             }
@@ -121,7 +123,7 @@ public class Game2Activity extends AppCompatActivity{
             }
         });
 
-        alBuilder.setTitle("프로그램 종료");
+        alBuilder.setTitle("게임 종료");
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
 
@@ -144,7 +146,6 @@ public class Game2Activity extends AppCompatActivity{
         //첫번째 인자 : 원하는 시간 (예를들어 30초면 30 x 1000(주기))
         //두번째 인자 : 주기(1000 = 1초)
         new CountDownTimer(conversionTime, 1000) {
-
             //타이머에 보이는 시간 변경
             public void onTick(long millisUntilFinished) {
                 //분단위
@@ -163,43 +164,47 @@ public class Game2Activity extends AppCompatActivity{
 
                 timer_tv.setText(min + ":" + second);
                 total_time = min+second;
-                //total_time = String.valueOf(min) + String.valueOf(second);
             }
 
             //제한시간 종료시
             public void onFinish() {
 
-                btn1.setEnabled(false);
-                btn2.setEnabled(false);
-                btn3.setEnabled(false);
-                btn4.setEnabled(false);
-
-                timer_tv.setText("시간 종료!");
-
-                //1초 지연 후 결과 페이지로 이동
-                Handler mHandler = new Handler();
-                mHandler.postDelayed(new Runnable()  {
-                    public void run() {
-                        int level = getIntent().getIntExtra("level", -1);
-                        int score2 = score;
-                        score=0;
-                        cnt=0;
-                        total_time="0010";
-
-                        Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
-                        intent.putExtra("score", score2);
-                        intent.putExtra("level", level);
-                        startActivity(intent);
-
-                        //화면 전환 효과 없애기
-                        overridePendingTransition(0, 0);
-                    }
-                }, 1000); // 1초후
-
-
             }
         }.start();
     }
+
+    void after_time_over(){
+        btn1.setEnabled(false);
+        btn2.setEnabled(false);
+        btn3.setEnabled(false);
+        btn4.setEnabled(false);
+
+        timer_tv.setText("시간 종료!");
+
+        //1초 지연 후 결과 페이지로 이동
+        Handler mHandler = new Handler();
+        mHandler.postDelayed(new Runnable()  {
+            public void run() {
+                int level = getIntent().getIntExtra("level", -1);
+                int score2 = score;
+                score=0;
+                cnt=0;
+                total_time="0020";
+
+                Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
+                intent.putExtra("score", score2);
+                intent.putExtra("level", level);
+                startActivity(intent);
+
+                //화면 전환 효과 없애기
+                overridePendingTransition(0, 0);
+                ActivityCompat.finishAffinity(Game2Activity.this);
+            }
+        }, 1000); // 1초후
+    }
+
+
+
 
 
     //레벨별 게임 함수
@@ -536,13 +541,46 @@ public class Game2Activity extends AppCompatActivity{
             answer_tv.setTextColor(Color.parseColor("#4CAF50"));
             score += 200;
             score_tv.setText(score+"점");
+
+            //정답 맞으면 3초 추가
+            change_time(3);
         }
         else {
             result_tv.setText("틀렸습니다");
             answer_tv.setTextColor(Color.parseColor("#FF0000"));
+
+            //정답 틀리면 5초 감소
+            change_time(-5);
         }
         operator=false;
         next_lv();
+    }
+
+    //시간 형식 맞춰서 String 형태로 바꾸는 함수
+    public void change_time(int newSecond) {
+
+        String getMin = total_time.substring(0, 2);
+        String getSecond = total_time.substring(2, 4);
+
+        // "00"이 아니고, 첫번째 자리가 0 이면 제거
+        if (getMin.substring(0, 1)=="0") getMin = getMin.substring(1, 2);
+        if (getSecond.substring(0, 1)=="0") getSecond = getSecond.substring(1, 2);
+        int intSecond = Integer.parseInt(getSecond);
+
+        //문제 틀렸을 때 n초 감소
+        if (newSecond<0){
+            if(intSecond>3) intSecond=intSecond + newSecond;
+            else intSecond=0;
+        }
+        //문제 맞았을 때 n초 추가
+        else
+            intSecond = intSecond + newSecond;
+
+        String stringSecond = Integer.toString(intSecond);
+
+        //다시 스트링으로 바꿔서 total_time 수정
+        if (stringSecond.length()==1) stringSecond = "0" + stringSecond;
+        total_time = getMin + stringSecond;
     }
 
     //레벨별 다른 함수를 실행

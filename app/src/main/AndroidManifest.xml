@@ -37,7 +37,9 @@
             android:noHistory="true" />
 
 
-        <activity android:name=".game.GameMainActivity" />
+        <activity
+            android:name=".game.GameMainActivity"
+            android:noHistory="true" />
         <activity
             android:name=".game.Game1ResultActivity"
             android:noHistory="true" />
