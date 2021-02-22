@@ -3,13 +3,10 @@ package kr.co.healthcare.tutorial;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ListAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,8 +17,8 @@ import com.shuhart.stepview.StepView;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.healthcare.DataAdapter;
-import kr.co.healthcare.Diseases;
+import kr.co.healthcare.diseaseInfo.DataAdapter;
+import kr.co.healthcare.diseaseInfo.Diseases;
 import kr.co.healthcare.MainActivity;
 import kr.co.healthcare.PreferenceManger;
 import kr.co.healthcare.R;

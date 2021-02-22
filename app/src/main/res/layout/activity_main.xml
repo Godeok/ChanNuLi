@@ -87,6 +87,7 @@
             android:layout_height="60dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/btn_main_menu"
+            android:onClick="showHealthInfo"
             android:text="건강정보"
             android:textSize="20sp"
             android:textStyle="bold" />

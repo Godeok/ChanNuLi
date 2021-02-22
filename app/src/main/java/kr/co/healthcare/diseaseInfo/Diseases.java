@@ -1,4 +1,4 @@
-package kr.co.healthcare;
+package kr.co.healthcare.diseaseInfo;
 
 public class Diseases
 {
