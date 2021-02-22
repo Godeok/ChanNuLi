@@ -64,7 +64,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="80dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,12 +82,22 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/healthInfoBtn"
+            android:layout_width="240dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/btn_main_menu"
+            android:text="건강정보"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/button3"
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/btn_main_menu"
-            android:text="건강/질병 정보"
+            android:text="질병정보"
             android:textSize="20sp"
             android:textStyle="bold" />
 

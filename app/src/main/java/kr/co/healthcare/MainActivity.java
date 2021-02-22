@@ -13,6 +13,7 @@ import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self_diagnosis.SelfMainActivity;
 import kr.co.healthcare.tutorial.TutorialStartActivity;
+import kr.co.healthcare.healthInfo.HealthInfoActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
@@ -64,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
     //마이페이지
     public void showMyPage(View view){
         intent = new Intent(getApplicationContext(), MypageActivity.class);
+        startActivity(intent);
+    }
+
+    //건강 정보
+    public void showHealthInfo(View view){
+        intent = new Intent(getApplicationContext(), HealthInfoActivity.class);
         startActivity(intent);
     }
 
