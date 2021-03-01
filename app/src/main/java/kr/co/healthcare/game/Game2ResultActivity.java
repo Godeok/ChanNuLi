@@ -74,6 +74,9 @@ public class Game2ResultActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() { }
+
     void save_score(int level){
         if(level==1) {
             if(score>best_score_lv1){

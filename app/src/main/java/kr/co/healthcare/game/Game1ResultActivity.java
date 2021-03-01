@@ -67,12 +67,15 @@ public class Game1ResultActivity extends AppCompatActivity {
         });
 
         //끝내기
-         end_btn.setOnClickListener(new View.OnClickListener() {
+        end_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { finish();
             }
         });
-        }
+    }
+
+    @Override
+    public void onBackPressed() { }
 
     void save_score(int level){
         if(level==1) {
