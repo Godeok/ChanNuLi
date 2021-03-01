@@ -141,7 +141,7 @@ public class Game2Activity extends AppCompatActivity{
         if (getSecond.substring(0, 1)=="0") getSecond = getSecond.substring(1, 2);
 
         // 변환시간
-        conversionTime = Long.valueOf(getMin) * 60 * 1000 + Long.valueOf(getSecond) * 1000;
+        conversionTime = Long.valueOf(getMin)*60*1000 + Long.valueOf(getSecond)*1000;
 
         //첫번째 인자 : 원하는 시간 (예를들어 30초면 30 x 1000(주기))
         //두번째 인자 : 주기(1000 = 1초)
@@ -168,7 +168,12 @@ public class Game2Activity extends AppCompatActivity{
 
             //제한시간 종료시
             public void onFinish() {
+                btn1.setEnabled(false);
+                btn2.setEnabled(false);
+                btn3.setEnabled(false);
+                btn4.setEnabled(false);
 
+                timer_tv.setText("시간 종료!");
             }
         }.start();
     }
@@ -180,7 +185,7 @@ public class Game2Activity extends AppCompatActivity{
         btn4.setEnabled(false);
 
         timer_tv.setText("시간 종료!");
-
+  
         //1초 지연 후 결과 페이지로 이동
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {

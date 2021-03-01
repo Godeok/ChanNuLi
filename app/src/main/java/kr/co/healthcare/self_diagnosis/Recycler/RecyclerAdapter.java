@@ -1,5 +1,6 @@
-package kr.co.healthcare.self.Recycler;
+package kr.co.healthcare.self_diagnosis.Recycler;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self.ResultDB.Result;
+import kr.co.healthcare.self_diagnosis.ResultDB.Result;
 
 import java.util.ArrayList;
 
@@ -16,8 +17,7 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
     private ArrayList<Result> resultData = new ArrayList<>();
-    String[]
-            disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
+    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
 
     @NonNull
     @Override
@@ -62,7 +62,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             tv_num.setText(""+s);
             tv_disease.setText(""+disease_list[result.getDisease()]);
             tv_date.setText(""+result.getDate());
-            tv_count.setText(""+result.getCount());
+
+            //검사 결과 텍스트뷰
+            if(result.getCount()>1) {
+                tv_count.setBackgroundColor(Color.parseColor("#e61919"));
+                tv_count.setText("위험");
+            }
+            else if(result.getCount()>0) {
+                tv_count.setBackgroundColor(Color.parseColor("#FFC107"));
+                tv_count.setText("주의");
+            }
+            else {
+                tv_count.setBackgroundColor(Color.parseColor("#00ac00"));
+                tv_count.setText("건강");
+            }
         }
     }
 }

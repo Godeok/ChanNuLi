@@ -12,7 +12,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -26,20 +25,27 @@
         <activity android:name=".mypage.MypageActivity" />
 
 
-        <activity android:name=".self.SelfMainActivity" />
-        <activity android:name=".self.SelfDiagnosisActivity" />
-        <activity android:name=".self.SelfShowResult" />
+
+        <!--자가진단-->
         <activity
-            android:name=".self.SelfResultDateActivity"
+            android:name=".self_diagnosis.SelfMainActivity"
             android:noHistory="true" />
         <activity
-            android:name=".self.SelfResultSymptomActivity"
+            android:name=".self_diagnosis.SelfDiagnosisActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".self_diagnosis.SelfShowResult"
+            android:noHistory="true" />
+        <activity
+            android:name=".self_diagnosis.SelfResultDateActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".self_diagnosis.SelfResultSymptomActivity"
             android:noHistory="true" />
 
 
-        <activity
-            android:name=".game.GameMainActivity"
-            android:noHistory="true" />
+        <!--게임-->
+        <activity android:name=".game.GameMainActivity" />
         <activity
             android:name=".game.Game1ResultActivity"
             android:noHistory="true" />

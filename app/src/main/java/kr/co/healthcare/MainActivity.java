@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.mypage.MypageActivity;
-import kr.co.healthcare.self.SelfMainActivity;
+import kr.co.healthcare.self_diagnosis.SelfMainActivity;
 import kr.co.healthcare.tutorial.TutorialStartActivity;
 
 public class MainActivity extends AppCompatActivity {
