@@ -98,6 +98,7 @@
             android:layout_height="60dp"
             android:layout_marginBottom="25dp"
             android:background="@drawable/btn_main_menu"
+            android:onClick="showDiseaseInfoSelectPage"
             android:text="질병정보"
             android:textSize="20sp"
             android:textStyle="bold" />

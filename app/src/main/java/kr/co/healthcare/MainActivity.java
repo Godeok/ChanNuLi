@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import kr.co.healthcare.diseaseInfoSelect.DiseaseInfoSelectActivity;
 import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.healthInfo.HealthInfoActivity;
 import kr.co.healthcare.mypage.MypageActivity;
@@ -74,5 +75,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //질병정보
+    public void showDiseaseInfoSelectPage(View view){
+        intent = new Intent(getApplicationContext(), DiseaseInfoSelectActivity.class);
+        startActivity(intent);
+    }
 
 }

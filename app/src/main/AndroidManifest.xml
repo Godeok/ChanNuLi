@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".diseaseInfoSelect.DiseaseInfoSelectActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,8 +27,7 @@
         <activity android:name=".mypage.MypageActivity" />
         <activity
             android:name=".healthInfo.HealthInfoActivity"
-            android:label="@string/title_activity_health_info" />
-        <!-- 자가진단 -->
+            android:label="@string/title_activity_health_info" /> <!-- 자가진단 -->
         <activity
             android:name=".self_diagnosis.SelfMainActivity"
             android:noHistory="true" />
