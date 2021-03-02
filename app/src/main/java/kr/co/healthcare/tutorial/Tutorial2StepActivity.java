@@ -17,8 +17,6 @@ import com.shuhart.stepview.StepView;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.healthcare.diseaseInfo.DataAdapter;
-import kr.co.healthcare.diseaseInfo.Diseases;
 import kr.co.healthcare.MainActivity;
 import kr.co.healthcare.PreferenceManger;
 import kr.co.healthcare.R;

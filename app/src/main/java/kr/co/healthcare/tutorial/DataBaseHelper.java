@@ -1,4 +1,4 @@
-package kr.co.healthcare.diseaseInfo;
+package kr.co.healthcare.tutorial;
 
 import android.content.Context;
 import android.database.SQLException;

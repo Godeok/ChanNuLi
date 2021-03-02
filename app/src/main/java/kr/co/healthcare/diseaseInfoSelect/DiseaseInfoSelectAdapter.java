@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
+import kr.co.healthcare.diseaseInfo.DiseaseInfoActivity;
 
 public class DiseaseInfoSelectAdapter extends RecyclerView.Adapter<DiseaseInfoSelectAdapter.ItemViewHolder> {
     private ArrayList<DiseaseInfoSelectData> arrayList;
@@ -32,7 +33,6 @@ public class DiseaseInfoSelectAdapter extends RecyclerView.Adapter<DiseaseInfoSe
     public void onBindViewHolder(@NonNull final DiseaseInfoSelectAdapter.ItemViewHolder holder, final int position) {
         holder.Btn_diseaseName.setText(arrayList.get(position).getDiseaseName());
         //TODO: 더 효율적인 방식으로 변경
-        /*
         holder.Btn_diseaseName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,8 +42,6 @@ public class DiseaseInfoSelectAdapter extends RecyclerView.Adapter<DiseaseInfoSe
                 context.startActivity(intent);
             }
         });
-
-         */
     }
 
     @Override
