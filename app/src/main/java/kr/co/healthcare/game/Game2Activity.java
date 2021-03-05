@@ -127,7 +127,6 @@ public class Game2Activity extends AppCompatActivity{
         super.onResume();
 
         initialized();
-
     }
 
 
@@ -141,8 +140,6 @@ public class Game2Activity extends AppCompatActivity{
         show_level(level);
         num = start_game(level);
     }
-
-
 
     //타이머
     public void countDown(String time) {
@@ -228,13 +225,6 @@ public class Game2Activity extends AppCompatActivity{
                 ActivityCompat.finishAffinity(Game2Activity.this);
             }
         }, 1000); // 1초후
-    }
-
-    void chk_game_over(){
-        if (game_over) {
-            game_over = false;
-            after_time_over();
-        }
     }
 
 
@@ -590,31 +580,35 @@ public class Game2Activity extends AppCompatActivity{
         next_lv();
     }
 
-    //시간 형식 맞춰서 String 형태로 바꾸는 함수
+    //시간 형식 맞춰서 String 형태로 바꾸는 함수 (미완)
     public void change_time(int newSecond) {
 
-        String getMin = total_time.substring(0, 2);
-        String getSecond = total_time.substring(2, 4);
+        //String getMin = total_time.substring(0, 2);
+        //String getSecond = total_time.substring(2, 4);
+
+        String getSecond = total_time;
 
         // "00"이 아니고, 첫번째 자리가 0 이면 제거
-        if (getMin.substring(0, 1)=="0") getMin = getMin.substring(1, 2);
-        if (getSecond.substring(0, 1)=="0") getSecond = getSecond.substring(1, 2);
+        //if (getMin.substring(0, 1)=="0") getMin = getMin.substring(1, 2);
+        //if (getSecond.substring(0, 1)=="0") getSecond = getSecond.substring(1, 2);
         int intSecond = Integer.parseInt(getSecond);
 
         //문제 틀렸을 때 n초 감소
         if (newSecond<0){
-            if(intSecond>3) intSecond=intSecond + newSecond;
+            if(intSecond>3) intSecond += newSecond;
             else intSecond=0;
         }
         //문제 맞았을 때 n초 추가
         else
-            intSecond = intSecond + newSecond;
+            intSecond += newSecond;
 
-        String stringSecond = Integer.toString(intSecond);
+        //String stringSecond = Integer.toString(intSecond);
+        String stringTime = String.format("%04d", intSecond);
 
         //다시 스트링으로 바꿔서 total_time 수정
-        if (stringSecond.length()==1) stringSecond = "0" + stringSecond;
-        total_time = getMin + stringSecond;
+        //if (stringSecond.length()==1) stringSecond = "0" + stringSecond;
+        //total_time = getMin + stringSecond;
+        total_time = stringTime;
     }
 
     //레벨별 다른 함수를 실행
