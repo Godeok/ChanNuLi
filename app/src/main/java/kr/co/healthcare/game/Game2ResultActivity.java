@@ -14,7 +14,7 @@ import kr.co.healthcare.R;
 
 public class Game2ResultActivity extends AppCompatActivity {
 
-    TextView level_tv;
+    TextView tv_level;
     TextView score_tv;
     TextView showBest_tv;
     Button restart_btn;
@@ -32,7 +32,7 @@ public class Game2ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2_result);
 
-        level_tv = findViewById(R.id.level_tv);
+        tv_level = findViewById(R.id.level_tv);
         score_tv = findViewById(R.id.score_tv);
         showBest_tv = findViewById(R.id.showBest_tv);
         restart_btn = findViewById(R.id.restart_btn);
@@ -108,8 +108,8 @@ public class Game2ResultActivity extends AppCompatActivity {
     }
 
     void show_level(int level){
-        if(level==1) level_tv.setText("쉬움");
-        else if(level==2) level_tv.setText("중간");
-        else level_tv.setText("어려움");
+        if(level==1) tv_level.setText("쉬움");
+        else if(level==2) tv_level.setText("중간");
+        else tv_level.setText("어려움");
     }
 }

@@ -29,13 +29,13 @@ public class Game2Activity extends AppCompatActivity{
     TextView equal_tv;
     TextView timer_tv;
     Button btn1, btn2, btn3, btn4;
-    Boolean game;
 
     int[] opt = new int[4];
 
     //점수, 게임 횟수, 사용자가 누른 번호, 정답 값, 정답 보기 번호
     static int score=0, cnt=0, checked=0, a=0, num=0;
     static boolean operator = false;
+    static boolean game_over=false;
     static String total_time = "0010";       //타이머 돌릴 시간(분-- 초--)
     int level;
 
@@ -47,10 +47,9 @@ public class Game2Activity extends AppCompatActivity{
 
         level_tv = findViewById(R.id.level_tv);
         level = getIntent().getIntExtra("level", -1);
-        show_level(level);
+        //show_level(level);
 
-        //게임 진행 단계 count
-        cnt++;
+
 
         score_tv = findViewById(R.id.score_tv);
         question_tv = findViewById(R.id.question_tv);
@@ -63,15 +62,10 @@ public class Game2Activity extends AppCompatActivity{
         btn3 = findViewById(R.id.btn3);
         btn4 = findViewById(R.id.btn4);
 
-        //첫 화면 설정
-        score_tv.setText(score+"점");
-        equal_tv.setText("=");
+
 
         //타이머
         countDown(total_time);
-
-        //레벨 설정
-        num = start_game(level);
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,7 +104,8 @@ public class Game2Activity extends AppCompatActivity{
             public void onClick(DialogInterface dialog, int which) {
                 cnt=0;
                 score=0;
-                total_time="0020";
+                total_time="0010";
+                game_over=false;
                 //게임이 실행되던 액티비티 종료
                 finish();
             }
@@ -126,6 +121,28 @@ public class Game2Activity extends AppCompatActivity{
         alBuilder.setTitle("게임 종료");
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        initialized();
+
+    }
+
+
+    //게임 화면 초기화
+    void initialized(){
+        cnt++;
+        score_tv.setText(score+"점");
+        answer_tv.setText("");
+        result_tv.setText("");
+
+        show_level(level);
+        num = start_game(level);
+    }
+
+
 
     //타이머
     public void countDown(String time) {
@@ -146,6 +163,7 @@ public class Game2Activity extends AppCompatActivity{
         //첫번째 인자 : 원하는 시간 (예를들어 30초면 30 x 1000(주기))
         //두번째 인자 : 주기(1000 = 1초)
         new CountDownTimer(conversionTime, 1000) {
+
             //타이머에 보이는 시간 변경
             public void onTick(long millisUntilFinished) {
                 //분단위
@@ -174,6 +192,10 @@ public class Game2Activity extends AppCompatActivity{
                 btn4.setEnabled(false);
 
                 timer_tv.setText("시간 종료!");
+
+                game_over=true;
+                after_time_over();
+
             }
         }.start();
     }
@@ -194,7 +216,7 @@ public class Game2Activity extends AppCompatActivity{
                 int score2 = score;
                 score=0;
                 cnt=0;
-                total_time="0020";
+                total_time="0010";
 
                 Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
                 intent.putExtra("score", score2);
@@ -206,6 +228,13 @@ public class Game2Activity extends AppCompatActivity{
                 ActivityCompat.finishAffinity(Game2Activity.this);
             }
         }, 1000); // 1초후
+    }
+
+    void chk_game_over(){
+        if (game_over) {
+            game_over = false;
+            after_time_over();
+        }
     }
 
 
@@ -630,12 +659,13 @@ public class Game2Activity extends AppCompatActivity{
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 //시간이 끝나기 전까지 액티비티 반복
-                Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
-                intent.putExtra("level", level);
-                startActivity(intent);
 
-                //화면 전환 효과 없애기
-                overridePendingTransition(0, 0);
+                btn1.setEnabled(true);
+                btn2.setEnabled(true);
+                btn3.setEnabled(true);
+                btn4.setEnabled(true);
+
+                initialized();
             }
         }, 1000); // 1초후
     }
