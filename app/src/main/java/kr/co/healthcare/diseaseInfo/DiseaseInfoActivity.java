@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.List;
+
 import kr.co.healthcare.R;
 import kr.co.healthcare.diseaseInfo.category.DiseaseInfoCategoryAdapter;
 import kr.co.healthcare.diseaseInfo.contents.DiseaseInfoAdapter;

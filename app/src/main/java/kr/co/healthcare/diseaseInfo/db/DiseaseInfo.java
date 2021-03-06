@@ -11,11 +11,11 @@ public class DiseaseInfo {
     private int id;
 
     private String name;
-    private String definition;
-    private String cause;
-    private String symptom;
-    private String treatment;
-    private String precaution;
+    private final String definition;
+    private final String cause;
+    private final String symptom;
+    private final String treatment;
+    private final String precaution;
 
     public DiseaseInfo(@NonNull int id, String name, String definition, String cause,
                    String symptom, String treatment, String precaution) {
@@ -59,25 +59,5 @@ public class DiseaseInfo {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setDefinition(String definition) {
-        this.definition = definition;
-    }
-
-    public void setCause(String cause) {
-        this.cause = cause;
-    }
-
-    public void setSymptom(String symptom) {
-        this.symptom = symptom;
-    }
-
-    public void setTreatment(String treatment) {
-        this.treatment = treatment;
-    }
-
-    public void setPrecaution(String precaution) {
-        this.precaution = precaution;
     }
 }

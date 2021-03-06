@@ -12,7 +12,4 @@ public interface DiseaseInfoDao {
 
     @Query("SELECT * FROM DiseaseInfo WHERE id = :diseaseId")
     DiseaseInfo loadByIds(int diseaseId);
-
-    @Query("SELECT * FROM DiseaseInfo WHERE name LIKE :name LIMIT 1")
-    DiseaseInfo findByName(String name);
 }

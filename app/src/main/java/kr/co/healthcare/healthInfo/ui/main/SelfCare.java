@@ -13,14 +13,15 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
+import kr.co.healthcare.healthInfo.db.Video;
 
 public class SelfCare extends Fragment {
 
     private View view;
     private RecyclerView recyclerView;
-    private ArrayList<HealthInfoData> arrayList;
+    private ArrayList<Video> arrayList;
 
-    public SelfCare(ArrayList<HealthInfoData> arrayList) {
+    public SelfCare(ArrayList<Video> arrayList) {
         this.arrayList = arrayList;
     }
 
@@ -34,7 +35,7 @@ public class SelfCare extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_self_care, container, false);
         recyclerView = view.findViewById(R.id.RV_self_care);
-        HealthInfoAdapter recyclerViewAdapter = new HealthInfoAdapter(getContext(), arrayList);
+        HealthInfoVideoAdapter recyclerViewAdapter = new HealthInfoVideoAdapter(getContext(), arrayList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recyclerViewAdapter);
         return view;

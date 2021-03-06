@@ -15,29 +15,30 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
+import kr.co.healthcare.healthInfo.db.Video;
 
-public class HealthInfoAdapter extends RecyclerView.Adapter<HealthInfoAdapter.ItemViewHolder> {
-    private ArrayList<HealthInfoData> arrayList;
+public class HealthInfoVideoAdapter extends RecyclerView.Adapter<HealthInfoVideoAdapter.ItemViewHolder> {
+    private ArrayList<Video> arrayList;
     private Context context;
 
-    public HealthInfoAdapter(Context context, ArrayList<HealthInfoData> arrayList){
+    public HealthInfoVideoAdapter(Context context, ArrayList<Video> arrayList){
         this.context = context;
         this.arrayList = arrayList;
     }
 
     @NonNull
     @Override
-    public HealthInfoAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HealthInfoVideoAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.health_info_item,parent,false);
         return new ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final HealthInfoAdapter.ItemViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final HealthInfoVideoAdapter.ItemViewHolder holder, final int position) {
         holder.youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                youTubePlayer.cueVideo(arrayList.get(position).getUrl(), 0f);
+                youTubePlayer.cueVideo(arrayList.get(position).getVideoId(), 0f);
             }
         });
     }

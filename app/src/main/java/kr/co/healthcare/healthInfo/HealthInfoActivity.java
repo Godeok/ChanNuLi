@@ -1,19 +1,12 @@
 package kr.co.healthcare.healthInfo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import java.util.ArrayList;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.healthInfo.ui.main.SectionsPagerAdapter;
