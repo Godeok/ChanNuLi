@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".diseaseInfo.DiseaseInfoActivity"></activity>
+        <activity android:name=".diseaseInfoSelect.DiseaseInfoSelectActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -23,10 +26,9 @@
             android:name=".tutorial.Tutorial2StepActivity"
             android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".mypage.MypageActivity" />
-
-
-
-        <!--자가진단-->
+        <activity
+            android:name=".healthInfo.HealthInfoActivity"
+            android:label="@string/title_activity_health_info" /> <!-- 자가진단 -->
         <activity
             android:name=".self_diagnosis.SelfMainActivity"
             android:noHistory="true" />
@@ -41,10 +43,7 @@
             android:noHistory="true" />
         <activity
             android:name=".self_diagnosis.SelfResultSymptomActivity"
-            android:noHistory="true" />
-
-
-        <!--게임-->
+            android:noHistory="true" /> <!-- 게임 -->
         <activity android:name=".game.GameMainActivity" />
         <activity android:name=".game.Game1ResultActivity"/>
         <activity
