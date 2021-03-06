@@ -14,7 +14,6 @@ import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.healthInfo.HealthInfoActivity;
 import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self_diagnosis.SelfMainActivity;
-import kr.co.healthcare.tutorial.TutorialStartActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
@@ -33,9 +32,12 @@ public class MainActivity extends AppCompatActivity {
         mainActivity = MainActivity.this;
 
         if (!isTutorialFinished) {  //튜토리얼 미완료 시
+            /*
             intent = new Intent(getApplicationContext(), TutorialStartActivity.class);
             startActivity(intent);
             mainActivity.finish();
+
+             */
         }else{ // 튜토리얼 완료 시
             TextView userNameTV = findViewById(R.id.userName);
             userNameTV.setText(PreferenceManger.getString(this, "name"));

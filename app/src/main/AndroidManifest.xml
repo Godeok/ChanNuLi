@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".diseaseInfo.DiseaseInfoActivity"></activity>
+        <activity android:name=".tutorial.ui.TutorialMainActivity"></activity>
+        <activity android:name=".diseaseInfo.DiseaseInfoActivity" />
         <activity android:name=".diseaseInfoSelect.DiseaseInfoSelectActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -18,13 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tutorial.TutorialStartActivity" />
-        <activity
-            android:name=".tutorial.Tutorial1StepActivity"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity
-            android:name=".tutorial.Tutorial2StepActivity"
-            android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".mypage.MypageActivity" />
         <activity
             android:name=".healthInfo.HealthInfoActivity"
@@ -45,11 +39,11 @@
             android:name=".self_diagnosis.SelfResultSymptomActivity"
             android:noHistory="true" /> <!-- 게임 -->
         <activity android:name=".game.GameMainActivity" />
-        <activity android:name=".game.Game1ResultActivity"/>
+        <activity android:name=".game.Game1ResultActivity" />
         <activity
             android:name=".game.Game1Activity"
             android:noHistory="true" />
-        <activity android:name=".game.Game2ResultActivity"/>
+        <activity android:name=".game.Game2ResultActivity" />
         <activity android:name=".game.Game2Activity" />
     </application>
 
