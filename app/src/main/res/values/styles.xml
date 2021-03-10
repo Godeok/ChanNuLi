@@ -16,4 +16,19 @@
         <item name="android:dropDownListViewStyle">@style/SpinnerDivideStyle</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TabTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimary">#FFFFFF</item>                                <!-- 배경 -->
+        <item name="android:textColorPrimary">@android:color/secondary_text_light</item>       <!-- 탭바 선택된 텍스트 -->
+        <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>     <!-- 탭바 텍스트 -->
+        <item name="colorAccent">@color/colorPrimary</item>                    <!-- 하단 움직이는 바 색-->
+    </style>
 </resources>

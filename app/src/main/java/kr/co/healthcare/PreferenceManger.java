@@ -22,8 +22,6 @@ public class PreferenceManger {
         editor.commit();
     }
 
-
-
     //boolean 값 저장
     public static void setBoolean(Context context, String key, boolean value) {
         SharedPreferences prefs = getPreferences(context);
