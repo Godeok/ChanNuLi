@@ -16,16 +16,16 @@ import kr.co.healthcare.R;
 
 public class Game1Activity extends AppCompatActivity{
 
-    TextView level_tv;
-    TextView quiz_tv;
-    ImageButton user_btn1;
-    ImageButton user_btn2;
-    ImageView com_iv1;
-    ImageView com_iv2;
-    TextView score_tv;
-    TextView result_tv;
-    ImageView com_img;
-    ImageView user_img;
+    TextView tv_level;
+    TextView tv_quiz;
+    ImageButton btn_user1;
+    ImageButton btn_user2;
+    ImageView iv_com1;
+    ImageView iv_com2;
+    TextView tv_score;
+    TextView tv_result;
+    ImageView iv_com;
+    ImageView iv_user;
     int rand1, rand2, rand3, rand4;
 
     static int score=0;
@@ -38,7 +38,7 @@ public class Game1Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game1);
 
-        level_tv = findViewById(R.id.level_tv);
+        tv_level = findViewById(R.id.tv_level);
         level = getIntent().getIntExtra("level", -1);
         show_level(level);
 
@@ -77,15 +77,15 @@ public class Game1Activity extends AppCompatActivity{
 
         cnt++;
 
-        quiz_tv = findViewById(R.id.quiz_tv);
-        user_btn1 = findViewById(R.id.user_btn1);
-        user_btn2 = findViewById(R.id.user_btn2);
-        com_iv1 = findViewById(R.id.com_iv1);
-        com_iv2 = findViewById(R.id.com_iv2);
-        score_tv = findViewById(R.id.score_tv);
-        result_tv = findViewById(R.id.result_tv);
-        com_img = findViewById(R.id.com_img);
-        user_img = findViewById(R.id.user_img);
+        tv_quiz = findViewById(R.id.tv_quiz);
+        btn_user1 = findViewById(R.id.btn_user1);
+        btn_user2 = findViewById(R.id.btn_user2);
+        iv_com1 = findViewById(R.id.iv_com1);
+        iv_com2 = findViewById(R.id.iv_com2);
+        tv_score = findViewById(R.id.tv_score);
+        tv_result = findViewById(R.id.tv_result);
+        iv_com = findViewById(R.id.iv_com);
+        iv_user = findViewById(R.id.iv_user);
 
         //가위, 바위, 보 랜덤함수로 결정
         rand1 = (int)(Math.random()*3);
@@ -103,44 +103,44 @@ public class Game1Activity extends AppCompatActivity{
         rand4 = rand4_temp;
 
         //첫 화면 설정
-        show_rsp(rand1, com_iv1);
-        show_rsp(rand2, com_iv2);
-        show_rsp_imgbtn(rand3, user_btn1);
-        show_rsp_imgbtn(rand4, user_btn2);
-        score_tv.setText(score+"점");
-        quiz_tv.setText(cnt+"/3");
+        show_rsp(rand1, iv_com1);
+        show_rsp(rand2, iv_com2);
+        show_rsp_imgbtn(rand3, btn_user1);
+        show_rsp_imgbtn(rand4, btn_user2);
+        tv_score.setText(score+"점");
+        tv_quiz.setText(cnt+"/3");
 
 
         //첫 번째 이미지 버튼을 눌렀을 경우
-        user_btn1.setOnClickListener(new View.OnClickListener() {
+        btn_user1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //사용자
-                show_rsp(rand3, user_img);
+                show_rsp(rand3, iv_user);
 
                 //컴퓨터
                 check_lv(level, rand3);
 
                 //이미지 앞으로
-                user_img.bringToFront();
-                com_img.bringToFront();
+                iv_user.bringToFront();
+                iv_com.bringToFront();
                 blurred_image(rand1, rand2, rand3, rand4);
                 next_lv();
             }
         });
 
         //두 번째 이미지 버튼을 눌렀을 경우
-        user_btn2.setOnClickListener(new View.OnClickListener() {
+        btn_user2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //사용자
-                show_rsp(rand4, user_img);
+                show_rsp(rand4, iv_user);
 
                 //컴퓨터
                 check_lv(level, rand4);
 
-                user_img.bringToFront();
-                com_img.bringToFront();
+                iv_user.bringToFront();
+                iv_com.bringToFront();
                 blurred_image(rand1, rand2, rand3, rand4);
                 next_lv();
             }
@@ -152,51 +152,51 @@ public class Game1Activity extends AppCompatActivity{
         int random = (int)(Math.random()*10);
         if(level==1){
             if(random<3){
-                int p = win_rsp(rand1, rand2, rand3, rand4, com_img);
-                check_result(button_num, p, result_tv);
+                int p = win_rsp(rand1, rand2, rand3, rand4, iv_com);
+                check_result(button_num, p, tv_result);
             }
             else{
-                int p = random_rsp(rand1, rand2, com_img, result_tv);
-                check_result(button_num, p, result_tv);
+                int p = random_rsp(rand1, rand2, iv_com, tv_result);
+                check_result(button_num, p, tv_result);
             }
         }
 
         else if(level==2){
             if(random<6){
-                int p = win_rsp(rand1, rand2, rand3, rand4, com_img);
-                check_result(button_num, p, result_tv);
+                int p = win_rsp(rand1, rand2, rand3, rand4, iv_com);
+                check_result(button_num, p, tv_result);
             }
             else{
-                int p = random_rsp(rand1, rand2, com_img, result_tv);
-                check_result(button_num, p, result_tv);
+                int p = random_rsp(rand1, rand2, iv_com, tv_result);
+                check_result(button_num, p, tv_result);
             }
         }
 
         else{
             if(random<9){
-                int p = win_rsp(rand1, rand2, rand3, rand4, com_img);
-                check_result(button_num, p, result_tv);
+                int p = win_rsp(rand1, rand2, rand3, rand4, iv_com);
+                check_result(button_num, p, tv_result);
             }
             else{
-                int p = random_rsp(rand1, rand2, com_img, result_tv);
-                check_result(button_num, p, result_tv);
+                int p = random_rsp(rand1, rand2, iv_com, tv_result);
+                check_result(button_num, p, tv_result);
             }
         }
     }
 
     //레벨 표시
     void show_level(int level){
-        if(level==1) level_tv.setText("쉬움");
-        else if(level==2) level_tv.setText("중간");
-        else level_tv.setText("어려움");
+        if(level==1) tv_level.setText("쉬움");
+        else if(level==2) tv_level.setText("중간");
+        else tv_level.setText("어려움");
     }
 
     //사진 흐리게
     void blurred_image(int rand1, int rand2, int rand3, int rand4){
-        show_rsp_blur(rand1, com_iv1);
-        show_rsp_blur(rand2, com_iv2);
-        show_rsp_blur(rand3, user_btn1);
-        show_rsp_blur(rand4, user_btn2);
+        show_rsp_blur(rand1, iv_com1);
+        show_rsp_blur(rand2, iv_com2);
+        show_rsp_blur(rand3, btn_user1);
+        show_rsp_blur(rand4, btn_user2);
     }
 
     //이미지 바꾸는 메소드
@@ -237,13 +237,13 @@ public class Game1Activity extends AppCompatActivity{
         if ((user==0 && com==0) || (user==1 && com==1) || (user==2 && com==2)){
             tv.setText("무승부입니다");
             score+=100;
-            score_tv.setText(score+"점");
+            tv_score.setText(score+"점");
         }
 
         else if ((user==0 && com==2) || (user==1 && com==0) || (user==2 && com==1)) {
             tv.setText("이겼습니다");
             score+=200;
-            score_tv.setText(score+"점");
+            tv_score.setText(score+"점");
         }
 
         else tv.setText("졌습니다");
@@ -302,10 +302,10 @@ public class Game1Activity extends AppCompatActivity{
     //다음 단계로 넘어가는 메소드
     void next_lv(){
         //버튼 비활성화
-        user_btn1 = findViewById(R.id.user_btn1);
-        user_btn2 = findViewById(R.id.user_btn2);
-        user_btn1.setEnabled(false);
-        user_btn2.setEnabled(false);
+        btn_user1 = findViewById(R.id.btn_user1);
+        btn_user2 = findViewById(R.id.btn_user2);
+        btn_user1.setEnabled(false);
+        btn_user2.setEnabled(false);
 
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {

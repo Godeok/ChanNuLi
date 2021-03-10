@@ -1,13 +1,11 @@
 package kr.co.healthcare.self_diagnosis;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
@@ -22,7 +20,7 @@ public class SelfShowResult extends AppCompatActivity {
 
     private static final String TAG="SelfShowResult";
     private AppDatabase db;
-    Button add_data_btn, finish_btn;
+    Button btn_add_data, btn_finish;
     TextView tv_result, tv_desc, tv_title;
 
     @Override
@@ -33,8 +31,8 @@ public class SelfShowResult extends AppCompatActivity {
         tv_title = findViewById(R.id.tv_title);
         tv_result = findViewById(R.id.tv_result);
         tv_desc = findViewById(R.id.tv_desc);
-        add_data_btn = findViewById(R.id.add_data_btn);
-        finish_btn = findViewById(R.id.finish_btn);
+        btn_add_data = findViewById(R.id.btn_add_data);
+        btn_finish = findViewById(R.id.btn_finish);
         db = AppDatabase.getInstance(this);
 
         Intent intent = getIntent();
@@ -56,7 +54,7 @@ public class SelfShowResult extends AppCompatActivity {
         final String date = mFormat.format(nowDate);
 
         //DB에 자가진단 결과 저장
-        add_data_btn.setOnClickListener(new View.OnClickListener(){
+        btn_add_data.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Result result = new Result(disease_num, count, date);
@@ -68,7 +66,7 @@ public class SelfShowResult extends AppCompatActivity {
         });
 
         //종료
-        finish_btn.setOnClickListener(new View.OnClickListener(){
+        btn_finish.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SelfShowResult.this, SelfMainActivity.class);

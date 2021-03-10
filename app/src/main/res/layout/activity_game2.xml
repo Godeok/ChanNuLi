@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/score_tv"
+        android:id="@+id/tv_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/timer_tv"
+        android:id="@+id/tv_timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/level_tv"
+        android:id="@+id/tv_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -48,7 +48,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/question_tv"
+        android:id="@+id/tv_question"
         android:layout_width="409dp"
         android:layout_height="60dp"
         android:layout_marginTop="70dp"
@@ -60,10 +60,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timer_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_timer" />
 
     <TextView
-        android:id="@+id/equal_tv"
+        android:id="@+id/tv_equal"
         android:layout_width="51dp"
         android:layout_height="60dp"
         android:layout_marginTop="202dp"
@@ -79,7 +79,7 @@
         tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/answer_tv"
+        android:id="@+id/tv_answer"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:layout_marginTop="216dp"
@@ -90,12 +90,12 @@
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.028"
-        app:layout_constraintStart_toEndOf="@+id/equal_tv"
+        app:layout_constraintStart_toEndOf="@+id/tv_equal"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/result_tv"
+        android:id="@+id/tv_result"
         android:layout_width="274dp"
         android:layout_height="60dp"
         android:layout_marginTop="304dp"
@@ -111,7 +111,7 @@
         tools:ignore="RtlCompat" />
 
     <Button
-        android:id="@+id/btn1"
+        android:id="@+id/btn_opt1"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginStart="26dp"
@@ -124,7 +124,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn2"
+        android:id="@+id/btn_opt2"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginEnd="26dp"
@@ -137,7 +137,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btn3"
+        android:id="@+id/btn_opt3"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginStart="24dp"
@@ -150,7 +150,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn4"
+        android:id="@+id/btn_opt4"
         android:layout_width="170dp"
         android:layout_height="150dp"
         android:layout_marginEnd="26dp"

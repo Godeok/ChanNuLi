@@ -36,7 +36,7 @@ public class SelfResultDateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_result_date);
 
-        recyclerView = findViewById(R.id.recycler1);
+        recyclerView = findViewById(R.id.rv_self_result);
         btn_toDate = findViewById(R.id.btn_toDate);
         btn_toSymptom = findViewById(R.id.btn_toSymptom);
         tv_resultTitle = findViewById(R.id.tv_resultTitle);
@@ -69,7 +69,7 @@ public class SelfResultDateActivity extends AppCompatActivity {
 
 
     private void initialized() {
-        recyclerView = findViewById(R.id.recycler1);
+        recyclerView = findViewById(R.id.rv_self_result);
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new RecyclerAdapter();
 

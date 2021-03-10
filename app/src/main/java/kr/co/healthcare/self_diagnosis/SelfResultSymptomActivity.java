@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.healthcare.R;
@@ -42,11 +41,11 @@ public class SelfResultSymptomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_result_symptom);
 
-        recyclerView = findViewById(R.id.recycler1);
+        recyclerView = findViewById(R.id.rv_self_result);
         spinner = findViewById(R.id.spinner);
         btn_toDate = findViewById(R.id.btn_toDate);
         btn_toSymptom = findViewById(R.id.btn_toSymptom);
-        recyclerView = findViewById(R.id.recycler1);
+        recyclerView = findViewById(R.id.rv_self_result);
 
         linearLayoutManager = new LinearLayoutManager(this);
 

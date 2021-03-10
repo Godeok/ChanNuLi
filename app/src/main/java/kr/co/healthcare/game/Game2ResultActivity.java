@@ -15,10 +15,10 @@ import kr.co.healthcare.R;
 public class Game2ResultActivity extends AppCompatActivity {
 
     TextView tv_level;
-    TextView score_tv;
-    TextView showBest_tv;
-    Button restart_btn;
-    Button end_btn;
+    TextView tv_score;
+    TextView tv_showBest;
+    Button btn_restart;
+    Button btn_end;
 
     //최고기록 저장용 shared preferences
     SharedPreferences pref;
@@ -32,11 +32,11 @@ public class Game2ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2_result);
 
-        tv_level = findViewById(R.id.level_tv);
-        score_tv = findViewById(R.id.score_tv);
-        showBest_tv = findViewById(R.id.showBest_tv);
-        restart_btn = findViewById(R.id.restart_btn);
-        end_btn = findViewById(R.id.end_btn);
+        tv_level = findViewById(R.id.tv_level);
+        tv_score = findViewById(R.id.tv_score);
+        tv_showBest = findViewById(R.id.tv_showBest);
+        btn_restart = findViewById(R.id.btn_restart);
+        btn_end = findViewById(R.id.btn_end);
 
 
         //shared preference 초기화
@@ -57,7 +57,7 @@ public class Game2ResultActivity extends AppCompatActivity {
 
 
         //다시하기
-        restart_btn.setOnClickListener(new View.OnClickListener() {
+        btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
@@ -67,7 +67,7 @@ public class Game2ResultActivity extends AppCompatActivity {
         });
 
         //끝내기
-        end_btn.setOnClickListener(new View.OnClickListener() {
+        btn_end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { finish();
             }
@@ -84,8 +84,8 @@ public class Game2ResultActivity extends AppCompatActivity {
                 editor.putInt("best_score_lv1", best_score_lv1);
                 editor.apply(); //저장
             }
-            showBest_tv.setText("[쉬움] "+best_score_lv1+"점");
-            score_tv.setText(score+"점");
+            tv_showBest.setText("[쉬움] "+best_score_lv1+"점");
+            tv_score.setText(score+"점");
         }
         else if(level==2) {
             if(score>best_score_lv2){
@@ -93,8 +93,8 @@ public class Game2ResultActivity extends AppCompatActivity {
                 editor.putInt("best_score_lv2", best_score_lv2);
                 editor.apply(); //저장
             }
-            showBest_tv.setText("[중간] "+best_score_lv2+"점");
-            score_tv.setText(score+"점");
+            tv_showBest.setText("[중간] "+best_score_lv2+"점");
+            tv_score.setText(score+"점");
         }
         else {
             if(score>best_score_lv3){
@@ -102,8 +102,8 @@ public class Game2ResultActivity extends AppCompatActivity {
                 editor.putInt("best_score_lv3", best_score_lv3);
                 editor.apply(); //저장
             }
-            showBest_tv.setText("[어려움] "+best_score_lv3+"점");
-            score_tv.setText(score+"점");
+            tv_showBest.setText("[어려움] "+best_score_lv3+"점");
+            tv_score.setText(score+"점");
         }
     }
 

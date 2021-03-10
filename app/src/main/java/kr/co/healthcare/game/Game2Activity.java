@@ -21,14 +21,14 @@ import kr.co.healthcare.R;
 
 public class Game2Activity extends AppCompatActivity{
 
-    TextView level_tv;
-    TextView score_tv;
-    TextView question_tv;
-    TextView answer_tv;
-    TextView result_tv;
-    TextView equal_tv;
-    TextView timer_tv;
-    Button btn1, btn2, btn3, btn4;
+    TextView tv_level;
+    TextView tv_score;
+    TextView tv_question;
+    TextView tv_answer;
+    TextView tv_result;
+    TextView tv_equal;
+    TextView tv_timer;
+    Button btn_opt1, btn_opt2, btn_opt3, btn_opt4;
 
     int[] opt = new int[4];
 
@@ -45,47 +45,47 @@ public class Game2Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game2);
 
-        level_tv = findViewById(R.id.level_tv);
+        tv_level = findViewById(R.id.tv_level);
         level = getIntent().getIntExtra("level", -1);
         //show_level(level);
 
 
 
-        score_tv = findViewById(R.id.score_tv);
-        question_tv = findViewById(R.id.question_tv);
-        answer_tv = findViewById(R.id.answer_tv);
-        result_tv = findViewById(R.id.result_tv);
-        equal_tv = findViewById(R.id.equal_tv);
-        timer_tv = findViewById(R.id.timer_tv);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
+        tv_score = findViewById(R.id.tv_score);
+        tv_question = findViewById(R.id.tv_question);
+        tv_answer = findViewById(R.id.tv_answer);
+        tv_result = findViewById(R.id.tv_result);
+        tv_equal = findViewById(R.id.tv_equal);
+        tv_timer = findViewById(R.id.tv_timer);
+        btn_opt1 = findViewById(R.id.btn_opt1);
+        btn_opt2 = findViewById(R.id.btn_opt2);
+        btn_opt3 = findViewById(R.id.btn_opt3);
+        btn_opt4 = findViewById(R.id.btn_opt4);
 
 
 
         //타이머
         countDown(total_time);
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn_opt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn_method(1);
             }
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn_opt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn_method(2);
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
+        btn_opt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn_method(3);
             }
         });
-        btn4.setOnClickListener(new View.OnClickListener() {
+        btn_opt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btn_method(4);
@@ -133,9 +133,9 @@ public class Game2Activity extends AppCompatActivity{
     //게임 화면 초기화
     void initialized(){
         cnt++;
-        score_tv.setText(score+"점");
-        answer_tv.setText("");
-        result_tv.setText("");
+        tv_score.setText(score+"점");
+        tv_answer.setText("");
+        tv_result.setText("");
 
         show_level(level);
         num = start_game(level);
@@ -177,18 +177,18 @@ public class Game2Activity extends AppCompatActivity{
                 if (min.length()==1) min = "0" + min;
                 if (second.length() == 1) second = "0" + second;
 
-                timer_tv.setText(min + ":" + second);
+                tv_timer.setText(min + ":" + second);
                 total_time = min+second;
             }
 
             //제한시간 종료시
             public void onFinish() {
-                btn1.setEnabled(false);
-                btn2.setEnabled(false);
-                btn3.setEnabled(false);
-                btn4.setEnabled(false);
+                btn_opt1.setEnabled(false);
+                btn_opt2.setEnabled(false);
+                btn_opt3.setEnabled(false);
+                btn_opt4.setEnabled(false);
 
-                timer_tv.setText("시간 종료!");
+                tv_timer.setText("시간 종료!");
 
                 game_over=true;
                 after_time_over();
@@ -198,12 +198,12 @@ public class Game2Activity extends AppCompatActivity{
     }
 
     void after_time_over(){
-        btn1.setEnabled(false);
-        btn2.setEnabled(false);
-        btn3.setEnabled(false);
-        btn4.setEnabled(false);
+        btn_opt1.setEnabled(false);
+        btn_opt2.setEnabled(false);
+        btn_opt3.setEnabled(false);
+        btn_opt4.setEnabled(false);
 
-        timer_tv.setText("시간 종료!");
+        tv_timer.setText("시간 종료!");
   
         //1초 지연 후 결과 페이지로 이동
         Handler mHandler = new Handler();
@@ -238,7 +238,7 @@ public class Game2Activity extends AppCompatActivity{
         int q2 = (int)(Math.random()*10);
         a = q1+q2;
 
-        question_tv.setText(q1+"+"+q2);
+        tv_question.setText(q1+"+"+q2);
 
         int num = fill_opt_num(a);
         return num; //정답 보기 번호
@@ -253,11 +253,11 @@ public class Game2Activity extends AppCompatActivity{
         int rand = (int)(Math.random()*2);
 
         if(rand==0){
-            question_tv.setText(q1+"+"+q2);
+            tv_question.setText(q1+"+"+q2);
             a = q1+q2;
         }
         else{
-            question_tv.setText(q1+"-"+q2);
+            tv_question.setText(q1+"-"+q2);
             a = q1-q2;
         }
 
@@ -282,8 +282,8 @@ public class Game2Activity extends AppCompatActivity{
         number = value[0];
         q3 = value[1];
 
-        question_tv.setText(q1 + " □ " + q2 + " = " + q3);
-        equal_tv.setText("");
+        tv_question.setText(q1 + " □ " + q2 + " = " + q3);
+        tv_equal.setText("");
         fill_opt_op();
 
         //정답의 보기 번호 반환
@@ -297,7 +297,7 @@ public class Game2Activity extends AppCompatActivity{
         int q1 = rnd.nextInt(41)+30;    //30~70
         int q2 = rnd.nextInt(21)+10;    //10~30
 
-        question_tv.setText(q1+"+"+q2);
+        tv_question.setText(q1+"+"+q2);
         a = q1+q2;
 
         int num = fill_opt_num(a);
@@ -311,7 +311,7 @@ public class Game2Activity extends AppCompatActivity{
         int q1 = rnd.nextInt(901)+100;      //100~1000
         int q2 = (int)(Math.random()*10 + 1);      //1~10
 
-        question_tv.setText(q1+"-"+q2);
+        tv_question.setText(q1+"-"+q2);
         a = q1-q2;
 
         int num = fill_opt_num(a);
@@ -348,8 +348,8 @@ public class Game2Activity extends AppCompatActivity{
         number = value[0];
         q3 = value[1];
 
-        question_tv.setText(q1 + " □ " + q2 + " = " + q3);
-        equal_tv.setText("");
+        tv_question.setText(q1 + " □ " + q2 + " = " + q3);
+        tv_equal.setText("");
         fill_opt_op();
 
         //정답의 보기 번호 반환
@@ -365,11 +365,11 @@ public class Game2Activity extends AppCompatActivity{
         int rand = (int)(Math.random()*2);
 
         if(rand==0){
-            question_tv.setText(q1+"+"+q2);
+            tv_question.setText(q1+"+"+q2);
             a = q1+q2;
         }
         else{
-            question_tv.setText(q1+"-"+q2);
+            tv_question.setText(q1+"-"+q2);
             a = q1-q2;
         }
 
@@ -398,8 +398,8 @@ public class Game2Activity extends AppCompatActivity{
         number = value[0];
         q3 = value[1];
 
-        question_tv.setText(q1 + " □ " + q2 + " = " + q3);
-        equal_tv.setText("");
+        tv_question.setText(q1 + " □ " + q2 + " = " + q3);
+        tv_equal.setText("");
         fill_opt_op();
 
         //정답의 보기 번호 반환
@@ -413,7 +413,7 @@ public class Game2Activity extends AppCompatActivity{
         int q1 = rnd.nextInt(91)+10;   //10~100
         int q2 = (int)(Math.random()*10);     //1~10
 
-        question_tv.setText(q1+"x"+q2);
+        tv_question.setText(q1+"x"+q2);
         a = q1*q2;
 
         int num = fill_opt_num(a);
@@ -498,10 +498,10 @@ public class Game2Activity extends AppCompatActivity{
                     i--;
         }
 
-        btn1.setText(""+opt[0]);
-        btn2.setText(""+opt[1]);
-        btn3.setText(""+opt[2]);
-        btn4.setText(""+opt[3]);
+        btn_opt1.setText(""+opt[0]);
+        btn_opt2.setText(""+opt[1]);
+        btn_opt3.setText(""+opt[2]);
+        btn_opt4.setText(""+opt[3]);
 
         int number = fill_answer(answer);
         return number;
@@ -509,30 +509,30 @@ public class Game2Activity extends AppCompatActivity{
 
     //정답 외 보기(연산자) 채우는 함수
     void fill_opt_op(){
-        btn1.setText("+");
-        btn2.setText("-");
-        btn3.setText("×");
-        btn4.setText("÷");
+        btn_opt1.setText("+");
+        btn_opt2.setText("-");
+        btn_opt3.setText("×");
+        btn_opt4.setText("÷");
     }
 
     //보기에 정답을 쓰고 보기 번호 반환
     int fill_answer(int answer){
         int num = (int)(Math.random()*4)+1;
         if(num==1){
-            btn1.setText(""+answer);
+            btn_opt1.setText(""+answer);
             return 1;
         }
         else if(num==2){
-            btn2.setText(""+answer);
+            btn_opt2.setText(""+answer);
             return 2;
         }
 
         else if(num==3){
-            btn3.setText(""+answer);
+            btn_opt3.setText(""+answer);
             return 3;
         }
         else{
-            btn4.setText(""+answer);
+            btn_opt4.setText(""+answer);
             return 4;
         }
     }
@@ -544,13 +544,13 @@ public class Game2Activity extends AppCompatActivity{
 
         //화면에 사용자가 누른 '보기' 보여주기
         if(operator==true){
-            if(number==1) answer_tv.setText("+");
-            else if(number==2) answer_tv.setText("-");
-            else if(number==3) answer_tv.setText("×");
-            else answer_tv.setText("÷");
+            if(number==1) tv_answer.setText("+");
+            else if(number==2) tv_answer.setText("-");
+            else if(number==3) tv_answer.setText("×");
+            else tv_answer.setText("÷");
         }
         else
-            answer_tv.setText(""+opt[number-1]);
+            tv_answer.setText(""+opt[number-1]);
 
         check_answer();
     }
@@ -558,20 +558,20 @@ public class Game2Activity extends AppCompatActivity{
     //답 확인
     void check_answer(){
         if (num==checked){
-            result_tv.setText("정답입니다");
+            tv_result.setText("정답입니다");
             if(operator==false){
-                answer_tv.setText(""+a);
+                tv_answer.setText(""+a);
             }
-            answer_tv.setTextColor(Color.parseColor("#4CAF50"));
+            tv_answer.setTextColor(Color.parseColor("#4CAF50"));
             score += 200;
-            score_tv.setText(score+"점");
+            tv_score.setText(score+"점");
 
             //정답 맞으면 3초 추가
             change_time(3);
         }
         else {
-            result_tv.setText("틀렸습니다");
-            answer_tv.setTextColor(Color.parseColor("#FF0000"));
+            tv_result.setText("틀렸습니다");
+            tv_answer.setTextColor(Color.parseColor("#FF0000"));
 
             //정답 틀리면 5초 감소
             change_time(-5);
@@ -636,28 +636,28 @@ public class Game2Activity extends AppCompatActivity{
 
     //레벨 표시
     void show_level(int level){
-        if(level==1) level_tv.setText("쉬움");
-        else if(level==2) level_tv.setText("중간");
-        else level_tv.setText("어려움");
+        if(level==1) tv_level.setText("쉬움");
+        else if(level==2) tv_level.setText("중간");
+        else tv_level.setText("어려움");
     }
 
     //다음 단계로 넘어가는 메소드
     void next_lv(){
         //버튼 비활성화
-        btn1.setEnabled(false);
-        btn2.setEnabled(false);
-        btn3.setEnabled(false);
-        btn4.setEnabled(false);
+        btn_opt1.setEnabled(false);
+        btn_opt2.setEnabled(false);
+        btn_opt3.setEnabled(false);
+        btn_opt4.setEnabled(false);
 
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 //시간이 끝나기 전까지 액티비티 반복
 
-                btn1.setEnabled(true);
-                btn2.setEnabled(true);
-                btn3.setEnabled(true);
-                btn4.setEnabled(true);
+                btn_opt1.setEnabled(true);
+                btn_opt2.setEnabled(true);
+                btn_opt3.setEnabled(true);
+                btn_opt4.setEnabled(true);
 
                 initialized();
             }

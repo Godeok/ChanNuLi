@@ -15,7 +15,7 @@
         app:layout_constraintGuide_begin="16dp" />
 
     <TextView
-        android:id="@+id/gameTitle_tv"
+        android:id="@+id/tv_gameTitle"
         android:layout_width="279dp"
         android:layout_height="125dp"
         android:layout_marginTop="96dp"
@@ -31,7 +31,7 @@
         tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/gameTitle_tv2"
+        android:id="@+id/tv_gameTitle2"
         android:layout_width="279dp"
         android:layout_height="125dp"
         android:layout_marginTop="60dp"
@@ -43,11 +43,11 @@
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/move_game1_lv2"
+        app:layout_constraintTop_toBottomOf="@+id/btn_to_game1_lv2"
         tools:ignore="RtlCompat" />
 
     <Button
-        android:id="@+id/move_game1_lv1"
+        android:id="@+id/btn_to_game1_lv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -58,10 +58,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitle_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle" />
 
     <Button
-        android:id="@+id/move_game2_lv1"
+        android:id="@+id/btn_to_game2_lv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -72,10 +72,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitle_tv2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle2" />
 
     <Button
-        android:id="@+id/move_game1_lv3"
+        android:id="@+id/btn_to_game1_lv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -86,10 +86,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitle_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle" />
 
     <Button
-        android:id="@+id/move_game2_lv3"
+        android:id="@+id/btn_to_game2_lv3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -100,10 +100,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitle_tv2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle2" />
 
     <Button
-        android:id="@+id/move_game1_lv2"
+        android:id="@+id/btn_to_game1_lv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -114,10 +114,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitle_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle" />
 
     <Button
-        android:id="@+id/move_game2_lv2"
+        android:id="@+id/btn_to_game2_lv2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -128,6 +128,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitle_tv2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

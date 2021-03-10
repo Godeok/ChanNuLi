@@ -24,22 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler1"
-        android:layout_width="374dp"
-        android:layout_height="563dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/activity_self_recycler_item" />
-
     <Button
         android:id="@+id/btn_toSymptom"
         android:layout_width="wrap_content"
@@ -83,4 +67,48 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_resultTitle" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="556dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <RelativeLayout
+            android:layout_width="412dp"
+            android:layout_height="556dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="157dp">
+
+            <HorizontalScrollView
+                android:id="@+id/HorizonSV"
+                android:layout_width="match_parent"
+                android:layout_height="400dp">
+
+            </HorizontalScrollView>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_self_result"
+                android:layout_width="374dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/activity_self_recycler_item"
+
+                android:layout_below="@+id/HorizonSV"/>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
