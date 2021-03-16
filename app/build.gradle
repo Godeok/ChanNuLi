@@ -33,9 +33,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    //RecyclerView 위젯에 액세스하기 위한 라이브러리
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
-
     //스텝 바 패키지
     implementation 'com.shuhart.stepview:stepview:1.5.1'
 

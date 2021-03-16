@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".tutorial.ui.TutorialMainActivity"></activity>
+        <activity android:name=".walkthrough.WalkthroughActivity"></activity>
+        <activity
+            android:name=".tutorial.ui.TutorialActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".diseaseInfo.DiseaseInfoActivity" />
         <activity android:name=".diseaseInfoSelect.DiseaseInfoSelectActivity" />
         <activity android:name=".MainActivity">

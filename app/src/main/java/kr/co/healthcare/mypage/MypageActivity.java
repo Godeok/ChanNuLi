@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
-import kr.co.healthcare.PreferenceManger;
+import kr.co.healthcare.tutorial.PreferenceManger;
 import kr.co.healthcare.R;
 
 public class MypageActivity extends AppCompatActivity {
