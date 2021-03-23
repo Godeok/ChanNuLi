@@ -64,11 +64,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             tv_date.setText(""+result.getDate());
 
             //검사 결과 텍스트뷰
-            if(result.getCount()>1) {
+            if(result.getCount()>5) {
                 tv_count.setBackgroundColor(Color.parseColor("#e61919"));
                 tv_count.setText("위험");
             }
-            else if(result.getCount()>0) {
+            else if(result.getCount()>3) {
                 tv_count.setBackgroundColor(Color.parseColor("#FFC107"));
                 tv_count.setText("주의");
             }
