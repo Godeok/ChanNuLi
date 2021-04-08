@@ -26,15 +26,17 @@
             android:includeFontPadding="false"
             android:text="Disease Name"
             android:textColor="@android:color/black"
-            android:textSize="36sp"
+            android:textSize="32dp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/DI_RV_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
+            android:background="#20FFFFFF"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
             android:layout_marginTop="10dp">
 
         </androidx.recyclerview.widget.RecyclerView>

@@ -20,13 +20,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.health_info_tab_text_1, R.string.health_info_tab_text_2,R.string.health_info_tab_text_3};
     private final Context context;
-    private final DataBuilder dataBuilder;
     private ArrayList<Fragment> fragments;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         this.context = context;
-        dataBuilder = new DataBuilder(context);
         addFragment();
     }
 
@@ -48,16 +46,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public void addFragment(){
         fragments = new ArrayList<>();
-        fragments.add(new SelfCare(initVideoByNameOfDB("exercise")));
-        fragments.add(new Exercise(initVideoByNameOfDB("exercise")));
+        fragments.add(new SelfCare());
+        fragments.add(new Exercise());
         fragments.add(new Diet());
     }
 
-    public ArrayList<Video> initVideoByNameOfDB(String name) {
-        VideoDB db = VideoDB.getAppDatabase(context);
-        List<Video> videoList = db.videoDao().getAll();
-        ArrayList<Video> videoArrayList = new ArrayList<Video>(db.videoDao().getAll());
-        db.close();
-        return videoArrayList;
-    }
 }

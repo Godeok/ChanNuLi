@@ -31,12 +31,14 @@ public class DiseaseInfoCategoryAdapter extends RecyclerView.Adapter<DiseaseInfo
     @NonNull
     @Override
     public DiseaseInfoCategoryAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        System.out.println("onCreateViewHolder");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.disease_info_btn_item,parent,false);
         return new DiseaseInfoCategoryAdapter.ItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final DiseaseInfoCategoryAdapter.ItemViewHolder holder, final int position) {
+        System.out.println("onBindViewHolder");
         holder.button.setText(arrayList.get(position).getName());
         //todo: 더 효율적인 방식으로 변경
         holder.button.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +61,7 @@ public class DiseaseInfoCategoryAdapter extends RecyclerView.Adapter<DiseaseInfo
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
+            System.out.println("ItemViewHolder");
             this.button = (Button) itemView.findViewById(R.id.DI_category_btn);
         }
     }

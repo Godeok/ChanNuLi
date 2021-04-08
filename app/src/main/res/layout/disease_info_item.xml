@@ -25,7 +25,7 @@
             android:includeFontPadding="false"
             android:text="Title"
             android:textColor="@android:color/black"
-            android:textSize="36sp"
+            android:textSize="28dp"
             android:textStyle="bold" />
 
         <View
@@ -41,7 +41,7 @@
             android:includeFontPadding="false"
             android:text="contents"
             android:textColor="#191919"
-            android:textSize="28sp" />
+            android:textSize="24dp" />
 
     </LinearLayout>
 </LinearLayout>

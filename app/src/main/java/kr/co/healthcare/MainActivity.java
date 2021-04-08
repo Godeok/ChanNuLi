@@ -12,6 +12,7 @@ import android.widget.TextView;
 import kr.co.healthcare.diseaseInfoSelect.DiseaseInfoSelectActivity;
 import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.healthInfo.HealthInfoActivity;
+import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self_diagnosis.SelfMainActivity;
 import kr.co.healthcare.tutorial.PreferenceManger;
 import kr.co.healthcare.tutorial.ui.TutorialActivity;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     //마이페이지
     public void showMyPage(View view){
-        intent = new Intent(getApplicationContext(), TutorialActivity.class);
+        intent = new Intent(getApplicationContext(), MypageActivity.class);
         startActivity(intent);
     }
 

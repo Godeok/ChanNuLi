@@ -19,11 +19,7 @@ public class SelfCare extends Fragment {
 
     private View view;
     private RecyclerView recyclerView;
-    private ArrayList<Video> arrayList;
 
-    public SelfCare(ArrayList<Video> arrayList) {
-        this.arrayList = arrayList;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,10 +30,6 @@ public class SelfCare extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_self_care, container, false);
-        recyclerView = view.findViewById(R.id.RV_self_care);
-        HealthInfoVideoAdapter recyclerViewAdapter = new HealthInfoVideoAdapter(getContext(), arrayList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(recyclerViewAdapter);
         return view;
     }
 }
