@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#ffffff"
+    tools:context=".tutorial.ui.TutorialActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="fill_vertical"
+    android:orientation="vertical"
+    android:paddingVertical="30dp"
+    android:paddingHorizontal="20dp">
+    <TextView
+        android:id="@+id/step_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1번째 단계"
+        android:textColor="#B6B6B6"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="5dp"/>
+    <TextView
+        android:id="@+id/stepExplain_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_step_1"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="25dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="false"
+        android:max="4"
+        android:progress="1"
+        android:indeterminateDuration="100"
+        android:layout_marginBottom="40dp"/>
+
+    <FrameLayout
+        android:id="@+id/tutorialFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/stepBtn"
+        android:onClick="onClickNextStepBtn"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_tutorial_step_not_finished"
+        android:textSize="20sp"
+        android:text="@string/tutorial_btn"
+        android:enabled="false"
+        />
+</LinearLayout>

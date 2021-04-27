@@ -14,30 +14,32 @@ import java.util.ArrayList;
 import kr.co.healthcare.R;
 
 public class DiseaseInfoCategoryAdapter extends RecyclerView.Adapter<DiseaseInfoCategoryAdapter.ItemViewHolder>{
-    private ArrayList<DiseaseInfoCategoryData> arrayList;
+    private ArrayList<String> arrayList;
     private RecyclerView recyclerView;
     public DiseaseInfoCategoryAdapter(RecyclerView recyclerView){
         //TODO: 룸에서 데이터 불러와서 구성하기
         //this.arrayList = arrayList;
-        arrayList = new ArrayList<DiseaseInfoCategoryData>();
+        arrayList = new ArrayList<String>();
         this.recyclerView = recyclerView;
-        this.arrayList.add(new DiseaseInfoCategoryData("정의"));
-        this.arrayList.add(new DiseaseInfoCategoryData("원인"));
-        this.arrayList.add(new DiseaseInfoCategoryData("증상"));
-        this.arrayList.add(new DiseaseInfoCategoryData("치료"));
-        this.arrayList.add(new DiseaseInfoCategoryData("주의사항"));
+        this.arrayList.add("정의");
+        this.arrayList.add("원인");
+        this.arrayList.add("증상");
+        this.arrayList.add("치료");
+        this.arrayList.add("주의사항");
     }
 
     @NonNull
     @Override
     public DiseaseInfoCategoryAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        System.out.println("onCreateViewHolder");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.disease_info_btn_item,parent,false);
         return new DiseaseInfoCategoryAdapter.ItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final DiseaseInfoCategoryAdapter.ItemViewHolder holder, final int position) {
-        holder.button.setText(arrayList.get(position).getName());
+        System.out.println("onBindViewHolder");
+        holder.button.setText(arrayList.get(position));
         //todo: 더 효율적인 방식으로 변경
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +61,7 @@ public class DiseaseInfoCategoryAdapter extends RecyclerView.Adapter<DiseaseInfo
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
+            System.out.println("ItemViewHolder");
             this.button = (Button) itemView.findViewById(R.id.DI_category_btn);
         }
     }
