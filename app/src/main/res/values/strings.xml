@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">찬누리</string>
     <string name="title_activity_health_info">HealthInfoActivity</string>
-    <string name="health_info_tab_text_1">자기관리</string>
-    <string name="health_info_tab_text_2">운동법</string>
-    <string name="health_info_tab_text_3">식이요법</string>
+    <string name="health_info_tab_text_1">자기관리/운동법</string>
+    <string name="health_info_tab_text_2">식이요법</string>
 
     <!--튜토리얼 질문-->
     <string name="tutorial_step_1">이름이 무엇인가요?</string>
