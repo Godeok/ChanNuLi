@@ -13,15 +13,14 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.healthInfo.db.Video;
 
 public class SelfCare extends Fragment {
 
     private View view;
     private RecyclerView recyclerView;
-    private ArrayList<Video> arrayList;
+    private ArrayList<String> arrayList;
 
-    public SelfCare(ArrayList<Video> arrayList) {
+    public SelfCare(ArrayList<String> arrayList) {
         this.arrayList = arrayList;
     }
 

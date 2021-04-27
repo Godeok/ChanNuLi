@@ -5,8 +5,9 @@ android {
 
     defaultConfig {
         applicationId "kr.co.healthcare"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 29
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
 
@@ -18,6 +19,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
     }
 }
 
@@ -32,15 +37,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
+    implementation 'org.jsoup:jsoup:1.11.3'
     //스텝 바 패키지
     implementation 'com.shuhart.stepview:stepview:1.5.1'
 
     //room(데이터 베이스)
     def room_version = "2.2.5"
 
-    //유튜브 플레이
-    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    //youtube data
+    implementation 'com.google.apis:google-api-services-youtube:v3-rev99-1.17.0-rc'
+    implementation 'com.google.http-client:google-http-client-android:1.37.0'
+    implementation 'com.google.api-client:google-api-client-android:1.30.11'
+    implementation 'com.google.api-client:google-api-client-gson:1.30.11'
+
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"

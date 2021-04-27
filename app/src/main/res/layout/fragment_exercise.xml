@@ -4,6 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".healthInfo.ui.main.Exercise">
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="116dp"
+            android:text="비디오 검색하기" />
 
+        <Button
+            android:id="@+id/btn_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="196dp"
+            android:text="비디오 검색결과보기" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!" />
 
 </FrameLayout>
