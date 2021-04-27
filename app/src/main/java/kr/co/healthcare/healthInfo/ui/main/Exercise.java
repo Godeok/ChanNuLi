@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.HttpRequest;
@@ -46,18 +48,12 @@ public class Exercise extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.videoRecyclerView);
-        System.out.println("============");
-        recyclerViewAdapter = new HealthInfoVideoAdapter(getActivity());
-        System.out.println(recyclerViewAdapter);
-        System.out.println("============");
-        recyclerView.setAdapter(recyclerViewAdapter);
-        System.out.println("============");
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        System.out.println("============");
         YoutubeAsyncTask youtubeAsyncTask = new YoutubeAsyncTask();
         youtubeAsyncTask.execute();
-        System.out.println("============");
+        RecyclerView recyclerView = view.findViewById(R.id.videoRecyclerView);
+        recyclerViewAdapter = new HealthInfoVideoAdapter(getActivity());
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
     }
 
@@ -101,13 +97,13 @@ public class Exercise extends Fragment {
                 SearchListResponse searchResponse = search.execute();
 
                 List<SearchResult> searchResultList = searchResponse.getItems();
+                System.out.println("출력============");
                 System.out.println(searchResponse.getItems());
                 if (searchResultList != null) {
                     //예제에서는 메소드 이용해서 확인만 했지만, 사용하고 싶은 메소드를 작성하셔서
                     //Array에 추가하거나 다르게 활용하시면 됩니다.
                     CheckList(searchResultList.iterator());
                 }
-
             } catch (GoogleJsonResponseException e) {
                 System.err.println("There was a service error: " + e.getDetails().getCode() + " : "
                         + e.getDetails().getMessage());
@@ -124,10 +120,11 @@ public class Exercise extends Fragment {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
+            recyclerViewAdapter.notifyDataSetChanged();
             //adapter.notifyDataSetChanged();
 
         }
+
         public void CheckList(Iterator<SearchResult> iteratorSearchResults) {
             System.out.println(TAG + "InputList");
             if (!iteratorSearchResults.hasNext()) {
@@ -142,15 +139,19 @@ public class Exercise extends Fragment {
                 if (rId.getKind().equals("youtube#video")) {
                     //썸네일  thumbnail.getUrl()
                     Thumbnail thumbnail = (Thumbnail) singleVideo.getSnippet().getThumbnails().get("default");
+                    System.out.println("썸네일====");
+                    System.out.println(thumbnail.getUrl());
                     // 비디오 rId.getVideoId()
                     recyclerViewAdapter.addItem(new YoutubeVideo(
                             rId.getVideoId(),
                             singleVideo.getSnippet().getTitle(),
                             thumbnail.getUrl()
                     ));
-                    recyclerViewAdapter.notifyDataSetChanged();
-                    // 제목 singleVideo.getSnippet().getTitle()
-                    System.out.println(("ID : " + rId.getVideoId() + " , 제목 : " + singleVideo.getSnippet().getTitle() + " , 썸네일 주소 : " + thumbnail.getUrl()));
+                    System.out.println("================출력중=====================");
+                    System.out.println("ID : " + rId.getVideoId());
+                    System.out.println(" , 제목 : " + singleVideo.getSnippet().getTitle());
+                    System.out.println(" , 썸네일 주소 : " + thumbnail.getUrl());
+
                 }
             }
         }

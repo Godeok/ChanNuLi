@@ -1,6 +1,8 @@
 package kr.co.healthcare.healthInfo.ui.main;
 
 import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -8,17 +10,21 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.healthInfo.db.Video;
-import kr.co.healthcare.healthInfo.db.VideoDB;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.health_info_tab_text_1, R.string.health_info_tab_text_2,R.string.health_info_tab_text_3};
+    private static final int[] TAB_TITLES = new int[]{R.string.health_info_tab_text_1, R.string.health_info_tab_text_2};
     private final Context context;
     private ArrayList<Fragment> fragments;
 
@@ -46,7 +52,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public void addFragment(){
         fragments = new ArrayList<>();
-        fragments.add(new SelfCare());
         fragments.add(new Exercise());
         fragments.add(new Diet());
     }
