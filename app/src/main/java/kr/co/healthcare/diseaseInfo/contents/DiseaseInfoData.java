@@ -1,8 +1,8 @@
 package kr.co.healthcare.diseaseInfo.contents;
 
 public class DiseaseInfoData {
-    private String title;
-    private String contents;
+    private final String title;
+    private final String contents;
 
     public DiseaseInfoData(String title, String contents){
         this.title = title;
