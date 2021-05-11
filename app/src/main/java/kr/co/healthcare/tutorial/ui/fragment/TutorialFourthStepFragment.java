@@ -28,7 +28,7 @@ import kr.co.healthcare.tutorial.PreferenceManger;
 public class TutorialFourthStepFragment extends Fragment {
 
     //todo: DB에서 질병 이름 불러오기
-    private final String[] tagNames = new String[]{"고혈압", "골관절염", "류마티스 관절염", "고지혈증", "요통", "좌골신경통", "당뇨병", "골다공증", "치매"};
+    private String[] tagNames;
     private final Button nextBtn;
     private final Context context;
     private ChipGroup chipGroup;
@@ -42,6 +42,7 @@ public class TutorialFourthStepFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tagNames = getResources().getStringArray(R.array.DISEASES_LABEL);
     }
 
     @Override

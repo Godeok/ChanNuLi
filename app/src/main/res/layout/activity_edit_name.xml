@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mypage.EditNameActivity"
+    android:background="#311B92"
+    android:gravity="center"
+    android:paddingHorizontal="20dp"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름 수정하기"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"
+        android:paddingHorizontal="25dp"/>
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:background="@null"
+        android:hint="이름을 입력하세요"
+        android:textAlignment="center"
+        android:textColorHint="#CCFFFFFF"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/editFinishBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="60dp"
+        android:background="@drawable/btn_edit_name"
+        android:text="변경완료"
+        android:textColor="#311B92"/>
+</LinearLayout>
+
+
