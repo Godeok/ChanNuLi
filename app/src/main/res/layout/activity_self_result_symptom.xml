@@ -11,7 +11,7 @@
         android:id="@+id/spinner"
         android:layout_width="374dp"
         android:layout_height="56dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/spinner_background"
         android:entries="@array/DISEASES_LABEL"
         android:spinnerMode="dialog"
@@ -19,83 +19,71 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_resultTitle" />
 
     <TextView
         android:id="@+id/tv_resultTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:text="결과 확인"
-        android:textStyle="bold"
         android:textColor="#000000"
         android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_toDate" />
+
+    <Button
+        android:id="@+id/btn_toSymptom"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="증상별"
+        android:textStyle="bold"
+        android:background="#00ff0000"
+        android:textColor="#265A28"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_toDate"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="날짜순"
+        android:background="#00ff0000"
+        android:textColor="#989C98"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_self_result"
-        android:layout_width="374dp"
-        android:layout_height="500dp"
+        android:layout_width="373dp"
+        android:layout_height="517dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
         app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintHorizontal_bias="0.5"
         tools:listitem="@layout/activity_self_recycler_item" />
-
-    <Button
-        android:id="@+id/btn_toSymptom"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_weight="1"
-        android:background="@drawable/btn_square_green"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:text="증상별"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.721"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/btn_toDate"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:background="@drawable/btn_square_unchecked"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:text="날짜순"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_resultTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
