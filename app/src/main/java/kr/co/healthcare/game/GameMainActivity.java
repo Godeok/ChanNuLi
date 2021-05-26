@@ -26,6 +26,8 @@ public class GameMainActivity extends AppCompatActivity {
         Button btn_to_game2_lv2 = findViewById(R.id.btn_to_game2_lv2);
         Button btn_to_game2_lv3 = findViewById(R.id.btn_to_game2_lv3);
 
+        Button btn_to_game3_lv1 = findViewById(R.id.btn_to_game3_lv1);
+
         btn_to_game1_lv1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -77,6 +79,16 @@ public class GameMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
+                intent.putExtra("level", 3);
+                startActivity(intent);;
+            }
+        });
+
+
+        btn_to_game3_lv1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
                 intent.putExtra("level", 3);
                 startActivity(intent);;
             }
