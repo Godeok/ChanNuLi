@@ -13,7 +13,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/spinner_background"
-        android:entries="@array/질병"
+        android:entries="@array/DISEASES_LABEL"
         android:spinnerMode="dialog"
         android:theme="@style/SpinnerTheme"
         app:layout_constraintEnd_toEndOf="parent"

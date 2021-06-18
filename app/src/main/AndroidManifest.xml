@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
+        <activity android:name=".mypage.EditGenderActivity"></activity>
+        <activity android:name=".mypage.EditDiseaseActivity" />
+        <activity android:name=".mypage.EditNameActivity" />
+        <activity android:name=".mypage.EditAgeActivity" />
+
         <activity android:name=".walkthrough.WalkthroughActivity" />
         <activity
             android:name=".tutorial.ui.TutorialActivity"

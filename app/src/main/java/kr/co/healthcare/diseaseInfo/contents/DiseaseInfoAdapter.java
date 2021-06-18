@@ -15,7 +15,7 @@ import kr.co.healthcare.R;
 import kr.co.healthcare.diseaseInfo.db.DiseaseInfo;
 
 public class DiseaseInfoAdapter extends RecyclerView.Adapter<DiseaseInfoAdapter.ItemViewHolder>{
-    private ArrayList<DiseaseInfoData> arrayList;
+    private final ArrayList<DiseaseInfoData> arrayList;
 
     public DiseaseInfoAdapter(DiseaseInfo diseaseInfo){
         arrayList = new ArrayList<DiseaseInfoData>();

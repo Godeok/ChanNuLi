@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="질병">
+    <string-array name="DISEASES_LABEL">
         <item>고혈압</item>
         <item>골관절염</item>
         <item>고지혈증</item>

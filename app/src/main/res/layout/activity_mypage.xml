@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#004D40"
+        android:background="#311B92"
         android:paddingHorizontal="25dp">
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="90dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -58,15 +58,17 @@
                     android:textSize="28dp"
                     android:textColor="#ffffff"/>
             </LinearLayout>
+
             <Button
                 android:id="@+id/modifyBtn"
                 android:layout_width="75dp"
                 android:layout_height="40dp"
+                android:layout_gravity="center"
                 android:background="@drawable/btn_mypage_modify"
+                android:onClick="showEditNameActivity"
                 android:text="수정"
-                android:textSize="16dp"
                 android:textColor="#ffffff"
-                android:layout_gravity="center"/>
+                android:textSize="16dp" />
 
         </LinearLayout>
         <Space
@@ -74,78 +76,63 @@
             android:layout_height="25dp" />    </LinearLayout>
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="30dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="내 정보"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginStart="35dp"
-        android:textSize="20dp"/>
+        android:textSize="15sp"
+        android:paddingHorizontal="25dp"/>
 
     <LinearLayout
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="25dp"
-        android:paddingStart="40dp"
+        android:paddingVertical="15dp"
         android:orientation="vertical"
+        android:paddingHorizontal="30dp"
         android:background="@drawable/layout_mypage_user_info">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="50dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="나이"
-                android:textSize="18dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="#454545"/>
-            <TextView
-                android:id="@+id/userAgeTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:text="TextView"
-                android:textSize="18dp"
-                android:textColor="#454545"/>
-        </LinearLayout>
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:layout_marginVertical="10dp"
-            android:background="#F1F1F1" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="3"
+                    android:text="나이"
+                    android:textColor="#5A5A5A"
+                    android:textSize="18dp" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/userAgeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="TextView"
+                    android:textAlignment="viewEnd"
+                    android:textColor="#311B92"
+                    android:textSize="18dp" />
 
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="성별"
-                android:textSize="18dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="#000000"/>
-
-            <TextView
-                android:id="@+id/userGenderTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:text="TextView"
-                android:textSize="18dp"
-                android:textColor="#000000"/>
+                <ImageButton
+                    android:id="@+id/ageImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:background="#00FFFFFF"
+                    android:onClick="showEditAgeActivity"
+                    app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -157,27 +144,102 @@
             android:background="#F1F1F1" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="3"
+                    android:text="성별"
+                    android:textColor="#5A5A5A"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/userGenderTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="TextView"
+                    android:textAlignment="viewEnd"
+                    android:textColor="#311B92"
+                    android:textSize="18dp" />
+
+                <ImageButton
+                    android:id="@+id/genderImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    android:layout_marginStart="15dp"
+                    app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:layout_marginVertical="10dp"
+            android:background="#F1F1F1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="3"
+                    android:text="건강 상태"
+                    android:textColor="#5A5A5A"
+                    android:textSize="18dp" />
+
+                <ImageButton
+                    android:id="@+id/diseaseImageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:singleLine="true" />
+            </HorizontalScrollView>
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="건강 상태"
-                android:textSize="18dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="#000000"/>
-
-            <TextView
-                android:id="@+id/userHealthTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:text="TextView"
-                android:textSize="18dp"
-                android:textColor="#000000"/>
+                android:text="*좌우로 이동 가능합니다."
+                android:layout_marginTop="10dp"
+                android:textAlignment="viewEnd"
+                android:textColor="#9E9E9E"
+                android:textSize="16dp" />
 
         </LinearLayout>
 
@@ -186,14 +248,15 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="게임 기록"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginStart="35dp"
-        android:textSize="20dp"/>
+        android:paddingHorizontal="25dp"
+        android:textSize="15sp"/>
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_marginStart="25dp"
