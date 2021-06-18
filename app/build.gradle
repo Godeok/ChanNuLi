@@ -41,6 +41,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
+    //카드 뒤집기
+    implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:2.0.0'
+
     //스텝 바 패키지
     implementation 'com.shuhart.stepview:stepview:1.5.1'
 

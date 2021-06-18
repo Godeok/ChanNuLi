@@ -16,23 +16,6 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/card1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="#B970FA"
-            android:gravity="center"
-            android:text="1"
-            android:textColor="#ffffff"
-
-            android:textSize="45dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/card5"
-            app:layout_constraintEnd_toStartOf="@+id/card2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/card2"
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -50,20 +33,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/card3"
+            android:id="@+id/card1"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="#B970FA"
             android:gravity="center"
             android:text="1"
             android:textColor="#ffffff"
+
             android:textSize="45dp"
             android:textStyle="bold"
-
-            app:layout_constraintBottom_toTopOf="@+id/card7"
-            app:layout_constraintEnd_toStartOf="@+id/card4"
+            app:layout_constraintBottom_toTopOf="@+id/card5"
+            app:layout_constraintEnd_toStartOf="@+id/card2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/card2"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -80,6 +63,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/card3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/card3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#B970FA"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="45dp"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toTopOf="@+id/card7"
+            app:layout_constraintEnd_toStartOf="@+id/card4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/card2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -275,7 +275,6 @@
             app:layout_constraintTop_toBottomOf="@+id/card12" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <TextView
         android:id="@+id/tv_count1"

@@ -30,7 +30,7 @@ public class Game3ResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game1_result);
+        setContentView(R.layout.activity_game3_result);
 
         tv_level = findViewById(R.id.tv_level);
         tv_score = findViewById(R.id.tv_score);
@@ -61,7 +61,7 @@ public class Game3ResultActivity extends AppCompatActivity {
         btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
                 intent.putExtra("level", level);
                 startActivity(intent);
             }

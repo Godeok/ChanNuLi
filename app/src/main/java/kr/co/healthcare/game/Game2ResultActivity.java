@@ -69,7 +69,10 @@ public class Game2ResultActivity extends AppCompatActivity {
         //끝내기
         btn_end.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { finish();
+            public void onClick(View v) {
+                //finish();
+                Intent intent = new Intent(getApplicationContext(), GameMainActivity.class);
+                startActivity(intent);
             }
         });
     }

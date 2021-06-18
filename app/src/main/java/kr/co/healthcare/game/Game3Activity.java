@@ -1,12 +1,18 @@
 package kr.co.healthcare.game;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.animation.ObjectAnimator;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -19,6 +25,10 @@ public class Game3Activity extends AppCompatActivity {
     static int attempt_cnt=0;
     static int first=0, second=0,       //카드에 적힌 숫자
             cardNum1=0, cardNum2=0;    //1-16 카드 중 어떤 카드인지
+
+    Animation rotate_180;
+    Animation scale_bigger;
+    Animation scale_smaller;
 
     TextView tv_count2;
     TextView[] cards = new TextView[16];
@@ -35,6 +45,9 @@ public class Game3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_game3);
 
         tv_count2 = findViewById(R.id.tv_count2);
+        rotate_180 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_180);
+        scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
+        scale_smaller = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_smaller);
 
         //카드 id 연결 + 터치 잠금
         for (int i=0; i<16; i++) {
@@ -59,6 +72,7 @@ public class Game3Activity extends AppCompatActivity {
             cards[randomNum[cnt++]].setText(""+i);
         }
 
+        first = second = cardNum1 = cardNum2 = 0;
 
         //3초 카운트다운
        new Handler().postDelayed(new Runnable() {
@@ -73,8 +87,6 @@ public class Game3Activity extends AppCompatActivity {
             }
         }, 3000);
 
-
-
         //실행
         for(int i=0; i<16; i++){
             final int n=i;
@@ -87,9 +99,45 @@ public class Game3Activity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    public void onBackPressed() {
+        // AlertDialog 빌더를 이용해 종료시 발생시킬 창을 띄운다
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
+        alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
+
+        alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                attempt_cnt = 0;
+                //게임이 실행되던 액티비티 종료
+                finish();
+            }
+        });
+
+        alBuilder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                return;
+            }
+        });
+
+        alBuilder.setTitle("게임 종료");
+        alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
+    }
+
+
     void change_to_checked(int num){
         int color_purple = ContextCompat.getColor(getApplicationContext(), R.color.colorPurple);
         int color_white = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+
+        //카드 애니메이션
+        /*
+        ObjectAnimator animator = ObjectAnimator.ofFloat(cards[num], "rotationY", 0, 180);
+        animator.setDuration(500);
+        animator.start();
+        */
+
 
         cards[num].setBackgroundColor(color_purple);
         cards[num].setTextColor(color_white);
@@ -100,12 +148,14 @@ public class Game3Activity extends AppCompatActivity {
         first = Integer.parseInt(cards[cardNum1].getText().toString());
         cards[i].setEnabled(false);
         change_to_checked(cardNum1);
+        cards[i].startAnimation(scale_bigger);
     }
 
     void if_second(int i){
         cardNum2 = i;
         second = Integer.parseInt(cards[cardNum2].getText().toString());
         change_to_checked(cardNum2);
+        cards[i].startAnimation(scale_bigger);
 
         for (int j=0; j<16; j++)
             cards[j].setEnabled(false);
@@ -141,6 +191,10 @@ public class Game3Activity extends AppCompatActivity {
 
             cards[cardNum2].setBackgroundColor(color_green);
             cards[cardNum2].setTextColor(color_green);
+
+            //////
+            //cards[cardNum1].startAnimation(scale_smaller);
+            //cards[cardNum2].startAnimation(scale_smaller);
 
             attempt_cnt++;
             tv_count2.setText(max_attempt-attempt_cnt+"회");

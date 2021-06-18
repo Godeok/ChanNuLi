@@ -43,18 +43,30 @@
             android:noHistory="true" />
         <activity
             android:name=".self_diagnosis.SelfResultSymptomActivity"
-            android:noHistory="true" /> <!-- 게임 -->
+            android:noHistory="true" />
+
+        <!-- 게임 -->
         <activity android:name=".game.GameMainActivity" />
-        <activity android:name=".game.Game1ResultActivity" />
+        <activity
+            android:name=".game.Game1ResultActivity"
+            android:noHistory="true" />
         <activity
             android:name=".game.Game1Activity"
             android:noHistory="true" />
-        <activity android:name=".game.Game2ResultActivity" />
-        <activity android:name=".game.Game2Activity" />
+
+        <activity
+            android:name=".game.Game2Activity"
+            android:noHistory="true" />
+        <activity
+            android:name=".game.Game2ResultActivity"
+            android:noHistory="true" />
+
         <activity
             android:name=".game.Game3Activity"
             android:noHistory="true"/>
-        <activity android:name=".game.Game3ResultActivity"/>
+        <activity
+            android:name=".game.Game3ResultActivity"
+            android:noHistory="true" />
     </application>
 
 </manifest>
