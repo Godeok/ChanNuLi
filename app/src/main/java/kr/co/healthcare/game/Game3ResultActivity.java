@@ -1,7 +1,5 @@
 package kr.co.healthcare.game;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,9 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import kr.co.healthcare.R;
 
-public class Game2ResultActivity extends AppCompatActivity {
+public class Game3ResultActivity extends AppCompatActivity {
 
     TextView tv_level;
     TextView tv_score;
@@ -30,7 +30,7 @@ public class Game2ResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game2_result);
+        setContentView(R.layout.activity_game3_result);
 
         tv_level = findViewById(R.id.tv_level);
         tv_score = findViewById(R.id.tv_score);
@@ -40,7 +40,7 @@ public class Game2ResultActivity extends AppCompatActivity {
 
 
         //shared preference 초기화
-        pref = getSharedPreferences("pref2", Activity.MODE_PRIVATE);
+        pref = getSharedPreferences("pref3", Activity.MODE_PRIVATE);
         editor = pref.edit();
 
         //저장한 값 불러오기
@@ -51,7 +51,8 @@ public class Game2ResultActivity extends AppCompatActivity {
 
         //이전 액티비티에서 점수와 레벨 받아오기
         score = getIntent().getIntExtra("score", -1);
-        level = getIntent().getIntExtra("level", -1);
+        //level = getIntent().getIntExtra("level", -1);
+        level=2;
         show_level(level);
         save_score(level);
 
@@ -60,7 +61,7 @@ public class Game2ResultActivity extends AppCompatActivity {
         btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
+                Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
                 intent.putExtra("level", level);
                 startActivity(intent);
             }
@@ -69,10 +70,7 @@ public class Game2ResultActivity extends AppCompatActivity {
         //끝내기
         btn_end.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //finish();
-                Intent intent = new Intent(getApplicationContext(), GameMainActivity.class);
-                startActivity(intent);
+            public void onClick(View v) { finish();
             }
         });
     }

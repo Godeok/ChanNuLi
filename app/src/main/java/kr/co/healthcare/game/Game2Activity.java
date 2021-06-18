@@ -35,9 +35,10 @@ public class Game2Activity extends AppCompatActivity{
     //점수, 게임 횟수, 사용자가 누른 번호, 정답 값, 정답 보기 번호
     static int score=0, cnt=0, checked=0, a=0, num=0;
     static boolean operator = false;
-    static boolean game_over=false;
-    static String total_time = "0010";       //타이머 돌릴 시간(분-- 초--)
+    static String total_time = "0011";       //타이머 돌릴 시간(분-- 초--)
     int level;
+
+    CountDownTimer CDT;
 
 
     @Override
@@ -61,8 +62,6 @@ public class Game2Activity extends AppCompatActivity{
         btn_opt2 = findViewById(R.id.btn_opt2);
         btn_opt3 = findViewById(R.id.btn_opt3);
         btn_opt4 = findViewById(R.id.btn_opt4);
-
-
 
         //타이머
         countDown(total_time);
@@ -102,10 +101,11 @@ public class Game2Activity extends AppCompatActivity{
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                cnt=0;
-                score=0;
-                total_time="0010";
-                game_over=false;
+                initialize_data();
+
+                //타이머 종료
+                CDT.cancel();
+
                 //게임이 실행되던 액티비티 종료
                 finish();
             }
@@ -121,6 +121,7 @@ public class Game2Activity extends AppCompatActivity{
         alBuilder.setTitle("게임 종료");
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
+
 
     @Override
     public void onResume() {
@@ -141,6 +142,13 @@ public class Game2Activity extends AppCompatActivity{
         num = start_game(level);
     }
 
+    //정보 초기화
+    void initialize_data(){
+        cnt=0;
+        score=0;
+        total_time="0011";
+    }
+
     //타이머
     public void countDown(String time) {
 
@@ -159,8 +167,7 @@ public class Game2Activity extends AppCompatActivity{
 
         //첫번째 인자 : 원하는 시간 (예를들어 30초면 30 x 1000(주기))
         //두번째 인자 : 주기(1000 = 1초)
-        new CountDownTimer(conversionTime, 1000) {
-
+        CDT = new CountDownTimer(conversionTime, 1000) {
             //타이머에 보이는 시간 변경
             public void onTick(long millisUntilFinished) {
                 //분단위
@@ -190,11 +197,11 @@ public class Game2Activity extends AppCompatActivity{
 
                 tv_timer.setText("시간 종료!");
 
-                game_over=true;
                 after_time_over();
-
             }
-        }.start();
+        };
+
+        CDT.start();
     }
 
     void after_time_over(){
@@ -211,9 +218,7 @@ public class Game2Activity extends AppCompatActivity{
             public void run() {
                 int level = getIntent().getIntExtra("level", -1);
                 int score2 = score;
-                score=0;
-                cnt=0;
-                total_time="0010";
+                initialize_data();
 
                 Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
                 intent.putExtra("score", score2);
@@ -226,8 +231,6 @@ public class Game2Activity extends AppCompatActivity{
             }
         }, 1000); // 1초후
     }
-
-
 
 
 
