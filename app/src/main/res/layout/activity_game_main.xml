@@ -148,15 +148,43 @@
 
     <Button
         android:id="@+id/btn_to_game3_lv1"
-        android:layout_width="279dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:background="@drawable/btn_game_menu"
-        android:text="게임 시작"
+        android:text="쉬움"
+        android:textColor="#393737"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle3" />
+
+    <Button
+        android:id="@+id/btn_to_game3_lv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_game_menu"
+        android:text="중간"
         android:textColor="#393737"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle3" />
+
+    <Button
+        android:id="@+id/btn_to_game3_lv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_game_menu"
+        android:text="어려움"
+        android:textColor="#393737"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.795"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle3" />
 

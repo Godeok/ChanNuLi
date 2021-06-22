@@ -4,12 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".game.Game3Activity"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    tools:context=".game.Game3ActivityLv2">
+
+    <TextView
+        android:id="@+id/tv_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="쉬움"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="410dp"
-        android:layout_height="433dp"
+        android:layout_width="412dp"
+        android:layout_height="519dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -220,7 +233,7 @@
             android:textColor="#ffffff"
             android:textSize="45dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/card17"
             app:layout_constraintEnd_toStartOf="@+id/card14"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -236,7 +249,7 @@
             android:textColor="#ffffff"
             android:textSize="45dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/card18"
             app:layout_constraintEnd_toStartOf="@+id/card15"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/card13"
@@ -252,7 +265,7 @@
             android:textColor="#ffffff"
             android:textSize="45dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/card19"
             app:layout_constraintEnd_toStartOf="@+id/card16"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/card14"
@@ -268,11 +281,75 @@
             android:textColor="#ffffff"
             android:textSize="45dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/card20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/card15"
             app:layout_constraintTop_toBottomOf="@+id/card12" />
+
+        <TextView
+            android:id="@+id/card17"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#B970FA"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/card18"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card13" />
+
+        <TextView
+            android:id="@+id/card18"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#B970FA"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/card19"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/card17"
+            app:layout_constraintTop_toBottomOf="@+id/card14" />
+
+        <TextView
+            android:id="@+id/card19"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#B970FA"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/card20"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/card18"
+            app:layout_constraintTop_toBottomOf="@+id/card15" />
+
+        <TextView
+            android:id="@+id/card20"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="#B970FA"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/card19"
+            app:layout_constraintTop_toBottomOf="@+id/card16" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -281,24 +358,26 @@
         android:id="@+id/tv_count1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="80dp"
-        android:text="남은 횟수 : "
+        android:layout_marginTop="76dp"
+        android:text="남은 횟수"
         android:textColor="#000000"
-        android:textSize="30dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_count2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:text="10회"
         android:textColor="#000000"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/tv_count1"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_count1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

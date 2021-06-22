@@ -2,10 +2,8 @@ package kr.co.healthcare.game;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.animation.ObjectAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +17,7 @@ import java.util.Random;
 
 import kr.co.healthcare.R;
 
-public class Game3Activity extends AppCompatActivity {
+public class Game3ActivityLv1 extends AppCompatActivity {
 
     static int max_attempt = 10;
     static int attempt_cnt=0;
@@ -42,7 +40,7 @@ public class Game3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game3);
+        setContentView(R.layout.activity_game3_lv1);
 
         tv_count2 = findViewById(R.id.tv_count2);
         rotate_180 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_180);
@@ -210,6 +208,7 @@ public class Game3Activity extends AppCompatActivity {
         if(max_attempt==attempt_cnt){
             Intent intent = new Intent(getApplicationContext(), Game3ResultActivity.class);
             intent.putExtra("score", 0);
+            intent.putExtra("level", 1);
             startActivity(intent);
         }
 
@@ -220,6 +219,7 @@ public class Game3Activity extends AppCompatActivity {
             if(i==15) {
                 Intent intent = new Intent(getApplicationContext(), Game3ResultActivity.class);
                 intent.putExtra("score", max_attempt-attempt_cnt);
+                intent.putExtra("level", 1);
                 startActivity(intent);
             }
         }
