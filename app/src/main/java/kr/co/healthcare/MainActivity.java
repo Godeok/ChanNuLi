@@ -1,6 +1,8 @@
 package kr.co.healthcare;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -16,10 +18,13 @@ import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self_diagnosis.SelfMainActivity;
 import kr.co.healthcare.tutorial.PreferenceManger;
 import kr.co.healthcare.tutorial.ui.TutorialActivity;
+import kr.co.healthcare.database.UserViewModel;
 
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
     private Boolean isTutorialFinished = false;
+    private TextView userNameTV;
+
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +35,20 @@ public class MainActivity extends AppCompatActivity {
         isTutorialFinished = PreferenceManger.getBoolean(this, PreferenceManger.PREF_IS_TUTORIAL_FINISHED);
         mainActivity = MainActivity.this;
 
+        UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        viewModel.getUserName(this).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String name) {
+                userNameTV.setText(name);
+            }
+        });
+
         if (!isTutorialFinished) {  //튜토리얼 미완료 시
             intent = new Intent(getApplicationContext(), TutorialActivity.class);
             startActivity(intent);
             mainActivity.finish();
         }else{ // 튜토리얼 완료 시
-            TextView userNameTV = findViewById(R.id.userName);
+            userNameTV = findViewById(R.id.userName);
             userNameTV.setText(PreferenceManger.getString(this, PreferenceManger.PREF_USER_NAME));
         }
 

@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".mypage.EditAgeActivity"
+    android:gravity="center"
     android:background="#ffffff">
     <TextView
         android:layout_width="match_parent"
@@ -18,4 +19,28 @@
         android:textSize="15sp"
         android:layout_marginBottom="10dp"
         android:paddingHorizontal="25dp"/>
+
+    <EditText
+        android:id="@+id/editTextTextYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="60dp"
+        android:ems="10"
+        android:textSize="24sp"
+        android:inputType="date"
+        android:background="@null"
+        android:hint="년도 입력"
+        android:textAlignment="center"
+        android:textColor="#311B92"
+        android:textColorHint="#858585"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/editFinishBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="60dp"
+        android:background="@drawable/btn_edit"
+        android:text="변경완료"
+        android:textColor="#311B92"/>
 </LinearLayout>

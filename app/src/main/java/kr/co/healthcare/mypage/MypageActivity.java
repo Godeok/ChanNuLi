@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -16,6 +18,7 @@ import java.util.Calendar;
 
 import kr.co.healthcare.tutorial.PreferenceManger;
 import kr.co.healthcare.R;
+import kr.co.healthcare.database.UserViewModel;
 
 public class MypageActivity extends AppCompatActivity {
 
@@ -31,19 +34,43 @@ public class MypageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
+
         tagNames = getResources().getStringArray(R.array.DISEASES_LABEL);
         name_TV = (TextView) findViewById(R.id.userNameTV);
         age_TV = (TextView) findViewById(R.id.userAgeTV);
         gender_TV = (TextView) findViewById(R.id.userGenderTV);
 
-        setMyPageData();
-/*
-        RecyclerView recyclerview = findViewById(R.id.userInfoRecyclerview);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerview.setLayoutManager(linearLayoutManager);
-        UserInfoAdapter userInfoAdapter = new UserInfoAdapter(this);
-        recyclerview.setAdapter(userInfoAdapter);
- */
+        UserViewModel viewModel = UserViewModel.getINSTANCE();
+
+        final Observer<String> nameObserver = new Observer<String>() {
+            @Override
+            public void onChanged(final String name) {
+                name_TV.setText(name);
+            }
+        };
+        viewModel.getUserName(this).observe(this, nameObserver);
+
+        final Observer<String> genderObserver = new Observer<String>() {
+            @Override
+            public void onChanged(final String gender) {
+                if(gender.equals(PreferenceManger.GENDER_VALUE_WOMAN)) gender_TV.setText("여자");
+                else if(gender.equals(PreferenceManger.GENDER_VALUE_MAN)) gender_TV.setText("남자");
+            }
+        };
+        viewModel.getUserGender(this).observe(this, genderObserver);
+
+        final Observer<String> birthYearObserver = new Observer<String>() {
+            @Override
+            public void onChanged(final String year) {
+                Calendar cal = Calendar.getInstance();
+                int currentYear = cal.get(Calendar.YEAR);
+                int birthYear = Integer.parseInt(year);
+                age_TV.setText((currentYear - birthYear + 1) + "(세)");
+            }
+        };
+        viewModel.getUserBirthYear(this).observe(this, birthYearObserver);
+
+        //setChip();
     }
 
     //이름 수정 페이지로 가기
@@ -58,25 +85,18 @@ public class MypageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    //인정사항 및 질병 정보 불러오기
-    private void setMyPageData(){
-        //이름
-        name_TV.setText(PreferenceManger.getString(this, PreferenceManger.PREF_USER_NAME));
-
-        //나이
-        Calendar cal = Calendar.getInstance();
-        int current_year = cal.get(Calendar.YEAR);
-        int birth_year = Integer.parseInt(PreferenceManger.getString(this, PreferenceManger.PREF_USER_YEAR_OF_BIRTH));
-        age_TV.setText(Integer.toString(current_year - birth_year +1) + "(세)");
-
-        //성별
-        if(PreferenceManger.getString(this, PreferenceManger.PREF_USER_GENDER).equals(PreferenceManger.GENDER_VALUE_WOMAN)) gender_TV.setText("여자");
-        else if(PreferenceManger.getString(this, PreferenceManger.PREF_USER_GENDER).equals(PreferenceManger.GENDER_VALUE_MAN)) gender_TV.setText("남자");
-
-        //질병
-        setChip();
+    //나이 수정 페이지로 가기
+    public void showEditGenderActivity(View view){
+        Intent intent = new Intent(getApplicationContext(), EditGenderActivity.class);
+        startActivity(intent);
     }
+
+    //질병 수정 페이지로 가기
+    public void showEditDiseaseActivity(View view){
+        Intent intent = new Intent(getApplicationContext(), EditDiseaseActivity.class);
+        startActivity(intent);
+    }
+
 
     private void setChip(){
         ArrayList<String> userDiseasesArrayList = PreferenceManger.getStringArrayList(this, PreferenceManger.PREF_USER_DISEASES);

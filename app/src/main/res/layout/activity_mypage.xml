@@ -177,8 +177,9 @@
                     android:id="@+id/genderImageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
                     android:layout_marginStart="15dp"
+                    android:background="#00FFFFFF"
+                    android:onClick="showEditGenderActivity"
                     app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
 
             </LinearLayout>
@@ -217,6 +218,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
+                    android:onClick="showEditDiseaseActivity"
                     app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
 
             </LinearLayout>
