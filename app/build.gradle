@@ -49,6 +49,9 @@ dependencies {
     compile 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    //카드 뒤집기
+    implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:2.0.0'
+
     //스텝 바 패키지
     implementation 'com.shuhart.stepview:stepview:1.5.1'
 

@@ -18,7 +18,7 @@
         android:id="@+id/tv_gameTitle"
         android:layout_width="279dp"
         android:layout_height="125dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="60dp"
         android:background="#FFBC00"
         android:gravity="center_vertical"
         android:text="하나빼기"
@@ -34,7 +34,7 @@
         android:id="@+id/tv_gameTitle2"
         android:layout_width="279dp"
         android:layout_height="125dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:background="#81c147"
         android:gravity="center_vertical"
         android:text="간단 연산"
@@ -44,6 +44,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_to_game1_lv2"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/tv_gameTitle3"
+        android:layout_width="279dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="40dp"
+        android:background="#009688"
+        android:gravity="center_vertical"
+        android:text="카드 뒤집기"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_to_game2_lv2"
         tools:ignore="RtlCompat" />
 
     <Button
@@ -129,5 +145,19 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle2" />
+
+    <Button
+        android:id="@+id/btn_to_game3_lv1"
+        android:layout_width="279dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_game_menu"
+        android:text="게임 시작"
+        android:textColor="#393737"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
