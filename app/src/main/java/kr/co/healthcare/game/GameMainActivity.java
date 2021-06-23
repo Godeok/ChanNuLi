@@ -90,8 +90,8 @@ public class GameMainActivity extends AppCompatActivity {
         btn_to_game3_lv1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game3ActivityLv1.class);
-                intent.putExtra("level", 1);
+                Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
+                //intent.putExtra("level", 1);
                 startActivity(intent);;
             }
         });
