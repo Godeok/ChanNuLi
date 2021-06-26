@@ -35,7 +35,7 @@ public class Game2Activity extends AppCompatActivity{
     //점수, 게임 횟수, 사용자가 누른 번호, 정답 값, 정답 보기 번호
     static int score=0, cnt=0, checked=0, a=0, num=0;
     static boolean operator = false;
-    static String total_time = "0011";       //타이머 돌릴 시간(분-- 초--)
+    static String total_time = "0101";       //타이머 돌릴 시간(분-- 초--)
     int level;
 
     CountDownTimer CDT;
@@ -146,7 +146,7 @@ public class Game2Activity extends AppCompatActivity{
     void initialize_data(){
         cnt=0;
         score=0;
-        total_time="0011";
+        total_time="0101";
     }
 
     //타이머
@@ -570,14 +570,14 @@ public class Game2Activity extends AppCompatActivity{
             tv_score.setText(score+"점");
 
             //정답 맞으면 3초 추가
-            change_time(3);
+            //change_time(3);
         }
         else {
             tv_result.setText("틀렸습니다");
             tv_answer.setTextColor(Color.parseColor("#FF0000"));
 
             //정답 틀리면 5초 감소
-            change_time(-5);
+            //change_time(-5);
         }
         operator=false;
         next_lv();
@@ -585,9 +585,6 @@ public class Game2Activity extends AppCompatActivity{
 
     //시간 형식 맞춰서 String 형태로 바꾸는 함수 (미완)
     public void change_time(int newSecond) {
-
-        //String getMin = total_time.substring(0, 2);
-        //String getSecond = total_time.substring(2, 4);
 
         String getSecond = total_time;
 

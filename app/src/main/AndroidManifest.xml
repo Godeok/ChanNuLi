@@ -96,6 +96,15 @@
             android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true"/>
         <activity
+            android:name=".game.Game3ActivityLv1"
+            android:noHistory="true"/>
+        <activity
+            android:name=".game.Game3ActivityLv2"
+            android:noHistory="true"/>
+        <activity
+            android:name=".game.Game3ActivityLv3"
+            android:noHistory="true"/>
+        <activity
             android:name=".game.Game3ResultActivity"
             android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
