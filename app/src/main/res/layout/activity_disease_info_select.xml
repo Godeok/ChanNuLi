@@ -8,6 +8,7 @@
     android:background="#FFFFFF"
     tools:context=".diseaseInfoSelect.DiseaseInfoSelectActivity">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/DIS_RV"
         android:layout_width="match_parent"

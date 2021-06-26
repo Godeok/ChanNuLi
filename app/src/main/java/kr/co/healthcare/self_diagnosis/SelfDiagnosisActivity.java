@@ -19,7 +19,7 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
 
     int num=0, countYes=0, disease_num;
     String title="";
-    private TextView tv_title, tv_question, tv_number;
+    private TextView tv_question, tv_number;
     private Button btn_yes, btn_no;
     public List<Questions> questionsList;
 
@@ -30,7 +30,6 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_diagnosis);
 
-        tv_title = findViewById(R.id.tv_title);
         btn_yes = findViewById(R.id.btn_yes);
         btn_no = findViewById(R.id.btn_no);
 
@@ -38,7 +37,7 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
         title = intent.getStringExtra("str");
         disease_num = intent.getIntExtra("disease_num", -1);
 
-        tv_title.setText(title);
+        this.setTitle(title + " 자가 진단하기");
 
         initLoadDB(disease_num);
         showQuestions(num);

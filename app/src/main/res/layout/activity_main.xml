@@ -5,112 +5,127 @@
     android:layout_height="match_parent"
     android:background= "#FFFFFF"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:background="#ffffff"
-        android:orientation="vertical"
-        android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="안녕하세요!"
-            android:textColor="#292929"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
 
-            <TextView
-                android:id="@+id/userName"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="홍길동"
-                android:textColor="#311B92"
-                android:textSize="38sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="70dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="10dp"
-                android:text="님."
-                android:textColor="#292929"
-                android:textSize="26sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="안녕하세요!"
+                    android:textColor="#292929"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="홍길동"
+                        android:textColor="#311B92"
+                        android:textSize="38sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="10dp"
+                        android:text="님."
+                        android:textColor="#292929"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/mypageBtn"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_main_mypage"
+                    android:onClick="showMyPage"
+                    android:text="마이페이지"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <androidx.gridlayout.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:columnCount="2"
+                app:orientation="horizontal">
+                <Button
+                    android:id="@+id/selfBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/btn_main_menu"
+                    android:text="자가진단"
+                    android:textSize="30dp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/healthInfoBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/btn_main_menu"
+                    android:onClick="showHealthInfo"
+                    android:text="건강정보"
+                    android:textSize="30dp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/btn_main_menu"
+                    android:onClick="showDiseaseInfoSelectPage"
+                    android:text="질병정보"
+                    android:textSize="30dp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/game_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    app:layout_columnWeight="1"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/btn_main_menu"
+                    android:text="건강 게임"
+                    android:textSize="30dp"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold" />
+            </androidx.gridlayout.widget.GridLayout>
+
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-        <Button
-            android:id="@+id/mypageBtn"
-            android:layout_width="140dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_main_mypage"
-            android:onClick="showMyPage"
-            android:text="마이페이지"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/selfBtn"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="25dp"
-            android:background="@drawable/btn_main_menu"
-            android:text="자가진단"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/healthInfoBtn"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="25dp"
-            android:background="@drawable/btn_main_menu"
-            android:onClick="showHealthInfo"
-            android:text="건강정보"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="25dp"
-            android:background="@drawable/btn_main_menu"
-            android:onClick="showDiseaseInfoSelectPage"
-            android:text="질병정보"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/game_btn"
-            android:layout_width="240dp"
-            android:layout_height="60dp"
-            android:background="@drawable/btn_main_menu"
-            android:text="건강 게임"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

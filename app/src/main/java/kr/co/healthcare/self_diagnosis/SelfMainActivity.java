@@ -13,17 +13,19 @@ public class SelfMainActivity extends AppCompatActivity {
     private Button btn_chkDate, btn_chkSymptom;
 
     Button button_q[] = new Button[7];
-    Integer[] Rid_button_q = {
+    /*Integer[] Rid_button_q = {
             R.id.btn_01, R.id.btn_02, R.id.btn_03, R.id.btn_04,
             R.id.btn_05, R.id.btn_06, R.id.btn_07
     };
+
+     */
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_main);
-
+/*
         //버튼 ID 연결
         for (int i=0; i<7; i++) button_q[i] = findViewById(Rid_button_q[i]);
         btn_chkDate = findViewById(R.id.btn_chkDate);
@@ -62,6 +64,10 @@ public class SelfMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+ */
     }
+
+
 
 }

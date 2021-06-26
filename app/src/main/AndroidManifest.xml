@@ -10,9 +10,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/CustomActionBarTheme">
 
-        <activity android:name=".mypage.EditGenderActivity"></activity>
+        <activity android:name=".mypage.EditGenderActivity" />
         <activity android:name=".mypage.EditDiseaseActivity" />
         <activity android:name=".mypage.EditNameActivity" />
         <activity android:name=".mypage.EditAgeActivity" />
@@ -21,56 +21,83 @@
         <activity
             android:name=".tutorial.ui.TutorialActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".diseaseInfo.DiseaseInfoActivity" />
-        <activity android:name=".diseaseInfoSelect.DiseaseInfoSelectActivity" />
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".diseaseInfo.DiseaseInfoActivity"
+            android:parentActivityName=".diseaseInfoSelect.DiseaseInfoSelectActivity" />
+
+        <activity android:name=".diseaseInfoSelect.DiseaseInfoSelectActivity"
+            android:label="@string/title_activity_disease_info_select"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mypage.MypageActivity" />
+        <activity android:name=".mypage.MypageActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".healthInfo.HealthInfoActivity"
-            android:label="@string/title_activity_health_info" /> <!-- 자가진단 -->
+            android:parentActivityName=".MainActivity"
+            android:label="@string/title_activity_health_info" />
+
+        <!--자가진단-->
         <activity
             android:name=".self_diagnosis.SelfMainActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/title_activity_self_diagnosis"
             android:noHistory="true" />
         <activity
             android:name=".self_diagnosis.SelfDiagnosisActivity"
+            android:parentActivityName=".self_diagnosis.SelfMainActivity"
             android:noHistory="true" />
         <activity
             android:name=".self_diagnosis.SelfShowResult"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
         <activity
             android:name=".self_diagnosis.SelfResultDateActivity"
+            android:parentActivityName=".self_diagnosis.SelfMainActivity"
+            android:label="@string/title_activity_self_diagnosis_result"
             android:noHistory="true" />
         <activity
             android:name=".self_diagnosis.SelfResultSymptomActivity"
+            android:parentActivityName=".self_diagnosis.SelfMainActivity"
+            android:label="@string/title_activity_self_diagnosis_result"
             android:noHistory="true" />
 
         <!-- 게임 -->
-        <activity android:name=".game.GameMainActivity" />
+        <activity android:name=".game.GameMainActivity"
+            android:label="@string/title_activity_game"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".game.Game1ResultActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
         <activity
             android:name=".game.Game1Activity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
 
         <activity
             android:name=".game.Game2Activity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
         <activity
             android:name=".game.Game2ResultActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
 
         <activity
             android:name=".game.Game3Activity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true"/>
         <activity
             android:name=".game.Game3ResultActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
     </application>
 

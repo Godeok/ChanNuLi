@@ -1,5 +1,6 @@
 package kr.co.healthcare.diseaseInfo;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,11 +46,10 @@ public class DiseaseInfoActivity extends AppCompatActivity {
         //질병 정보 초기화
         initDiseaseInfo();
 
-        setChip();
+        //actionBar title 설정
+        this.setTitle(disInfo.getName());
 
-        //질병 이름
-        TextView diseaseNameTV = (TextView) findViewById(R.id.DI_name);
-        diseaseNameTV.setText(disInfo.getName());
+        setChip();
 
         //질병 관련 정보
         recyclerView_DI = (RecyclerView)findViewById(R.id.DI_RV_info);

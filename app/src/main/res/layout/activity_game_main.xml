@@ -1,163 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff"
-    tools:context=".game.GameMainActivity">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        tools:context=".game.GameMainActivity"
+        android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tv_gameTitle"
-        android:layout_width="279dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="60dp"
-        android:background="#FFBC00"
-        android:gravity="center_vertical"
-        android:text="하나빼기"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlCompat" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_gameTitle2"
-        android:layout_width="279dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="40dp"
-        android:background="#81c147"
-        android:gravity="center_vertical"
-        android:text="간단 연산"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_to_game1_lv2"
-        tools:ignore="RtlCompat" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/game_main_explain"
+                android:padding="30dp"
+                android:textColor="#050B35"
+                android:background="#AEF8F8F8"
+                android:textSize="18dp"
+                android:layout_marginBottom="40dp"/>
 
-    <TextView
-        android:id="@+id/tv_gameTitle3"
-        android:layout_width="279dp"
-        android:layout_height="125dp"
-        android:layout_marginTop="40dp"
-        android:background="#009688"
-        android:gravity="center_vertical"
-        android:text="카드 뒤집기"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_to_game2_lv2"
-        tools:ignore="RtlCompat" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginBottom="35dp"
+                app:cardBackgroundColor="#9CCC65"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp">
 
-    <Button
-        android:id="@+id/btn_to_game1_lv1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_game_menu"
-        android:text="쉬움"
-        android:textColor="#393737"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="30dp"
+                    android:paddingVertical="25dp">
 
-    <Button
-        android:id="@+id/btn_to_game2_lv1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_game_menu"
-        android:text="쉬움"
-        android:textColor="#393737"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle2" />
+                    <TextView
+                        android:id="@+id/tv_gameTitle2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="하나빼기"
+                        android:textColor="#F1F8E9"
+                        android:textSize="32dp"
+                        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btn_to_game1_lv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_game_menu"
-        android:text="어려움"
-        android:textColor="#393737"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.795"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/btn_to_game2_lv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_game_menu"
-        android:text="어려움"
-        android:textColor="#393737"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.795"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle2" />
+                        <Button
+                            android:id="@+id/btn_to_game1_lv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:elevation="0dp"
+                            android:text="쉬움"
+                            android:textColor="#689F38"
+                            android:textSize="16dp" />
 
-    <Button
-        android:id="@+id/btn_to_game1_lv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_game_menu"
-        android:text="중간"
-        android:textColor="#393737"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle" />
+                        <Button
+                            android:id="@+id/btn_to_game1_lv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:text="중간"
+                            android:textColor="#689F38"
+                            android:textSize="16dp" />
 
-    <Button
-        android:id="@+id/btn_to_game2_lv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_game_menu"
-        android:text="중간"
-        android:textColor="#393737"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle2" />
+                        <Button
+                            android:id="@+id/btn_to_game1_lv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:text="어려움"
+                            android:textColor="#689F38"
+                            android:textSize="16dp" />
+                    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_to_game3_lv1"
-        android:layout_width="279dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_game_menu"
-        android:text="게임 시작"
-        android:textColor="#393737"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gameTitle3" />
+                </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginBottom="30dp"
+                app:cardBackgroundColor="#66BB6A"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="35dp"
+                    android:paddingVertical="25dp">
+
+                    <TextView
+                        android:id="@+id/tv_gameTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="간단 연산"
+                        android:textColor="#F1F8E9"
+                        android:textSize="32dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_to_game2_lv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:elevation="0dp"
+                            android:text="쉬움"
+                            android:textColor="#4CAF50"
+                            android:textSize="16dp" />
+
+                        <Button
+                            android:id="@+id/btn_to_game2_lv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:text="중간"
+                            android:textColor="#4CAF50"
+                            android:textSize="16dp" />
+
+                        <Button
+                            android:id="@+id/btn_to_game2_lv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:text="어려움"
+                            android:textColor="#4CAF50"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#26A69A"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginBottom="70dp"
+                app:cardCornerRadius="25dp"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="30dp"
+                    android:paddingVertical="25dp">
+
+                    <TextView
+                        android:id="@+id/tv_gameTitle3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="카드 뒤집기"
+                        android:textColor="#F1F8E9"
+                        android:textSize="32dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_to_game3_lv1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:text="게임 시작"
+                            android:textColor="#009688"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
