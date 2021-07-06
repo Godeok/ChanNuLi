@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -29,6 +30,7 @@ public class Game2Activity extends AppCompatActivity{
     TextView tv_equal;
     TextView tv_timer;
     Button btn_opt1, btn_opt2, btn_opt3, btn_opt4;
+    ProgressBar progressBar;
 
     int[] opt = new int[4];
 
@@ -50,8 +52,6 @@ public class Game2Activity extends AppCompatActivity{
         level = getIntent().getIntExtra("level", -1);
         //show_level(level);
 
-
-
         tv_score = findViewById(R.id.tv_score);
         tv_question = findViewById(R.id.tv_question);
         tv_answer = findViewById(R.id.tv_answer);
@@ -62,6 +62,7 @@ public class Game2Activity extends AppCompatActivity{
         btn_opt2 = findViewById(R.id.btn_opt2);
         btn_opt3 = findViewById(R.id.btn_opt3);
         btn_opt4 = findViewById(R.id.btn_opt4);
+        progressBar = findViewById(R.id.progressBar);
 
         //타이머
         countDown(total_time);
@@ -179,6 +180,12 @@ public class Game2Activity extends AppCompatActivity{
 
                 //밀리세컨드 단위
                 String millis = String.valueOf((getMin % (60 * 1000)) % 1000); // 몫
+
+                //타이머 bar
+                if(Integer.parseInt(min)==1)
+                    progressBar.setProgress(60);
+                else
+                    progressBar.setProgress(Integer.parseInt(second));
 
                 //숫자가 한 자리면 앞에 0을 붙임
                 if (min.length()==1) min = "0" + min;

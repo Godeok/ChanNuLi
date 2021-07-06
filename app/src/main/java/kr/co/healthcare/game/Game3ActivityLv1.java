@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -46,6 +48,16 @@ public class Game3ActivityLv1 extends AppCompatActivity {
         rotate_180 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_180);
         scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
         scale_smaller = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_smaller);
+
+        //정사각형 레이아웃
+        /*
+        LinearLayout linear_layout = (LinearLayout)this.findViewById(R.id.linear_layout);
+        ViewGroup.LayoutParams params = linear_layout.getLayoutParams();
+        int width = params.width;
+        params.height = width;
+        linear_layout.setLayoutParams(params);
+         */
+
 
         //카드 id 연결 + 터치 잠금
         for (int i=0; i<16; i++) {
