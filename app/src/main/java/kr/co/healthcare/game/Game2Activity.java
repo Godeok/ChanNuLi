@@ -188,10 +188,14 @@ public class Game2Activity extends AppCompatActivity{
                     progressBar.setProgress(Integer.parseInt(second));
 
                 //숫자가 한 자리면 앞에 0을 붙임
-                if (min.length()==1) min = "0" + min;
+                if (min.length()==1) {
+                    //min = "0" + min;
+                    second = "60";
+                }
                 if (second.length() == 1) second = "0" + second;
 
-                tv_timer.setText(min + ":" + second);
+                //tv_timer.setText(min + ":" + second);     //분:초 타이머
+                tv_timer.setText(second);                   //초 타이머
                 total_time = min+second;
             }
 

@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="7"
+            android:layout_weight="8"
             android:max="60"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="72dp" />
@@ -60,7 +60,7 @@
             android:id="@+id/tv_timer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:gravity="center_horizontal"
             android:text="타이머"
             android:textColor="#000000"

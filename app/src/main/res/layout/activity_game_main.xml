@@ -69,8 +69,9 @@
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
                             android:elevation="0dp"
-                            android:text="+"
-                            android:onClick="OnClickHandler1"
+                            android:text="\?"
+                            android:textStyle="bold"
+                            android:onClick="OnClickHandler"
                             android:textColor="#689F38"
                             android:textSize="16dp" />
                     </LinearLayout>
@@ -158,8 +159,9 @@
                         android:layout_weight="1"
                         android:background="@drawable/btn_game_menu"
                         android:elevation="0dp"
-                        android:text="+"
-                        android:onClick="OnClickHandler2"
+                        android:text="\?"
+                        android:textStyle="bold"
+                        android:onClick="OnClickHandler"
                         android:textColor="#689F38"
                         android:textSize="16dp" />
 
@@ -251,8 +253,9 @@
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
                             android:elevation="0dp"
-                            android:text="+"
-                            android:onClick="OnClickHandler3"
+                            android:text="\?"
+                            android:textStyle="bold"
+                            android:onClick="OnClickHandler"
                             android:textColor="#689F38"
                             android:textSize="16dp" />
                     </LinearLayout>
