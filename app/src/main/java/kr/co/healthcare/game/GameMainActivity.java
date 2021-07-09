@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -95,8 +94,8 @@ public class GameMainActivity extends AppCompatActivity {
         btn_to_game3_lv1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game3ActivityLv1.class);
-                //intent.putExtra("level", 1);
+                Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
+                intent.putExtra("level", 1);
                 startActivity(intent);;
             }
         });

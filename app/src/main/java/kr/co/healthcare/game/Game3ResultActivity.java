@@ -60,22 +60,9 @@ public class Game3ResultActivity extends AppCompatActivity {
         btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(level==1) {
-                    Intent intent = new Intent(getApplicationContext(), Game3ActivityLv1.class);
-                    intent.putExtra("level", level);
-                    startActivity(intent);
-                }
-                else if(level==2) {
-                    Intent intent = new Intent(getApplicationContext(), Game3ActivityLv2.class);
-                    intent.putExtra("level", level);
-                    startActivity(intent);
-                }
-                else if(level==3) {
-                    Intent intent = new Intent(getApplicationContext(), Game3ActivityLv3.class);
-                    intent.putExtra("level", level);
-                    startActivity(intent);
-                }
-                else finish();
+                Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
+                intent.putExtra("level", 1);
+                startActivity(intent);
             }
         });
 
