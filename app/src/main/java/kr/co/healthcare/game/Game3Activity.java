@@ -20,20 +20,20 @@ import kr.co.healthcare.R;
 
 public class Game3Activity extends AppCompatActivity {
 
-    int level;
+    int level, score;
     int number_of_cards;
 
     static int MAX_CARDS = 24;
-    static int MAX_ATTEMPT = 10;
-    static int ATTEMPT_CNT =0;
-    static int FIRST=0, SECOND=0,       //카드에 적힌 숫자
-            CARD_NUM_1=0, CARD_NUM_2=0;    //1-16 카드 중 어떤 카드인지
+    static int MAX_ATTEMPT = 10;    //시도 가능 최대 횟수
+    static int ATTEMPT_CNT =0;      //사용자의 시도 횟수
+    static int FIRST=0, SECOND=0,           //카드에 적힌 숫자
+            CARD_NUM_1=0, CARD_NUM_2=0;     //1-16 카드 중 어떤 카드인지
 
     Animation rotate_180;
     Animation scale_bigger;
     Animation scale_smaller;
 
-    TextView tv_count2;
+    TextView tv_count2, tv_score;
     TextView[] cards = new TextView[MAX_CARDS];
     Integer[] Rid_tv_cards = {
             R.id.card1, R.id.card2, R.id.card3, R.id.card4, R.id.card5, R.id.card6, R.id.card7, R.id.card8,
@@ -50,6 +50,7 @@ public class Game3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_game3);
 
         //id 연결
+        tv_score = findViewById(R.id.tv_score);
         tv_count2 = findViewById(R.id.tv_count2);
         rotate_180 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_180);
         scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
@@ -75,7 +76,8 @@ public class Game3Activity extends AppCompatActivity {
 
 
         //점수 설정
-
+        score = getIntent().getIntExtra("score", 0);
+        tv_score.setText(score+"점");
 
 
         //카드 id 연결 + 터치 잠금
@@ -114,7 +116,7 @@ public class Game3Activity extends AppCompatActivity {
                     cards[i].setEnabled(true);
                 }
             }
-        }, 3000);
+        }, 2000+level*1000);
 
         //실행
         for(int i=0; i<number_of_cards; i++){
@@ -203,13 +205,19 @@ public class Game3Activity extends AppCompatActivity {
     void match_or_not(){
         //카드 같으면
         if(FIRST == SECOND && CARD_NUM_1 != CARD_NUM_2){
-            int color_white = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
-            cards[CARD_NUM_1].setBackgroundColor(color_white);
-            cards[CARD_NUM_2].setBackgroundColor(color_white);
+            int color_grey = ContextCompat.getColor(getApplicationContext(), R.color.colorGrey);
+            cards[CARD_NUM_1].setBackgroundColor(color_grey);
+            cards[CARD_NUM_2].setBackgroundColor(color_grey);
+            cards[CARD_NUM_1].setTextColor(color_grey);
+            cards[CARD_NUM_2].setTextColor(color_grey);
+
             check_card[CARD_NUM_1] = check_card[CARD_NUM_2] = 1;
 
             cards[CARD_NUM_1].setEnabled(false);
             cards[CARD_NUM_2].setEnabled(false);
+
+            score+=20;
+            tv_score.setText(score+"점");
         }
 
         //카드 다르면
@@ -227,6 +235,10 @@ public class Game3Activity extends AppCompatActivity {
 
             ATTEMPT_CNT++;
             tv_count2.setText(MAX_ATTEMPT - ATTEMPT_CNT +"회");
+
+            if(score>=10) score-=10;
+            else score=0;
+            tv_score.setText(score+"점");
         }
 
         FIRST = SECOND = CARD_NUM_1 = CARD_NUM_2 = 0;
@@ -238,7 +250,7 @@ public class Game3Activity extends AppCompatActivity {
         //게임 끝(lose)
         if(MAX_ATTEMPT == ATTEMPT_CNT){
             Intent intent = new Intent(getApplicationContext(), Game3ResultActivity.class);
-            intent.putExtra("score", 0);
+            intent.putExtra("score", score);
             intent.putExtra("level", level);
             startActivity(intent);
         }
@@ -258,13 +270,14 @@ public class Game3Activity extends AppCompatActivity {
                     intent.putExtra("level", level + 1);
                 }
 
-                intent.putExtra("score", MAX_ATTEMPT - ATTEMPT_CNT);
+                intent.putExtra("score", score);
                 startActivity(intent);
             }
         }
 
         for (int j=0; j<number_of_cards; j++)
-            cards[j].setEnabled(true);
+            if(check_card[j]!=1)
+                cards[j].setEnabled(true);
     }
 
     void card_touched(int i){
