@@ -80,7 +80,7 @@ public class DataAdapter {
         }
     }
 
-    //이 코드는 안 씁니다
+    //이 코드는 안 씀
     public void getTableData2(){
         Cursor c = mDB.rawQuery("SELECT * FROM "+TABLE_NAME, null);
         while(c.moveToNext()) {

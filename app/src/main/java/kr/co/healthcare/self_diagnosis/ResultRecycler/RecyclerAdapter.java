@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis.Recycler;
+package kr.co.healthcare.self_diagnosis.ResultRecycler;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
