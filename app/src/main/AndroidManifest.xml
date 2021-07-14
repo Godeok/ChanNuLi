@@ -95,17 +95,11 @@
             android:noHistory="true" />
 
         <activity
-            android:name=".game.Game3Activity"
+            android:name=".game.Game3ActivityGridviewVer"
             android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true"/>
         <activity
-            android:name=".game.Game3ActivityLv1"
-            android:noHistory="true"/>
-        <activity
-            android:name=".game.Game3ActivityLv2"
-            android:noHistory="true"/>
-        <activity
-            android:name=".game.Game3ActivityLv3"
+            android:name=".game.Game3Activity"
             android:noHistory="true"/>
         <activity
             android:name=".game.Game3ResultActivity"

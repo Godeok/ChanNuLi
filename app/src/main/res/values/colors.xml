@@ -6,7 +6,7 @@
     <color name="colorPrimaryTutorial">#00C364</color>
     <color name="colorPrimaryDarkTutorial">@color/primary3Color</color>
     <color name="colorAccentTutorial">#00E676</color>
-
+    
     <color name="colorGreen">#4CAF50</color>
     <color name="colorPurple">#EC407A</color>
 
