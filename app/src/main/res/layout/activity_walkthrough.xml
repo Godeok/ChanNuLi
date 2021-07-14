@@ -6,56 +6,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    android:gravity="fill_vertical"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="40dp"
-    android:onClick="onClickLayout"
+    android:paddingVertical="15dp"
     tools:context=".walkthrough.WalkthroughActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="70dp"
-        android:text="찬누리 가입을 환영합니다"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        app:srcCompat="@drawable/healthcare" />
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/img_greeting" />
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="찬누리로 손쉽게 건강관리하세요"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/greeting"
         android:textAlignment="center"
-        android:textColor="#3D5AFE"
-        android:textSize="22sp"
+        android:textColor="@color/primary3Color"
+        android:textSize="26sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:text="세상의 모서리 구부정하게 커버린 골칫거리 outsider 걸음걸이, 옷차림 이어폰 너머 playlist 음악까지 다 minor 넌 모르지 떨군 고개 위 환한 빛 조명이 (어딜 비추는지)"
-        android:textAlignment="center"
-        android:textColor="#494949"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="아무곳이나 클릭해 다음화면으로 넘어가기"
+        android:layout_marginBottom="70dp"
+        android:text="찬누리로 손쉽게 건강관리하세요"
         android:textAlignment="center"
-        android:textColor="#AFAFAF"
-        android:textSize="10sp" />
+        android:textColor="@color/defaultTextColor"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/stepBtn"
+        android:onClick="onClickNextStepBtn"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_enable"
+        android:textSize="20sp"
+        android:textColor="@color/btn_text"
+        android:text="시작하기"
+        android:enabled="true" />
 </LinearLayout>

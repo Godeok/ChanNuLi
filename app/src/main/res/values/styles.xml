@@ -1,10 +1,11 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primary3Color</item>
+        <item name="colorAccent">@color/primary2Color</item>
+        <item name="android:windowBackground">@color/whiteColor</item>
+        <item name="elevation">0dp</item>
     </style>
 
     <style name="SpinnerDivideStyle" parent="android:style/Widget.ListView.DropDown">
@@ -21,15 +22,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light">
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:actionBarStyle">@style/MyActionBar</item>
-        <item name="actionBarStyle">@style/MyActionBar</item>
-    </style>
-
     <!-- ActionBar styles -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="background">@color/colorWhite</item>
+        <item name="background">@color/whiteColor</item>
         <item name="elevation">0dp</item>
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
@@ -37,10 +32,10 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
     <style name="TabTheme" parent="Theme.MaterialComponents.DayNight">
-        <item name="colorPrimary">#5E35B1</item>                                <!-- 배경 -->
-        <item name="android:textColorPrimary">#5E35B1</item>       <!-- 탭바 선택된 텍스트 -->
-        <item name="android:textColorSecondary">@android:color/secondary_text_dark</item>     <!-- 탭바 텍스트 -->
-        <item name="colorAccent">#5E35B1</item>                    <!-- 하단 움직이는 바 색-->
+        <item name="colorPrimary">@color/primaryColor</item>                                <!-- 배경 -->
+        <item name="android:textColorPrimary">#FFEE58</item>       <!-- 탭바 선택된 텍스트 -->
+        <item name="android:textColorSecondary">@color/colorPrimaryDarkTutorial</item>     <!-- 탭바 텍스트 -->
+        <item name="colorAccent">#26C6DA</item>                    <!-- 하단 움직이는 바 색-->
     </style>
 
     <style name="spinnerTheme">
@@ -51,5 +46,12 @@
 
     <style name="Chip" parent="Theme.MaterialComponents.Light">
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:colorControlNormal">@color/primaryColor</item>
+        <item name="android:colorControlActivated">@color/primary3Color</item>
+        <item name="android:colorControlHighlight">@color/primary2Color</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
     </style>
 </resources>

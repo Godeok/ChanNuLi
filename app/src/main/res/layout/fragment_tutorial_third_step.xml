@@ -8,15 +8,19 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/yearTextInputLayout"
-        android:theme="@style/Theme.Design.Light"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="40dp"
+        android:textColorHint="@color/midLightTextColor"
+        app:counterTextColor="@color/midLightTextColor"
+        app:boxStrokeColor="@color/primary3Color"
+        app:hintTextColor="@color/primary3Color"
         android:hint="년도 입력">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp" />
+            android:inputType="number"
+            android:textSize="22sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </FrameLayout>

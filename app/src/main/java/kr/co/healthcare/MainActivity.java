@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 userNameTV.setText(name);
             }
         });
+        
 
         if (!isTutorialFinished) {  //튜토리얼 미완료 시
             intent = new Intent(getApplicationContext(), TutorialActivity.class);

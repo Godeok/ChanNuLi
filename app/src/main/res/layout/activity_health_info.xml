@@ -7,15 +7,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#ffffff"
-    tools:context=".healthInfo.HealthInfoActivity"
-    android:theme="@style/TabTheme">
+    tools:context=".healthInfo.HealthInfoActivity">
 
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabMode="fixed"
-            app:tabGravity="fill" />
+        app:tabMode="scrollable"
+        app:tabGravity="fill"
+        android:theme="@style/TabTheme" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"

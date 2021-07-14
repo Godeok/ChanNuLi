@@ -6,6 +6,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import kr.co.healthcare.MainActivity;
@@ -22,11 +24,18 @@ public class WalkthroughActivity extends AppCompatActivity {
         setContentView(R.layout.activity_walkthrough);
 
         walkThroughActivity = WalkthroughActivity.this;
+        loadAnimation();
     }
 
-    public void onClickLayout(View v){
+    public void onClickNextStepBtn(View v){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         walkThroughActivity.finish();
+    }
+
+    private void loadAnimation(){
+        final LinearLayout linearLayout = findViewById(R.id.linearLayout);
+        final Animation popUpAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        linearLayout.setAnimation(popUpAnimation);
     }
 }

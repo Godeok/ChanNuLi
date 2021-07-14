@@ -2,6 +2,7 @@ package kr.co.healthcare.mypage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -71,6 +72,12 @@ public class MypageActivity extends AppCompatActivity {
         viewModel.getUserBirthYear(this).observe(this, birthYearObserver);
 
         //setChip();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.mypage_menu, menu);
+        return true;
     }
 
     //이름 수정 페이지로 가기

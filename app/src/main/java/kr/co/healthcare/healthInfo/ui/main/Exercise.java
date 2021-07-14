@@ -32,7 +32,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.diseaseInfo.contents.DiseaseInfoAdapter;
 
 import static android.content.ContentValues.TAG;
 
@@ -100,8 +99,6 @@ public class Exercise extends Fragment {
                 System.out.println("출력============");
                 System.out.println(searchResponse.getItems());
                 if (searchResultList != null) {
-                    //예제에서는 메소드 이용해서 확인만 했지만, 사용하고 싶은 메소드를 작성하셔서
-                    //Array에 추가하거나 다르게 활용하시면 됩니다.
                     CheckList(searchResultList.iterator());
                 }
             } catch (GoogleJsonResponseException e) {

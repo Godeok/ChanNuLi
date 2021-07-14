@@ -13,12 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.Calendar;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.tutorial.PreferenceManger;
@@ -62,10 +59,10 @@ public class TutorialThirdStepFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().length() == 0) {
                     nextBtn.setEnabled(false);
-                    nextBtn.setBackgroundResource(R.drawable.btn_tutorial_step_not_finished);
+                    nextBtn.setBackgroundResource(R.drawable.btn_disable);
                 }else{
                     nextBtn.setEnabled(true);
-                    nextBtn.setBackgroundResource(R.drawable.btn_tutorial_step_finished);
+                    nextBtn.setBackgroundResource(R.drawable.btn_enable);
                 }
             }
             @Override

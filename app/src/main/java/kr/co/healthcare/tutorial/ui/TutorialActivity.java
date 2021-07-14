@@ -1,13 +1,15 @@
 package kr.co.healthcare.tutorial.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -29,7 +31,9 @@ public class TutorialActivity extends AppCompatActivity {
 
     private TextView title;
     private TextView subTitle;
+    private TextView subTitleEtc;
     private ProgressBar progressBar;
+    private FrameLayout frameLayout;
     private Button nextBtn;
 
     private ArrayList<String> titles;
@@ -51,6 +55,8 @@ public class TutorialActivity extends AppCompatActivity {
 
         title = findViewById(R.id.stepExplain_TV);
         subTitle = findViewById(R.id.step_TV);
+        subTitleEtc = findViewById(R.id.step_explain);
+        frameLayout = findViewById(R.id.tutorialFrameLayout);
         progressBar = findViewById(R.id.progressBar);
         nextBtn = findViewById(R.id.stepBtn);
 
@@ -80,11 +86,11 @@ public class TutorialActivity extends AppCompatActivity {
 
     public void onClickNextStepBtn(View v){
         setUserData(progressNum);
+        loadAnimation();
         if(progressNum<4) {
             changeTutorial(++progressNum);
-            // 버튼 다시 비활성화
             nextBtn.setEnabled(false);
-            nextBtn.setBackgroundResource(R.drawable.btn_tutorial_step_not_finished);
+            nextBtn.setBackgroundResource(R.drawable.btn_disable);
         }else{
             PreferenceManger.setBoolean(this, PreferenceManger.PREF_IS_TUTORIAL_FINISHED, true);
             Intent intent = new Intent(getApplicationContext(), WalkthroughActivity.class);
@@ -94,13 +100,11 @@ public class TutorialActivity extends AppCompatActivity {
     }
 
     private void changeTutorial(int index){
-        subTitle.setText(getSubTitleByIndex(index));
+        subTitle.setText(Integer.toString(index));
         title.setText(getTitleByIndex(index));
         changeProgressBar(index);
         changeFragment(index);
     }
-
-    private String getSubTitleByIndex(int index){ return String.format("%d번째 단계", index); }
 
     private String getTitleByIndex(int index){ return titles.get(index-1); }
 
@@ -120,6 +124,18 @@ public class TutorialActivity extends AppCompatActivity {
         else if (index == 3) getSupportFragmentManager().beginTransaction().replace(R.id.tutorialFrameLayout, thirdStepFragment).commit();
         else if (index == 4) getSupportFragmentManager().beginTransaction().replace(R.id.tutorialFrameLayout, fourthStepFragment).commit();
         else throw new IllegalStateException("Unexpected value: " + index);
+    }
+
+    //애니메이션 효과
+    private void loadAnimation(){
+        final Animation popUpAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_and_pop_up);
+        final Animation progressBarAnimation = AnimationUtils.loadAnimation(this, R.anim.progressbar);
+        subTitle.startAnimation(popUpAnimation);
+        subTitleEtc.startAnimation(popUpAnimation);
+        title.startAnimation(popUpAnimation);
+        progressBar.startAnimation(progressBarAnimation);
+        frameLayout.startAnimation(popUpAnimation);
+        nextBtn.startAnimation(popUpAnimation);
     }
 
     // 뒤로가기 버튼
