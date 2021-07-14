@@ -23,7 +23,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_self_recycler_item,parent,false);
+                .inflate(R.layout.item_self_diagnosis_result_container,parent,false);
         return new MyViewHolder(view);
     }
 
