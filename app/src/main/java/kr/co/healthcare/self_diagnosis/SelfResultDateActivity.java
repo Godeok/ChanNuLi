@@ -20,7 +20,7 @@ import java.util.List;
 import kr.co.healthcare.R;
 import kr.co.healthcare.self_diagnosis.ResultDB.AppDatabase;
 import kr.co.healthcare.self_diagnosis.ResultDB.*;
-import kr.co.healthcare.self_diagnosis.Recycler.RecyclerAdapter;
+import kr.co.healthcare.self_diagnosis.ResultRecycler.RecyclerAdapter;
 
 
 public class SelfResultDateActivity extends AppCompatActivity {
