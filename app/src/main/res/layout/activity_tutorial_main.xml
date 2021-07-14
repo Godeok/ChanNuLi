@@ -8,44 +8,64 @@
     android:layout_height="match_parent"
     android:gravity="fill_vertical"
     android:orientation="vertical"
-    android:paddingVertical="30dp"
-    android:paddingHorizontal="20dp">
-    <TextView
-        android:id="@+id/step_TV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1번째 단계"
-        android:textColor="#B6B6B6"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="5dp"/>
-    <TextView
-        android:id="@+id/stepExplain_TV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tutorial_step_1"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="25dp"/>
-
+    android:paddingVertical="15dp">
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/progressbar_tutorial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminateOnly="false"
         android:max="4"
         android:progress="1"
+        android:minHeight="3dp"
         android:indeterminateDuration="100"
         android:layout_marginBottom="40dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp">
+
+        <TextView
+            android:id="@+id/step_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textColor="@color/primaryColor"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/step_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="번째 단계"
+            android:textColor="@color/lightTextColor"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/stepExplain_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tutorial_step_1"
+        android:textColor="@color/defaultTextColor"
+        android:textSize="26sp"
+        android:lineSpacingExtra="10sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"
+        android:layout_marginHorizontal="20dp"/>
+
 
     <FrameLayout
         android:id="@+id/tutorialFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginHorizontal="20dp">
     </FrameLayout>
 
     <Button
@@ -54,9 +74,10 @@
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_tutorial_step_not_finished"
+        android:background="@drawable/btn_disable"
         android:textSize="20sp"
+        android:textColor="@color/btn_text"
         android:text="@string/tutorial_btn"
         android:enabled="false"
-        />
+        android:layout_marginHorizontal="20dp" />
 </LinearLayout>

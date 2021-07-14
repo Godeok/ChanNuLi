@@ -51,14 +51,14 @@ public class TutorialSecondStepFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(manClicked) {
-                    manBtn.setBackgroundResource(R.drawable.btn_gender_not_selected);
+                    manBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
                 }
                 else {
                     if(womanClicked) {
-                        womanBtn.setBackgroundResource(R.drawable.btn_gender_not_selected);
+                        womanBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
                         womanClicked = !womanClicked;
                     }
-                    manBtn.setBackgroundResource(R.drawable.btn_gender_selected);
+                    manBtn.setBackgroundResource(R.drawable.btn_round_selected);
                 }
                 manClicked = !manClicked;
                 checkGenderBtnClicked();
@@ -68,14 +68,14 @@ public class TutorialSecondStepFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(womanClicked) {
-                    womanBtn.setBackgroundResource(R.drawable.btn_gender_not_selected);
+                    womanBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
                 }
                 else {
                     if(manClicked) {
-                        manBtn.setBackgroundResource(R.drawable.btn_gender_not_selected);
+                        manBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
                         manClicked = !manClicked;
                     }
-                    womanBtn.setBackgroundResource(R.drawable.btn_gender_selected);
+                    womanBtn.setBackgroundResource(R.drawable.btn_round_selected);
                 }
                 womanClicked = !womanClicked;
                 checkGenderBtnClicked();
@@ -86,10 +86,10 @@ public class TutorialSecondStepFragment extends Fragment {
     private void checkGenderBtnClicked(){
         if(manClicked || womanClicked) {
             nextBtn.setEnabled(true);
-            nextBtn.setBackgroundResource(R.drawable.btn_tutorial_step_finished);
+            nextBtn.setBackgroundResource(R.drawable.btn_enable);
         }else {
             nextBtn.setEnabled(false);
-            nextBtn.setBackgroundResource(R.drawable.btn_tutorial_step_not_finished);
+            nextBtn.setBackgroundResource(R.drawable.btn_disable);
         }
     }
 

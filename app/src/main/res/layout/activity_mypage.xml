@@ -13,24 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#311B92"
-        android:paddingHorizontal="25dp">
+        android:background="@color/defaultColor"
+        android:paddingHorizontal="20dp">
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="90dp" />
+            android:layout_height="54dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="환영합니다"
-            android:textStyle="bold"
-            android:textSize="18dp"/>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="5dp" />
-
+            android:textColor="@color/defaultTextColor"
+            android:textSize="26sp"
+            android:layout_marginBottom="10sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,27 +44,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="홍진서"
-                    android:textStyle="bold"
-                    android:textSize="28dp"
-                    android:textColor="#ffffff"/>
+                    android:textSize="26sp"
+                    android:textColor="@color/primary2Color"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="님"
-                    android:textSize="28dp"
-                    android:textColor="#ffffff"/>
+                    android:textSize="26sp"
+                    android:textColor="@color/defaultTextColor"/>
             </LinearLayout>
-
-            <Button
-                android:id="@+id/modifyBtn"
-                android:layout_width="75dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:background="@drawable/btn_mypage_modify"
-                android:onClick="showEditNameActivity"
-                android:text="수정"
-                android:textColor="#ffffff"
-                android:textSize="16dp" />
 
         </LinearLayout>
         <Space
@@ -84,14 +68,20 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:paddingHorizontal="25dp"/>
+        android:paddingHorizontal="20dp"/>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/woman_round" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingVertical="15dp"
         android:orientation="vertical"
-        android:paddingHorizontal="30dp"
+        android:paddingHorizontal="20dp"
         android:background="@drawable/layout_mypage_user_info">
 
         <LinearLayout
@@ -257,8 +247,8 @@
         android:text="게임 기록"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:paddingHorizontal="25dp"
-        android:textSize="15sp"/>
+        android:paddingHorizontal="20dp"
+        android:textSize="14sp"/>
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_marginStart="25dp"

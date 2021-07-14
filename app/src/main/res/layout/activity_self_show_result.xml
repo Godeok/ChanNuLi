@@ -52,7 +52,7 @@
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:layout_marginBottom="150dp"
-        android:background="@drawable/btn_square_purple"
+        android:background="@drawable/btn_square_green"
         android:text="저장"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"

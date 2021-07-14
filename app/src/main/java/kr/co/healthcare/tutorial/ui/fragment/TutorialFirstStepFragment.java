@@ -58,10 +58,10 @@ public class TutorialFirstStepFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if(s.toString().contains("#") || s.toString().length() == 0) {
                     nextBtn.setEnabled(false);
-                    nextBtn.setBackgroundResource(R.drawable.btn_tutorial_step_not_finished);
+                    nextBtn.setBackgroundResource(R.drawable.btn_disable);
                 }else{
                     nextBtn.setEnabled(true);
-                    nextBtn.setBackgroundResource(R.drawable.btn_tutorial_step_finished);
+                    nextBtn.setBackgroundResource(R.drawable.btn_enable);
                 }
             }
             @Override
@@ -70,6 +70,8 @@ public class TutorialFirstStepFragment extends Fragment {
                     nameInputLayout.setError("특수 문자는 사용할 수 없습니다.");
                 }else if(s.toString().length() == 0) {
                     nameInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
+                }else if(s.toString().length() > 5){
+                    nameInputLayout.setError("최대 글자 수를 초과했습니다.");
                 } else {
                     nameInputLayout.setError(null); // null은 에러 메시지를 지워주는 기능
                 }

@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.diseaseInfo.contents.DiseaseInfoAdapter;
 
 
 public class Diet extends Fragment {

@@ -269,11 +269,33 @@
                             android:id="@+id/btn_to_game3_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:elevation="0dp"
+                            android:text="쉬움"
+                            android:textColor="#4CAF50"
+                            android:textSize="16dp" />
+
+                        <Button
+                            android:id="@+id/btn_to_game3_lv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:text="중간"
+                            android:textColor="#4CAF50"
+                            android:textSize="16dp" />
+
+                        <Button
+                            android:id="@+id/btn_to_game3_lv3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
-                            android:text="게임 시작"
-                            android:textColor="#009688"
+                            android:text="어려움"
+                            android:textColor="#4CAF50"
                             android:textSize="16dp" />
                     </LinearLayout>
 
