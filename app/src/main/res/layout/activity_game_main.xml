@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff"
-        tools:context=".game.GameMainActivity"
-        android:orientation="vertical">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".game.GameMainActivity"
+    android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -136,37 +136,37 @@
                     android:paddingVertical="25dp">
 
                     <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tv_gameTitle"
-                        android:layout_width="0px"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4"
-                        android:layout_marginBottom="20dp"
-                        android:text="간단 연산"
-                        android:textColor="#F1F8E9"
-                        android:textSize="32dp"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tv_gameTitle"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:layout_marginBottom="20dp"
+                            android:text="간단 연산"
+                            android:textColor="#F1F8E9"
+                            android:textSize="32dp"
+                            android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/btn_toast2"
-                        android:layout_width="0px"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/btn_game_menu"
-                        android:elevation="0dp"
-                        android:text="\?"
-                        android:textStyle="bold"
-                        android:onClick="OnClickHandler"
-                        android:textColor="#689F38"
-                        android:textSize="16dp" />
+                        <Button
+                            android:id="@+id/btn_toast2"
+                            android:layout_width="0px"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_game_menu"
+                            android:elevation="0dp"
+                            android:text="\?"
+                            android:textStyle="bold"
+                            android:onClick="OnClickHandler"
+                            android:textColor="#689F38"
+                            android:textSize="16dp" />
 
 
-                </LinearLayout>
+                    </LinearLayout>
 
 
 
@@ -269,33 +269,11 @@
                             android:id="@+id/btn_to_game3_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
-                            android:elevation="0dp"
-                            android:text="쉬움"
-                            android:textColor="#4CAF50"
-                            android:textSize="16dp" />
-
-                        <Button
-                            android:id="@+id/btn_to_game3_lv2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
-                            android:text="중간"
-                            android:textColor="#4CAF50"
-                            android:textSize="16dp" />
-
-                        <Button
-                            android:id="@+id/btn_to_game3_lv3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
-                            android:text="어려움"
-                            android:textColor="#4CAF50"
+                            android:text="게임 시작"
+                            android:textColor="#009688"
                             android:textSize="16dp" />
                     </LinearLayout>
 

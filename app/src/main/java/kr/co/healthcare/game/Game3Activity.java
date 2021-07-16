@@ -160,7 +160,7 @@ public class Game3Activity extends AppCompatActivity {
 
     void change_to_checked(int num){
         int color_purple = ContextCompat.getColor(getApplicationContext(), R.color.colorPurple);
-        int color_white = ContextCompat.getColor(getApplicationContext(), R.color.colorWhite);
+        int color_white = ContextCompat.getColor(getApplicationContext(), R.color.whiteColor);
 
         //카드 애니메이션
         /*
@@ -205,7 +205,7 @@ public class Game3Activity extends AppCompatActivity {
     void match_or_not(){
         //카드 같으면
         if(FIRST == SECOND && CARD_NUM_1 != CARD_NUM_2){
-            int color_grey = ContextCompat.getColor(getApplicationContext(), R.color.colorGrey);
+            int color_grey = ContextCompat.getColor(getApplicationContext(), R.color.defaultColor);
             cards[CARD_NUM_1].setBackgroundColor(color_grey);
             cards[CARD_NUM_2].setBackgroundColor(color_grey);
             cards[CARD_NUM_1].setTextColor(color_grey);

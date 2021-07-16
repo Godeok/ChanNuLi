@@ -49,7 +49,6 @@ public class Game3GridViewAdapter extends BaseAdapter {
         /*
         TextView tv_name = view.findViewById(R.id.textView_name);
         tv_name.setText(items.get(i).name);
-
         TextView tv_gender = view.findViewById(R.id.textView_age);
         tv_gender.setText(items.get(i).age);
          */
