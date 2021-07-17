@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.healthcare">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,6 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".mypage.EditGenderActivity" />
         <activity android:name=".mypage.EditDiseaseActivity" />
@@ -24,28 +34,23 @@
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity android:name=".mypage.MypageActivity"
+            android:label="@string/title_activity_mypage"
+            android:parentActivityName=".MainActivity"/>
+
+        <!--건강 정보-->
+        <activity
+            android:name=".healthInfo.HealthInfoActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/title_activity_health_info" />
+
+        <!--질병 정보-->
         <activity android:name=".diseaseInfo.DiseaseInfoActivity"
             android:parentActivityName=".diseaseInfoSelect.DiseaseInfoSelectActivity" />
 
         <activity android:name=".diseaseInfoSelect.DiseaseInfoSelectActivity"
             android:label="@string/title_activity_disease_info_select"
             android:parentActivityName=".MainActivity"/>
-
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.Design.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".mypage.MypageActivity"
-            android:label="@string/title_activity_mypage"
-            android:parentActivityName=".MainActivity"/>
-        <activity
-            android:name=".healthInfo.HealthInfoActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_activity_health_info" />
 
         <!--자가진단-->
         <activity
@@ -100,6 +105,7 @@
             android:noHistory="true"/>
         <activity
             android:name=".game.Game3Activity"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true"/>
         <activity
             android:name=".game.Game3ResultActivity"

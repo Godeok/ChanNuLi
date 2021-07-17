@@ -39,7 +39,7 @@
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="40dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/old_man" />
+                android:src="@drawable/img_person_man" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="40dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/old_woman" />
+                android:src="@drawable/img_person_woman" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

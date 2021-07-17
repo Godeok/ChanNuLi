@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.diseaseInfo.DiseaseInfoActivity;
+import kr.co.healthcare.healthInfo.ui.main.DietData;
 
 public class DiseaseInfoSelectAdapter extends RecyclerView.Adapter<DiseaseInfoSelectAdapter.ItemViewHolder> {
     private ArrayList<DiseaseInfoSelectData> arrayList;
@@ -25,15 +28,14 @@ public class DiseaseInfoSelectAdapter extends RecyclerView.Adapter<DiseaseInfoSe
     @NonNull
     @Override
     public DiseaseInfoSelectAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.disease_info_select_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_disease_info_select,parent,false);
         return new ItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final DiseaseInfoSelectAdapter.ItemViewHolder holder, final int position) {
-        holder.Btn_diseaseName.setText(arrayList.get(position).getDiseaseName());
-        //TODO: 더 효율적인 방식으로 변경
-        holder.Btn_diseaseName.setOnClickListener(new View.OnClickListener() {
+        holder.diseaseName.setText(arrayList.get(position).getDiseaseName());
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
@@ -49,13 +51,16 @@ public class DiseaseInfoSelectAdapter extends RecyclerView.Adapter<DiseaseInfoSe
         return (null != arrayList? arrayList.size():0);
     }
 
+
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        protected Button Btn_diseaseName;
+        protected TextView diseaseName;
+        protected LinearLayout linearLayout;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.Btn_diseaseName = (Button) itemView.findViewById(R.id.DIS_name);
+            this.diseaseName = (TextView) itemView.findViewById(R.id.txt_name);
+            this.linearLayout = itemView.findViewById(R.id.heading_layout);
         }
     }
 }

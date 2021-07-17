@@ -30,4 +30,7 @@
     <string name="woman">여자</string>
     <string name="man">남자</string>
     <string name="greeting">찬누리 가입을 환영합니다</string>
+
+    <string name="self_diagnosis_answer_yes">네</string>
+    <string name="self_diagnosis_answer_no">아니오</string>
 </resources>

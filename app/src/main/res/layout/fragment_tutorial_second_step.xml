@@ -25,7 +25,7 @@
             android:background="@drawable/btn_round_not_selected"
             android:padding="30dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/man" />
+            android:src="@drawable/img_person_man" />
 
         <TextView
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             android:background="@drawable/btn_round_not_selected"
             android:padding="25dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/woman" />
+            android:src="@drawable/img_person_woman" />
 
         <TextView
             android:layout_width="match_parent"

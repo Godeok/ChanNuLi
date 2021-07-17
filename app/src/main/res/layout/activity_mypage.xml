@@ -74,7 +74,7 @@
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/woman_round" />
+        app:srcCompat="@drawable/img_person_woman_round" />
 
     <LinearLayout
         android:layout_width="match_parent"

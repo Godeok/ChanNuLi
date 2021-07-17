@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,7 +49,7 @@ public class HealthInfoVideoAdapter extends RecyclerView.Adapter<HealthInfoVideo
         System.out.println("onBindViewHolder");
         holder.videoTitle.setText(arrayList.get(position).getVideoTitle());
         Glide.with(context).load(arrayList.get(position).getVideoThumbnail()).into(holder.videoView);
-        holder.videoView.setOnClickListener(
+        holder.linearLayout.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -72,10 +73,13 @@ public class HealthInfoVideoAdapter extends RecyclerView.Adapter<HealthInfoVideo
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView videoTitle;
         ImageView videoView;
+        LinearLayout linearLayout;
+
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             videoTitle = itemView.findViewById(R.id.videoTitle);
             videoView = itemView.findViewById(R.id.videoView);
+            linearLayout = itemView.findViewById(R.id.heading_layout);
         }
     }
 }

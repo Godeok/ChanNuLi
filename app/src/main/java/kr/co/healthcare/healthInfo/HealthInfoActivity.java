@@ -40,8 +40,8 @@ public class HealthInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_info);
 
         // 네트워크 연결상태 체크
-        //if (!NetworkConnection())
-            //NotConnected_showAlert();
+        if (!NetworkConnection())
+            NotConnected_showAlert();
 
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tabs);
@@ -50,7 +50,7 @@ public class HealthInfoActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     };
-/*
+
     private boolean NetworkConnection() {
         int[] networkTypes = {ConnectivityManager.TYPE_MOBILE, ConnectivityManager.TYPE_WIFI};
         try {
@@ -83,5 +83,4 @@ public class HealthInfoActivity extends AppCompatActivity {
         alert.show();
     }
 
- */
 }

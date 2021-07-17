@@ -13,7 +13,7 @@
                 android:id="@+id/description_TV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:lineSpacingExtra="10sp"
                 android:textColor="@color/defaultTextColor"
                 android:text="여기에는 테스트입니다"/>

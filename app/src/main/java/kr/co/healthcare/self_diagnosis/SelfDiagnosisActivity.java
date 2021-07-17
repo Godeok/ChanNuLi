@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import java.util.List;
 import kr.co.healthcare.R;
 import kr.co.healthcare.self_diagnosis.QuestionDB.DataAdapter;
@@ -20,7 +22,7 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
     int num=0, countYes=0, disease_num;
     String title="";
     private TextView tv_question, tv_number;
-    private Button btn_yes, btn_no;
+    private CardView btn_yes, btn_no;
     public List<Questions> questionsList;
 
 

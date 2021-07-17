@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,29 +9,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingHorizontal="30dp">
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="80dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_weight="1">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="안녕하세요!"
-                        android:textColor="#292929"
-                        android:textSize="26sp"
+                        android:textColor="@color/defaultTextColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textStyle="bold" />
 
                     <LinearLayout
@@ -44,8 +49,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="홍길동"
-                            android:textColor="#311B92"
-                            android:textSize="26sp"
+                            android:textColor="@color/primary2Color"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
                             android:textStyle="bold" />
 
                         <TextView
@@ -53,83 +58,86 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="10dp"
                             android:text="님."
-                            android:textColor="#292929"
-                            android:textSize="26sp"
+                            android:textColor="@color/defaultTextColor"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <Button
+                <ImageButton
                     android:id="@+id/mypageBtn"
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/btn_main_mypage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:backgroundTint="@color/whiteColor"
                     android:onClick="showMyPage"
-                    android:text="마이페이지"
-                    android:textColor="#ffffff"
-                    android:textSize="18sp" />
+                    app:srcCompat="@drawable/img_person_woman_round"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitStart" />
+
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
 
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:columnCount="2"
                 app:orientation="horizontal">
+
                 <Button
                     android:id="@+id/selfBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    app:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/btn_main_menu"
                     android:text="자가진단"
-                    android:textSize="30dp"
-                    android:textColor="#ffffff"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    app:layout_columnWeight="1"
+                    android:background="@drawable/btn_main_menu_v1"
+                    android:textColor="@color/whiteColor"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/healthInfoBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    app:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/btn_main_menu"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:background="@drawable/btn_main_menu_v1"
                     android:onClick="showHealthInfo"
                     android:text="건강정보"
-                    android:textSize="30dp"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/whiteColor"
+                    android:textStyle="bold"
+                    app:layout_columnWeight="1" />
 
                 <Button
                     android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    app:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/btn_main_menu"
                     android:onClick="showDiseaseInfoSelectPage"
                     android:text="질병정보"
-                    android:textSize="30dp"
-                    android:textColor="#ffffff"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    app:layout_columnWeight="1"
+                    android:background="@drawable/btn_main_menu_v1"
+                    android:textColor="@color/whiteColor"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/game_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="150dp"
-                    app:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/btn_main_menu"
                     android:text="건강 게임"
-                    android:textSize="30dp"
-                    android:textColor="#ffffff"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    app:layout_columnWeight="1"
+                    android:background="@drawable/btn_main_menu_v1"
+                    android:textColor="@color/whiteColor"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textStyle="bold" />
+
             </androidx.gridlayout.widget.GridLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -25,4 +25,5 @@
     <color name="defaultColor">#FAFAFA</color>
     <color name="disableColor">#F1F1F1</color>
     <color name="whiteColor">#FFFFFF</color>
+    <color name="redColor">#EF5350</color>
 </resources>
