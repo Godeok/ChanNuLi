@@ -35,9 +35,10 @@ public class Game2Activity extends AppCompatActivity{
     int[] opt = new int[4];
 
     //점수, 게임 횟수, 사용자가 누른 번호, 정답 값, 정답 보기 번호
-    static int score=0, cnt=0, checked=0, a=0, num=0;
-    static boolean operator = false;
-    static String total_time = "0101";       //타이머 돌릴 시간(분-- 초--)
+    static int SCORE=0, CNT=0, CHECKED=0, A=0, NUM=0;
+    static int STEP1=5, STEP2=9;                        //레벨 내 문제유형 반복 횟수 (4, 7)
+    static boolean OPERATOR = false;
+    static String TOTAL_TIME = "0101";                  //타이머 돌릴 시간(분-- 초--)
     int level;
 
     CountDownTimer CDT;
@@ -65,7 +66,7 @@ public class Game2Activity extends AppCompatActivity{
         progressBar = findViewById(R.id.progressBar);
 
         //타이머
-        countDown(total_time);
+        countDown(TOTAL_TIME);
 
         btn_opt1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,20 +135,20 @@ public class Game2Activity extends AppCompatActivity{
 
     //게임 화면 초기화
     void initialized(){
-        cnt++;
-        tv_score.setText(score+"점");
+        CNT++;
+        tv_score.setText(SCORE +"점");
         tv_answer.setText("");
         tv_result.setText("");
 
         show_level(level);
-        num = start_game(level);
+        NUM = start_game(level);
     }
 
     //정보 초기화
     void initialize_data(){
-        cnt=0;
-        score=0;
-        total_time="0101";
+        CNT =0;
+        SCORE =0;
+        TOTAL_TIME ="0101";
     }
 
     //타이머
@@ -187,16 +188,21 @@ public class Game2Activity extends AppCompatActivity{
                 else
                     progressBar.setProgress(Integer.parseInt(second));
 
+
                 //숫자가 한 자리면 앞에 0을 붙임
                 if (min.length()==1) {
-                    //min = "0" + min;
-                    second = "60";
+                    min = "0" + min;
                 }
                 if (second.length() == 1) second = "0" + second;
 
+                //1분 대신 60초로 표현
+                if (min.equals("01")) {
+                    second = "60";
+                }
+
                 //tv_timer.setText(min + ":" + second);     //분:초 타이머
                 tv_timer.setText(second);                   //초 타이머
-                total_time = min+second;
+                TOTAL_TIME = min+second;
             }
 
             //제한시간 종료시
@@ -222,13 +228,13 @@ public class Game2Activity extends AppCompatActivity{
         btn_opt4.setEnabled(false);
 
         tv_timer.setText("시간 종료!");
-  
+
         //1초 지연 후 결과 페이지로 이동
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 int level = getIntent().getIntExtra("level", -1);
-                int score2 = score;
+                int score2 = SCORE;
                 initialize_data();
 
                 Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
@@ -248,18 +254,25 @@ public class Game2Activity extends AppCompatActivity{
     //레벨별 게임 함수
     int lv1_1(){
         //한자리 + 한자리
+        OPERATOR = false;
         int q1 = (int)(Math.random()*10);
         int q2 = (int)(Math.random()*10);
-        a = q1+q2;
+
+        //q1과 q2가 둘 다 2이면 안됨 (2+2 = 2*2)
+        if(q1==2)
+            while(q2==2)
+                q2 = (int)(Math.random()*10);
+        A = q1+q2;
 
         tv_question.setText(q1+"+"+q2);
 
-        int num = fill_opt_num(a);
+        int num = fill_opt_num(A);
         return num; //정답 보기 번호
     }
 
     int lv1_2(){
         //두자리 +- 한자리
+        OPERATOR = false;
         Random rnd = new Random();
         //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
         int q1 = rnd.nextInt(91)+10;
@@ -268,20 +281,20 @@ public class Game2Activity extends AppCompatActivity{
 
         if(rand==0){
             tv_question.setText(q1+"+"+q2);
-            a = q1+q2;
+            A = q1+q2;
         }
         else{
             tv_question.setText(q1+"-"+q2);
-            a = q1-q2;
+            A = q1-q2;
         }
 
-        int num = fill_opt_num(a);
+        int num = fill_opt_num(A);
         return num;
     }
 
     int lv1_3(){
         //한자리 [ ] 한자리 = 답
-        operator = true;
+        OPERATOR = true;
         Random rnd = new Random();
         //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
         int q1 = rnd.nextInt(18)+3;      //3~20
@@ -306,36 +319,38 @@ public class Game2Activity extends AppCompatActivity{
 
     int lv2_1(){
         //두자리 + 두자리
+        OPERATOR = false;
         Random rnd = new Random();
         //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
         int q1 = rnd.nextInt(41)+30;    //30~70
         int q2 = rnd.nextInt(21)+10;    //10~30
 
         tv_question.setText(q1+"+"+q2);
-        a = q1+q2;
+        A = q1+q2;
 
-        int num = fill_opt_num(a);
+        int num = fill_opt_num(A);
         return num;
     }
 
     int lv2_2(){
         //세자리 - 한자리
+        OPERATOR = false;
         Random rnd = new Random();
         //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
         int q1 = rnd.nextInt(901)+100;      //100~1000
         int q2 = (int)(Math.random()*10 + 1);      //1~10
 
         tv_question.setText(q1+"-"+q2);
-        a = q1-q2;
+        A = q1-q2;
 
-        int num = fill_opt_num(a);
+        int num = fill_opt_num(A);
         return num;
     }
 
     int lv2_3(){
         //두자리 [더하기,나누기] 두자리 = 답
         //세자리 [더하기,나누기] 한자리 = 답
-        operator = true;
+        OPERATOR = true;
         Random rnd = new Random();
         int q1, q2, q3, number;
         int[] value;
@@ -372,6 +387,7 @@ public class Game2Activity extends AppCompatActivity{
 
     int lv3_1(){
         //두자리 +- 한자리
+        OPERATOR = false;
         Random rnd = new Random();
         //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
         int q1 = rnd.nextInt(41)+30;    //30~70
@@ -380,20 +396,20 @@ public class Game2Activity extends AppCompatActivity{
 
         if(rand==0){
             tv_question.setText(q1+"+"+q2);
-            a = q1+q2;
+            A = q1+q2;
         }
         else{
             tv_question.setText(q1+"-"+q2);
-            a = q1-q2;
+            A = q1-q2;
         }
 
-        int num = fill_opt_num(a);
+        int num = fill_opt_num(A);
         return num;
     }
 
     int lv3_2(){
         //두자리 [곱하기, 나누기] 한자리 = 답
-        operator = true;
+        OPERATOR = true;
         Random rnd = new Random();
         int q1, q2, q3, number;
 
@@ -422,15 +438,16 @@ public class Game2Activity extends AppCompatActivity{
 
     int lv3_3(){
         //두자리 + 두자리
+        OPERATOR = false;
         Random rnd = new Random();
         //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
         int q1 = rnd.nextInt(91)+10;   //10~100
         int q2 = (int)(Math.random()*10);     //1~10
 
         tv_question.setText(q1+"x"+q2);
-        a = q1*q2;
+        A = q1*q2;
 
-        int num = fill_opt_num(a);
+        int num = fill_opt_num(A);
         return num;
     }
 
@@ -554,10 +571,10 @@ public class Game2Activity extends AppCompatActivity{
     //버튼 실행시
     void btn_method(int number){
         //사용자가 누른 번호(number) checked에 저장
-        checked=number;
+        CHECKED =number;
 
         //화면에 사용자가 누른 '보기' 보여주기
-        if(operator==true){
+        if(OPERATOR ==true){
             if(number==1) tv_answer.setText("+");
             else if(number==2) tv_answer.setText("-");
             else if(number==3) tv_answer.setText("×");
@@ -571,14 +588,14 @@ public class Game2Activity extends AppCompatActivity{
 
     //답 확인
     void check_answer(){
-        if (num==checked){
+        if (NUM == CHECKED){
             tv_result.setText("정답입니다");
-            if(operator==false){
-                tv_answer.setText(""+a);
+            if(OPERATOR ==false){
+                tv_answer.setText(""+ A);
             }
             tv_answer.setTextColor(Color.parseColor("#4CAF50"));
-            score += 200;
-            tv_score.setText(score+"점");
+            SCORE += 200;
+            tv_score.setText(SCORE +"점");
 
             //정답 맞으면 3초 추가
             //change_time(3);
@@ -587,17 +604,21 @@ public class Game2Activity extends AppCompatActivity{
             tv_result.setText("틀렸습니다");
             tv_answer.setTextColor(Color.parseColor("#FF0000"));
 
+            if(SCORE>0)
+                SCORE -= 100;
+            tv_score.setText(SCORE +"점");
+
             //정답 틀리면 5초 감소
             //change_time(-5);
         }
-        operator=false;
+        OPERATOR =false;
         next_lv();
     }
 
     //시간 형식 맞춰서 String 형태로 바꾸는 함수 (미완)
     public void change_time(int newSecond) {
 
-        String getSecond = total_time;
+        String getSecond = TOTAL_TIME;
 
         // "00"이 아니고, 첫번째 자리가 0 이면 제거
         //if (getMin.substring(0, 1)=="0") getMin = getMin.substring(1, 2);
@@ -619,7 +640,7 @@ public class Game2Activity extends AppCompatActivity{
         //다시 스트링으로 바꿔서 total_time 수정
         //if (stringSecond.length()==1) stringSecond = "0" + stringSecond;
         //total_time = getMin + stringSecond;
-        total_time = stringTime;
+        TOTAL_TIME = stringTime;
     }
 
     //레벨별 다른 함수를 실행
@@ -627,18 +648,18 @@ public class Game2Activity extends AppCompatActivity{
         int number;
         //cnt 순서대로 4 7
         if(level==1){
-            if(cnt<2) number=lv1_1();
-            else if(cnt<3) number=lv1_2();
+            if(CNT<STEP1) number=lv1_1();
+            else if(CNT<STEP2) number=lv1_2();
             else number=lv1_3();
         }
         else if(level==2){
-            if(cnt<2) number=lv2_1();
-            else if(cnt<3) number=lv2_2();
+            if(CNT<STEP1) number=lv2_1();
+            else if(CNT<STEP2) number=lv2_2();
             else number=lv2_3();
         }
         else{
-            if(cnt<2) number=lv3_1();
-            else if(cnt<3) number=lv3_2();
+            if(CNT<STEP1) number=lv3_1();
+            else if(CNT<STEP2) number=lv3_2();
             else number=lv3_3();
         }
         //정답 반환
