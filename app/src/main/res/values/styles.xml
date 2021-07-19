@@ -1,11 +1,43 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryDark">@color/primary3Color</item>
         <item name="colorAccent">@color/primary2Color</item>
+        <item name="android:colorPrimaryDark">@color/defaultDarkColor</item>
+        <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
+        <item name="actionBarTabBarStyle">@style/AppTheme.TabTheme</item>
         <item name="android:windowBackground">@color/whiteColor</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- 액션바 테마 -->
+    <style name="AppTheme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="elevation">0dp</item>
+        <item name="background">@color/whiteColor</item>
+        <item name="titleTextStyle">@style/AppTheme.ActionBarTitle</item>
+    </style>
+
+    <!-- 액션바 타이틀 테마 -->
+    <style name="AppTheme.ActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/actionbar_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 탭 테마 -->
+    <style name="AppTheme.TabTheme" parent="Theme.MaterialComponents.Light">
+        <item name="tabPaddingStart">20dp</item>
+        <item name="tabPaddingEnd">20dp</item>
+        <item name="tabMode">scrollable</item>
+        <item name="tabIndicatorHeight">@dimen/tab_indicator_size</item>
+        <item name="tabIndicatorColor">@color/primaryColor</item>
+        <item name="tabSelectedTextColor">@color/primaryColor</item>
+        <item name="tabTextAppearance">@style/AppTheme.TabTextAppearance</item>
+        <item name="tabIndicatorAnimationMode">elastic</item>
+    </style>
+
+    <!-- 탭 텍스트 테마 -->
+    <style name="AppTheme.TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/tab_text_size</item>
     </style>
 
     <style name="SpinnerDivideStyle" parent="android:style/Widget.ListView.DropDown">
@@ -17,26 +49,8 @@
         <item name="android:dropDownListViewStyle">@style/SpinnerDivideStyle</item>
     </style>
 
-    <style name="Theme.MaterialComponents.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <!-- ActionBar styles -->
-    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
-        <item name="background">@color/whiteColor</item>
-        <item name="elevation">0dp</item>
-    </style>
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
-    <style name="TabTheme" parent="Theme.MaterialComponents.DayNight">
-        <item name="colorPrimary">@color/primaryColor</item>                                <!-- 배경 -->
-        <item name="android:textColorPrimary">#FFEE58</item>       <!-- 탭바 선택된 텍스트 -->
-        <item name="android:textColorSecondary">@color/colorPrimaryDarkTutorial</item>     <!-- 탭바 텍스트 -->
-        <item name="colorAccent">#26C6DA</item>                    <!-- 하단 움직이는 바 색-->
-    </style>
 
     <style name="spinnerTheme">
         <item name="android:textColorPrimary">#000000</item>
@@ -54,4 +68,6 @@
         <item name="android:colorControlHighlight">@color/primary2Color</item>
         <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
     </style>
+
+    <dimen name="tab_max_width">100dp</dimen>
 </resources>

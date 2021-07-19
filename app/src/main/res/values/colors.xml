@@ -10,19 +10,23 @@
     <color name="colorGreen">#4CAF50</color>
     <color name="colorPurple">#EC407A</color>
 
-    <!--어플 테마 색상-->
+    <!-- 어플 테마 색상 -->
     <color name="primaryColor">#56c596</color>
     <color name="primary2Color">#329d9c</color>
     <color name="primary3Color">#205072</color>
     <color name="primaryLightColor">#F5FBF5</color>
 
-    <!--텍스트 색상-->
+    <!-- 텍스트 색상 -->
     <color name="defaultTextColor">#1D1D1D</color>
     <color name="midLightTextColor">#ADADAD</color>
     <color name="lightTextColor">#CDCDCD</color>
 
-    <!--기타 색상-->
+    <!-- 구분 선 색상 -->
+    <color name="dividerColor">#F2F2F2</color>
+
+    <!-- 기타 색상 -->
     <color name="defaultColor">#FAFAFA</color>
+    <color name="defaultDarkColor">#222222</color>
     <color name="disableColor">#F1F1F1</color>
     <color name="whiteColor">#FFFFFF</color>
     <color name="redColor">#EF5350</color>

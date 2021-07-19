@@ -12,9 +12,12 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="scrollable"
-        app:tabGravity="fill"
-        android:theme="@style/TabTheme"/>
+        style="@style/AppTheme.TabTheme"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dividerColor"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
@@ -23,3 +26,4 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>
+

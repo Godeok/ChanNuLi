@@ -1,9 +1,15 @@
 package kr.co.healthcare.healthInfo.ui.main;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.loader.content.AsyncTaskLoader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,11 +38,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import kr.co.healthcare.R;
+import kr.co.healthcare.dialog.LoadingDialog;
 
 import static android.content.ContentValues.TAG;
 
 public class Exercise extends Fragment {
-    HealthInfoVideoAdapter recyclerViewAdapter;
+    private HealthInfoVideoAdapter recyclerViewAdapter;
+    private LoadingDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,8 +55,11 @@ public class Exercise extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_exercise, container, false);
+        dialog = new LoadingDialog(getActivity());
+
         YoutubeAsyncTask youtubeAsyncTask = new YoutubeAsyncTask();
         youtubeAsyncTask.execute();
+
         RecyclerView recyclerView = view.findViewById(R.id.videoRecyclerView);
         recyclerViewAdapter = new HealthInfoVideoAdapter(getActivity());
         recyclerView.setAdapter(recyclerViewAdapter);
@@ -56,10 +67,12 @@ public class Exercise extends Fragment {
         return view;
     }
 
+
     private class YoutubeAsyncTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            dialog.show();
         }
 
         @Override
@@ -83,21 +96,16 @@ public class Exercise extends Fragment {
                 String API_KEY = "AIzaSyDkYsEr8kwXcSbDwA3uQZvvt4K1-j33Duo";
                 search.setKey(API_KEY);
                 //검색어
-                //TODO EditText 이용해서 검색어 가져와도 됩니다.
                 search.setQ("노인 건강관리");
-                // 채널 지정가능
-                //search.setChannelId("UCk9GmdlDTBfgGRb7vXeRMoQ");
                 search.setOrder("relevance"); //date relevance
 
                 search.setType("video");
-                search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/default/url)");
+                search.setFields("items(id/kind,id/videoId,snippet/title,snippet/thumbnails/high/url)");
                 //최대 갯수 설정 (20)개
                 search.setMaxResults(NUMBER_OF_VIDEOS_RETURNED);
                 SearchListResponse searchResponse = search.execute();
 
                 List<SearchResult> searchResultList = searchResponse.getItems();
-                System.out.println("출력============");
-                System.out.println(searchResponse.getItems());
                 if (searchResultList != null) {
                     CheckList(searchResultList.iterator());
                 }
@@ -118,12 +126,10 @@ public class Exercise extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             recyclerViewAdapter.notifyDataSetChanged();
-            //adapter.notifyDataSetChanged();
-
+            dialog.dismiss();
         }
 
         public void CheckList(Iterator<SearchResult> iteratorSearchResults) {
-            System.out.println(TAG + "InputList");
             if (!iteratorSearchResults.hasNext()) {
                 System.out.println(" There aren't any results for your query.");
             }
@@ -134,24 +140,16 @@ public class Exercise extends Fragment {
 
                 // 비디오 한번 더 체크
                 if (rId.getKind().equals("youtube#video")) {
-                    //썸네일  thumbnail.getUrl()
-                    Thumbnail thumbnail = (Thumbnail) singleVideo.getSnippet().getThumbnails().get("default");
-                    System.out.println("썸네일====");
-                    System.out.println(thumbnail.getUrl());
-                    // 비디오 rId.getVideoId()
+                    Thumbnail thumbnail = (Thumbnail) singleVideo.getSnippet().getThumbnails().get("high");
                     recyclerViewAdapter.addItem(new YoutubeVideo(
                             rId.getVideoId(),
                             singleVideo.getSnippet().getTitle(),
                             thumbnail.getUrl()
                     ));
-                    System.out.println("================출력중=====================");
-                    System.out.println("ID : " + rId.getVideoId());
-                    System.out.println(" , 제목 : " + singleVideo.getSnippet().getTitle());
-                    System.out.println(" , 썸네일 주소 : " + thumbnail.getUrl());
-
                 }
             }
         }
     }
+
 
 }

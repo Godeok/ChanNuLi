@@ -45,8 +45,8 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#F2F2F2"/>
+        android:layout_height="2dp"
+        android:background="@color/dividerColor" />
 
     <LinearLayout
         android:id="@+id/layout_expand"

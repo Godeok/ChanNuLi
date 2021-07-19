@@ -8,30 +8,30 @@
 
         <LinearLayout
             android:id="@+id/heading_layout"
-            android:background="#fff"
             android:focusable="true"
             android:clickable="true"
             android:minHeight="?attr/actionBarSize"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+            android:gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="10dp">
+            android:paddingVertical="12dp">
 
             <ImageView
                 android:id="@+id/videoView"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop"
                 app:srcCompat="@android:drawable/screen_background_light"
-                android:layout_marginRight="5dp"/>
+                android:layout_marginBottom="10dp"/>
 
             <TextView
                 android:id="@+id/videoTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/defaultTextColor"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:text="TextView/nTextViewTextViewTextView/nTextViewTextView" />
@@ -41,5 +41,5 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/defaultColor"/>
+            android:background="@color/dividerColor"/>
     </LinearLayout>

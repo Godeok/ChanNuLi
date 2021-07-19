@@ -31,7 +31,7 @@
             android:theme="@style/Theme.Design.NoActionBar"/>
         <activity
             android:name=".tutorial.ui.TutorialActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
 
         <activity android:name=".mypage.MypageActivity"

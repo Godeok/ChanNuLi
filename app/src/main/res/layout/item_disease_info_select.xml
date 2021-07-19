@@ -44,5 +44,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#F2F2F2"/>
+        android:background="@color/dividerColor"/>
 </LinearLayout>
