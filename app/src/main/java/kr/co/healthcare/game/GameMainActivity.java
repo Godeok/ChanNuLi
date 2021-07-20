@@ -99,27 +99,8 @@ public class GameMainActivity extends AppCompatActivity {
                 startActivity(intent);;
             }
         });
-
-        /*
-        btn_to_game3_lv2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game3ActivityLv2.class);
-                intent.putExtra("level", 2);
-                startActivity(intent);;
-            }
-        });
-
-        btn_to_game3_lv3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game3ActivityLv3.class);
-                intent.putExtra("level", 3);
-                startActivity(intent);;
-            }
-        });
-         */
     }
+
 
     public void OnClickHandler(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

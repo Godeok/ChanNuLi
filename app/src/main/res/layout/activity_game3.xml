@@ -39,9 +39,6 @@
             android:textSize="30dp" />
     </LinearLayout>
 
-
-
-
     <TextView
         android:id="@+id/tv_count1"
         android:layout_width="wrap_content"
