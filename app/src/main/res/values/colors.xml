@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#9CCC65</color>
-    <color name="colorPrimaryDark">#D4E157</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorPrimaryTutorial">#00C364</color>
-    <color name="colorPrimaryDarkTutorial">@color/primary3Color</color>
-    <color name="colorAccentTutorial">#00E676</color>
-    
-    <color name="colorGreen">#4CAF50</color>
-    <color name="colorPurple">#EC407A</color>
-
     <!-- 어플 테마 색상 -->
     <color name="primaryColor">#56c596</color>
     <color name="primary2Color">#329d9c</color>
-    <color name="primary3Color">#205072</color>
+    <color name="primaryDarkColor">#205072</color>
     <color name="primaryLightColor">#F5FBF5</color>
 
     <!-- 텍스트 색상 -->
@@ -30,4 +20,5 @@
     <color name="disableColor">#F1F1F1</color>
     <color name="whiteColor">#FFFFFF</color>
     <color name="redColor">#EF5350</color>
+    <color name="yellowColor">#FFEC7B</color>
 </resources>

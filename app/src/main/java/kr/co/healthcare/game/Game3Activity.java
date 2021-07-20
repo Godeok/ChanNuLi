@@ -109,7 +109,7 @@ public class Game3Activity extends AppCompatActivity {
        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                int color_green = ContextCompat.getColor(getApplicationContext(), R.color.colorGreen);
+                int color_green = ContextCompat.getColor(getApplicationContext(), R.color.primaryColor);
                 for (int i=0; i<number_of_cards; i++) {
                     cards[i].setTextColor(color_green);
                     cards[i].setBackgroundColor(color_green);
@@ -159,7 +159,7 @@ public class Game3Activity extends AppCompatActivity {
 
 
     void change_to_checked(int num){
-        int color_purple = ContextCompat.getColor(getApplicationContext(), R.color.colorPurple);
+        int color_purple = ContextCompat.getColor(getApplicationContext(), R.color.primary2Color);
         int color_white = ContextCompat.getColor(getApplicationContext(), R.color.whiteColor);
 
         //카드 애니메이션
@@ -222,7 +222,7 @@ public class Game3Activity extends AppCompatActivity {
 
         //카드 다르면
         else{
-            int color_green = ContextCompat.getColor(getApplicationContext(), R.color.colorGreen);
+            int color_green = ContextCompat.getColor(getApplicationContext(), R.color.primaryColor);
             cards[CARD_NUM_1].setBackgroundColor(color_green);
             cards[CARD_NUM_1].setTextColor(color_green);
 

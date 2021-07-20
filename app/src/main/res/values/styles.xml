@@ -25,8 +25,8 @@
 
     <!-- 탭 테마 -->
     <style name="AppTheme.TabTheme" parent="Theme.MaterialComponents.Light">
-        <item name="tabPaddingStart">20dp</item>
-        <item name="tabPaddingEnd">20dp</item>
+        <item name="tabPaddingStart">@dimen/tab_padding</item>
+        <item name="tabPaddingEnd">@dimen/tab_padding</item>
         <item name="tabMode">scrollable</item>
         <item name="tabIndicatorHeight">@dimen/tab_indicator_size</item>
         <item name="tabIndicatorColor">@color/primaryColor</item>
@@ -40,17 +40,22 @@
         <item name="android:textSize">@dimen/tab_text_size</item>
     </style>
 
+    <!-- 체크박스 테마 -->
+    <style name="checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:colorControlNormal">@color/primaryColor</item>
+        <item name="android:colorControlActivated">@color/primaryDarkColor</item>
+        <item name="android:colorControlHighlight">@color/primary2Color</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+    </style>
+
     <style name="SpinnerDivideStyle" parent="android:style/Widget.ListView.DropDown">
-        <item name="android:divider">#000000</item>     <!-- divider 색 -->
+        <item name="android:divider">@color/dividerColor</item>     <!-- divider 색 -->
         <item name="android:dividerHeight">2dp</item>   <!-- divider 높이 -->
     </style>
 
     <style name="SpinnerTheme" parent="Theme.MaterialComponents">
         <item name="android:dropDownListViewStyle">@style/SpinnerDivideStyle</item>
     </style>
-
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
-
 
     <style name="spinnerTheme">
         <item name="android:textColorPrimary">#000000</item>
@@ -61,13 +66,4 @@
     <style name="Chip" parent="Theme.MaterialComponents.Light">
         <item name="android:textSize">24sp</item>
     </style>
-
-    <style name="checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="android:colorControlNormal">@color/primaryColor</item>
-        <item name="android:colorControlActivated">@color/primary3Color</item>
-        <item name="android:colorControlHighlight">@color/primary2Color</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat</item>
-    </style>
-
-    <dimen name="tab_max_width">100dp</dimen>
 </resources>

@@ -15,8 +15,8 @@
         app:counterMaxLength="5"
         android:textColorHint="@color/midLightTextColor"
         app:counterTextColor="@color/midLightTextColor"
-        app:boxStrokeColor="@color/primary3Color"
-        app:hintTextColor="@color/primary3Color"
+        app:boxStrokeColor="@color/primaryDarkColor"
+        app:hintTextColor="@color/primaryDarkColor"
         android:hint="이름 입력">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

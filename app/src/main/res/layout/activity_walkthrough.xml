@@ -26,7 +26,7 @@
         android:lineSpacingExtra="10sp"
         android:text="@string/greeting"
         android:textAlignment="center"
-        android:textColor="@color/primary3Color"
+        android:textColor="@color/defaultTextColor"
         android:textSize="26sp"
         android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
         android:layout_marginBottom="70dp"
         android:text="찬누리로 손쉽게 건강관리하세요"
         android:textAlignment="center"
-        android:textColor="@color/defaultTextColor"
+        android:textColor="@color/midLightTextColor"
         android:textSize="20sp" />
 
     <Button
