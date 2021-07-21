@@ -5,28 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:orientation="vertical">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/defaultColor"
         android:paddingHorizontal="20dp">
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="54dp" />
+            android:layout_height="40dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="환영합니다"
             android:textColor="@color/defaultTextColor"
-            android:textSize="26sp"
-            android:layout_marginBottom="10sp"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,198 +42,196 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="홍진서"
-                    android:textSize="26sp"
-                    android:textColor="@color/primary2Color"/>
+                    android:textColor="@color/primary2Color"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="님"
-                    android:textSize="26sp"
-                    android:textColor="@color/defaultTextColor"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
         </LinearLayout>
         <Space
             android:layout_width="match_parent"
             android:layout_height="25dp" />    </LinearLayout>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
-    <TextView
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="내 정보"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:paddingHorizontal="20dp"/>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        app:srcCompat="@drawable/img_person_woman_round" />
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="16dp"
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="15dp"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp"
-        android:background="@drawable/layout_mypage_user_info">
+        app:cardBackgroundColor="@color/whiteColor"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="3dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="5dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="3"
-                    android:text="나이"
-                    android:textColor="#5A5A5A"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:id="@+id/userAgeTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="TextView"
-                    android:textAlignment="viewEnd"
-                    android:textColor="#311B92"
-                    android:textSize="18dp" />
-
-                <ImageButton
-                    android:id="@+id/ageImageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:background="#00FFFFFF"
-                    android:onClick="showEditAgeActivity"
-                    app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:layout_marginVertical="10dp"
-            android:background="#F1F1F1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="5dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="3"
-                    android:text="성별"
-                    android:textColor="#5A5A5A"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:id="@+id/userGenderTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="TextView"
-                    android:textAlignment="viewEnd"
-                    android:textColor="#311B92"
-                    android:textSize="18dp" />
-
-                <ImageButton
-                    android:id="@+id/genderImageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:background="#00FFFFFF"
-                    android:onClick="showEditGenderActivity"
-                    app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_weight="1"
-            android:layout_marginVertical="10dp"
-            android:background="#F1F1F1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="15dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="3"
-                    android:text="건강 상태"
-                    android:textColor="#5A5A5A"
-                    android:textSize="18dp" />
-
-                <ImageButton
-                    android:id="@+id/diseaseImageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:onClick="showEditDiseaseActivity"
-                    app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
-
-            </LinearLayout>
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    app:singleLine="true" />
-            </HorizontalScrollView>
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="25dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="*좌우로 이동 가능합니다."
-                android:layout_marginTop="10dp"
-                android:textAlignment="viewEnd"
-                android:textColor="#9E9E9E"
-                android:textSize="16dp" />
+                android:text="내 정보"
+                android:textColor="@color/defaultDarkColor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="나이"
+                        android:textColor="@color/defaultTextColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:id="@+id/userAgeTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <ImageButton
+                        android:id="@+id/ageImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:background="#00FFFFFF"
+                        android:onClick="showEditAgeActivity"
+                        app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/dividerColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:text="성별"
+                        android:textColor="@color/defaultTextColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:id="@+id/userGenderTV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/primaryDarkColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <ImageButton
+                        android:id="@+id/genderImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:background="#00FFFFFF"
+                        android:onClick="showEditGenderActivity"
+                        app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/dividerColor" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="3"
+                        android:text="건강 상태"
+                        android:textColor="@color/defaultTextColor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <ImageButton
+                        android:id="@+id/diseaseImageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#00FFFFFF"
+                        android:onClick="showEditDiseaseActivity"
+                        app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
+
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:singleLine="true" />
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="*좌우로 이동 가능합니다."
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/lightTextColor"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <Space
         android:layout_width="match_parent"
@@ -249,6 +245,7 @@
         android:textStyle="bold"
         android:paddingHorizontal="20dp"
         android:textSize="14sp"/>
+
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_marginStart="25dp"
@@ -256,15 +253,8 @@
         android:layout_height="wrap_content"
         android:paddingVertical="25dp"
         android:paddingStart="40dp"
-        android:orientation="vertical"
-        android:background="@drawable/layout_mypage_user_info">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </LinearLayout>
 
     </LinearLayout>
 
