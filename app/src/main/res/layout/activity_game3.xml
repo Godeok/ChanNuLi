@@ -39,9 +39,6 @@
             android:textSize="30dp" />
     </LinearLayout>
 
-
-
-
     <TextView
         android:id="@+id/tv_count1"
         android:layout_width="wrap_content"
@@ -84,58 +81,37 @@
             android:orientation="horizontal"
             android:visibility="gone">
 
-            <TextView
+            <ImageView
                 android:id="@+id/card21"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:paddingVertical="10dp"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card22"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card23"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card24"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
@@ -147,58 +123,37 @@
             android:orientation="horizontal"
             android:visibility="gone">
 
-            <TextView
+            <ImageView
                 android:id="@+id/card17"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:paddingVertical="10dp"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card18"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card19"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card20"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
@@ -208,58 +163,37 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:id="@+id/card1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:paddingVertical="10dp"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card3"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card4"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -268,58 +202,37 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:id="@+id/card5"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:paddingVertical="10dp"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card6"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card7"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card8"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -328,58 +241,37 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:id="@+id/card9"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:paddingVertical="10dp"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card10"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card11"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card12"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -388,58 +280,37 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
+            <ImageView
                 android:id="@+id/card13"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:paddingVertical="10dp"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card14"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card15"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
-            <TextView
+            <ImageView
                 android:id="@+id/card16"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="#B970FA"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#ffffff"
-                android:textSize="45dp"
-                android:textStyle="bold" />
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
