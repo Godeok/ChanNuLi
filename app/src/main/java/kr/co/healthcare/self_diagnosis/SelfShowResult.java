@@ -15,6 +15,8 @@ import kr.co.healthcare.R;
 import kr.co.healthcare.self_diagnosis.ResultDB.AppDatabase;
 import kr.co.healthcare.self_diagnosis.ResultDB.Result;
 
+import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
+
 
 public class SelfShowResult extends AppCompatActivity {
 
@@ -43,8 +45,8 @@ public class SelfShowResult extends AppCompatActivity {
         tv_title.setText(title);
         tv_result.setText("검사 결과 총 "+count+"개의 항목에서 '예'라고 답했습니다."+AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(2));
 
-        if (count<3) tv_desc.setText("정상 단계입니다.");
-        else if (count<6) tv_desc.setText("주의 단계입니다.");
+        if (count<=getRange_safe()) tv_desc.setText("정상 단계입니다.");
+        else if (count<=getRange_warning()) tv_desc.setText("주의 단계입니다.");
         else tv_desc.setText("위험 단계입니다.");
 
         //검사 날짜

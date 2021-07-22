@@ -56,10 +56,10 @@ public interface ResultDAO {
 
 
     //개수 반환 쿼리
-    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT<3")
+    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT<=3")
     int countDiseaseSafe(int num);
 
-    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>2 AND Result_COUNT<6")
+    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>3 AND Result_COUNT<=5")
     int countDiseaseWarning(int num);
 
     @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>5")

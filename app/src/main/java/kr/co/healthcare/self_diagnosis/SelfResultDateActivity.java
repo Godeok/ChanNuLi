@@ -74,8 +74,6 @@ public class SelfResultDateActivity extends AppCompatActivity {
         });
     }
 
-
-
     private void initialized() {
         recyclerView = findViewById(R.id.rv_self_result);
         linearLayoutManager = new LinearLayoutManager(this);
@@ -91,48 +89,19 @@ public class SelfResultDateActivity extends AppCompatActivity {
     private void initialized_bar_graph(){
         stackedBarChart = findViewById(R.id.stacked_Bar_Chart);
 
-        StackedBarModel s1 = new StackedBarModel("고혈압");
-        s1.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(0), 0xFFE61919));
-        s1.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(0), 0xFFFFC107));
-        s1.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(0), 0xFF00AC00));
+        StackedBarModel[] StackBar = {
+                new StackedBarModel("고혈압"), new StackedBarModel("골관절염"),
+                new StackedBarModel("고지혈증"), new StackedBarModel("요통"),
+                new StackedBarModel("당뇨병"), new StackedBarModel("골다공증"),
+                new StackedBarModel("치매")
+        };
 
-        StackedBarModel s2 = new StackedBarModel("골관절염");
-        s2.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(1), 0xFFE61919));
-        s2.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(1), 0xFFFFC107));
-        s2.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(1), 0xFF00AC00));
-
-        StackedBarModel s3 = new StackedBarModel("고지혈증");
-        s3.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(2), 0xFFE61919));
-        s3.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(2), 0xFFFFC107));
-        s3.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(2), 0xFF00AC00));
-
-        StackedBarModel s4 = new StackedBarModel("요통");
-        s4.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(3), 0xFFE61919));
-        s4.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(3), 0xFFFFC107));
-        s4.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(3), 0xFF00AC00));
-
-        StackedBarModel s5 = new StackedBarModel("당뇨병");
-        s5.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(4), 0xFFE61919));
-        s5.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(4), 0xFFFFC107));
-        s5.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(4), 0xFF00AC00));
-
-        StackedBarModel s6 = new StackedBarModel("골다공증");
-        s6.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(5), 0xFFE61919));
-        s6.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(5), 0xFFFFC107));
-        s6.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(5), 0xFF00AC00));
-
-        StackedBarModel s7 = new StackedBarModel("치매");
-        s7.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(6), 0xFFE61919));
-        s7.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(6), 0xFFFFC107));
-        s7.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(6), 0xFF00AC00));
-
-        stackedBarChart.addBar(s1);
-        stackedBarChart.addBar(s2);
-        stackedBarChart.addBar(s3);
-        stackedBarChart.addBar(s4);
-        stackedBarChart.addBar(s5);
-        stackedBarChart.addBar(s6);
-        stackedBarChart.addBar(s7);
+        for(int i=0; i<7; i++){
+            StackBar[i].addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(i), 0xFFE61919));
+            StackBar[i].addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(i), 0xFFFFC107));
+            StackBar[i].addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(i), 0xFF00AC00));
+            stackedBarChart.addBar(StackBar[i]);
+        }
 
         stackedBarChart.startAnimation();
     }
