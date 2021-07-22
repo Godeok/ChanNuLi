@@ -34,7 +34,6 @@ public class SelfResultDateActivity extends AppCompatActivity {
     //stacked bar graph
     private StackedBarChart stackedBarChart;
 
-    TextView tv_resultTitle;
     Button btn_toDate;
     Button btn_toSymptom;
 
@@ -46,8 +45,6 @@ public class SelfResultDateActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rv_self_result);
         btn_toDate = findViewById(R.id.btn_toDate);
         btn_toSymptom = findViewById(R.id.btn_toSymptom);
-        tv_resultTitle = findViewById(R.id.tv_resultTitle);
-        tv_resultTitle.setText("결과 확인");
 
         //DB에서 정보 가져오기
         initialized();
@@ -109,7 +106,7 @@ public class SelfResultDateActivity extends AppCompatActivity {
         s3.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(2), 0xFFFFC107));
         s3.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(2), 0xFF00AC00));
 
-        StackedBarModel s4 = new StackedBarModel("요통/좌골신경통");
+        StackedBarModel s4 = new StackedBarModel("요통");
         s4.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(3), 0xFFE61919));
         s4.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(3), 0xFFFFC107));
         s4.addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(3), 0xFF00AC00));
