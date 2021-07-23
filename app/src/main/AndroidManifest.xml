@@ -28,10 +28,11 @@
         <activity android:name=".mypage.EditAgeActivity" />
 
         <activity android:name=".walkthrough.WalkthroughActivity"
-            android:theme="@style/Theme.Design.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".tutorial.ui.TutorialActivity"
-            android:theme="@style/Theme.Design.NoActionBar"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
 
         <activity android:name=".mypage.MypageActivity"

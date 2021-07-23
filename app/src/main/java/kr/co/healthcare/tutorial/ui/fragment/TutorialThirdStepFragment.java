@@ -57,13 +57,7 @@ public class TutorialThirdStepFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.toString().length() == 0) {
-                    nextBtn.setEnabled(false);
-                    nextBtn.setBackgroundResource(R.drawable.btn_disable);
-                }else{
-                    nextBtn.setEnabled(true);
-                    nextBtn.setBackgroundResource(R.drawable.btn_enable);
-                }
+                nextBtn.setEnabled(s.toString().length() != 0);
             }
             @Override
             public void afterTextChanged(Editable s) {

@@ -90,7 +90,7 @@ public class TutorialActivity extends AppCompatActivity {
         if(progressNum<4) {
             changeTutorial(++progressNum);
             nextBtn.setEnabled(false);
-            nextBtn.setBackgroundResource(R.drawable.btn_disable);
+            nextBtn.setBackgroundResource(R.drawable.btn);
         }else{
             PreferenceManger.setBoolean(this, PreferenceManger.PREF_IS_TUTORIAL_FINISHED, true);
             Intent intent = new Intent(getApplicationContext(), WalkthroughActivity.class);

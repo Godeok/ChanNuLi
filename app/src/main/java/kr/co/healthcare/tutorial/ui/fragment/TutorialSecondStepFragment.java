@@ -84,13 +84,7 @@ public class TutorialSecondStepFragment extends Fragment {
     }
 
     private void checkGenderBtnClicked(){
-        if(manClicked || womanClicked) {
-            nextBtn.setEnabled(true);
-            nextBtn.setBackgroundResource(R.drawable.btn_enable);
-        }else {
-            nextBtn.setEnabled(false);
-            nextBtn.setBackgroundResource(R.drawable.btn_disable);
-        }
+        nextBtn.setEnabled(manClicked || womanClicked);
     }
 
     public void setUserGender() {

@@ -8,15 +8,11 @@
     tools:context=".tutorial.ui.fragment.TutorialFirstStepFragment">
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/nameTextInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/AppTheme.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="5"
-        android:textColorHint="@color/midLightTextColor"
-        app:counterTextColor="@color/midLightTextColor"
-        app:boxStrokeColor="@color/primaryDarkColor"
-        app:hintTextColor="@color/primaryDarkColor"
         android:hint="이름 입력">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

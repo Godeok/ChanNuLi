@@ -44,7 +44,7 @@
         android:onClick="onClickNextStepBtn"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_enable"
+        android:background="@drawable/btn"
         android:textSize="20sp"
         android:textColor="@color/btn_text"
         android:text="시작하기"

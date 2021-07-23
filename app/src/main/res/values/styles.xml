@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorAccent">@color/primary2Color</item>
-        <item name="android:colorPrimaryDark">@color/defaultDarkColor</item>
+        <item name="colorPrimaryDark">@color/defaultDarkColor</item>
         <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
         <item name="actionBarTabBarStyle">@style/AppTheme.TabTheme</item>
         <item name="android:windowBackground">@color/whiteColor</item>
@@ -15,6 +15,12 @@
         <item name="elevation">0dp</item>
         <item name="background">@color/whiteColor</item>
         <item name="titleTextStyle">@style/AppTheme.ActionBarTitle</item>
+    </style>
+
+    <!-- 액션바 X 테마 -->
+    <style name="AppTheme.NoActionBar" parent="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
     <!-- 액션바 타이틀 테마 -->
@@ -38,6 +44,14 @@
     <!-- 탭 텍스트 테마 -->
     <style name="AppTheme.TabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">@dimen/tab_text_size</item>
+    </style>
+
+    <!-- 텍스트 인풋 레이아웃 테마 -->
+    <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/midLightTextColor</item>
+        <item name="counterTextColor">@color/midLightTextColor</item>
+        <item name="boxStrokeColor">@color/primaryDarkColor</item>
+        <item name="hintTextColor">@color/primaryDarkColor</item>
     </style>
 
     <!-- 체크박스 테마 -->

@@ -8,13 +8,9 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/yearTextInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/AppTheme.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="@color/midLightTextColor"
-        app:counterTextColor="@color/midLightTextColor"
-        app:boxStrokeColor="@color/primaryDarkColor"
-        app:hintTextColor="@color/primaryDarkColor"
         android:hint="년도 입력">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
