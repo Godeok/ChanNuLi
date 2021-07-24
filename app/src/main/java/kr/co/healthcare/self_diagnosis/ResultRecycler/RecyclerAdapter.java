@@ -13,6 +13,9 @@ import kr.co.healthcare.self_diagnosis.ResultDB.Result;
 
 import java.util.ArrayList;
 
+import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
+import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.getRange_warning;
+
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
@@ -23,7 +26,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_self_diagnosis_result_container,parent,false);
+                .inflate(R.layout.item_self_diagnosis_result_container_v2,parent,false);
         return new MyViewHolder(view);
     }
 
@@ -64,11 +67,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             tv_date.setText(""+result.getDate());
 
             //검사 결과 텍스트뷰
-            if(result.getCount()>5) {
+            if(result.getCount()>getRange_warning()) {
                 tv_count.setBackgroundColor(Color.parseColor("#e61919"));
                 tv_count.setText("위험");
             }
-            else if(result.getCount()>3) {
+            else if(result.getCount()>getRange_safe()) {
                 tv_count.setBackgroundColor(Color.parseColor("#FFC107"));
                 tv_count.setText("주의");
             }
