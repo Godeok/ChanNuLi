@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -165,7 +166,6 @@ public class Game3Activity extends AppCompatActivity {
 
         cards[cardNumber].setImageResource(img_card_content[imageNum[cardNumber]]);
         cards[cardNumber].setEnabled(false);
-        //change_to_checked(cardNumber);
         cards[cardNumber].startAnimation(scale_bigger);
     }
 
@@ -190,8 +190,11 @@ public class Game3Activity extends AppCompatActivity {
     void match_or_not(){
         //카드 같으면
         if(FIRST_CARD_IMAGE == SECOND_CARD_IMAGE){
-            cards[FIRST_CARD_NUMBER].setImageResource(R.drawable.img_card_content_11);
-            cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_content_11);
+            cards[FIRST_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
+            cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
+
+            cards[FIRST_CARD_NUMBER].setBackgroundColor(Color.WHITE);
+            cards[SECOND_CARD_NUMBER].setBackgroundColor(Color.WHITE);
 
             cards[FIRST_CARD_NUMBER].setEnabled(false);
             cards[SECOND_CARD_NUMBER].setEnabled(false);
