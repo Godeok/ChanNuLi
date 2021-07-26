@@ -237,7 +237,7 @@ public class Game2Activity extends AppCompatActivity{
                 int score2 = SCORE;
                 initialize_data();
 
-                Intent intent = new Intent(getApplicationContext(), Game2ResultActivity.class);
+                Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
                 intent.putExtra("score", score2);
                 intent.putExtra("level", level);
                 startActivity(intent);

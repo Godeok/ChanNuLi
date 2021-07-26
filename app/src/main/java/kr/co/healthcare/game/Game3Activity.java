@@ -7,7 +7,6 @@ import androidx.core.content.ContextCompat;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -224,7 +223,7 @@ public class Game3Activity extends AppCompatActivity {
     void check_game_over(){
         //게임 끝(lose)
         if(MAX_ATTEMPT == ATTEMPT_CNT){
-            Intent intent = new Intent(getApplicationContext(), Game3ResultActivity.class);
+            Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
             intent.putExtra("score", score);
             intent.putExtra("level", level);
             startActivity(intent);
@@ -240,11 +239,11 @@ public class Game3Activity extends AppCompatActivity {
                     public void run() {
                     Intent intent;
                     if(level==3) {
-                        intent = new Intent(getApplicationContext(), Game3ResultActivity.class);
+                        intent = new Intent(getApplicationContext(), GameResultActivity.class);
                         intent.putExtra("level", level);
                     }
                     else {
-                        intent = new Intent(getApplicationContext(), Game3Activity.class);
+                        intent = new Intent(getApplicationContext(), GameResultActivity.class);
                         intent.putExtra("level", level + 1);
                     }
 
