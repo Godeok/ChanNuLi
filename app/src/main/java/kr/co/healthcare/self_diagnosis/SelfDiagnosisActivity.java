@@ -21,7 +21,8 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
 
     int num=0, countYes=0, disease_num;
     String title="";
-    private TextView tv_question, tv_number;
+    private kr.co.healthcare.self_diagnosis.CTextView tv_question;
+    private TextView tv_number;
     private CardView btn_yes, btn_no;
     public List<Questions> questionsList;
 

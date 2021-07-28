@@ -43,7 +43,7 @@ public class SelfShowResult extends AppCompatActivity {
         final String title = intent.getStringExtra("title");
 
         tv_title.setText(title);
-        tv_result.setText("검사 결과 총 "+count+"개의 항목에서 '예'라고 답했습니다."+AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(2));
+        tv_result.setText("검사 결과 총 "+count+"개의 항목에서 '예'라고 답했습니다.");
 
         if (count<=getRange_safe()) tv_desc.setText("정상 단계입니다.");
         else if (count<=getRange_warning()) tv_desc.setText("주의 단계입니다.");
