@@ -26,7 +26,7 @@ public class Game3Activity extends AppCompatActivity {
     static int FIRST_CARD_NUMBER = -1, SECOND_CARD_NUMBER = -1;
     static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 100;
 
-    int level, score=0, number_of_cards;
+    int level, score=0, points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
     TextView tv_level, tv_score, tv_count2;
     Animation scale_bigger;
@@ -62,14 +62,18 @@ public class Game3Activity extends AppCompatActivity {
 
         //레벨 설정
         level = getIntent().getIntExtra("level", -1);
-        if(level==1)
+        if(level==1) {
             number_of_cards = 16;
+            points = 20;
+        }
         else if(level==2){
             number_of_cards = 20;
+            points = 30;
             layout_lv2.setVisibility(View.VISIBLE);     //숨긴 카드 보이게 하기
         }
         else if(level==3) {
             number_of_cards = 24;
+            points = 40;
             layout_lv2.setVisibility(View.VISIBLE);
             layout_lv3.setVisibility(View.VISIBLE);
         }
@@ -200,7 +204,7 @@ public class Game3Activity extends AppCompatActivity {
 
             check_card[FIRST_CARD_NUMBER] = check_card[SECOND_CARD_NUMBER] = 1;
 
-            score+=20;
+            score+=points;
             tv_score.setText(score+"점");
         }
 
