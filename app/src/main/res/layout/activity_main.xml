@@ -83,7 +83,7 @@
             android:paddingHorizontal="@dimen/main_button_vertical_padding"
             android:background="@drawable/btn_main_menu_v1"
             android:gravity="bottom"
-            android:onClick="showDiseaseInfoSelectPage"
+            android:onClick="showSelfDiagnosis"
             tools:ignore="UsingOnClickInXml">
 
             <TextView
@@ -108,7 +108,7 @@
             android:background="@drawable/btn_main_menu_v2"
             android:orientation="horizontal"
             android:gravity="bottom"
-            android:onClick="showDiseaseInfoSelectPage"
+            android:onClick="showHealthInfo"
             tools:ignore="UsingOnClickInXml">
 
             <TextView
@@ -158,7 +158,7 @@
             android:background="@drawable/btn_main_menu_v2"
             android:orientation="horizontal"
             android:gravity="bottom"
-            android:onClick="showDiseaseInfoSelectPage"
+            android:onClick="showGame"
             tools:ignore="UsingOnClickInXml">
 
             <TextView
