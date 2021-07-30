@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //자가진단
-    public void showSelfMain(View view) {
+    public void showSelfDiagnosis(View view) {
         intent = new Intent(getApplicationContext(), SelfMainActivity.class);
         startActivity(intent);
     }

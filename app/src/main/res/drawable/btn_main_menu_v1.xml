@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:drawable="@drawable/ic_health_info" />
 <item>
     <shape
-        android:padding="10dp"
         android:shape="rectangle" >
-        <solid android:color="@color/primaryDarkColor" />
+        <solid android:color="@color/primaryColor" />
         <corners
-            android:bottomLeftRadius="30dp"
-            android:bottomRightRadius="30dp"
-            android:topLeftRadius="30dp"
-            android:topRightRadius="30dp" />
+            android:bottomLeftRadius="20dp"
+            android:bottomRightRadius="20dp"
+            android:topLeftRadius="20dp"
+            android:topRightRadius="20dp" />
     </shape>
 </item>
 </layer-list>
