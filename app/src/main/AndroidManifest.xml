@@ -83,7 +83,7 @@
             android:label="@string/title_activity_game"
             android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".game.Game1ResultActivity"
+            android:name=".game.GameResultActivity"
             android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
         <activity
@@ -95,19 +95,11 @@
             android:name=".game.Game2Activity"
             android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true" />
-        <activity
-            android:name=".game.Game2ResultActivity"
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:noHistory="true" />
 
         <activity
             android:name=".game.Game3Activity"
             android:theme="@style/Theme.Design.NoActionBar"
             android:noHistory="true"/>
-        <activity
-            android:name=".game.Game3ResultActivity"
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:noHistory="true" />
     </application>
 
 </manifest>

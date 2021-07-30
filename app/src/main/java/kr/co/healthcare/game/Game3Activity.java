@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -26,7 +26,7 @@ public class Game3Activity extends AppCompatActivity {
     static int FIRST_CARD_NUMBER = -1, SECOND_CARD_NUMBER = -1;
     static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 100;
 
-    int level, score=0, number_of_cards;
+    int level, score=0, points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
     TextView tv_level, tv_score, tv_count2;
     Animation scale_bigger;
@@ -62,14 +62,18 @@ public class Game3Activity extends AppCompatActivity {
 
         //레벨 설정
         level = getIntent().getIntExtra("level", -1);
-        if(level==1)
+        if(level==1) {
             number_of_cards = 16;
+            points = 20;
+        }
         else if(level==2){
             number_of_cards = 20;
+            points = 30;
             layout_lv2.setVisibility(View.VISIBLE);     //숨긴 카드 보이게 하기
         }
         else if(level==3) {
             number_of_cards = 24;
+            points = 40;
             layout_lv2.setVisibility(View.VISIBLE);
             layout_lv3.setVisibility(View.VISIBLE);
         }
@@ -165,7 +169,6 @@ public class Game3Activity extends AppCompatActivity {
 
         cards[cardNumber].setImageResource(img_card_content[imageNum[cardNumber]]);
         cards[cardNumber].setEnabled(false);
-        //change_to_checked(cardNumber);
         cards[cardNumber].startAnimation(scale_bigger);
     }
 
@@ -190,15 +193,18 @@ public class Game3Activity extends AppCompatActivity {
     void match_or_not(){
         //카드 같으면
         if(FIRST_CARD_IMAGE == SECOND_CARD_IMAGE){
-            cards[FIRST_CARD_NUMBER].setImageResource(R.drawable.img_card_content_11);
-            cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_content_11);
+            cards[FIRST_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
+            cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
+
+            cards[FIRST_CARD_NUMBER].setBackgroundColor(Color.WHITE);
+            cards[SECOND_CARD_NUMBER].setBackgroundColor(Color.WHITE);
 
             cards[FIRST_CARD_NUMBER].setEnabled(false);
             cards[SECOND_CARD_NUMBER].setEnabled(false);
 
             check_card[FIRST_CARD_NUMBER] = check_card[SECOND_CARD_NUMBER] = 1;
 
-            score+=20;
+            score+=points;
             tv_score.setText(score+"점");
         }
 
@@ -221,7 +227,7 @@ public class Game3Activity extends AppCompatActivity {
     void check_game_over(){
         //게임 끝(lose)
         if(MAX_ATTEMPT == ATTEMPT_CNT){
-            Intent intent = new Intent(getApplicationContext(), Game3ResultActivity.class);
+            Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
             intent.putExtra("score", score);
             intent.putExtra("level", level);
             startActivity(intent);
@@ -237,11 +243,11 @@ public class Game3Activity extends AppCompatActivity {
                     public void run() {
                     Intent intent;
                     if(level==3) {
-                        intent = new Intent(getApplicationContext(), Game3ResultActivity.class);
+                        intent = new Intent(getApplicationContext(), GameResultActivity.class);
                         intent.putExtra("level", level);
                     }
                     else {
-                        intent = new Intent(getApplicationContext(), Game3Activity.class);
+                        intent = new Intent(getApplicationContext(), GameResultActivity.class);
                         intent.putExtra("level", level + 1);
                     }
 
