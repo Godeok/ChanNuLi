@@ -29,6 +29,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- main 화면 button textview 테마 -->
+    <style name="AppTheme.Main.Button.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/whiteColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <!-- 탭 테마 -->
     <style name="AppTheme.TabTheme" parent="Theme.MaterialComponents.Light">
         <item name="tabPaddingStart">@dimen/tab_padding</item>

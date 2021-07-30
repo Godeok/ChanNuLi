@@ -1,143 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background= "#FFFFFF"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingHorizontal="30dp">
+    android:background= "@color/whiteColor"
+    android:orientation="vertical"
+    android:paddingHorizontal="30dp"
+    android:paddingTop="80dp">
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="80dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="안녕하세요!"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/defaultTextColor"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:orientation="horizontal">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:text="홍길동"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/primary2Color"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="안녕하세요!"
-                        android:textColor="@color/defaultTextColor"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/userName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="홍길동"
-                            android:textColor="@color/primary2Color"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:lineSpacingExtra="10dp"
-                            android:text="님."
-                            android:textColor="@color/defaultTextColor"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <ImageButton
-                    android:id="@+id/mypageBtn"
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:backgroundTint="@color/whiteColor"
-                    android:onClick="showMyPage"
-                    app:srcCompat="@drawable/img_person_woman_round"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitStart" />
-
-
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="10dp"
+                    android:text="님."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/defaultTextColor"
+                    android:textStyle="bold" />
             </LinearLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="100dp" />
-
-            <androidx.gridlayout.widget.GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:columnCount="2"
-                app:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/selfBtn"
-                    android:text="자가진단"
-                    android:layout_width="150dp"
-                    android:layout_height="200dp"
-                    app:layout_columnWeight="1"
-                    android:background="@drawable/btn_main_menu_v1"
-                    android:textColor="@color/whiteColor"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/healthInfoBtn"
-                    android:layout_width="150dp"
-                    android:layout_height="200dp"
-                    android:background="@drawable/btn_main_menu_v1"
-                    android:onClick="showHealthInfo"
-                    android:text="건강정보"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/whiteColor"
-                    android:textStyle="bold"
-                    app:layout_columnWeight="1" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:onClick="showDiseaseInfoSelectPage"
-                    android:text="질병정보"
-                    android:layout_width="150dp"
-                    android:layout_height="200dp"
-                    app:layout_columnWeight="1"
-                    android:background="@drawable/btn_main_menu_v1"
-                    android:textColor="@color/whiteColor"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/game_btn"
-                    android:text="건강 게임"
-                    android:layout_width="150dp"
-                    android:layout_height="200dp"
-                    app:layout_columnWeight="1"
-                    android:background="@drawable/btn_main_menu_v1"
-                    android:textColor="@color/whiteColor"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold" />
-
-            </androidx.gridlayout.widget.GridLayout>
-
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+
+        <ImageButton
+            android:id="@+id/mypageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="@color/whiteColor"
+            android:onClick="showMyPage"
+            android:scaleType="fitStart"
+            app:srcCompat="@drawable/img_person_woman_round" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="40dp"
+        android:gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/main_button_margin"
+            android:paddingVertical="@dimen/main_button_vertical_padding"
+            android:paddingHorizontal="@dimen/main_button_vertical_padding"
+            android:background="@drawable/btn_main_menu_v1"
+            android:gravity="bottom"
+            android:onClick="showSelfDiagnosis"
+            tools:ignore="UsingOnClickInXml">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/AppTheme.Main.Button.TextView"
+                android:text="@string/btn_text_main_self_diagnosis" />
+
+            <ImageView
+                android:layout_width="@dimen/main_button_img_width"
+                android:layout_height="@dimen/main_button_img_height"
+                app:srcCompat="@drawable/ic_main_selfdiagnosis" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_button_margin"
+            android:paddingVertical="@dimen/main_button_vertical_padding"
+            android:paddingHorizontal="@dimen/main_button_vertical_padding"
+            android:background="@drawable/btn_main_menu_v2"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:onClick="showHealthInfo"
+            tools:ignore="UsingOnClickInXml">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/AppTheme.Main.Button.TextView"
+                android:text="@string/btn_text_main_health_info" />
+
+            <ImageView
+                android:layout_width="@dimen/main_button_img_width"
+                android:layout_height="@dimen/main_button_img_height"
+                app:srcCompat="@drawable/ic_health_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_button_margin"
+            android:paddingVertical="@dimen/main_button_vertical_padding"
+            android:paddingHorizontal="@dimen/main_button_vertical_padding"
+            android:background="@drawable/btn_main_menu_v1"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:onClick="showDiseaseInfoSelectPage"
+            tools:ignore="UsingOnClickInXml">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/AppTheme.Main.Button.TextView"
+                android:text="@string/btn_text_main_disease_info" />
+
+            <ImageView
+                android:layout_width="@dimen/main_button_img_width"
+                android:layout_height="@dimen/main_button_img_height"
+                app:srcCompat="@drawable/ic_main_diesaseinfo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/main_button_margin"
+            android:paddingVertical="@dimen/main_button_vertical_padding"
+            android:paddingHorizontal="@dimen/main_button_vertical_padding"
+            android:background="@drawable/btn_main_menu_v2"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:onClick="showGame"
+            tools:ignore="UsingOnClickInXml">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/AppTheme.Main.Button.TextView"
+                android:text="@string/btn_text_main_game" />
+
+            <ImageView
+                android:layout_width="@dimen/main_button_img_width"
+                android:layout_height="@dimen/main_button_img_height"
+                app:srcCompat="@drawable/ic_main_game" />
+        </LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>
