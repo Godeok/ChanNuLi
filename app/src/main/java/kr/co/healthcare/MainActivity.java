@@ -22,57 +22,54 @@ import kr.co.healthcare.database.UserViewModel;
 
 public class MainActivity extends AppCompatActivity {
     public static Activity mainActivity;
-    private Boolean isTutorialFinished = false;
     private TextView userNameTV;
-
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //튜토리얼 완료 확인
-        isTutorialFinished = PreferenceManger.getBoolean(this, PreferenceManger.PREF_IS_TUTORIAL_FINISHED);
         mainActivity = MainActivity.this;
+        userNameTV = findViewById(R.id.userName);
 
-        UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
-        viewModel.getUserName(this).observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String name) {
-                userNameTV.setText(name);
-            }
-        });
+        checkISTutorialFinished();
+    }
+
+    private void checkISTutorialFinished(){
+        //튜토리얼 정보 불러오기
+        boolean isTutorialFinished = PreferenceManger.getBoolean(this, PreferenceManger.PREF_IS_TUTORIAL_FINISHED);
 
         if (!isTutorialFinished) {  //튜토리얼 미완료 시
             intent = new Intent(getApplicationContext(), TutorialActivity.class);
             startActivity(intent);
             mainActivity.finish();
         }else{ // 튜토리얼 완료 시
-            userNameTV = findViewById(R.id.userName);
             userNameTV.setText(PreferenceManger.getString(this, PreferenceManger.PREF_USER_NAME));
+
+            UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
+            viewModel.getUserName(this).observe(this, new Observer<String>() {
+                @Override
+                public void onChanged(String name) {
+                    userNameTV.setText(name);
+                }
+            });
         }
-
-        //자가진단
-        final Button selfBtn = (Button)findViewById(R.id.selfBtn);
-        selfBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(getApplicationContext(), SelfMainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
-        //게임
-        final Button game_btn = (Button)findViewById(R.id.game_btn);
-        game_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(getApplicationContext(), GameMainActivity.class);
-                startActivity(intent);
-            }
-        });
     }
+
+    //자가진단
+    public void showSelfMain(View view) {
+        intent = new Intent(getApplicationContext(), SelfMainActivity.class);
+        startActivity(intent);
+    }
+
+
+    //게임
+    public void showGame(View view) {
+        intent = new Intent(getApplicationContext(), GameMainActivity.class);
+        startActivity(intent);
+    }
+
 
     //마이페이지
     public void showMyPage(View view){
