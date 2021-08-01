@@ -21,5 +21,6 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="number_picker_text_size">24sp</dimen>
     <dimen name="chipMinHeight">44dp</dimen>
+    <dimen name="view_game_process_size">35dp</dimen>
 
 </resources>
