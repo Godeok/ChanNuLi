@@ -75,29 +75,21 @@
             android:label="@string/title_activity_game"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".game.Game1ResultActivity"
-            android:noHistory="true"
-            android:theme="@style/Theme.Design.NoActionBar" />
+            android:name=".game.GameResultActivity"
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:noHistory="true" />
         <activity
             android:name=".game.Game1Activity"
             android:noHistory="true"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".game.Game2Activity"
-            android:noHistory="true"
-            android:theme="@style/Theme.Design.NoActionBar" />
-        <activity
-            android:name=".game.Game2ResultActivity"
-            android:noHistory="true"
-            android:theme="@style/Theme.Design.NoActionBar" />
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:noHistory="true" />
         <activity
             android:name=".game.Game3Activity"
-            android:noHistory="true"
-            android:theme="@style/Theme.Design.NoActionBar" />
-        <activity
-            android:name=".game.Game3ResultActivity"
-            android:noHistory="true"
-            android:theme="@style/Theme.Design.NoActionBar" />
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:noHistory="true"/>
     </application>
 
 </manifest>

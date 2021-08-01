@@ -314,6 +314,7 @@ public class Game1Activity extends AppCompatActivity{
                 if(cnt<3){
                     Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                     intent.putExtra("level", level);
+                    intent.putExtra("game", 1);
                     startActivity(intent);
                 }
                 else{
@@ -322,9 +323,10 @@ public class Game1Activity extends AppCompatActivity{
                     score=0;
                     cnt=0;
 
-                    Intent intent = new Intent(getApplicationContext(), Game1ResultActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
                     intent.putExtra("score", score2);
                     intent.putExtra("level", level);
+                    intent.putExtra("game", 1);
                     startActivity(intent);
                 }
                 //화면 전환 효과 없애기

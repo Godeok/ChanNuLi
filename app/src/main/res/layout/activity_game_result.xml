@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <ImageView
         android:layout_width="match_parent"
@@ -13,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_game_result_background" />
+        app:srcCompat="@drawable/img_game_result_background"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,16 +89,14 @@
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/img_star"
-                            app:tint="@color/primaryLightColor" />
+                            app:srcCompat="@drawable/img_star"/>
 
                         <ImageView
                             android:id="@+id/img_star_3"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
                             android:layout_weight="1"
-                            app:srcCompat="@drawable/img_star"
-                            app:tint="@color/primaryLightColor" />
+                            app:srcCompat="@drawable/img_star"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -124,7 +123,7 @@
                         android:textColor="@color/midLightTextColor" />
 
                     <TextView
-                        android:id="@+id/tv_best_score"
+                        android:id="@+id/tv_showBest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100"
@@ -146,7 +145,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/tv_score_exsist"
+                        android:id="@+id/tv_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="100"
@@ -175,7 +174,7 @@
             android:paddingHorizontal="50dp">
 
             <ImageButton
-                android:id="@+id/btn_home"
+                android:id="@+id/btn_end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
@@ -186,7 +185,7 @@
                 app:tint="@color/grayColor"/>
 
             <Button
-                android:id="@+id/btn_retry"
+                android:id="@+id/btn_restart"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
