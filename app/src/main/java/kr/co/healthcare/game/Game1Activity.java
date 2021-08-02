@@ -7,6 +7,8 @@ import android.graphics.ColorMatrixColorFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -26,6 +28,9 @@ public class Game1Activity extends AppCompatActivity{
     TextView tv_score;
     TextView tv_result;
     int rand1, rand2, rand3, rand4;
+    Animation animTransRight;
+    Animation animTransLeft;
+    Animation animAlpha;
 
     static int score=0;
     static int cnt=0;
@@ -84,6 +89,9 @@ public class Game1Activity extends AppCompatActivity{
         iv_com2 = findViewById(R.id.iv_com2);
         tv_score = findViewById(R.id.tv_score);
         tv_result = findViewById(R.id.tv_result);
+        animTransRight = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_right);
+        animTransLeft = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_left);
+        animAlpha = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_alpha);
 
         //가위, 바위, 보 랜덤함수로 결정
         rand1 = (int)(Math.random()*3);
@@ -265,9 +273,17 @@ public class Game1Activity extends AppCompatActivity{
     int random_rsp(int rand1, int rand2, TextView result_tv){
         int randNum = (int) (Math.random() * 2);
         if (randNum == 0) {
+            //애니메이션(왼->중앙)
+            iv_com1.startAnimation(animTransRight);
+            iv_com2.startAnimation(animAlpha);
+            //iv_com2.setImageResource(R.drawable.nothing);
+
             return rand1;
             //check_result(rand3, rand1, result_tv);
         } else {
+            iv_com2.startAnimation(animTransLeft);
+            iv_com1.startAnimation(animAlpha);
+            //iv_com1.setImageResource(R.drawable.nothing);
             return rand2;
             //check_result(rand3, rand2, result_tv);
         }
@@ -278,8 +294,20 @@ public class Game1Activity extends AppCompatActivity{
         int s1 = compare_rsp(com1, user1, user2);
         int s2 = compare_rsp(com2, user1, user2);
 
-        if (s1>s2) return com1;
-        else return com2;
+        if (s1>s2){
+            iv_com1.startAnimation(animTransRight);
+            iv_com2.startAnimation(animAlpha);
+            //iv_com2.setImageResource(R.drawable.nothing);
+
+            return com1;
+        }
+        else{
+            iv_com2.startAnimation(animTransLeft);
+            iv_com1.startAnimation(animAlpha);
+            //iv_com1.setImageResource(R.drawable.nothing);;
+
+            return com2;
+        }
     }
 
     //가위바위보 a가 승/무:1, 승/패:0, 무/패:-1
@@ -336,7 +364,7 @@ public class Game1Activity extends AppCompatActivity{
                 //화면 전환 효과 없애기
                 overridePendingTransition(0, 0);
             }
-        }, 1000); // 1초후
+        }, 1500); // 1초후
 
 
     }
