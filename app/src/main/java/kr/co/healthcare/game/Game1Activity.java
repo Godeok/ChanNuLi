@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
-import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -18,8 +17,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.resources.TextAppearance;
-
 import kr.co.healthcare.R;
 
 
@@ -30,6 +27,8 @@ public class Game1Activity extends AppCompatActivity{
     ImageButton ib_user2;
     ImageView iv_com1;
     ImageView iv_com2;
+    ImageView iv_character;
+    ImageView iv_background;
     TextView tv_score;
     TextView tv_result;
     //TextView tv_try1, tv_try2, tv_try3, tv_try4, tv_try5;
@@ -59,9 +58,12 @@ public class Game1Activity extends AppCompatActivity{
         setContentView(R.layout.activity_game1_renewal);
 
         tv_level = findViewById(R.id.tv_level);
+        iv_character = (ImageView) findViewById(R.id.iv_character);
+        iv_background = (ImageView) findViewById(R.id.iv_background);
+
         level = getIntent().getIntExtra("level", -1);
         try_result = getIntent().getIntArrayExtra("try_result");
-        show_level(level);
+        setting_by_level(level);
 
         loadActivity();  }
 
@@ -219,10 +221,22 @@ public class Game1Activity extends AppCompatActivity{
     }
 
     //레벨 표시
-    void show_level(int level){
-        if(level==1) tv_level.setText("쉬움");
-        else if(level==2) tv_level.setText("중간");
-        else tv_level.setText("어려움");
+    void setting_by_level(int level){
+        if(level==1){
+            tv_level.setText("쉬움");
+            iv_character.setImageResource(R.drawable.img_game1_lv1_person);
+            iv_background.setImageResource(R.drawable.img_game1_background_lv1);
+        }
+        else if(level==2){
+            tv_level.setText("중간");
+            iv_character.setImageResource(R.drawable.img_game1_lv2_person);
+            iv_background.setImageResource(R.drawable.img_game1_background_lv2);
+        }
+        else{
+            tv_level.setText("어려움");
+            iv_character.setImageResource(R.drawable.img_game1_lv3_person);
+            iv_background.setImageResource(R.drawable.img_game1_background_lv3);
+        }
     }
 
     //사진 흐리게
@@ -292,6 +306,7 @@ public class Game1Activity extends AppCompatActivity{
                 tv_try[i].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_lose));
             else if(try_result[i]==3)
                 tv_try[i].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_draw));
+            else;
         }
     }
 
