@@ -15,6 +15,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.resources.TextAppearance;
+
 import kr.co.healthcare.R;
 
 
@@ -27,14 +31,23 @@ public class Game1Activity extends AppCompatActivity{
     ImageView iv_com2;
     TextView tv_score;
     TextView tv_result;
+    //TextView tv_try1, tv_try2, tv_try3, tv_try4, tv_try5;
+
+    int[] try_result = new int[5];
+    TextView[] tv_try = new TextView[5];
+    int[] tv_try_rid = {
+            R.id.tv_try1, R.id.tv_try2, R.id.tv_try3, R.id.tv_try4, R.id.tv_try5
+    };
+
     int rand1, rand2, rand3, rand4;
+    int level;
     Animation animTransRight;
     Animation animTransLeft;
     Animation animAlpha;
 
-    static int score=0;
-    static int cnt=0;
-    int level;
+    static int SCORE = 0;
+    static int CNT = 0;
+    static int GAME_ROUND = 5;
 
 
 
@@ -46,7 +59,10 @@ public class Game1Activity extends AppCompatActivity{
 
         tv_level = findViewById(R.id.tv_level);
         level = getIntent().getIntExtra("level", -1);
+        //try_result = getIntent().getIntArrayExtra("try_result");
         show_level(level);
+
+
 
         loadActivity();
     }
@@ -60,8 +76,8 @@ public class Game1Activity extends AppCompatActivity{
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                cnt=0;
-                score=0;
+                CNT = 0;
+                SCORE =0;
                 //게임이 실행되던 액티비티 종료
                 finish();
             }
@@ -81,7 +97,7 @@ public class Game1Activity extends AppCompatActivity{
 
     private void loadActivity(){
 
-        cnt++;
+        CNT++;
 
         ib_user1 = findViewById(R.id.ib_user1);
         ib_user2 = findViewById(R.id.ib_user2);
@@ -89,6 +105,11 @@ public class Game1Activity extends AppCompatActivity{
         iv_com2 = findViewById(R.id.iv_com2);
         tv_score = findViewById(R.id.tv_score);
         tv_result = findViewById(R.id.tv_result);
+
+        for(int i=0; i<5; i++) {
+            tv_try[i] = findViewById(tv_try_rid[i]);
+        }
+
         animTransRight = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_right);
         animTransLeft = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_left);
         animAlpha = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_alpha);
@@ -113,7 +134,7 @@ public class Game1Activity extends AppCompatActivity{
         show_rsp(rand2, iv_com2);
         show_rsp_imgbtn(rand3, ib_user1);
         show_rsp_imgbtn(rand4, ib_user2);
-        tv_score.setText(score+"점");
+        tv_score.setText(SCORE +"점");
 
 
         //첫 번째 이미지 버튼을 눌렀을 경우
@@ -256,17 +277,28 @@ public class Game1Activity extends AppCompatActivity{
     void check_result(int user, int com){
         if ((user==0 && com==0) || (user==1 && com==1) || (user==2 && com==2)){
             //tv.setText("무승부입니다");
-            score+=100;
-            tv_score.setText(score+"점");
+            SCORE +=100;
+            tv_score.setText(SCORE +"점");
+
+            tv_try[CNT-1].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_draw));
+            try_result[CNT-1] = 3;
         }
 
         else if ((user==0 && com==2) || (user==1 && com==0) || (user==2 && com==1)) {
             //tv.setText("이겼습니다");
-            score+=200;
-            tv_score.setText(score+"점");
+            SCORE +=200;
+            tv_score.setText(SCORE +"점");
+
+            //API 21인데 23으로 올림
+            tv_try[CNT-1].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_win));
+            try_result[CNT-1] = 1;
         }
 
-        //else tv.setText("졌습니다");
+        else {
+            //API 21인데 23으로 올림
+            tv_try[CNT-1].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_lose));
+            try_result[CNT-1] = 2;
+        }
     }
 
     //컴퓨터가 랜덤으로 작동하는 메소드
@@ -339,11 +371,13 @@ public class Game1Activity extends AppCompatActivity{
         //ib_user1.setEnabled(false);
         //ib_user2.setEnabled(false);
 
+
+
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 //게임 반복 횟수가 다 안 찼을 경우
-                if(cnt<3){
+                if(CNT <GAME_ROUND){
                     Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                     intent.putExtra("level", level);
                     intent.putExtra("game", 1);
@@ -351,14 +385,15 @@ public class Game1Activity extends AppCompatActivity{
                 }
                 else{
                     int level = getIntent().getIntExtra("level", -1);
-                    int score2 = score;
-                    score=0;
-                    cnt=0;
+                    int score2 = SCORE;
+                    SCORE = 0;
+                    CNT = 0;
 
                     Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
                     intent.putExtra("score", score2);
                     intent.putExtra("level", level);
                     intent.putExtra("game", 1);
+                    intent.putExtra("try_result", try_result);
                     startActivity(intent);
                 }
                 //화면 전환 효과 없애기
