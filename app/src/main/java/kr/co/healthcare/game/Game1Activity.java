@@ -44,6 +44,7 @@ public class Game1Activity extends AppCompatActivity{
     Animation animTransRight;
     Animation animTransLeft;
     Animation animAlpha;
+    Animation animScaleSmallerBtn;
 
     static int SCORE = 0;
     static int CNT = 0;
@@ -114,6 +115,7 @@ public class Game1Activity extends AppCompatActivity{
         animTransRight = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_right);
         animTransLeft = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_left);
         animAlpha = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_alpha);
+        animScaleSmallerBtn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_scale_smaller_btn);
 
 
         //가위, 바위, 보 랜덤함수로 결정
@@ -159,6 +161,10 @@ public class Game1Activity extends AppCompatActivity{
                 //iv_user.bringToFront();
                 //iv_com.bringToFront();
                 gray_image(ib_user2);
+                ib_user1.setClickable(false);
+                ib_user2.setClickable(false);
+
+                ib_user2.startAnimation(animScaleSmallerBtn);
                 //blurred_image(rand1, rand2, rand3, rand4);
                 next_lv();
             }
@@ -177,6 +183,10 @@ public class Game1Activity extends AppCompatActivity{
                 //iv_user.bringToFront();
                 //iv_com.bringToFront();
                 gray_image(ib_user1);
+                ib_user1.setClickable(false);
+                ib_user2.setClickable(false);
+
+                ib_user1.startAnimation(animScaleSmallerBtn);
                 //blurred_image(rand1, rand2, rand3, rand4);
                 next_lv();
             }
