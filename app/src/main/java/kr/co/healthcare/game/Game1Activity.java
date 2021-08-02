@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -59,13 +60,11 @@ public class Game1Activity extends AppCompatActivity{
 
         tv_level = findViewById(R.id.tv_level);
         level = getIntent().getIntExtra("level", -1);
-        //try_result = getIntent().getIntArrayExtra("try_result");
+        try_result = getIntent().getIntArrayExtra("try_result");
         show_level(level);
 
+        loadActivity();  }
 
-
-        loadActivity();
-    }
 
     @Override
     public void onBackPressed() {
@@ -99,12 +98,12 @@ public class Game1Activity extends AppCompatActivity{
 
         CNT++;
 
-        ib_user1 = findViewById(R.id.ib_user1);
-        ib_user2 = findViewById(R.id.ib_user2);
-        iv_com1 = findViewById(R.id.iv_com1);
-        iv_com2 = findViewById(R.id.iv_com2);
-        tv_score = findViewById(R.id.tv_score);
-        tv_result = findViewById(R.id.tv_result);
+        ib_user1 = (ImageButton) findViewById(R.id.ib_user1);
+        ib_user2 = (ImageButton) findViewById(R.id.ib_user2);
+        iv_com1 = (ImageView) findViewById(R.id.iv_com1);
+        iv_com2 = (ImageView) findViewById(R.id.iv_com2);
+        tv_score = (TextView) findViewById(R.id.tv_score);
+        tv_result = (TextView) findViewById(R.id.tv_result);
 
         for(int i=0; i<5; i++) {
             tv_try[i] = findViewById(tv_try_rid[i]);
@@ -113,6 +112,7 @@ public class Game1Activity extends AppCompatActivity{
         animTransRight = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_right);
         animTransLeft = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_left);
         animAlpha = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_alpha);
+
 
         //가위, 바위, 보 랜덤함수로 결정
         rand1 = (int)(Math.random()*3);
@@ -135,6 +135,12 @@ public class Game1Activity extends AppCompatActivity{
         show_rsp_imgbtn(rand3, ib_user1);
         show_rsp_imgbtn(rand4, ib_user2);
         tv_score.setText(SCORE +"점");
+
+        //카드 원상복귀
+        original_image(ib_user1);
+        original_image(ib_user2);
+        set_tv_try();
+
 
 
         //첫 번째 이미지 버튼을 눌렀을 경우
@@ -227,8 +233,11 @@ public class Game1Activity extends AppCompatActivity{
         show_rsp_blur(rand3, btn_user1);
         show_rsp_blur(rand4, btn_user2);
     }
-
      */
+
+    void original_image(ImageView img){
+        img.setColorFilter(null);
+    }
 
     void gray_image(ImageView img){
         ColorMatrix matrix = new ColorMatrix();
@@ -265,12 +274,25 @@ public class Game1Activity extends AppCompatActivity{
     //버튼 이미지 바꾸는 메소드
     void show_rsp_imgbtn(int index, ImageButton imgbtn){
         //index: 난수, img: 바꿀 이미지 위치
+        //while(imgbtn==null){}
+
         if(index==0)
             imgbtn.setImageResource(R.drawable.img_scissor);
         else if(index==1)
             imgbtn.setImageResource(R.drawable.img_rock);
         else
             imgbtn.setImageResource(R.drawable.img_paper);
+    }
+
+    void set_tv_try(){
+        for(int i=0; i<5; i++){
+            if(try_result[i]==1)
+                tv_try[i].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_win));
+            else if(try_result[i]==2)
+                tv_try[i].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_lose));
+            else if(try_result[i]==3)
+                tv_try[i].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_draw));
+        }
     }
 
     //게임 결과 알려주는 메소드
@@ -371,16 +393,16 @@ public class Game1Activity extends AppCompatActivity{
         //ib_user1.setEnabled(false);
         //ib_user2.setEnabled(false);
 
-
-
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 //게임 반복 횟수가 다 안 찼을 경우
                 if(CNT <GAME_ROUND){
+                    //loadActivity();
                     Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                     intent.putExtra("level", level);
                     intent.putExtra("game", 1);
+                    intent.putExtra("try_result", try_result);
                     startActivity(intent);
                 }
                 else{
@@ -393,7 +415,6 @@ public class Game1Activity extends AppCompatActivity{
                     intent.putExtra("score", score2);
                     intent.putExtra("level", level);
                     intent.putExtra("game", 1);
-                    intent.putExtra("try_result", try_result);
                     startActivity(intent);
                 }
                 //화면 전환 효과 없애기

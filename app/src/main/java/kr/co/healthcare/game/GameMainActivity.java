@@ -13,7 +13,7 @@ import kr.co.healthcare.R;
 
 public class GameMainActivity extends AppCompatActivity {
 
-
+    int[] try_result = {0, 0, 0, 0, 0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class GameMainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                 intent.putExtra("level", 1);
+                intent.putExtra("try_result", try_result);
                 startActivity(intent);
             }
         });
@@ -49,6 +50,7 @@ public class GameMainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                 intent.putExtra("level", 2);
+                intent.putExtra("try_result", try_result);
                 startActivity(intent);
             }
         });
@@ -58,6 +60,7 @@ public class GameMainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                 intent.putExtra("level", 3);
+                intent.putExtra("try_result", try_result);
                 startActivity(intent);;
             }
         });
