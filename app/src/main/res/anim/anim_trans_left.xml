@@ -4,11 +4,11 @@
     <translate
         android:fromXDelta="0"
         android:toXDelta="-35%"
-        android:duration="1000"
+        android:duration="800"
         android:repeatCount="0"/>
 
     <scale
-        android:duration="1000"
+        android:duration="800"
         android:pivotX="50%"
         android:pivotY="50%"
         android:fromXScale="1.0"

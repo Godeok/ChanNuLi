@@ -28,12 +28,8 @@ public class GameMainActivity extends AppCompatActivity {
         Button btn_to_game2_lv1 = findViewById(R.id.btn_to_game2_lv1);
         Button btn_to_game2_lv2 = findViewById(R.id.btn_to_game2_lv2);
         Button btn_to_game2_lv3 = findViewById(R.id.btn_to_game2_lv3);
-        //Button btn_toast2 = findViewById(R.id.btn_toast2);
 
         Button btn_to_game3_lv1 = findViewById(R.id.btn_to_game3_lv1);
-        //Button btn_to_game3_lv2 = findViewById(R.id.btn_to_game3_lv2);
-        //Button btn_to_game3_lv3 = findViewById(R.id.btn_to_game3_lv3);
-        //Button btn_toast3 = findViewById(R.id.btn_toast3);
 
         btn_to_game1_lv1.setOnClickListener(new View.OnClickListener(){
             @Override
