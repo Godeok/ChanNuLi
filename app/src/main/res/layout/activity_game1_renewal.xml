@@ -76,7 +76,7 @@
                 android:padding="20dp">
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/iv_com1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -84,7 +84,7 @@
                     app:srcCompat="@drawable/img_rock" />
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/iv_com2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -94,7 +94,7 @@
         </FrameLayout>
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/iv_character"
             android:layout_width="136dp"
             android:layout_height="183dp"
             android:layout_marginEnd="20dp"
@@ -110,11 +110,11 @@
             android:orientation="horizontal"
             android:paddingHorizontal="10dp"
             android:paddingVertical="3dp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_character"
             app:layout_constraintStart_toStartOf="@+id/frameLayout">
 
             <TextView
-                android:id="@+id/try1"
+                android:id="@+id/tv_try1"
                 android:layout_width="@dimen/view_game_process_size"
                 android:layout_height="@dimen/view_game_process_size"
                 android:layout_margin="2dp"
@@ -125,7 +125,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/try2"
+                android:id="@+id/tv_try2"
                 android:layout_width="@dimen/view_game_process_size"
                 android:layout_height="@dimen/view_game_process_size"
                 android:layout_margin="2dp"
@@ -136,7 +136,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/try3"
+                android:id="@+id/tv_try3"
                 android:layout_width="@dimen/view_game_process_size"
                 android:layout_height="@dimen/view_game_process_size"
                 android:layout_margin="2dp"
@@ -157,7 +157,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/ib_user1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -167,7 +167,7 @@
             android:scaleType="fitCenter"/>
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/ib_user2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
