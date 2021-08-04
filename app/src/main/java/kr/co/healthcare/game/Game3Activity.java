@@ -248,7 +248,7 @@ public class Game3Activity extends AppCompatActivity {
                         intent.putExtra("level", level);
                     }
                     else {
-                        intent = new Intent(getApplicationContext(), GameResultActivity.class);
+                        intent = new Intent(getApplicationContext(), Game3Activity.class);
                         intent.putExtra("level", level + 1);
                     }
 
