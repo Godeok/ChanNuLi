@@ -1,261 +1,350 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:fillViewport="true"
+    android:background="@color/defaultColor">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingHorizontal="20dp">
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="환영합니다"
-            android:textColor="@color/defaultTextColor"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
-            android:textStyle="bold" />
+        android:paddingBottom="20dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:paddingTop="35dp"
+            android:paddingHorizontal="35dp"
+            android:paddingBottom="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primaryColor"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
                 android:orientation="horizontal">
+
                 <TextView
-                    android:id="@+id/userNameTV"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="홍진서"
-                    android:textColor="@color/primary2Color"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textStyle="bold" />
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="회원 정보"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/whiteColor" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    app:tint="@color/whiteColor" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="10dp"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@drawable/img_person_woman_round" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="님"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textStyle="bold"/>
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="홍길동"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="@color/whiteColor"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="24살"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/whiteColor" />
+
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="25dp" />    </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="16dp"
-
-        app:cardBackgroundColor="@color/whiteColor"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="3dp">
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="25dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="내 정보"
-                android:textColor="@color/defaultDarkColor"
-                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                android:textStyle="bold"
-                android:layout_marginBottom="15dp"/>
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            app:cardBackgroundColor="@color/whiteColor"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="center_vertical">
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="25dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:text="나이"
-                        android:textColor="@color/defaultTextColor"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    <TextView
-                        android:id="@+id/userAgeTV"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/primaryDarkColor"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    <ImageButton
-                        android:id="@+id/ageImageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:background="#00FFFFFF"
-                        android:onClick="showEditAgeActivity"
-                        app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginVertical="10dp"
-                android:background="@color/dividerColor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:text="성별"
-                        android:textColor="@color/defaultTextColor"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    <TextView
-                        android:id="@+id/userGenderTV"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="TextView"
-                        android:textAlignment="viewEnd"
-                        android:textColor="@color/primaryDarkColor"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-                    <ImageButton
-                        android:id="@+id/genderImageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:background="#00FFFFFF"
-                        android:onClick="showEditGenderActivity"
-                        app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginVertical="10dp"
-                android:background="@color/dividerColor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="3"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
                         android:text="건강 상태"
-                        android:textColor="@color/defaultTextColor"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/midLightTextColor" />
 
-                    <ImageButton
-                        android:id="@+id/diseaseImageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#00FFFFFF"
-                        android:onClick="showEditDiseaseActivity"
-                        app:srcCompat="@drawable/ic_baseline_chevron_right_24" />
-
+                    <ImageView
+                        android:src="@drawable/ic_baseline_edit_24"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:adjustViewBounds="true"
+                        app:tint="@color/grayColor" />
                 </LinearLayout>
 
-                <HorizontalScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="현재 앓고 있는 질병은"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/defaultTextColor" />
 
                     <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/chipGroup"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/CHIPGROUP_diseases"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:singleLine="true" />
-                </HorizontalScrollView>
+                        android:layout_marginVertical="4dp" />
 
-                <TextView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="입니다."
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/defaultTextColor" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            app:cardBackgroundColor="@color/whiteColor"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="게임 최고 기록"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/midLightTextColor" />
+
+                    <ImageView
+                        android:src="@drawable/ic_baseline_edit_24"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:adjustViewBounds="true"
+                        app:tint="@color/grayColor" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="*좌우로 이동 가능합니다."
-                    android:textAlignment="viewEnd"
-                    android:textColor="@color/lightTextColor"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                    android:orientation="horizontal">
 
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="3dp"
+                            android:background="@drawable/view_game_type"
+                            android:text="가위바위보"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="@color/primary2Color"
+                            android:textAlignment="center"/>
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="60dp"
+                            android:layout_height="70dp"
+                            app:srcCompat="@drawable/ic_main_selfdiagnosis" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="6dp"
+                            android:paddingVertical="3dp"
+                            android:background="@drawable/view_game_level_small"
+                            android:text="쉬움"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textAlignment="center"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:background="@drawable/view_game_level_small"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/primaryDarkColor"
+                                android:textStyle="bold"
+                                android:textAlignment="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="점"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/primaryDarkColor"
+                                android:textStyle="bold"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
             </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            app:cardBackgroundColor="@color/whiteColor"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="3dp">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                android:gravity="center">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="게임 기록"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:paddingHorizontal="20dp"
-        android:textSize="14sp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="어플 설명"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/defaultTextColor"
+                    android:maxLines="1"
+                    android:gravity="center_vertical"/>
 
-    <LinearLayout
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="25dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="25dp"
-        android:paddingStart="40dp"
-        android:orientation="vertical">
+                <ImageView
+                    android:src="@drawable/ic_baseline_chevron_right_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    app:tint="@color/grayColor" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            app:cardBackgroundColor="@color/whiteColor"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="초기화"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/redColor"
+                    android:maxLines="1"
+                    android:gravity="center_vertical" />
+
+                <ImageView
+                    android:src="@drawable/ic_baseline_chevron_right_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    app:tint="@color/grayColor" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

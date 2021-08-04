@@ -36,10 +36,9 @@ public class MypageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mypage);
 
         tagNames = getResources().getStringArray(R.array.DISEASES_LABEL);
-        name_TV = (TextView) findViewById(R.id.userNameTV);
-        age_TV = (TextView) findViewById(R.id.userAgeTV);
-        gender_TV = (TextView) findViewById(R.id.userGenderTV);
-
+        //name_TV = (TextView) findViewById(R.id.userNameTV);
+        setChip();
+        /*
         UserViewModel viewModel = UserViewModel.getINSTANCE();
 
         final Observer<String> nameObserver = new Observer<String>() {
@@ -70,7 +69,9 @@ public class MypageActivity extends AppCompatActivity {
         };
         viewModel.getUserBirthYear(this).observe(this, birthYearObserver);
 
-        //setChip();
+
+         */
+
     }
 
     @Override
@@ -103,13 +104,16 @@ public class MypageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     private void setChip(){
-        ArrayList<String> userDiseasesArrayList = PreferenceManger.getStringArrayList(this, PreferenceManger.PREF_USER_DISEASES);
-        ChipGroup chipGroup = findViewById(R.id.chipGroup);
-        for (String diseaseIndex : userDiseasesArrayList) {
-            final Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.layout_mypage_chip, chipGroup, false);
-            chip.setText(tagNames[Integer.parseInt(diseaseIndex)-1]);
+        ChipGroup chipGroup = findViewById(R.id.CHIPGROUP_diseases);
+        ArrayList<String> diseases = PreferenceManger.getStringArrayList(
+                        this, PreferenceManger.PREF_USER_DISEASES
+                );;
+
+        for (String diseaseName : diseases) {
+            final Chip chip = (Chip) this.getLayoutInflater().inflate(
+                    R.layout.layout_mypage_chip, chipGroup, false);
+            chip.setText(diseaseName);
             chipGroup.addView(chip);
         }
     }

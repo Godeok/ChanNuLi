@@ -61,6 +61,16 @@
         <item name="hintTextColor">@color/primaryDarkColor</item>
     </style>
 
+    <!-- mypage 화면 chip 테마 -->
+    <style name="AppTheme.MyPage.Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/primaryLightColor</item>
+        <item name="chipStrokeColor">@color/primary2Color</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/primary2Color</item>
+        <item name="chipMinTouchTargetSize">43dp</item>
+    </style>
+
     <!-- 체크박스 테마 -->
     <style name="checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
         <item name="android:colorControlNormal">@color/primaryColor</item>
@@ -82,9 +92,5 @@
         <item name="android:textColorPrimary">#000000</item>
         <item name="android:textColorSecondary">#00E676</item>
         <item name="android:textSize">@dimen/number_picker_text_size</item>
-    </style>
-
-    <style name="Chip" parent="Theme.MaterialComponents.Light">
-        <item name="android:textSize">24sp</item>
     </style>
 </resources>
