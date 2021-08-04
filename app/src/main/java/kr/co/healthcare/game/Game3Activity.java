@@ -59,7 +59,6 @@ public class Game3Activity extends AppCompatActivity {
         layout_lv3 = findViewById(R.id.layout_lv3);
         scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
 
-
         //레벨 설정
         level = getIntent().getIntExtra("level", -1);
         if(level==1) {
@@ -104,11 +103,13 @@ public class Game3Activity extends AppCompatActivity {
 
         for(int i=0; i<number_of_cards; i++){
             cards[i] = (ImageView)findViewById(card_rid[i]);
+
             cards[i].setImageResource(img_card_content[imageNum[i]]);
             cards[i].setEnabled(false);
 
-            cards[i].setBackground(getDrawable(R.drawable.btn_game3_card));
-            //cards[i].setClipToOutline(true);
+            cards[i].setElevation(10);
+            cards[i].setBackground(getDrawable(R.drawable.view_game3_card));
+            cards[i].setClipToOutline(true);
         }
 
         new Handler().postDelayed(new Runnable() {
@@ -196,8 +197,8 @@ public class Game3Activity extends AppCompatActivity {
             cards[FIRST_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
             cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
 
-            cards[FIRST_CARD_NUMBER].setBackgroundColor(Color.WHITE);
-            cards[SECOND_CARD_NUMBER].setBackgroundColor(Color.WHITE);
+            cards[FIRST_CARD_NUMBER].setBackground(getDrawable(R.drawable.view_game3_card_blur));
+            cards[SECOND_CARD_NUMBER].setBackground(getDrawable(R.drawable.view_game3_card_blur));
 
             cards[FIRST_CARD_NUMBER].setEnabled(false);
             cards[SECOND_CARD_NUMBER].setEnabled(false);
