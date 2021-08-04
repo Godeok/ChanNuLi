@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -24,11 +23,11 @@ public class Game3Activity extends AppCompatActivity {
 
     static int FIRST_CARD_IMAGE = -1, SECOND_CARD_IMAGE = -1;
     static int FIRST_CARD_NUMBER = -1, SECOND_CARD_NUMBER = -1;
-    static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 100;
+    static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 20;
 
     int level, score=0, points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
-    TextView tv_level, tv_score, tv_count2;
+    TextView tv_level, tv_score, tv_leftAttempts;
     Animation scale_bigger;
 
     ImageView[] cards;
@@ -52,65 +51,9 @@ public class Game3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game3);
 
-        tv_level = findViewById(R.id.tv_level);
-        tv_score = findViewById(R.id.tv_score);
-        tv_count2 = findViewById(R.id.tv_count2);
-        layout_lv2 = findViewById(R.id.layout_lv2);
-        layout_lv3 = findViewById(R.id.layout_lv3);
-        scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
+        init();
 
-        //레벨 설정
-        level = getIntent().getIntExtra("level", -1);
-        if(level==1) {
-            number_of_cards = 16;
-            points = 20;
-        }
-        else if(level==2){
-            number_of_cards = 20;
-            points = 30;
-            layout_lv2.setVisibility(View.VISIBLE);     //숨긴 카드 보이게 하기
-        }
-        else if(level==3) {
-            number_of_cards = 24;
-            points = 40;
-            layout_lv2.setVisibility(View.VISIBLE);
-            layout_lv3.setVisibility(View.VISIBLE);
-        }
-        else number_of_cards = -1;
-
-        score = getIntent().getIntExtra("score", 0);
-        tv_score.setText(score+"점");
-
-
-
-        randomNum = new int[number_of_cards];
-        imageNum = new int[number_of_cards];
-        cards = new ImageView[number_of_cards];
-        check_card = new int[number_of_cards];
-
-        //
-        Random r = new Random();
-        for(int i=0; i<number_of_cards; i++){
-            randomNum[i] = r.nextInt(number_of_cards);
-            for(int j=0; j<i; j++)
-                if (randomNum[i] == randomNum[j])
-                    i--;
-        }
-
-        for(int i=0; i<number_of_cards; i++){
-            imageNum[i] = randomNum[i]/2;
-        }
-
-        for(int i=0; i<number_of_cards; i++){
-            cards[i] = (ImageView)findViewById(card_rid[i]);
-
-            cards[i].setImageResource(img_card_content[imageNum[i]]);
-            cards[i].setEnabled(false);
-
-            cards[i].setElevation(10);
-            cards[i].setBackground(getDrawable(R.drawable.view_game3_card));
-            cards[i].setClipToOutline(true);
-        }
+        init_cards();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -157,6 +100,74 @@ public class Game3Activity extends AppCompatActivity {
 
         alBuilder.setTitle("게임 종료");
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
+    }
+
+    //첫 화면 초기화 함수
+    void init(){
+        tv_level = findViewById(R.id.tv_level);
+        tv_score = findViewById(R.id.tv_score);
+        tv_leftAttempts = findViewById(R.id.tv_leftAttempts);
+        layout_lv2 = findViewById(R.id.layout_lv2);
+        layout_lv3 = findViewById(R.id.layout_lv3);
+        scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
+
+        //레벨 설정
+        level = getIntent().getIntExtra("level", -1);
+        if(level==1) {
+            number_of_cards = 16;
+            points = 20;
+            tv_level.setText("쉬움");
+        }
+        else if(level==2){
+            number_of_cards = 20;
+            points = 30;
+            tv_level.setText("중간");
+            layout_lv2.setVisibility(View.VISIBLE);     //숨긴 카드 보이게 하기
+        }
+        else if(level==3) {
+            number_of_cards = 24;
+            points = 40;
+            tv_level.setText("어려움");
+            layout_lv2.setVisibility(View.VISIBLE);
+            layout_lv3.setVisibility(View.VISIBLE);
+        }
+        else number_of_cards = -1;
+
+        score = getIntent().getIntExtra("score", 0);
+        tv_score.setText(score+"");
+        tv_leftAttempts.setText(MAX_ATTEMPT+"");
+    }
+
+    //카드 초기화
+    void init_cards(){
+        randomNum = new int[number_of_cards];
+        imageNum = new int[number_of_cards];
+        cards = new ImageView[number_of_cards];
+        check_card = new int[number_of_cards];
+
+        //
+        Random r = new Random();
+        for(int i=0; i<number_of_cards; i++){
+            randomNum[i] = r.nextInt(number_of_cards);
+            for(int j=0; j<i; j++)
+                if (randomNum[i] == randomNum[j])
+                    i--;
+        }
+
+        for(int i=0; i<number_of_cards; i++){
+            imageNum[i] = randomNum[i]/2;
+        }
+
+        for(int i=0; i<number_of_cards; i++){
+            cards[i] = (ImageView)findViewById(card_rid[i]);
+
+            cards[i].setImageResource(img_card_content[imageNum[i]]);
+            cards[i].setEnabled(false);
+
+            cards[i].setElevation(10);
+            cards[i].setBackground(getDrawable(R.drawable.view_game3_card));
+            cards[i].setClipToOutline(true);
+        }
     }
 
     void card_touched(int cardNumber){
@@ -206,7 +217,7 @@ public class Game3Activity extends AppCompatActivity {
             check_card[FIRST_CARD_NUMBER] = check_card[SECOND_CARD_NUMBER] = 1;
 
             score+=points;
-            tv_score.setText(score+"점");
+            tv_score.setText(score+"");
         }
 
         //카드 다르면
@@ -214,10 +225,10 @@ public class Game3Activity extends AppCompatActivity {
             cards[FIRST_CARD_NUMBER].setImageResource(R.drawable.img_card_back);
             cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_back);
 
-            tv_count2.setText(MAX_ATTEMPT - ++ATTEMPT_CNT +"회");
+            tv_leftAttempts.setText(MAX_ATTEMPT - ++ATTEMPT_CNT +"");
             if(score>=10) score-=10;
             else score=0;
-            tv_score.setText(score+"점");
+            tv_score.setText(score+"");
         }
 
         FIRST_CARD_NUMBER = SECOND_CARD_NUMBER = FIRST_CARD_IMAGE = SECOND_CARD_IMAGE = -1;
