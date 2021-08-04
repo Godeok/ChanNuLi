@@ -9,12 +9,10 @@ import kr.co.healthcare.self_diagnosis.MainRecycler.SelfMainAdapter;
 import kr.co.healthcare.self_diagnosis.MainRecycler.SelfMainData;
 import kr.co.healthcare.self_diagnosis.QuestionDB.DataAdapter;
 import kr.co.healthcare.self_diagnosis.QuestionDB.Questions;
-import kr.co.healthcare.self_diagnosis.ResultDB.AppDatabase;
 import kr.co.healthcare.self_diagnosis.ResultDB.Result;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;

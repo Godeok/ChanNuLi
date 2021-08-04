@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.AppDatabase;
+import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
 import kr.co.healthcare.self_diagnosis.ResultDB.Result;
 
 import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
@@ -21,7 +21,7 @@ import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
 public class SelfShowResult extends AppCompatActivity {
 
     private static final String TAG="SelfShowResult";
-    private AppDatabase db;
+    private SelfDiagnosisResultDatabase db;
     Button btn_add_data, btn_finish;
     TextView tv_result, tv_desc, tv_title;
 
@@ -35,7 +35,7 @@ public class SelfShowResult extends AppCompatActivity {
         tv_desc = findViewById(R.id.tv_desc);
         btn_add_data = findViewById(R.id.btn_add_data);
         btn_finish = findViewById(R.id.btn_finish);
-        db = AppDatabase.getInstance(this);
+        db = SelfDiagnosisResultDatabase.getInstance(this);
 
         Intent intent = getIntent();
         final int count = intent.getIntExtra("count", -1);
