@@ -22,12 +22,11 @@ import kr.co.healthcare.R;
 
 public class Game2Activity extends AppCompatActivity{
 
+    //tv_answer, tv_equal 주석처리함
     TextView tv_level;
     TextView tv_score;
     TextView tv_question;
-    TextView tv_answer;
     TextView tv_result;
-    TextView tv_equal;
     TextView tv_timer;
     Button btn_opt1, btn_opt2, btn_opt3, btn_opt4;
     ProgressBar progressBar;
@@ -55,10 +54,7 @@ public class Game2Activity extends AppCompatActivity{
 
         tv_score = findViewById(R.id.tv_score);
         tv_question = findViewById(R.id.tv_question);
-        tv_answer = findViewById(R.id.tv_answer);
         tv_result = findViewById(R.id.tv_result);
-        tv_equal = findViewById(R.id.tv_equal);
-        tv_timer = findViewById(R.id.tv_timer);
         btn_opt1 = findViewById(R.id.btn_opt1);
         btn_opt2 = findViewById(R.id.btn_opt2);
         btn_opt3 = findViewById(R.id.btn_opt3);
@@ -137,7 +133,7 @@ public class Game2Activity extends AppCompatActivity{
     void initialized(){
         CNT++;
         tv_score.setText(SCORE +"점");
-        tv_answer.setText("");
+        //tv_answer.setText("");
         tv_result.setText("");
 
         show_level(level);
@@ -201,7 +197,7 @@ public class Game2Activity extends AppCompatActivity{
                 }
 
                 //tv_timer.setText(min + ":" + second);     //분:초 타이머
-                tv_timer.setText(second);                   //초 타이머
+                //tv_timer.setText(second);                   //초 타이머
                 TOTAL_TIME = min+second;
             }
 
@@ -212,7 +208,7 @@ public class Game2Activity extends AppCompatActivity{
                 btn_opt3.setEnabled(false);
                 btn_opt4.setEnabled(false);
 
-                tv_timer.setText("시간 종료!");
+                //tv_timer.setText("시간 종료!");
 
                 after_time_over();
             }
@@ -227,7 +223,7 @@ public class Game2Activity extends AppCompatActivity{
         btn_opt3.setEnabled(false);
         btn_opt4.setEnabled(false);
 
-        tv_timer.setText("시간 종료!");
+        //tv_timer.setText("시간 종료!");
 
         //1초 지연 후 결과 페이지로 이동
         Handler mHandler = new Handler();
@@ -310,7 +306,7 @@ public class Game2Activity extends AppCompatActivity{
         q3 = value[1];
 
         tv_question.setText(q1 + " □ " + q2 + " = " + q3);
-        tv_equal.setText("");
+        //tv_equal.setText("");
         fill_opt_op();
 
         //정답의 보기 번호 반환
@@ -378,7 +374,7 @@ public class Game2Activity extends AppCompatActivity{
         q3 = value[1];
 
         tv_question.setText(q1 + " □ " + q2 + " = " + q3);
-        tv_equal.setText("");
+        //tv_equal.setText("");
         fill_opt_op();
 
         //정답의 보기 번호 반환
@@ -429,7 +425,7 @@ public class Game2Activity extends AppCompatActivity{
         q3 = value[1];
 
         tv_question.setText(q1 + " □ " + q2 + " = " + q3);
-        tv_equal.setText("");
+        //tv_equal.setText("");
         fill_opt_op();
 
         //정답의 보기 번호 반환
@@ -573,6 +569,7 @@ public class Game2Activity extends AppCompatActivity{
         //사용자가 누른 번호(number) checked에 저장
         CHECKED =number;
 
+        /*
         //화면에 사용자가 누른 '보기' 보여주기
         if(OPERATOR ==true){
             if(number==1) tv_answer.setText("+");
@@ -582,6 +579,7 @@ public class Game2Activity extends AppCompatActivity{
         }
         else
             tv_answer.setText(""+opt[number-1]);
+         */
 
         check_answer();
     }
@@ -590,10 +588,12 @@ public class Game2Activity extends AppCompatActivity{
     void check_answer(){
         if (NUM == CHECKED){
             tv_result.setText("정답입니다");
+            /*
             if(OPERATOR ==false){
                 tv_answer.setText(""+ A);
             }
             tv_answer.setTextColor(Color.parseColor("#4CAF50"));
+             */
             SCORE += 200;
             tv_score.setText(SCORE +"점");
 
@@ -602,7 +602,7 @@ public class Game2Activity extends AppCompatActivity{
         }
         else {
             tv_result.setText("틀렸습니다");
-            tv_answer.setTextColor(Color.parseColor("#FF0000"));
+            //tv_answer.setTextColor(Color.parseColor("#FF0000"));
 
             if(SCORE>0)
                 SCORE -= 100;
