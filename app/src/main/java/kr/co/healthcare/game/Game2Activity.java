@@ -22,11 +22,10 @@ import kr.co.healthcare.R;
 
 public class Game2Activity extends AppCompatActivity{
 
-    //tv_answer, tv_equal 주석처리함
+    //tv_answer, tv_equal, tv_result 주석처리함
     TextView tv_level;
     TextView tv_score;
     TextView tv_question;
-    TextView tv_result;
     TextView tv_timer;
     Button btn_opt1, btn_opt2, btn_opt3, btn_opt4;
     ProgressBar progressBar;
@@ -54,7 +53,6 @@ public class Game2Activity extends AppCompatActivity{
 
         tv_score = findViewById(R.id.tv_score);
         tv_question = findViewById(R.id.tv_question);
-        tv_result = findViewById(R.id.tv_result);
         btn_opt1 = findViewById(R.id.btn_opt1);
         btn_opt2 = findViewById(R.id.btn_opt2);
         btn_opt3 = findViewById(R.id.btn_opt3);
@@ -134,7 +132,7 @@ public class Game2Activity extends AppCompatActivity{
         CNT++;
         tv_score.setText(SCORE +"점");
         //tv_answer.setText("");
-        tv_result.setText("");
+        //tv_result.setText("");
 
         show_level(level);
         NUM = start_game(level);
@@ -587,7 +585,7 @@ public class Game2Activity extends AppCompatActivity{
     //답 확인
     void check_answer(){
         if (NUM == CHECKED){
-            tv_result.setText("정답입니다");
+            //tv_result.setText("정답입니다");
             /*
             if(OPERATOR ==false){
                 tv_answer.setText(""+ A);
@@ -601,7 +599,7 @@ public class Game2Activity extends AppCompatActivity{
             //change_time(3);
         }
         else {
-            tv_result.setText("틀렸습니다");
+            //tv_result.setText("틀렸습니다");
             //tv_answer.setTextColor(Color.parseColor("#FF0000"));
 
             if(SCORE>0)
