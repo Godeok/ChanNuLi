@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class UserViewModel extends ViewModel {
     private static UserViewModel INSTANCE;
@@ -40,11 +40,11 @@ public class UserViewModel extends ViewModel {
     }
 
     private void saveUserName(Context context, String name){
-        PreferenceManger.setString(context, PreferenceManger.PREF_USER_NAME, name);
+        UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_NAME, name);
     }
 
     private String loadUserName(Context context){
-        return PreferenceManger.getString(context, PreferenceManger.PREF_USER_NAME);
+        return UserInfoPreferenceManger.getString(context, UserInfoPreferenceManger.PREF_KEY_USER_NAME);
     }
 
     /*
@@ -65,11 +65,11 @@ public class UserViewModel extends ViewModel {
     }
 
     private void saveUserGender(Context context, String gender){
-        PreferenceManger.setString(context, PreferenceManger.PREF_USER_GENDER, gender);
+        UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_GENDER, gender);
     }
 
     private String loadUserGender(Context context){
-        return PreferenceManger.getString(context, PreferenceManger.PREF_USER_GENDER);
+        return UserInfoPreferenceManger.getString(context, UserInfoPreferenceManger.PREF_KEY_USER_GENDER);
     }
 
     /*
@@ -90,11 +90,11 @@ public class UserViewModel extends ViewModel {
     }
 
     private void saveUserBirthYear(Context context, String birthYear){
-        PreferenceManger.setString(context, PreferenceManger.PREF_USER_YEAR_OF_BIRTH, birthYear);
+        UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_BIRTH, birthYear);
     }
 
     private String loadUserBirthYear(Context context){
-        return PreferenceManger.getString(context, PreferenceManger.PREF_USER_YEAR_OF_BIRTH);
+        return UserInfoPreferenceManger.getString(context, UserInfoPreferenceManger.PREF_KEY_USER_BIRTH);
     }
 
         /*
@@ -115,11 +115,11 @@ public class UserViewModel extends ViewModel {
     }
 
     private void saveUserDiseases(Context context, ArrayList<String> diseases){
-        PreferenceManger.setStringArrayList(context, PreferenceManger.PREF_USER_DISEASES, diseases);
+        UserInfoPreferenceManger.setStringArrayList(context, UserInfoPreferenceManger.PREF_KEY_USER_DISEASES, diseases);
     }
 
     private ArrayList<String> loadUserDiseases(Context context){
-        return PreferenceManger.getStringArrayList(context, PreferenceManger.PREF_USER_DISEASES);
+        return UserInfoPreferenceManger.getStringArrayList(context, UserInfoPreferenceManger.PREF_KEY_USER_DISEASES);
     }
 
 }

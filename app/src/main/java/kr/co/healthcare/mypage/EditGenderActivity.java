@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.database.UserViewModel;
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class EditGenderActivity extends AppCompatActivity {
     private UserViewModel viewModel;
@@ -27,11 +27,11 @@ public class EditGenderActivity extends AppCompatActivity {
         final ImageButton womanBtn = findViewById(R.id.womanBtn);
         button = findViewById(R.id.editFinishBtn);
 
-        if(viewModel.getUserGender(this).getValue().equals(PreferenceManger.GENDER_VALUE_WOMAN)) {
+        if(viewModel.getUserGender(this).getValue().equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN)) {
             womanBtn.setBackgroundResource(R.drawable.btn_round_selected);
             womanClicked = !womanClicked;
         }
-        else if(viewModel.getUserGender(this).getValue().equals(PreferenceManger.GENDER_VALUE_MAN)) {
+        else if(viewModel.getUserGender(this).getValue().equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN)) {
             manBtn.setBackgroundResource(R.drawable.btn_round_selected);
             manClicked = !manClicked;
         }
@@ -74,8 +74,8 @@ public class EditGenderActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String gender = "";
-                if(womanClicked) gender = PreferenceManger.GENDER_VALUE_WOMAN;
-                else if(manClicked) gender = PreferenceManger.GENDER_VALUE_MAN;
+                if(womanClicked) gender = UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN;
+                else if(manClicked) gender = UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN;
 
                 EditGenderActivity editGenderActivity = EditGenderActivity.this;
                 viewModel.setUserGender(editGenderActivity, gender);

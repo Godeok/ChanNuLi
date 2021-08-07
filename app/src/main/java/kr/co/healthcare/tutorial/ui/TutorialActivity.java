@@ -16,7 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 import kr.co.healthcare.tutorial.ui.fragment.TutorialFirstStepFragment;
 import kr.co.healthcare.tutorial.ui.fragment.TutorialFourthStepFragment;
 import kr.co.healthcare.tutorial.ui.fragment.TutorialSecondStepFragment;
@@ -92,7 +92,7 @@ public class TutorialActivity extends AppCompatActivity {
             nextBtn.setEnabled(false);
             nextBtn.setBackgroundResource(R.drawable.btn);
         }else{
-            PreferenceManger.setBoolean(this, PreferenceManger.PREF_IS_TUTORIAL_FINISHED, true);
+            UserInfoPreferenceManger.setBoolean(this, UserInfoPreferenceManger.PREF_KEY_TUTORIAL_FINISHED, true);
             Intent intent = new Intent(getApplicationContext(), WalkthroughActivity.class);
             startActivity(intent);
             tutorialActivity.finish();

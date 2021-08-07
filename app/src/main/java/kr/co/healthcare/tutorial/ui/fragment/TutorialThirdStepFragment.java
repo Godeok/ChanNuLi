@@ -18,7 +18,7 @@ import android.widget.EditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class TutorialThirdStepFragment extends Fragment {
 
@@ -76,6 +76,6 @@ public class TutorialThirdStepFragment extends Fragment {
     }
 
     public void setUserYearOfBirth() {
-        PreferenceManger.setString(context, PreferenceManger.PREF_USER_YEAR_OF_BIRTH, editText.getText().toString());
+        UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_BIRTH, editText.getText().toString());
     }
 }

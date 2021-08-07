@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class TutorialSecondStepFragment extends Fragment {
 
@@ -89,8 +89,8 @@ public class TutorialSecondStepFragment extends Fragment {
 
     public void setUserGender() {
         if (womanClicked)
-            PreferenceManger.setString(context, PreferenceManger.PREF_USER_GENDER, PreferenceManger.GENDER_VALUE_WOMAN);
+            UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_GENDER, UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN);
         else if (manClicked)
-            PreferenceManger.setString(context, PreferenceManger.PREF_USER_GENDER, PreferenceManger.GENDER_VALUE_MAN);
+            UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_GENDER, UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN);
     }
 }
