@@ -38,7 +38,7 @@ public class EditDiseaseActivity extends AppCompatActivity {
 
         booleans = makeBoolArray(viewModel.getUserDiseases(this).getValue());
 
-        setChip();
+        //setChip();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +59,7 @@ public class EditDiseaseActivity extends AppCompatActivity {
         }
         return arrayList;
     }
-
+/*
     private void setChip(){
         for(int i = 0; i <tagNames.length; i++){
             final Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.layout_chip, chipGroup, false);
@@ -80,4 +80,7 @@ public class EditDiseaseActivity extends AppCompatActivity {
             chipGroup.addView(chip);
         }
     }
+
+
+ */
 }
