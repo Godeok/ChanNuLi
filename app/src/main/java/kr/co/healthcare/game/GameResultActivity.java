@@ -73,7 +73,10 @@ public class GameResultActivity extends AppCompatActivity {
         btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
+                Intent intent;
+                if(game==1) intent = new Intent(getApplicationContext(), Game1Activity.class);
+                else if(game==2) intent = new Intent(getApplicationContext(), Game2Activity.class);
+                else intent = new Intent(getApplicationContext(), Game3Activity.class);
                 intent.putExtra("level", level);
                 int[] try_result = {0, 0, 0, 0, 0};
                 intent.putExtra("try_result", try_result);
