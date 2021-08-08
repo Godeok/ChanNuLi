@@ -75,6 +75,8 @@ public class GameResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
                 intent.putExtra("level", level);
+                int[] try_result = {0, 0, 0, 0, 0};
+                intent.putExtra("try_result", try_result);
                 startActivity(intent);
             }
         });
