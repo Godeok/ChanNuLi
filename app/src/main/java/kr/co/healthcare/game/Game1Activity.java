@@ -27,23 +27,25 @@ public class Game1Activity extends AppCompatActivity{
     ImageView iv_com1, iv_com2;
     ImageView iv_character, iv_background;
 
-    int[] try_result = new int[5];
+    static int SCORE = 0;
+    static int CNT = 0;
+    static int GAME_ROUND = 5;
+    static int LEVEL_EASY = 1, LEVEL_NORMAL = 3, LEVEL_HARD = 5;
+
+    //시도 횟수 TextView 저장하는 배열
     TextView[] tv_try = new TextView[5];
     int[] tv_try_rid = {
             R.id.tv_try1, R.id.tv_try2, R.id.tv_try3, R.id.tv_try4, R.id.tv_try5
     };
+    //승패 여부 저장하는 배열 (intent 전달용)
+    int[] try_result = new int[5];
 
-    int rand1, rand2, rand3, rand4;
+    int rand1_com, rand2_com, rand3_user, rand4_user;     //컴퓨터와 사용자의 가위바위보 결과
     int level;
     Animation animTransRight;
     Animation animTransLeft;
     Animation animAlpha;
     Animation animScaleSmallerBtn;
-
-    static int SCORE = 0;
-    static int CNT = 0;
-    static int GAME_ROUND = 5;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,16 +66,15 @@ public class Game1Activity extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        // AlertDialog 빌더를 이용해 종료시 발생시킬 창을 띄운다
         AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
         alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
 
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                //변수 초기화 및 액티비티 종료
                 CNT = 0;
-                SCORE =0;
-                //게임이 실행되던 액티비티 종료
+                SCORE = 0;
                 finish();
             }
         });
@@ -90,6 +91,7 @@ public class Game1Activity extends AppCompatActivity{
     }
 
 
+    //게임 실행 함수
     private void loadActivity(){
         //게임 실행 횟수(라운드)
         CNT++;
@@ -112,26 +114,26 @@ public class Game1Activity extends AppCompatActivity{
 
 
         //가위, 바위, 보 랜덤함수로 결정 (순서대로 컴퓨터, 사용자)
-        rand1 = (int)(Math.random()*3);
-        rand3 = (int)(Math.random()*3);
+        rand1_com = (int)(Math.random()*3);
+        rand3_user = (int)(Math.random()*3);
 
         //가위, 바위, 보 중복 제거 (순서대로 컴퓨터, 사용자)
         int rand2_temp = (int)(Math.random()*3);
-        while (rand1==rand2_temp)
+        while (rand1_com ==rand2_temp)
             rand2_temp = (int)(Math.random()*3);
-        rand2 = rand2_temp;
+        rand2_com = rand2_temp;
 
         int rand4_temp = (int)(Math.random()*3);
-        while (rand3==rand4_temp)
+        while (rand3_user ==rand4_temp)
             rand4_temp = (int)(Math.random()*3);
-        rand4 = rand4_temp;
+        rand4_user = rand4_temp;
 
 
         //첫 화면 설정
-        set_rsp_image_com(rand1, iv_com1);
-        set_rsp_image_com(rand2, iv_com2);
-        set_rsp_image_user(rand3, ib_user1);
-        set_rsp_image_user(rand4, ib_user2);
+        set_rsp_image_com(rand1_com, iv_com1);
+        set_rsp_image_com(rand2_com, iv_com2);
+        set_rsp_image_user(rand3_user, ib_user1);
+        set_rsp_image_user(rand4_user, ib_user2);
         tv_score.setText(SCORE +"점");
         set_tv_try();
 
@@ -141,7 +143,7 @@ public class Game1Activity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //레벨 확인 후 난이도 결정
-                check_lv(level, rand3);
+                check_lv(level, rand3_user);
 
                 //버튼 비활성화
                 gray_image(ib_user2);
@@ -158,7 +160,7 @@ public class Game1Activity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 //레벨 확인 후 난이도 결정
-                check_lv(level, rand4);
+                check_lv(level, rand4_user);
 
                 //버튼 비활성화
                 gray_image(ib_user1);
@@ -177,25 +179,25 @@ public class Game1Activity extends AppCompatActivity{
         int p;
         if(level==1){
             //컴퓨터가 이길 경우를 선택하는 경우
-            if(random<3)
-                p = set_rsp_smart(rand1, rand2, rand3, rand4);
+            if(random<LEVEL_EASY)
+                p = set_rsp_smart(rand1_com, rand2_com, rand3_user, rand4_user);
             //컴퓨터가 랜덤 확률로 선택하는 경우
             else
-                p = set_rsp_random(rand1, rand2);
+                p = set_rsp_random(rand1_com, rand2_com);
         }
 
         else if(level==2){
-            if(random<6)
-                p = set_rsp_smart(rand1, rand2, rand3, rand4);
+            if(random<LEVEL_NORMAL)
+                p = set_rsp_smart(rand1_com, rand2_com, rand3_user, rand4_user);
             else
-                p = set_rsp_random(rand1, rand2);
+                p = set_rsp_random(rand1_com, rand2_com);
         }
 
         else{
-            if(random<9)
-                p = set_rsp_smart(rand1, rand2, rand3, rand4);
+            if(random<LEVEL_HARD)
+                p = set_rsp_smart(rand1_com, rand2_com, rand3_user, rand4_user);
             else
-                p = set_rsp_random(rand1, rand2);
+                p = set_rsp_random(rand1_com, rand2_com);
         }
 
         check_result(button_num, p);
