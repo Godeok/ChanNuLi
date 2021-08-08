@@ -22,7 +22,7 @@ public class Game3Activity extends AppCompatActivity {
 
     static int FIRST_CARD_IMAGE = -1, SECOND_CARD_IMAGE = -1;
     static int FIRST_CARD_NUMBER = -1, SECOND_CARD_NUMBER = -1;
-    static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 20, score=0, level=1;
+    static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 20, SCORE = 0, LEVEL = 1, PREVIOUS_SCORE = 0;
 
     int points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
@@ -63,7 +63,7 @@ public class Game3Activity extends AppCompatActivity {
                     cards[i].setEnabled(true);
                 }
             }
-        }, 2000+level*1000);
+        }, 2000+ LEVEL *1000);
 
         //실행
         for(int i=0; i<number_of_cards; i++){
@@ -113,20 +113,20 @@ public class Game3Activity extends AppCompatActivity {
         scale_smaller = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_smaller);
 
         //레벨 설정
-        if(level==1) {
+        if(LEVEL ==1) {
             number_of_cards = 16;
             points = 20;
             MAX_ATTEMPT = 20;
             tv_level.setText("쉬움");
         }
-        else if(level==2){
+        else if(LEVEL ==2){
             number_of_cards = 20;
             points = 30;
             MAX_ATTEMPT = 25;
             tv_level.setText("중간");
             layout_lv2.setVisibility(View.VISIBLE);     //숨긴 카드 보이게 하기
         }
-        else if(level==3) {
+        else if(LEVEL ==3) {
             number_of_cards = 24;
             points = 40;
             MAX_ATTEMPT = 30;
@@ -136,7 +136,7 @@ public class Game3Activity extends AppCompatActivity {
         }
         else number_of_cards = -1;
 
-        tv_score.setText(score +"");
+        tv_score.setText(SCORE +"");
         tv_leftAttempts.setText(MAX_ATTEMPT+"");
     }
 
@@ -174,9 +174,10 @@ public class Game3Activity extends AppCompatActivity {
     }
 
     void reset_score(){
-        level = 1;
-        score = 0;
+        LEVEL = 1;
+        SCORE = 0;
         ATTEMPT_CNT = 0;
+        PREVIOUS_SCORE = 0;
     }
 
     void card_touched(int cardNumber){
@@ -225,8 +226,8 @@ public class Game3Activity extends AppCompatActivity {
 
             check_card[FIRST_CARD_NUMBER] = check_card[SECOND_CARD_NUMBER] = 1;
 
-            score += points;
-            tv_score.setText(score +"");
+            SCORE += points;
+            tv_score.setText(SCORE +"");
         }
 
         //카드 다르면
@@ -235,9 +236,8 @@ public class Game3Activity extends AppCompatActivity {
             cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_back);
 
             tv_leftAttempts.setText(MAX_ATTEMPT - ++ATTEMPT_CNT +"");
-            if(score >=10) score -=10;
-            else score =0;
-            tv_score.setText(score +"");
+            if(SCORE>=PREVIOUS_SCORE+10) SCORE-=10;
+            tv_score.setText(SCORE +"");
         }
 
         FIRST_CARD_NUMBER = SECOND_CARD_NUMBER = FIRST_CARD_IMAGE = SECOND_CARD_IMAGE = -1;
@@ -250,8 +250,8 @@ public class Game3Activity extends AppCompatActivity {
         if(MAX_ATTEMPT == ATTEMPT_CNT){
             reset_score();
             Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
-            intent.putExtra("score", score);
-            intent.putExtra("level", level);
+            intent.putExtra("score", SCORE);
+            intent.putExtra("level", LEVEL);
             startActivity(intent);
         }
 
@@ -264,14 +264,15 @@ public class Game3Activity extends AppCompatActivity {
                     @Override
                     public void run() {
                     Intent intent;
-                    if(level==3) {
+                    if(LEVEL ==3) {
                         intent = new Intent(getApplicationContext(), GameResultActivity.class);
-                        intent.putExtra("score", score);
+                        intent.putExtra("score", SCORE);
                         reset_score();
                     }
                     else {
                         intent = new Intent(getApplicationContext(), Game3Activity.class);
-                        level+=1;
+                        PREVIOUS_SCORE = SCORE;
+                        LEVEL +=1;
                     }
 
                     startActivity(intent);
