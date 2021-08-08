@@ -8,17 +8,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import kr.co.healthcare.tutorial.PreferenceManger;
 import kr.co.healthcare.R;
-import kr.co.healthcare.database.UserViewModel;
 
 public class MypageActivity extends AppCompatActivity {
 
@@ -112,7 +109,7 @@ public class MypageActivity extends AppCompatActivity {
 
         for (String diseaseName : diseases) {
             final Chip chip = (Chip) this.getLayoutInflater().inflate(
-                    R.layout.layout_mypage_chip, chipGroup, false);
+                    R.layout.item_chip, chipGroup, false);
             chip.setText(diseaseName);
             chipGroup.addView(chip);
         }

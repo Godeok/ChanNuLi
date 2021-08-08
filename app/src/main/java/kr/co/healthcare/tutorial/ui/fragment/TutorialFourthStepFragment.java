@@ -56,7 +56,7 @@ public class TutorialFourthStepFragment extends Fragment {
     private void setCheckbox(){
         final LinearLayout linearLayout = getView().findViewById(R.id.linearLayout);
         for (String tagName : tagNames) {
-            final CheckBox checkBox = (CheckBox) this.getLayoutInflater().inflate(R.layout.layout_checkbox, linearLayout, false);
+            final CheckBox checkBox = (CheckBox) this.getLayoutInflater().inflate(R.layout.item_checkbox, linearLayout, false);
             checkBox.setText(tagName);
             checkBoxes.add(checkBox);
             linearLayout.addView(checkBox);
