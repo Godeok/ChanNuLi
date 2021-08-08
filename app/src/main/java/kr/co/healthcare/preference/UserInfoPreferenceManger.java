@@ -1,4 +1,4 @@
-package kr.co.healthcare.tutorial;
+package kr.co.healthcare.preference;
 import android.content.Context;
 
 import android.content.SharedPreferences;
@@ -8,18 +8,18 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
-//데이터 저장 및 로드 클래스
-public class PreferenceManger {
+public class UserInfoPreferenceManger {
+
     public static final String PREFERENCES_NAME = "USER_INFORMATION";
 
-    public static final String GENDER_VALUE_MAN = "MAN";
-    public static final String GENDER_VALUE_WOMAN = "WOMAN";
+    public static final String PREF_KEY_USER_NAME = "USER_NAME";
+    public static final String PREF_KEY_USER_BIRTH = "USER_BIRTH";
+    public static final String PREF_KEY_USER_GENDER = "USER_GENDER";
+    public static final String PREF_KEY_USER_DISEASES = "USER_DISEASES";
+    public static final String PREF_KEY_TUTORIAL_FINISHED = "TUTORIAL_FINISHED";
 
-    public static final String PREF_USER_NAME = "username";
-    public static final String PREF_USER_YEAR_OF_BIRTH = "useryearofbirth";
-    public static final String PREF_USER_GENDER = "usergender";
-    public static final String PREF_USER_DISEASES = "userdiseases";
-    public static final String PREF_IS_TUTORIAL_FINISHED = "istutorialfinished";
+    public static final String PREF_VALUE_GENDER_MAN = "MAN";
+    public static final String PREF_VALUE_GENDER_WOMAN = "WOMAN";
 
     private static final String DEFAULT_VALUE_STRING = "";
     private static final boolean DEFAULT_VALUE_BOOLEAN = false;
@@ -29,7 +29,6 @@ public class PreferenceManger {
         return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
-    //String 값 저장
     public static void setString(Context context, String key, String value) {
         SharedPreferences prefs = getPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -37,7 +36,6 @@ public class PreferenceManger {
         editor.apply();
     }
 
-    //ArrayList값 저장
     public static void setStringArrayList(Context context, String key, ArrayList<String> values) {
         SharedPreferences prefs = getPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -53,7 +51,6 @@ public class PreferenceManger {
         editor.apply();
     }
 
-    //boolean 값 저장
     public static void setBoolean(Context context, String key, boolean value) {
         SharedPreferences prefs = getPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -61,7 +58,6 @@ public class PreferenceManger {
         editor.apply();
     }
 
-    //int 값 저장
     public static void setInt(Context context, String key, int value) {
         SharedPreferences prefs = getPreferences(context);
         SharedPreferences.Editor editor = prefs.edit();
@@ -69,13 +65,11 @@ public class PreferenceManger {
         editor.apply();
     }
 
-    //String 값 로드
     public static String getString(Context context, String key) {
         SharedPreferences prefs = getPreferences(context);
         return prefs.getString(key, DEFAULT_VALUE_STRING);
     }
 
-    //String 값 로드
     public static ArrayList<String> getStringArrayList(Context context, String key) {
         SharedPreferences prefs = getPreferences(context);
         String json = prefs.getString(key, null);
@@ -94,19 +88,16 @@ public class PreferenceManger {
         return arrayList;
     }
 
-    //boolean 값 로드
     public static boolean getBoolean(Context context, String key) {
         SharedPreferences prefs = getPreferences(context);
         return prefs.getBoolean(key, DEFAULT_VALUE_BOOLEAN);
     }
 
-    //int 값 로드
     public static int getInt(Context context, String key) {
         SharedPreferences prefs = getPreferences(context);
         return prefs.getInt(key, DEFAULT_VALUE_INT);
     }
 
-    //키 값 삭제
     public static void removeKey(Context context, String key) {
         SharedPreferences prefs = getPreferences(context);
         SharedPreferences.Editor edit = prefs.edit();
@@ -114,7 +105,6 @@ public class PreferenceManger {
         edit.apply();
     }
 
-    //모든 저장 데이터 삭제
     public static void clear(Context context) {
         SharedPreferences prefs = getPreferences(context);
         SharedPreferences.Editor edit = prefs.edit();

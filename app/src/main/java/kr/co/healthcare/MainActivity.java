@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import kr.co.healthcare.diseaseInfoSelect.DiseaseInfoSelectActivity;
@@ -16,7 +15,7 @@ import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.healthInfo.HealthInfoActivity;
 import kr.co.healthcare.mypage.MypageActivity;
 import kr.co.healthcare.self_diagnosis.SelfMainActivity;
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 import kr.co.healthcare.tutorial.ui.TutorialActivity;
 import kr.co.healthcare.database.UserViewModel;
 
@@ -38,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void checkISTutorialFinished(){
         //튜토리얼 정보 불러오기
-        boolean isTutorialFinished = PreferenceManger.getBoolean(this, PreferenceManger.PREF_IS_TUTORIAL_FINISHED);
+        boolean isTutorialFinished = UserInfoPreferenceManger.getBoolean(this, UserInfoPreferenceManger.PREF_KEY_TUTORIAL_FINISHED);
 
         if (!isTutorialFinished) {  //튜토리얼 미완료 시
             intent = new Intent(getApplicationContext(), TutorialActivity.class);
             startActivity(intent);
             mainActivity.finish();
         }else{ // 튜토리얼 완료 시
-            userNameTV.setText(PreferenceManger.getString(this, PreferenceManger.PREF_USER_NAME));
+            userNameTV.setText(UserInfoPreferenceManger.getString(this, UserInfoPreferenceManger.PREF_KEY_USER_NAME));
 
             UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
             viewModel.getUserName(this).observe(this, new Observer<String>() {

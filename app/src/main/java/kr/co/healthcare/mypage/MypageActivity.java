@@ -14,7 +14,7 @@ import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 import kr.co.healthcare.R;
 
 public class MypageActivity extends AppCompatActivity {
@@ -49,8 +49,8 @@ public class MypageActivity extends AppCompatActivity {
         final Observer<String> genderObserver = new Observer<String>() {
             @Override
             public void onChanged(final String gender) {
-                if(gender.equals(PreferenceManger.GENDER_VALUE_WOMAN)) gender_TV.setText("여자");
-                else if(gender.equals(PreferenceManger.GENDER_VALUE_MAN)) gender_TV.setText("남자");
+                if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN)) gender_TV.setText("여자");
+                else if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN)) gender_TV.setText("남자");
             }
         };
         viewModel.getUserGender(this).observe(this, genderObserver);

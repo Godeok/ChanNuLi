@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.AppDatabase;
+import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
 import kr.co.healthcare.self_diagnosis.ResultDB.*;
 import kr.co.healthcare.self_diagnosis.ResultRecycler.RecyclerAdapter;
 
@@ -79,7 +78,7 @@ public class SelfResultDateActivity extends AppCompatActivity {
         linearLayoutManager = new LinearLayoutManager(this);
         adapter = new RecyclerAdapter();
 
-        results = AppDatabase.getInstance(this).resultDAO().getAllByDate();
+        results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDate();
         int size = results.size();
         for (int i = 0; i < size; i++) {
             adapter.addItem(results.get(i));
@@ -97,9 +96,9 @@ public class SelfResultDateActivity extends AppCompatActivity {
         };
 
         for(int i=0; i<7; i++){
-            StackBar[i].addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseDanger(i), 0xFFE61919));
-            StackBar[i].addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseWarning(i), 0xFFFFC107));
-            StackBar[i].addBar(new BarModel(AppDatabase.getInstance(this).resultDAO().countDiseaseSafe(i), 0xFF00AC00));
+            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseDanger(i), 0xFFE61919));
+            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseWarning(i), 0xFFFFC107));
+            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseSafe(i), 0xFF00AC00));
             stackedBarChart.addBar(StackBar[i]);
         }
 
@@ -108,7 +107,7 @@ public class SelfResultDateActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        results = AppDatabase.getInstance(this).resultDAO().getAllByDate();
+        results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDate();
         adapter.addItems((ArrayList) results);
         super.onStart();
     }

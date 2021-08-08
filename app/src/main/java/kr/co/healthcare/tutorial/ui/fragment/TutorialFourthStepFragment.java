@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.tutorial.PreferenceManger;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class TutorialFourthStepFragment extends Fragment {
 
@@ -68,6 +68,6 @@ public class TutorialFourthStepFragment extends Fragment {
         for(CheckBox checkBox : checkBoxes) {
             if(checkBox.isChecked()) datas.add((String) checkBox.getText());
         }
-        PreferenceManger.setStringArrayList(context, PreferenceManger.PREF_USER_DISEASES, datas);
+        UserInfoPreferenceManger.setStringArrayList(context, UserInfoPreferenceManger.PREF_KEY_USER_DISEASES, datas);
     }
 }

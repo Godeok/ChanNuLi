@@ -66,7 +66,9 @@ public interface ResultDAO {
     int countDiseaseDanger(int num);
 
 
-
+    //평균 반환 쿼리
+    @Query("SELECT AVG(Result_COUNT) FROM Result_table WHERE Result_DISEASE=:num")
+    int getAverageCountOfDisease(int num);
 
 
     @Query("DELETE FROM Result_table")
