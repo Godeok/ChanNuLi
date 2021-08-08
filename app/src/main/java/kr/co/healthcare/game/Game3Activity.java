@@ -2,7 +2,6 @@ package kr.co.healthcare.game;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -23,12 +22,13 @@ public class Game3Activity extends AppCompatActivity {
 
     static int FIRST_CARD_IMAGE = -1, SECOND_CARD_IMAGE = -1;
     static int FIRST_CARD_NUMBER = -1, SECOND_CARD_NUMBER = -1;
-    static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 20;
+    static int ATTEMPT_CNT = 0, MAX_ATTEMPT = 20, score=0, level=1;
 
-    int level, score=0, points, number_of_cards;
+    int points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
     TextView tv_level, tv_score, tv_leftAttempts;
     Animation scale_bigger;
+    Animation scale_smaller;
 
     ImageView[] cards;
     int check_card[];
@@ -58,7 +58,6 @@ public class Game3Activity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                int color_green = ContextCompat.getColor(getApplicationContext(), R.color.primaryColor);
                 for (int i=0; i<number_of_cards; i++) {
                     cards[i].setImageResource(R.drawable.img_card_back);
                     cards[i].setEnabled(true);
@@ -80,7 +79,6 @@ public class Game3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // AlertDialog 빌더를 이용해 종료시 발생시킬 창을 띄운다
         AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
         alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
 
@@ -88,6 +86,7 @@ public class Game3Activity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
+                reset_score();
             }
         });
 
@@ -99,8 +98,9 @@ public class Game3Activity extends AppCompatActivity {
         });
 
         alBuilder.setTitle("게임 종료");
-        alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
+        alBuilder.show();
     }
+
 
     //첫 화면 초기화 함수
     void init(){
@@ -110,31 +110,33 @@ public class Game3Activity extends AppCompatActivity {
         layout_lv2 = findViewById(R.id.layout_lv2);
         layout_lv3 = findViewById(R.id.layout_lv3);
         scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
+        scale_smaller = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_smaller);
 
         //레벨 설정
-        level = getIntent().getIntExtra("level", -1);
         if(level==1) {
             number_of_cards = 16;
             points = 20;
+            MAX_ATTEMPT = 20;
             tv_level.setText("쉬움");
         }
         else if(level==2){
             number_of_cards = 20;
             points = 30;
+            MAX_ATTEMPT = 25;
             tv_level.setText("중간");
             layout_lv2.setVisibility(View.VISIBLE);     //숨긴 카드 보이게 하기
         }
         else if(level==3) {
             number_of_cards = 24;
             points = 40;
+            MAX_ATTEMPT = 30;
             tv_level.setText("어려움");
             layout_lv2.setVisibility(View.VISIBLE);
             layout_lv3.setVisibility(View.VISIBLE);
         }
         else number_of_cards = -1;
 
-        score = getIntent().getIntExtra("score", 0);
-        tv_score.setText(score+"");
+        tv_score.setText(score +"");
         tv_leftAttempts.setText(MAX_ATTEMPT+"");
     }
 
@@ -145,7 +147,7 @@ public class Game3Activity extends AppCompatActivity {
         cards = new ImageView[number_of_cards];
         check_card = new int[number_of_cards];
 
-        //
+        //randomNum 배열에 1부터 카드 개수 까지의 수 랜덤 정렬
         Random r = new Random();
         for(int i=0; i<number_of_cards; i++){
             randomNum[i] = r.nextInt(number_of_cards);
@@ -154,6 +156,7 @@ public class Game3Activity extends AppCompatActivity {
                     i--;
         }
 
+        //그림 번호 배열에 저장
         for(int i=0; i<number_of_cards; i++){
             imageNum[i] = randomNum[i]/2;
         }
@@ -168,6 +171,12 @@ public class Game3Activity extends AppCompatActivity {
             cards[i].setBackground(getDrawable(R.drawable.view_game3_card));
             cards[i].setClipToOutline(true);
         }
+    }
+
+    void reset_score(){
+        level = 1;
+        score = 0;
+        ATTEMPT_CNT = 0;
     }
 
     void card_touched(int cardNumber){
@@ -216,8 +225,8 @@ public class Game3Activity extends AppCompatActivity {
 
             check_card[FIRST_CARD_NUMBER] = check_card[SECOND_CARD_NUMBER] = 1;
 
-            score+=points;
-            tv_score.setText(score+"");
+            score += points;
+            tv_score.setText(score +"");
         }
 
         //카드 다르면
@@ -226,9 +235,9 @@ public class Game3Activity extends AppCompatActivity {
             cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_back);
 
             tv_leftAttempts.setText(MAX_ATTEMPT - ++ATTEMPT_CNT +"");
-            if(score>=10) score-=10;
-            else score=0;
-            tv_score.setText(score+"");
+            if(score >=10) score -=10;
+            else score =0;
+            tv_score.setText(score +"");
         }
 
         FIRST_CARD_NUMBER = SECOND_CARD_NUMBER = FIRST_CARD_IMAGE = SECOND_CARD_IMAGE = -1;
@@ -239,6 +248,7 @@ public class Game3Activity extends AppCompatActivity {
     void check_game_over(){
         //게임 끝(lose)
         if(MAX_ATTEMPT == ATTEMPT_CNT){
+            reset_score();
             Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
             intent.putExtra("score", score);
             intent.putExtra("level", level);
@@ -256,14 +266,14 @@ public class Game3Activity extends AppCompatActivity {
                     Intent intent;
                     if(level==3) {
                         intent = new Intent(getApplicationContext(), GameResultActivity.class);
-                        intent.putExtra("level", level);
+                        intent.putExtra("score", score);
+                        reset_score();
                     }
                     else {
                         intent = new Intent(getApplicationContext(), Game3Activity.class);
-                        intent.putExtra("level", level + 1);
+                        level+=1;
                     }
 
-                    intent.putExtra("score", score);
                     startActivity(intent);
                     overridePendingTransition(0, 0);
                     }
@@ -276,7 +286,4 @@ public class Game3Activity extends AppCompatActivity {
                 cards[j].setEnabled(true);
     }
 
-    void change_to_checked(int cardNumber){
-
-    }
 }
