@@ -103,8 +103,8 @@ public class MypageActivity extends AppCompatActivity {
 
     private void setChip(){
         ChipGroup chipGroup = findViewById(R.id.CHIPGROUP_diseases);
-        ArrayList<String> diseases = PreferenceManger.getStringArrayList(
-                        this, PreferenceManger.PREF_USER_DISEASES
+        ArrayList<String> diseases = UserInfoPreferenceManger.getStringArrayList(
+                        this, UserInfoPreferenceManger.PREF_KEY_USER_DISEASES
                 );;
 
         for (String diseaseName : diseases) {
