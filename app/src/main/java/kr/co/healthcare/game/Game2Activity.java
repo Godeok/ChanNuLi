@@ -2,7 +2,6 @@ package kr.co.healthcare.game;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -32,12 +31,13 @@ public class Game2Activity extends AppCompatActivity{
 
     int[] opt = new int[4];
 
-    //점수, 게임 횟수, 사용자가 누른 번호, 정답 값, 정답 보기 번호
-    static int SCORE=0, CNT=0, CHECKED=0, A=0, NUM=0;
+    //점수, 게임 횟수, 사용자가 누른 번호, 게임1 정답 값, 게임2 연산 결과, 정답 보기 번호
+    static int SCORE=0, CNT=0, CHECKED=0, LEVEL, ANS_NUM =0;
+    static int ANSWER_V1=0;
+    static int RESULT_V2, OPERATOR_NUM;
     static int STEP1=5, STEP2=9;                        //레벨 내 문제유형 반복 횟수 (4, 7)
     static boolean OPERATOR = false;
     static String TOTAL_TIME = "0101";                  //타이머 돌릴 시간(분-- 초--)
-    int level;
 
     CountDownTimer CDT;
 
@@ -48,7 +48,7 @@ public class Game2Activity extends AppCompatActivity{
         setContentView(R.layout.activity_game2);
 
         tv_level = findViewById(R.id.tv_level);
-        level = getIntent().getIntExtra("level", -1);
+        LEVEL = getIntent().getIntExtra("level", -1);
         //show_level(level);
 
         tv_score = findViewById(R.id.tv_score);
@@ -62,28 +62,30 @@ public class Game2Activity extends AppCompatActivity{
         //타이머
         countDown(TOTAL_TIME);
 
+        initialized();
+
         btn_opt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_method(1);
+                btn_method(0);
             }
         });
         btn_opt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_method(2);
+                btn_method(1);
             }
         });
         btn_opt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_method(3);
+                btn_method(2);
             }
         });
         btn_opt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_method(4);
+                btn_method(3);
             }
         });
     }
@@ -118,12 +120,10 @@ public class Game2Activity extends AppCompatActivity{
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
-
-        initialized();
+        //initialized();
     }
 
 
@@ -134,8 +134,8 @@ public class Game2Activity extends AppCompatActivity{
         //tv_answer.setText("");
         //tv_result.setText("");
 
-        show_level(level);
-        NUM = start_game(level);
+        show_level(LEVEL);
+        ANS_NUM = start_game(LEVEL);
     }
 
     //정보 초기화
@@ -245,241 +245,278 @@ public class Game2Activity extends AppCompatActivity{
 
 
 
+    void set_v1_numbers(int max1, int min1, int max2, int min2, String operator){
+        Random rnd = new Random();
+
+        int q1 = rnd.nextInt(max1-min1+1) + min1;
+        int q2 = rnd.nextInt(max2-min2+1) + min2;
+
+        set_gamePage(q1, q2, operator);
+    }
+
+    void set_v1_numbers(int max, int mid, int min, String operator){
+        set_v1_numbers(max, mid, mid, min, operator);
+    }
+
+    //자릿수
+    void set_v1_numbers(int digit1, int digit2, String operator){
+        Random rnd = new Random();
+
+        int q1 = (int)(rnd.nextInt((int)Math.pow(10, digit1)));
+        int q2 = (int)(rnd.nextInt((int)Math.pow(10, digit2)));
+        while(q1<q2)
+            q2 = (int)(rnd.nextInt((int)Math.pow(10, digit2)));
+
+        set_gamePage(q1, q2, operator);
+    }
+
+    void set_gamePage(int q1, int q2, String operator){
+        String ope = operator;
+        Random rnd = new Random();
+
+        if(operator.length() != 1){
+            if(rnd.nextBoolean()) ope = operator.substring(0, 1);
+            else ope = operator.substring(1);
+        }
+
+        if(ope.equals("*")) ope="×";
+        else if(ope.equals("/")) ope="÷";
+
+        ANSWER_V1 = calculate(q1, q2, ope);
+        tv_question.setText(q1 + " " + ope + " " + q2);
+    }
+
+
+
+    int calculate(int num1, int num2, String operator){
+        if(operator.equals("+")) return num1+num2;
+        else if(operator.equals("-")) return num1-num2;
+        else if(operator.equals("*") || operator.equals("×")) return num1*num2;
+        else if(operator.equals("/") || operator.equals("÷")) return num1/num2;
+        else return -1;
+    }
+
+
+
+
     //레벨별 게임 함수
     int lv1_1(){
         //한자리 + 한자리
         OPERATOR = false;
-        int q1 = (int)(Math.random()*10);
-        int q2 = (int)(Math.random()*10);
+        set_v1_numbers(1, 1, "+");
+
 
         //q1과 q2가 둘 다 2이면 안됨 (2+2 = 2*2)
+        /*
         if(q1==2)
             while(q2==2)
                 q2 = (int)(Math.random()*10);
-        A = q1+q2;
+         */
 
-        tv_question.setText(q1+"+"+q2);
-
-        int num = fill_opt_num(A);
+        int num = fill_opt_num(ANSWER_V1);
         return num; //정답 보기 번호
     }
 
     int lv1_2(){
         //두자리 +- 한자리
         OPERATOR = false;
-        Random rnd = new Random();
-        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-        int q1 = rnd.nextInt(91)+10;
-        int q2 = (int)(Math.random()*10);
-        int rand = (int)(Math.random()*2);
 
-        if(rand==0){
-            tv_question.setText(q1+"+"+q2);
-            A = q1+q2;
-        }
-        else{
-            tv_question.setText(q1+"-"+q2);
-            A = q1-q2;
-        }
+        set_v1_numbers(2, 1, "+-");
 
-        int num = fill_opt_num(A);
+        int num = fill_opt_num(ANSWER_V1);
         return num;
     }
 
-    int lv1_3(){
+    String change_operator_intToString(int operator){
+        switch (operator) {
+            case 0:
+                return "+";
+            case 1:
+                return "-";
+            case 2:
+                return "*";
+            case 3:
+                return "/";
+            default:
+                return "";
+        }
+    }
+
+    int change_operator_StringToInt(String operator){
+        switch (operator) {
+            case "+":
+                return 0;
+            case "-":
+                return 1;
+            case "*":
+            case "×":
+                return 2;
+            case "/":
+            case "÷":
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
+    void lv1_3(){
         //한자리 [ ] 한자리 = 답
         OPERATOR = true;
-        Random rnd = new Random();
-        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-        int q1 = rnd.nextInt(18)+3;      //3~20
-        int q2 = rnd.nextInt(9)+2;     //2~10
-        while(q2>q1) q2 = rnd.nextInt(9)+2;
-        int q3, number;
-        int[] value;
-        int rand = (int)(Math.random()*4);
 
-        value = play_fill_blanks(q1, q2, rand);
+        int operator = (int)(Math.random()*4);     //숫자 순서대로 + - * /
+        set_v2_quiz(20, 3, 10, 2, operator);
 
-        number = value[0];
-        q3 = value[1];
-
-        tv_question.setText(q1 + " □ " + q2 + " = " + q3);
-        //tv_equal.setText("");
         fill_opt_op();
-
-        //정답의 보기 번호 반환
-        return number;
     }
 
     int lv2_1(){
         //두자리 + 두자리
         OPERATOR = false;
-        Random rnd = new Random();
-        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-        int q1 = rnd.nextInt(41)+30;    //30~70
-        int q2 = rnd.nextInt(21)+10;    //10~30
 
-        tv_question.setText(q1+"+"+q2);
-        A = q1+q2;
+        set_v1_numbers(10, 30, 70, "+");
 
-        int num = fill_opt_num(A);
+
+
+        int num = fill_opt_num(ANSWER_V1);
         return num;
     }
 
     int lv2_2(){
         //세자리 - 한자리
         OPERATOR = false;
-        Random rnd = new Random();
-        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-        int q1 = rnd.nextInt(901)+100;      //100~1000
-        int q2 = (int)(Math.random()*10 + 1);      //1~10
 
-        tv_question.setText(q1+"-"+q2);
-        A = q1-q2;
+        set_v1_numbers(1, 10, 100, 1000, "-");
 
-        int num = fill_opt_num(A);
+
+
+        int num = fill_opt_num(ANSWER_V1);
         return num;
     }
 
-    int lv2_3(){
+    void set_v2_quiz(int max1, int min1, int max2, int min2, String operator){
+        String ope = operator;
+        Random rnd = new Random();
+
+        if(operator.length() != 1){
+            if(rnd.nextBoolean()) ope = operator.substring(0, 1);
+            else ope = operator.substring(1);
+        }
+
+        set_v2_quiz(max1, min1, max2, min2, change_operator_StringToInt(ope));
+    }
+
+    void set_v2_quiz(int max1, int min1, int max2, int min2, int operator){
+        //한자리 [ ] 한자리 = 답
+        Random rnd = new Random();
+        int ope = operator;
+
+        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
+        int q1 = rnd.nextInt(max1-min1+1)+min1;
+        int q2 = rnd.nextInt(max2-min2+1)+min2;
+        while(q2>q1) q2 = rnd.nextInt(max2-min2+1)+min2;
+
+        if(!(q2!=0 && q1%q2==0 && ope==3))
+            ope = (int) (Math.random() * 3);
+
+        set_gamePage(q1, q2, ope);
+    }
+
+    void set_gamePage(int q1, int q2, int operator){
+        Random rnd = new Random();
+        String ope = change_operator_intToString(operator);
+
+        if(ope.equals("*")) ope="×";
+        else if(ope.equals("/")) ope="÷";
+
+        RESULT_V2 = calculate(q1, q2, ope);
+        tv_question.setText(q1 + " □ " + q2 +"\n= "+RESULT_V2);
+
+        OPERATOR_NUM = operator;
+    }
+
+    void lv2_3(){
         //두자리 [더하기,나누기] 두자리 = 답
         //세자리 [더하기,나누기] 한자리 = 답
         OPERATOR = true;
         Random rnd = new Random();
-        int q1, q2, q3, number;
-        int[] value;
-        int rand = (int)(Math.random()*2);
-        int rand2 = (int)(Math.random()*2);
 
         //두자리_두자리
-        if(rand2==0){
-            //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-            q1 = rnd.nextInt(41)+30;    //30~70
-            q2 = rnd.nextInt(21)+10;    //10~30
-            while(q2>q1) q2 = rnd.nextInt(21)+10;
-        }
+        if(rnd.nextBoolean())
+            set_v2_quiz(70, 30, 30, 10, "+/");
+
         //세자리_한자리
-        else{
-            //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-            q1 = rnd.nextInt(901)+100;      //100~1000
-            q2 = (int)(Math.random()*10 + 1);      //1~10
-            while(q2>q1) q2 = (int)(Math.random()*10 + 1);
-        }
+        else
+            set_v2_quiz(1000, 100, 10, 1, "+/");
 
-        value = play_fill_blanks_lv2(q1, q2, rand);
 
-        number = value[0];
-        q3 = value[1];
-
-        tv_question.setText(q1 + " □ " + q2 + " = " + q3);
         //tv_equal.setText("");
         fill_opt_op();
-
-        //정답의 보기 번호 반환
-        return number;
     }
 
     int lv3_1(){
         //두자리 +- 한자리
         OPERATOR = false;
-        Random rnd = new Random();
-        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-        int q1 = rnd.nextInt(41)+30;    //30~70
-        int q2 = rnd.nextInt(21)+10;    //10~30
-        int rand = (int)(Math.random()*2);
+        set_v1_numbers(70, 30, 10, "+-");
 
-        if(rand==0){
-            tv_question.setText(q1+"+"+q2);
-            A = q1+q2;
-        }
-        else{
-            tv_question.setText(q1+"-"+q2);
-            A = q1-q2;
-        }
 
-        int num = fill_opt_num(A);
+        int num = fill_opt_num(ANSWER_V1);
         return num;
     }
 
-    int lv3_2(){
+    void lv3_2(){
         //두자리 [곱하기, 나누기] 한자리 = 답
         OPERATOR = true;
         Random rnd = new Random();
-        int q1, q2, q3, number;
 
         //두자리_두자리
-        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-        q1 = rnd.nextInt(41)+30;    //30~70
-        q2 = rnd.nextInt(9)+2;     //2~10
-        while(q2>q1) q2 = rnd.nextInt(21)+10;
+        set_v2_quiz(70, 30, 10, 2, "*/");
 
-
-        int[] value;
-        int rand = (int)(Math.random()*2);
-
-        value = play_fill_blanks(q1, q2, rand);
-
-        number = value[0];
-        q3 = value[1];
-
-        tv_question.setText(q1 + " □ " + q2 + " = " + q3);
         //tv_equal.setText("");
         fill_opt_op();
-
-        //정답의 보기 번호 반환
-        return number;
     }
 
     int lv3_3(){
         //두자리 + 두자리
         OPERATOR = false;
-        Random rnd = new Random();
-        //Random.nextInt( <큰수> - <작은수> + 1) + <작은수>;
-        int q1 = rnd.nextInt(91)+10;   //10~100
-        int q2 = (int)(Math.random()*10);     //1~10
 
-        tv_question.setText(q1+"x"+q2);
-        A = q1*q2;
+        set_v1_numbers(100, 10, 1, "+");
 
-        int num = fill_opt_num(A);
+
+        int num = fill_opt_num(ANSWER_V1);
         return num;
     }
 
 
+    /*
     //빈칸 채우기 문제 내기
     int[] play_fill_blanks(int q1, int q2, int rand){
-        int number=0, q3=-1;
+        int number=0, result=-1;
         int[] return_value = new int[2];
 
-        //나눗셈의 경우
-        if(q2!=0) {
-            if (q1 % q2 == 0) {
-                if (rand == 3) {
-                    q3 = q1 / q2;
-                    number = 4;
-                } else rand = (int) (Math.random() * 3);
-            }
-            else rand = (int) (Math.random() * 3);
+
+        if(q2!=0 && q1%q2==0 && rand==3){
+            result = q1 / q2;
+            number = 4;
         }
         else rand = (int) (Math.random() * 3);
 
         if(rand==0){
-            q3 = q1 + q2;
+            result = q1 + q2;
             number=1;
         }
 
         else if(rand==1){
-            q3 = q1 - q2;
+            result = q1 - q2;
             number=2;
         }
 
         else if(rand==2){
-            q3 = q1 * q2;
+            result = q1 * q2;
             number=3;
         }
 
         return_value[0] = number;
-        return_value[1] = q3;
+        return_value[1] = result;
 
         return return_value;
     }
@@ -505,6 +542,8 @@ public class Game2Activity extends AppCompatActivity{
 
         return return_value;
     }
+
+     */
 
     //정답 외 보기(숫자) 채우는 함수
     int fill_opt_num(int answer){
@@ -542,30 +581,30 @@ public class Game2Activity extends AppCompatActivity{
 
     //보기에 정답을 쓰고 보기 번호 반환
     int fill_answer(int answer){
-        int num = (int)(Math.random()*4)+1;
-        if(num==1){
+        int num = (int)(Math.random()*4);
+        if(num==0){
             btn_opt1.setText(""+answer);
-            return 1;
+            return num;
         }
-        else if(num==2){
+        else if(num==1){
             btn_opt2.setText(""+answer);
-            return 2;
+            return num;
         }
 
-        else if(num==3){
+        else if(num==2){
             btn_opt3.setText(""+answer);
-            return 3;
+            return num;
         }
         else{
             btn_opt4.setText(""+answer);
-            return 4;
+            return num;
         }
     }
 
     //버튼 실행시
     void btn_method(int number){
         //사용자가 누른 번호(number) checked에 저장
-        CHECKED =number;
+        CHECKED = number;
 
         /*
         //화면에 사용자가 누른 '보기' 보여주기
@@ -584,7 +623,7 @@ public class Game2Activity extends AppCompatActivity{
 
     //답 확인
     void check_answer(){
-        if (NUM == CHECKED){
+        if (ANS_NUM == CHECKED){
             //tv_result.setText("정답입니다");
             /*
             if(OPERATOR ==false){
@@ -613,52 +652,37 @@ public class Game2Activity extends AppCompatActivity{
         next_lv();
     }
 
-    //시간 형식 맞춰서 String 형태로 바꾸는 함수 (미완)
-    public void change_time(int newSecond) {
-
-        String getSecond = TOTAL_TIME;
-
-        // "00"이 아니고, 첫번째 자리가 0 이면 제거
-        //if (getMin.substring(0, 1)=="0") getMin = getMin.substring(1, 2);
-        //if (getSecond.substring(0, 1)=="0") getSecond = getSecond.substring(1, 2);
-        int intSecond = Integer.parseInt(getSecond);
-
-        //문제 틀렸을 때 n초 감소
-        if (newSecond<0){
-            if(intSecond>3) intSecond += newSecond;
-            else intSecond=0;
-        }
-        //문제 맞았을 때 n초 추가
-        else
-            intSecond += newSecond;
-
-        //String stringSecond = Integer.toString(intSecond);
-        String stringTime = String.format("%04d", intSecond);
-
-        //다시 스트링으로 바꿔서 total_time 수정
-        //if (stringSecond.length()==1) stringSecond = "0" + stringSecond;
-        //total_time = getMin + stringSecond;
-        TOTAL_TIME = stringTime;
-    }
 
     //레벨별 다른 함수를 실행
     int start_game(int level){
         int number;
-        //cnt 순서대로 4 7
         if(level==1){
             if(CNT<STEP1) number=lv1_1();
             else if(CNT<STEP2) number=lv1_2();
-            else number=lv1_3();
+            else {
+                lv1_3();
+                number = OPERATOR_NUM;
+            }
         }
         else if(level==2){
             if(CNT<STEP1) number=lv2_1();
             else if(CNT<STEP2) number=lv2_2();
-            else number=lv2_3();
+            else {
+                lv2_3();
+                number = OPERATOR_NUM;
+            }
         }
+        /*
         else{
             if(CNT<STEP1) number=lv3_1();
             else if(CNT<STEP2) number=lv3_2();
             else number=lv3_3();
+        }
+         */
+        else{
+            lv3_2();
+            number=OPERATOR_NUM;
+            btn_opt1.setText(number+"");
         }
         //정답 반환
         return number;
