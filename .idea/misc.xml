@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/view_game_level_small.xml" value="0.3265625" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_mypage.xml" value="0.33" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/item_self_diagnosis_result_container.xml" value="0.27355072463768115" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/item_self_main_container.xml" value="0.27355072463768115" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/menu/menu_mypage.xml" value="0.3104166666666667" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
