@@ -27,8 +27,7 @@ public class Game3Activity extends AppCompatActivity {
     int points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
     TextView tv_level, tv_score, tv_leftAttempts;
-    Animation anim_scale_bigger1;
-    Animation anim_scale_bigger2;
+    Animation anim_scale_bigger1, anim_scale_bigger2;
 
     ImageView[] cards;
     int check_card[];
@@ -109,8 +108,8 @@ public class Game3Activity extends AppCompatActivity {
         tv_leftAttempts = findViewById(R.id.tv_leftAttempts);
         layout_lv2 = findViewById(R.id.layout_lv2);
         layout_lv3 = findViewById(R.id.layout_lv3);
-        anim_scale_bigger1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger1);
-        anim_scale_bigger2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger2);
+        anim_scale_bigger1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger);
+        anim_scale_bigger2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger);
 
         //레벨 설정
         if(LEVEL ==1)
