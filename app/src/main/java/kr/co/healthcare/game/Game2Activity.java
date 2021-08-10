@@ -51,7 +51,6 @@ public class Game2Activity extends AppCompatActivity{
 
         tv_level = findViewById(R.id.tv_level);
         LEVEL = getIntent().getIntExtra("level", -1);
-        //show_level(level);
 
         tv_score = findViewById(R.id.tv_score);
         tv_question = findViewById(R.id.tv_question);
@@ -208,6 +207,7 @@ public class Game2Activity extends AppCompatActivity{
                 Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
                 intent.putExtra("score", score2);
                 intent.putExtra("level", level);
+                intent.putExtra("game", 2);
                 startActivity(intent);
 
                 //화면 전환 효과 없애기
@@ -501,7 +501,7 @@ public class Game2Activity extends AppCompatActivity{
     //답 확인
     void check_answer(){
         if (ANS_NUM == CHECKED){
-            set_textView(tv_question, "O", 120, R.color.greenColor);
+            set_textView(tv_question, "O", 120, R.color.whiteColor);
             SCORE += 200;
         }
         else {

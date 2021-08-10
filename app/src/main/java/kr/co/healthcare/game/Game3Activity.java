@@ -199,7 +199,7 @@ public class Game3Activity extends AppCompatActivity {
         SECOND_CARD_IMAGE = imageNum[cardNumber];
 
         cards[cardNumber].setImageResource(img_card_content[imageNum[cardNumber]]);
-        cards[cardNumber].startAnimation(scale_bigger);
+        cards[cardNumber].startAnimation(scale_smaller);
 
         for (int j=0; j<number_of_cards; j++)
             cards[j].setEnabled(false);

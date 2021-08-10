@@ -1,13 +1,10 @@
 package kr.co.healthcare.game;
 
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,7 +56,6 @@ public class GameResultActivity extends AppCompatActivity {
         score = getIntent().getIntExtra("score", -1);
         level = getIntent().getIntExtra("level", -1);
         game = getIntent().getIntExtra("game", -1);
-        //show_level(level)
         save_score();
 
         //게임 종류 보이기
