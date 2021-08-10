@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -26,15 +27,16 @@ public class Game2Activity extends AppCompatActivity{
     TextView tv_score;
     TextView tv_question;
     TextView tv_timer;
-    Button btn_opt1, btn_opt2, btn_opt3, btn_opt4;
     ProgressBar progressBar;
 
-    int[] opt = new int[4];
+    Button[] btn_opt = new Button[4];
+    int[] Rid_btn_opt = {R.id.btn_opt1, R.id.btn_opt2, R.id.btn_opt3, R.id.btn_opt4};
+    int[] option_data = new int[4];
 
     //점수, 게임 횟수, 사용자가 누른 번호, 게임1 정답 값, 게임2 연산 결과, 정답 보기 번호
     static int SCORE=0, CNT=0, CHECKED=0, LEVEL, ANS_NUM =0;
     static int V1_ANS_DATA =0;
-    static int V2_CALC_RESULT, V2_ANS_OPERATOR_NUM;
+    static int V2_CALC_RESULT;
     static int STEP1=5, STEP2=9;                        //레벨 내 문제유형 반복 횟수 (4, 7)
     static boolean OPERATOR = false;
     static String TOTAL_TIME = "0101";                  //타이머 돌릴 시간(분-- 초--)
@@ -53,41 +55,24 @@ public class Game2Activity extends AppCompatActivity{
 
         tv_score = findViewById(R.id.tv_score);
         tv_question = findViewById(R.id.tv_question);
-        btn_opt1 = findViewById(R.id.btn_opt1);
-        btn_opt2 = findViewById(R.id.btn_opt2);
-        btn_opt3 = findViewById(R.id.btn_opt3);
-        btn_opt4 = findViewById(R.id.btn_opt4);
         progressBar = findViewById(R.id.progressBar);
+        for(int i=0; i<4; i++)
+            btn_opt[i] = findViewById(Rid_btn_opt[i]);
 
         //타이머
         countDown(TOTAL_TIME);
 
         initialized();
 
-        btn_opt1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_method(0);
-            }
-        });
-        btn_opt2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_method(1);
-            }
-        });
-        btn_opt3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_method(2);
-            }
-        });
-        btn_opt4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_method(3);
-            }
-        });
+        for(int i=0; i<4; i++) {
+            int finalI = i;
+            btn_opt[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    btn_method(finalI);
+                }
+            });
+        }
     }
 
     @Override
@@ -120,19 +105,15 @@ public class Game2Activity extends AppCompatActivity{
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        //initialized();
-    }
-
 
     //게임 화면 초기화
     void initialized(){
         CNT++;
         tv_score.setText(SCORE +"점");
-        //tv_answer.setText("");
-        //tv_result.setText("");
+        set_textView(tv_question, "", 70, R.color.whiteColor);
+
+        for(int i=0; i<4; i++)
+            set_button(btn_opt[i], R.drawable.btn_game2, R.color.whiteColor);
 
         show_level(LEVEL);
         start_game(LEVEL);
@@ -201,13 +182,9 @@ public class Game2Activity extends AppCompatActivity{
 
             //제한시간 종료시
             public void onFinish() {
-                btn_opt1.setEnabled(false);
-                btn_opt2.setEnabled(false);
-                btn_opt3.setEnabled(false);
-                btn_opt4.setEnabled(false);
-
+                for(int i=0; i<4; i++)
+                    btn_opt[i].setEnabled(false);
                 //tv_timer.setText("시간 종료!");
-
                 after_time_over();
             }
         };
@@ -216,11 +193,8 @@ public class Game2Activity extends AppCompatActivity{
     }
 
     void after_time_over(){
-        btn_opt1.setEnabled(false);
-        btn_opt2.setEnabled(false);
-        btn_opt3.setEnabled(false);
-        btn_opt4.setEnabled(false);
-
+        for(int i=0; i<4; i++)
+            btn_opt[i].setEnabled(true);
         //tv_timer.setText("시간 종료!");
 
         //1초 지연 후 결과 페이지로 이동
@@ -423,14 +397,14 @@ public class Game2Activity extends AppCompatActivity{
     void lv2_1(){
         //두자리 + 두자리
         OPERATOR = false;
-        set_operation_numbers(10, 30, 70, "+");
+        set_operation_numbers(70, 30, 10, "+");
         fill_opt_num();
     }
 
     void lv2_2(){
         //세자리 - 한자리
         OPERATOR = false;
-        set_operation_numbers(1, 10, 100, 1000, "-");
+        set_operation_numbers(1000, 100, 10, 1, "-");
         fill_opt_num();
     }
 
@@ -488,18 +462,16 @@ public class Game2Activity extends AppCompatActivity{
         for(int i=0; i<4; i++){
             int nearbyNum = (int)rnd.nextInt(5)+1;   //정답과 1~5 차이나는 수를 위한 난수
 
-            if(rnd.nextBoolean()) opt[i] = answer + nearbyNum;
-            else opt[i] = answer - nearbyNum;
+            if(rnd.nextBoolean()) option_data[i] = answer + nearbyNum;
+            else option_data[i] = answer - nearbyNum;
 
             for(int j=0; j<i; j++)
-                if(opt[i]==opt[j])
+                if(option_data[i]== option_data[j])
                     i--;
         }
 
-        btn_opt1.setText(""+opt[0]);
-        btn_opt2.setText(""+opt[1]);
-        btn_opt3.setText(""+opt[2]);
-        btn_opt4.setText(""+opt[3]);
+        for(int i=0; i<4; i++)
+            btn_opt[i].setText(""+ option_data[i]);;
 
         fill_answer(answer);
     }
@@ -507,18 +479,14 @@ public class Game2Activity extends AppCompatActivity{
     //보기에 정답을 쓰고 보기 번호 반환
     void fill_answer(int answer){
         ANS_NUM = (int)(Math.random()*4);
-        if(ANS_NUM==0) btn_opt1.setText(""+answer);
-        else if(ANS_NUM==1) btn_opt2.setText(""+answer);
-        else if(ANS_NUM==2) btn_opt3.setText(""+answer);
-        else btn_opt4.setText(""+answer);
+        btn_opt[ANS_NUM].setText(""+answer);
     }
 
     //정답 외 보기(연산자) 채우는 함수
     void fill_opt_op(){
-        btn_opt1.setText("+");
-        btn_opt2.setText("-");
-        btn_opt3.setText("×");
-        btn_opt4.setText("÷");
+        String[] ope = {"+", "-", "×", "÷"};
+        for(int i=0; i<4; i++)
+            btn_opt[i].setText(ope[i]);
     }
 
 
@@ -527,50 +495,33 @@ public class Game2Activity extends AppCompatActivity{
     void btn_method(int number){
         //사용자가 누른 번호(number) checked에 저장
         CHECKED = number;
-
-        /*
-        //화면에 사용자가 누른 '보기' 보여주기
-        if(OPERATOR ==true){
-            if(number==1) tv_answer.setText("+");
-            else if(number==2) tv_answer.setText("-");
-            else if(number==3) tv_answer.setText("×");
-            else tv_answer.setText("÷");
-        }
-        else
-            tv_answer.setText(""+opt[number-1]);
-         */
-
         check_answer();
     }
 
     //답 확인
     void check_answer(){
         if (ANS_NUM == CHECKED){
-            //tv_result.setText("정답입니다");
-            /*
-            if(OPERATOR ==false){
-                tv_answer.setText(""+ A);
-            }
-            tv_answer.setTextColor(Color.parseColor("#4CAF50"));
-             */
+            set_textView(tv_question, "O", 120, R.color.greenColor);
             SCORE += 200;
-
-            //정답 맞으면 3초 추가
-            //change_time(3);
         }
         else {
-            //tv_result.setText("틀렸습니다");
-            //tv_answer.setTextColor(Color.parseColor("#FF0000"));
-
-            if(SCORE>0)
-                SCORE -= 100;
-
-            //정답 틀리면 5초 감소
-            //change_time(-5);
+            set_textView(tv_question, "X", 120, R.color.redColor);
+            if(SCORE>0) SCORE -= 100;
         }
         tv_score.setText(SCORE +"점");
-        OPERATOR =false;
+        OPERATOR = false;
         next_lv();
+    }
+
+    void set_textView(TextView tv, String str, int size, int color){
+        tv.setText(str);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size);
+        tv.setTextColor(getResources().getColor(color));
+    }
+
+    void set_button(Button btn, int background, int textColor){
+        btn.setBackground(getDrawable(background));
+        btn.setTextColor(getResources().getColor(textColor));
     }
 
 
@@ -601,23 +552,25 @@ public class Game2Activity extends AppCompatActivity{
         else tv_level.setText("어려움");
     }
 
+
+
     //다음 단계로 넘어가는 메소드
     void next_lv(){
         //버튼 비활성화
-        btn_opt1.setEnabled(false);
-        btn_opt2.setEnabled(false);
-        btn_opt3.setEnabled(false);
-        btn_opt4.setEnabled(false);
+        for(int i=0; i<4; i++)
+            btn_opt[i].setEnabled(false);
+
+        set_button(btn_opt[ANS_NUM], R.drawable.btn_game2_answer, R.color.whiteColor);
+        if(ANS_NUM != CHECKED)
+            set_button(btn_opt[CHECKED], R.drawable.btn_game2_selected, R.color.whiteColor);
 
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 //시간이 끝나기 전까지 액티비티 반복
 
-                btn_opt1.setEnabled(true);
-                btn_opt2.setEnabled(true);
-                btn_opt3.setEnabled(true);
-                btn_opt4.setEnabled(true);
+                for(int i=0; i<4; i++)
+                    btn_opt[i].setEnabled(true);
 
                 initialized();
             }
