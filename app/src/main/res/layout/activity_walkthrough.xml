@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/btn"
         android:textSize="20sp"
-        android:textColor="@color/btn_text"
+        android:textColor="@color/cbtn_text"
         android:text="시작하기"
         android:enabled="true" />
 </LinearLayout>
