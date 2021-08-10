@@ -107,10 +107,10 @@ public class Game1Activity extends AppCompatActivity{
             tv_try[i] = findViewById(tv_try_rid[i]);
 
         //애니메이션 R id 연결
-        animTransRight = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_right);
-        animTransLeft = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_trans_left);
-        animAlpha = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_alpha);
-        animScaleSmallerBtn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_scale_smaller_btn);
+        animTransRight = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game1_trans_right);
+        animTransLeft = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game1_trans_left);
+        animAlpha = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game1_alpha);
+        animScaleSmallerBtn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game1_scale_smaller);
 
 
         //가위, 바위, 보 랜덤함수로 결정 (순서대로 컴퓨터, 사용자)

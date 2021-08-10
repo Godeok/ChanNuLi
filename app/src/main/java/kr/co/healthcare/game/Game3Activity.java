@@ -27,8 +27,8 @@ public class Game3Activity extends AppCompatActivity {
     int points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
     TextView tv_level, tv_score, tv_leftAttempts;
-    Animation scale_bigger;
-    Animation scale_smaller;
+    Animation anim_scale_bigger1;
+    Animation anim_scale_bigger2;
 
     ImageView[] cards;
     int check_card[];
@@ -109,28 +109,18 @@ public class Game3Activity extends AppCompatActivity {
         tv_leftAttempts = findViewById(R.id.tv_leftAttempts);
         layout_lv2 = findViewById(R.id.layout_lv2);
         layout_lv3 = findViewById(R.id.layout_lv3);
-        scale_bigger = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_bigger);
-        scale_smaller = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.scale_smaller);
+        anim_scale_bigger1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger1);
+        anim_scale_bigger2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger2);
 
         //레벨 설정
-        if(LEVEL ==1) {
-            number_of_cards = 16;
-            points = 20;
-            MAX_ATTEMPT = 20;
-            tv_level.setText("쉬움");
-        }
+        if(LEVEL ==1)
+            setting(16, 20, 20, "쉬움");
         else if(LEVEL ==2){
-            number_of_cards = 20;
-            points = 30;
-            MAX_ATTEMPT = 25;
-            tv_level.setText("중간");
+            setting(20, 30, 25, "중간");
             layout_lv2.setVisibility(View.VISIBLE);     //숨긴 카드 보이게 하기
         }
         else if(LEVEL ==3) {
-            number_of_cards = 24;
-            points = 40;
-            MAX_ATTEMPT = 30;
-            tv_level.setText("어려움");
+            setting(24, 40, 30, "어려움");
             layout_lv2.setVisibility(View.VISIBLE);
             layout_lv3.setVisibility(View.VISIBLE);
         }
@@ -138,6 +128,13 @@ public class Game3Activity extends AppCompatActivity {
 
         tv_score.setText(SCORE +"");
         tv_leftAttempts.setText(MAX_ATTEMPT+"");
+    }
+
+    void setting(int numOfCards, int pts, int maxAttempt, String strLevel){
+        number_of_cards = numOfCards;
+        points = pts;
+        MAX_ATTEMPT = maxAttempt;
+        tv_level.setText(strLevel);
     }
 
     //카드 초기화
@@ -191,7 +188,7 @@ public class Game3Activity extends AppCompatActivity {
 
         cards[cardNumber].setImageResource(img_card_content[imageNum[cardNumber]]);
         cards[cardNumber].setEnabled(false);
-        cards[cardNumber].startAnimation(scale_bigger);
+        cards[cardNumber].startAnimation(anim_scale_bigger1);
     }
 
     void if_second(final int cardNumber){
@@ -199,7 +196,7 @@ public class Game3Activity extends AppCompatActivity {
         SECOND_CARD_IMAGE = imageNum[cardNumber];
 
         cards[cardNumber].setImageResource(img_card_content[imageNum[cardNumber]]);
-        cards[cardNumber].startAnimation(scale_bigger);
+        cards[cardNumber].startAnimation(anim_scale_bigger2);
 
         for (int j=0; j<number_of_cards; j++)
             cards[j].setEnabled(false);
@@ -212,19 +209,18 @@ public class Game3Activity extends AppCompatActivity {
         }, 600);
     }
 
+    void set_cards(int cardNum, int cardImage, int cardBackgroundImg, boolean bool){
+        cards[cardNum].setImageResource(cardImage);
+        cards[cardNum].setBackground(getDrawable(cardBackgroundImg));
+        cards[cardNum].setEnabled(bool);
+        check_card[cardNum] = 1;
+    }
+
     void match_or_not(){
         //카드 같으면
         if(FIRST_CARD_IMAGE == SECOND_CARD_IMAGE){
-            cards[FIRST_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
-            cards[SECOND_CARD_NUMBER].setImageResource(R.drawable.img_card_back_blur);
-
-            cards[FIRST_CARD_NUMBER].setBackground(getDrawable(R.drawable.view_game3_card_blur));
-            cards[SECOND_CARD_NUMBER].setBackground(getDrawable(R.drawable.view_game3_card_blur));
-
-            cards[FIRST_CARD_NUMBER].setEnabled(false);
-            cards[SECOND_CARD_NUMBER].setEnabled(false);
-
-            check_card[FIRST_CARD_NUMBER] = check_card[SECOND_CARD_NUMBER] = 1;
+            set_cards(FIRST_CARD_NUMBER, R.drawable.img_card_back_blur, R.drawable.view_game3_card_blur, false);
+            set_cards(SECOND_CARD_NUMBER, R.drawable.img_card_back_blur, R.drawable.view_game3_card_blur, false);
 
             SCORE += points;
             tv_score.setText(SCORE +"");
@@ -286,5 +282,4 @@ public class Game3Activity extends AppCompatActivity {
             if(check_card[j]!=1)
                 cards[j].setEnabled(true);
     }
-
 }

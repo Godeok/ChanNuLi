@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@color/yellowColor"
     tools:context=".game.Game3Activity">
 
     <LinearLayout
@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/whiteColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -118,7 +119,7 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_background_upper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -150,8 +151,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout-->
 
     <LinearLayout
         android:id="@+id/linear_layout"

@@ -3,12 +3,12 @@ package kr.co.healthcare.self_diagnosis.MainRecycler;
 public class SelfMainData {
     private int ID;
     private String disease_name;
-    private int num_of_qeustions;
+    private int num_of_questions;
 
-    public SelfMainData(int id, String disease_name, int num_of_qeustions){
+    public SelfMainData(int id, String disease_name, int num_of_questions){
         this.ID = id;
         this.disease_name = disease_name;
-        this.num_of_qeustions = num_of_qeustions;
+        this.num_of_questions = num_of_questions;
     }
 
     public int getID() {
@@ -19,8 +19,8 @@ public class SelfMainData {
         return disease_name;
     }
 
-    public int getNum_of_qeustions() {
-        return num_of_qeustions;
+    public int getNum_of_questions() {
+        return num_of_questions;
     }
 
     public void setID(int ID) {
@@ -31,7 +31,7 @@ public class SelfMainData {
         this.disease_name = disease_name;
     }
 
-    public void setNum_of_qeustions(int num_of_qeustions) {
-        this.num_of_qeustions = num_of_qeustions;
+    public void setNum_of_questions(int num_of_questions) {
+        this.num_of_questions = num_of_questions;
     }
 }

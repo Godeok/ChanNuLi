@@ -65,12 +65,11 @@
                 android:id="@+id/iv_blackboard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_temp_blackboard" />
+                app:srcCompat="@drawable/img_game2_background" />
 
             <TextView
                 android:id="@+id/tv_question"

@@ -2,7 +2,6 @@ package kr.co.healthcare.self_diagnosis.MainRecycler;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.MainRecycler.SelfMainData;
 import kr.co.healthcare.self_diagnosis.SelfDiagnosisActivity;
 
 public class SelfMainAdapter extends RecyclerView.Adapter<SelfMainAdapter.MyViewHolderMain> {
@@ -39,7 +37,7 @@ public class SelfMainAdapter extends RecyclerView.Adapter<SelfMainAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolderMain holder, final int position) {
         holder.tv_diseaseName.setText(myDataList.get(position).getDisease_name());
-        holder.tv_numOfQuestions.setText(myDataList.get(position).getNum_of_qeustions()+"문항");
+        holder.tv_numOfQuestions.setText(myDataList.get(position).getNum_of_questions()+"문항");
 
         //리스너
         holder.itemView.setClickable(true);
