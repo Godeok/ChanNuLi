@@ -21,5 +21,6 @@
     <color name="whiteColor">#FFFFFF</color>
     <color name="redColor">#EF5350</color>
     <color name="yellowColor">#FFEC7B</color>
+    <color name="greenColor">#327134</color>
     <color name="grayColor">#979797</color>
 </resources>
