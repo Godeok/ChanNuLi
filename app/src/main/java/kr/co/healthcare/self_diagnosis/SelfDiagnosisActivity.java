@@ -27,7 +27,6 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
     public List<Questions> questionsList;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

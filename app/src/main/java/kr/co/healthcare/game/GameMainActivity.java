@@ -14,90 +14,38 @@ import kr.co.healthcare.R;
 public class GameMainActivity extends AppCompatActivity {
 
     int[] try_result = {0, 0, 0, 0, 0};
+    int[][] Rid_btn = {
+            {R.id.btn_to_game1_lv1, R.id.btn_to_game1_lv2, R.id.btn_to_game1_lv3},
+            {R.id.btn_to_game2_lv1, R.id.btn_to_game2_lv2, R.id.btn_to_game2_lv3},
+            {R.id.btn_to_game3_lv1}
+    };
+    Button[][] btn = new Button[3][3];
+
+    Class[] activitys = {Game1Activity.class, Game2Activity.class, Game3Activity.class};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main);
 
-        Button btn_to_game1_lv1 = findViewById(R.id.btn_to_game1_lv1);
-        Button btn_to_game1_lv2 = findViewById(R.id.btn_to_game1_lv2);
-        Button btn_to_game1_lv3 = findViewById(R.id.btn_to_game1_lv3);
-        Button btn_toast1 = findViewById(R.id.btn_toast1);
+        for(int game=0; game<3; game++) {
+            int[] inRid = Rid_btn[game];
+            for(int level=0; level<inRid.length; level++) {
+                int finalLv = level;
+                int finalGame = game;
 
-        Button btn_to_game2_lv1 = findViewById(R.id.btn_to_game2_lv1);
-        Button btn_to_game2_lv2 = findViewById(R.id.btn_to_game2_lv2);
-        Button btn_to_game2_lv3 = findViewById(R.id.btn_to_game2_lv3);
-
-        Button btn_to_game3_lv1 = findViewById(R.id.btn_to_game3_lv1);
-
-        btn_to_game1_lv1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
-                intent.putExtra("level", 1);
-                intent.putExtra("try_result", try_result);
-                startActivity(intent);
+                btn[game][level] = findViewById(Rid_btn[game][level]);
+                btn[game][level].setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), activitys[finalGame]);
+                        intent.putExtra("level", finalLv+1);
+                        intent.putExtra("try_result", try_result);
+                        startActivity(intent);
+                    }
+                });
             }
-        });
-
-        btn_to_game1_lv2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
-                intent.putExtra("level", 2);
-                intent.putExtra("try_result", try_result);
-                startActivity(intent);
-            }
-        });
-
-        btn_to_game1_lv3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game1Activity.class);
-                intent.putExtra("level", 3);
-                intent.putExtra("try_result", try_result);
-                startActivity(intent);;
-            }
-        });
-
-
-        btn_to_game2_lv1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
-                intent.putExtra("level", 1);
-                startActivity(intent);
-            }
-        });
-
-        btn_to_game2_lv2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
-                intent.putExtra("level", 2);
-                startActivity(intent);
-            }
-        });
-
-        btn_to_game2_lv3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game2Activity.class);
-                intent.putExtra("level", 3);
-                startActivity(intent);;
-            }
-        });
-
-
-        btn_to_game3_lv1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Game3Activity.class);
-                intent.putExtra("level", 1);
-                startActivity(intent);;
-            }
-        });
+        }
     }
 
 

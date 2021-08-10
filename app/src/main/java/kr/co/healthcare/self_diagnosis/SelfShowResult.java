@@ -76,8 +76,4 @@ public class SelfShowResult extends AppCompatActivity {
             }
         });
     }
-
-    @Override public void onBackPressed() {
-        //super.onBackPressed();
-    }
 }

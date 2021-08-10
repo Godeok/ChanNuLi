@@ -31,6 +31,8 @@ public class GameResultActivity extends AppCompatActivity {
     int score, level, game, best_record;
     String best_record_str;
 
+    Class[] activitys = {Game1Activity.class, Game2Activity.class, Game3Activity.class};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,12 +71,10 @@ public class GameResultActivity extends AppCompatActivity {
         btn_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent;
-                if(game==1) intent = new Intent(getApplicationContext(), Game1Activity.class);
-                else if(game==2) intent = new Intent(getApplicationContext(), Game2Activity.class);
-                else intent = new Intent(getApplicationContext(), Game3Activity.class);
-                intent.putExtra("level", level);
                 int[] try_result = {0, 0, 0, 0, 0};
+
+                Intent intent = new Intent(getApplicationContext(), activitys[game-1]);
+                intent.putExtra("level", level);
                 intent.putExtra("try_result", try_result);
                 startActivity(intent);
             }
@@ -110,7 +110,8 @@ public class GameResultActivity extends AppCompatActivity {
             img_star_2.setColorFilter(getResources().getColor(R.color.primaryLightColor));
             img_star_3.setColorFilter(getResources().getColor(R.color.primaryLightColor));
         }
-        else if(level==2) img_star_3.setColorFilter(getResources().getColor(R.color.primaryLightColor));
+        else if(level==2)
+            img_star_3.setColorFilter(getResources().getColor(R.color.primaryLightColor));
     }
 
     void show_game_type(){

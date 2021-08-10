@@ -69,7 +69,7 @@
                 android:layout_width="373dp"
                 android:layout_height="517dp"
                 android:layout_margin="16dp"
-                tools:listitem="@layout/item_self_diagnosis_result_container_v2" />
+                tools:listitem="@layout/item_self_diagnosis_result_container" />
 
         </RelativeLayout>
 

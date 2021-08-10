@@ -22,24 +22,21 @@ import kr.co.healthcare.R;
 
 public class Game2Activity extends AppCompatActivity{
 
-    //tv_answer, tv_equal, tv_result 주석처리함
     TextView tv_level;
     TextView tv_score;
     TextView tv_question;
-    TextView tv_timer;
     ProgressBar progressBar;
 
     Button[] btn_opt = new Button[4];
     int[] Rid_btn_opt = {R.id.btn_opt1, R.id.btn_opt2, R.id.btn_opt3, R.id.btn_opt4};
     int[] option_data = new int[4];
 
-    //점수, 게임 횟수, 사용자가 누른 번호, 게임1 정답 값, 게임2 연산 결과, 정답 보기 번호
-    static int SCORE=0, CNT=0, CHECKED=0, LEVEL, ANS_NUM =0;
-    static int V1_ANS_DATA =0;
-    static int V2_CALC_RESULT;
-    static int STEP1=5, STEP2=9;                        //레벨 내 문제유형 반복 횟수 (4, 7)
+    //점수, 게임 라운드, 사용자가 누른 번호, 레벨, 정답 버튼의 번호
+    static int SCORE = 0, CNT = 0, CHECKED, LEVEL, ANS_NUM;
+    static int CALCULATION_RESULT;                           //연산 결과
+    static int STEP1 = 5, STEP2 = 9;                                //레벨 내 문제유형 반복 횟수 (4, 7)
     static boolean OPERATOR = false;
-    static String TOTAL_TIME = "0101";                  //타이머 돌릴 시간(분-- 초--)
+    static String TOTAL_TIME = "0101";                          //타이머 돌릴 시간(분-- 초--)
 
     CountDownTimer CDT;
 
@@ -68,7 +65,7 @@ public class Game2Activity extends AppCompatActivity{
             btn_opt[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    btn_method(finalI);
+                    check_answer(finalI);
                 }
             });
         }
@@ -120,9 +117,9 @@ public class Game2Activity extends AppCompatActivity{
 
     //정보 초기화
     void initialize_data(){
-        CNT =0;
-        SCORE =0;
-        TOTAL_TIME ="0101";
+        CNT = 0;
+        SCORE = 0;
+        TOTAL_TIME = "0101";
     }
 
     //타이머
@@ -145,34 +142,28 @@ public class Game2Activity extends AppCompatActivity{
         //두번째 인자 : 주기(1000 = 1초)
         CDT = new CountDownTimer(conversionTime, 1000) {
             //타이머에 보이는 시간 변경
-            public void onTick(long millisUntilFinished) {
+            public void onTick(long millisUntilFinished){
                 //분단위
-                long getMin = millisUntilFinished - (millisUntilFinished / (60 * 60 * 1000)) ;
-                String min = String.valueOf(getMin / (60 * 1000)); // 몫
+                long getMin = millisUntilFinished - (millisUntilFinished/(60 * 60 * 1000)) ;
+                String min = String.valueOf(getMin/(60 * 1000)); // 몫
 
                 //초단위
-                String second = String.valueOf((getMin % (60 * 1000)) / 1000); // 나머지
+                String second = String.valueOf((getMin % (60 * 1000)) / 1000); //나머지
 
                 //밀리세컨드 단위
-                String millis = String.valueOf((getMin % (60 * 1000)) % 1000); // 몫
+                String millis = String.valueOf((getMin % (60 * 1000)) % 1000); //몫
 
                 //타이머 bar
-                if(Integer.parseInt(min)==1)
-                    progressBar.setProgress(60);
-                else
-                    progressBar.setProgress(Integer.parseInt(second));
+                if(Integer.parseInt(min)==1) progressBar.setProgress(60);
+                else progressBar.setProgress(Integer.parseInt(second));
 
 
                 //숫자가 한 자리면 앞에 0을 붙임
-                if (min.length()==1) {
-                    min = "0" + min;
-                }
+                if (min.length()==1) min = "0" + min;
                 if (second.length() == 1) second = "0" + second;
 
                 //1분 대신 60초로 표현
-                if (min.equals("01")) {
-                    second = "60";
-                }
+                if (min.equals("01")) second = "60";
 
                 //tv_timer.setText(min + ":" + second);     //분:초 타이머
                 //tv_timer.setText(second);                   //초 타이머
@@ -187,7 +178,6 @@ public class Game2Activity extends AppCompatActivity{
                 after_time_over();
             }
         };
-
         CDT.start();
     }
 
@@ -201,13 +191,11 @@ public class Game2Activity extends AppCompatActivity{
         mHandler.postDelayed(new Runnable()  {
             public void run() {
                 int level = getIntent().getIntExtra("level", -1);
-                int score2 = SCORE;
-                initialize_data();
 
                 Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
-                intent.putExtra("score", score2);
+                intent.putExtra("score", SCORE);
                 intent.putExtra("level", level);
-                intent.putExtra("game", 2);
+                intent.putExtra("game", 2);  initialize_data();
                 startActivity(intent);
 
                 //화면 전환 효과 없애기
@@ -224,11 +212,10 @@ public class Game2Activity extends AppCompatActivity{
     //연산 게임용 숫자 설정하는 메소드 (자릿수, 자릿수, 연산자)
     void set_operation_numbers(int digit1, int digit2, String operator){
         Random rnd = new Random();
-
-        int q1 = (int)(rnd.nextInt((int)Math.pow(10, digit1)));
-        int q2 = (int)(rnd.nextInt((int)Math.pow(10, digit2)));
+        int q1 = rnd.nextInt((int)Math.pow(10, digit1));
+        int q2 = rnd.nextInt((int)Math.pow(10, digit2));
         while(q1<q2)
-            q2 = (int)(rnd.nextInt((int)Math.pow(10, digit2)));
+            q2 = rnd.nextInt((int)Math.pow(10, digit2));
 
         set_gamePage(q1, q2, operator);
     }
@@ -236,7 +223,6 @@ public class Game2Activity extends AppCompatActivity{
     //연산 게임용 숫자 설정하는 메소드 (최댓값1, 최솟값1, 최댓값2, 최솟값2, 연산자)
     void set_operation_numbers(int max1, int min1, int max2, int min2, String operator){
         Random rnd = new Random();
-
         int q1 = rnd.nextInt(max1-min1+1) + min1;
         int q2 = rnd.nextInt(max2-min2+1) + min2;
 
@@ -261,7 +247,7 @@ public class Game2Activity extends AppCompatActivity{
         if(ope.equals("*")) ope="×";
         else if(ope.equals("/")) ope="÷";
 
-        V1_ANS_DATA = calculate(q1, q2, ope);
+        CALCULATION_RESULT = calculate(q1, q2, ope);
         tv_question.setText(q1 + " " + ope + " " + q2);
     }
 
@@ -307,8 +293,8 @@ public class Game2Activity extends AppCompatActivity{
         if(ope.equals("*")) ope="×";
         else if(ope.equals("/")) ope="÷";
 
-        V2_CALC_RESULT = calculate(q1, q2, ope);
-        tv_question.setText(q1 + " □ " + q2 +"\n= "+ V2_CALC_RESULT);
+        CALCULATION_RESULT = calculate(q1, q2, ope);
+        tv_question.setText(q1 + " □ " + q2 +"\n= "+ CALCULATION_RESULT);
 
         ANS_NUM = operator;
     }
@@ -367,14 +353,6 @@ public class Game2Activity extends AppCompatActivity{
         //한자리 + 한자리
         OPERATOR = false;
         set_operation_numbers(1, 1, "+");
-
-        //q1과 q2가 둘 다 2이면 안됨 (2+2 = 2*2)
-        /*
-        if(q1==2)
-            while(q2==2)
-                q2 = (int)(Math.random()*10);
-         */
-
         fill_opt_num();
     }
 
@@ -390,7 +368,6 @@ public class Game2Activity extends AppCompatActivity{
         OPERATOR = true;
         int operator = (int)(Math.random()*4);     //숫자 순서대로 + - * /
         set_blank_numbers(20, 3, 10, 2, operator);
-
         fill_opt_op();
     }
 
@@ -422,7 +399,6 @@ public class Game2Activity extends AppCompatActivity{
         else
             set_blank_numbers(1000, 100, 10, 1, "+/");
 
-        //tv_equal.setText("");
         fill_opt_op();
     }
 
@@ -436,11 +412,7 @@ public class Game2Activity extends AppCompatActivity{
     void lv3_2(){
         //두자리 [곱하기, 나누기] 한자리 = 답
         OPERATOR = true;
-
-        //두자리_두자리
         set_blank_numbers(70, 30, 10, 2, "*/");
-
-        //tv_equal.setText("");
         fill_opt_op();
     }
 
@@ -456,7 +428,7 @@ public class Game2Activity extends AppCompatActivity{
     //정답 외 보기(숫자) 채우는 함수
     void fill_opt_num(){
         Random rnd = new Random();
-        int answer = V1_ANS_DATA;
+        int answer = CALCULATION_RESULT;
 
         //보기에 들어갈 수 저장
         for(int i=0; i<4; i++){
@@ -489,17 +461,22 @@ public class Game2Activity extends AppCompatActivity{
             btn_opt[i].setText(ope[i]);
     }
 
-
-
-    //버튼 실행시
-    void btn_method(int number){
-        //사용자가 누른 번호(number) checked에 저장
-        CHECKED = number;
-        check_answer();
+    void set_textView(TextView tv, String str, int size, int color){
+        tv.setText(str);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size);
+        tv.setTextColor(getResources().getColor(color));
     }
 
+    void set_button(Button btn, int background, int textColor){
+        btn.setBackground(getDrawable(background));
+        btn.setTextColor(getResources().getColor(textColor));
+    }
+
+
+
     //답 확인
-    void check_answer(){
+    void check_answer(int number){
+        CHECKED = number;
         if (ANS_NUM == CHECKED){
             set_textView(tv_question, "O", 120, R.color.whiteColor);
             SCORE += 200;
@@ -512,18 +489,6 @@ public class Game2Activity extends AppCompatActivity{
         OPERATOR = false;
         next_lv();
     }
-
-    void set_textView(TextView tv, String str, int size, int color){
-        tv.setText(str);
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, size);
-        tv.setTextColor(getResources().getColor(color));
-    }
-
-    void set_button(Button btn, int background, int textColor){
-        btn.setBackground(getDrawable(background));
-        btn.setTextColor(getResources().getColor(textColor));
-    }
-
 
     //레벨별 다른 함수를 실행
     void start_game(int level){
@@ -552,23 +517,21 @@ public class Game2Activity extends AppCompatActivity{
         else tv_level.setText("어려움");
     }
 
-
-
     //다음 단계로 넘어가는 메소드
     void next_lv(){
         //버튼 비활성화
         for(int i=0; i<4; i++)
             btn_opt[i].setEnabled(false);
 
+        //정오 여부에 따른 버튼 색 구분
         set_button(btn_opt[ANS_NUM], R.drawable.btn_game2_answer, R.color.whiteColor);
         if(ANS_NUM != CHECKED)
             set_button(btn_opt[CHECKED], R.drawable.btn_game2_selected, R.color.whiteColor);
 
         Handler mHandler = new Handler();
         mHandler.postDelayed(new Runnable()  {
+            //시간이 끝나기 전까지 액티비티 반복
             public void run() {
-                //시간이 끝나기 전까지 액티비티 반복
-
                 for(int i=0; i<4; i++)
                     btn_opt[i].setEnabled(true);
 
