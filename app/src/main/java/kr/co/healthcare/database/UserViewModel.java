@@ -98,7 +98,7 @@ public class UserViewModel extends ViewModel {
     }
 
         /*
-    유저 생년
+    유저 질병
      */
 
     public LiveData<ArrayList<String>> getUserDiseases(Context context) {

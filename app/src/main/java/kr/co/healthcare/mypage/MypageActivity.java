@@ -8,12 +8,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
+import kr.co.healthcare.database.UserViewModel;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
 import kr.co.healthcare.R;
 
@@ -22,76 +25,26 @@ public class MypageActivity extends AppCompatActivity {
     //인적정보 및 질병 관련 위젯
     TextView name_TV;
     TextView age_TV;
-    TextView gender_TV;
-    Button editBtn;
-
-    private String[] tagNames;
+    UserViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
 
-        tagNames = getResources().getStringArray(R.array.DISEASES_LABEL);
-        //name_TV = (TextView) findViewById(R.id.userNameTV);
-        setChip();
-        /*
-        UserViewModel viewModel = UserViewModel.getINSTANCE();
+        viewModel = UserViewModel.getINSTANCE();
 
-        final Observer<String> nameObserver = new Observer<String>() {
-            @Override
-            public void onChanged(final String name) {
-                name_TV.setText(name);
-            }
-        };
-        viewModel.getUserName(this).observe(this, nameObserver);
+        name_TV = findViewById(R.id.userName_TV);
+        age_TV = findViewById(R.id.userAge_TV);
 
-        final Observer<String> genderObserver = new Observer<String>() {
-            @Override
-            public void onChanged(final String gender) {
-                if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN)) gender_TV.setText("여자");
-                else if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN)) gender_TV.setText("남자");
-            }
-        };
-        viewModel.getUserGender(this).observe(this, genderObserver);
-
-        final Observer<String> birthYearObserver = new Observer<String>() {
-            @Override
-            public void onChanged(final String year) {
-                Calendar cal = Calendar.getInstance();
-                int currentYear = cal.get(Calendar.YEAR);
-                int birthYear = Integer.parseInt(year);
-                age_TV.setText((currentYear - birthYear + 1) + "(세)");
-            }
-        };
-        viewModel.getUserBirthYear(this).observe(this, birthYearObserver);
-
-
-         */
-
+        setObserverOnUserName();
+        setObserverOnUserAge();
+        setObserverOnUserDiseases();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_mypage, menu);
-        return true;
-    }
-
-    //이름 수정 페이지로 가기
-    public void showEditNameActivity(View view){
-        Intent intent = new Intent(getApplicationContext(), EditNameActivity.class);
-        startActivity(intent);
-    }
-
-    //나이 수정 페이지로 가기
-    public void showEditAgeActivity(View view){
-        Intent intent = new Intent(getApplicationContext(), EditAgeActivity.class);
-        startActivity(intent);
-    }
-
-    //나이 수정 페이지로 가기
-    public void showEditGenderActivity(View view){
-        Intent intent = new Intent(getApplicationContext(), EditGenderActivity.class);
+    //사용자 정보 수정 페이지로 가기
+    public void showEditUserInfoActivity(View view){
+        Intent intent = new Intent(getApplicationContext(), EditUserInfoActivity.class);
         startActivity(intent);
     }
 
@@ -101,18 +54,60 @@ public class MypageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //어플 설명 페이지 이동
+    public void showAppDescriptionActivity(View view){
+        Intent intent = new Intent(getApplicationContext(), AppDescriptionActivity.class);
+        startActivity(intent);
+    }
+
+    //초기화 페이지 이동
+    public void showInitActivity(View view){
+        Intent intent = new Intent(getApplicationContext(), InitActivity.class);
+        startActivity(intent);
+    }
+
     private void setChip(){
         ChipGroup chipGroup = findViewById(R.id.CHIPGROUP_diseases);
-        ArrayList<String> diseases = UserInfoPreferenceManger.getStringArrayList(
-                        this, UserInfoPreferenceManger.PREF_KEY_USER_DISEASES
-                );;
-
-        for (String diseaseName : diseases) {
+        chipGroup.removeAllViews();
+        ArrayList<String> diseases = viewModel.getUserDiseases(this).getValue();
+        assert diseases != null;
+        diseases.forEach(diseaseName -> {
             final Chip chip = (Chip) this.getLayoutInflater().inflate(
                     R.layout.item_chip, chipGroup, false);
             chip.setText(diseaseName);
             chipGroup.addView(chip);
-        }
+        });
     }
 
+    private void setObserverOnUserName(){
+        final Observer<String> nameObserver = new Observer<String>() {
+            @Override
+            public void onChanged(final String name) {
+                name_TV.setText(name);
+            }
+        };
+        viewModel.getUserName(this).observe(this, nameObserver);
+    }
+
+    private void setObserverOnUserAge(){
+        final Observer<String> ageObserver = new Observer<String>() {
+            @Override
+            public void onChanged(final String year) {
+                Calendar cal = Calendar.getInstance();
+                int currentYear = cal.get(Calendar.YEAR);
+                int birthYear = Integer.parseInt(year);
+                age_TV.setText(Integer.toString(currentYear - birthYear + 1));
+            }
+        };
+        viewModel.getUserBirthYear(this).observe(this, ageObserver);
+    }
+
+    private void setObserverOnUserDiseases(){
+        final Observer<ArrayList> diseaseObserver = new Observer<ArrayList>() {
+            @Override
+            public void onChanged(ArrayList arrayList) {
+                setChip();
+            }};
+        viewModel.getUserDiseases(this).observe(this, diseaseObserver);
+    }
 }

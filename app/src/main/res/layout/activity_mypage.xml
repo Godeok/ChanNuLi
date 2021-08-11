@@ -56,8 +56,8 @@
 
                 <ImageView
                     android:id="@+id/imageView9"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
                     android:layout_marginEnd="10dp"
                     android:adjustViewBounds="true"
                     app:srcCompat="@drawable/img_person_woman_round" />
@@ -68,19 +68,35 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/userName_TV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
                         android:text="홍길동"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
                         android:textColor="@color/whiteColor"
                         android:textStyle="bold"/>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="24살"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                        android:textColor="@color/whiteColor" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/userAge_TV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/whiteColor" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="살"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textColor="@color/whiteColor" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>
@@ -125,7 +141,8 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:adjustViewBounds="true"
-                        app:tint="@color/grayColor" />
+                        app:tint="@color/grayColor"
+                        android:onClick="showEditDiseaseActivity"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -177,6 +194,56 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="자가 진단 기록"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                        android:textColor="@color/midLightTextColor" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="자가 진단 기록 통계 입니다."
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/defaultTextColor" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
+            app:cardBackgroundColor="@color/whiteColor"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="25dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -190,18 +257,13 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Small"
                         android:textColor="@color/midLightTextColor" />
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/ic_baseline_edit_24"
-                        app:tint="@color/grayColor" />
                 </LinearLayout>
 
-                <androidx.core.widget.NestedScrollView
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fillViewport="true" >
+                    android:fillViewport="true"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -211,6 +273,7 @@
                         <androidx.cardview.widget.CardView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
                             app:cardBackgroundColor="@color/whiteColor"
                             app:cardCornerRadius="15dp"
                             app:cardElevation="0dp">
@@ -241,7 +304,195 @@
                                         android:paddingHorizontal="10dp"
                                         android:paddingVertical="3dp"
                                         android:layout_marginBottom="6dp"
-                                        android:text="가위바위보"
+                                        android:text="하나빼기"
+                                        android:textStyle="bold"
+                                        android:textAlignment="center"
+                                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                        android:textColor="@color/primary2Color" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/view_game_level_small"
+                                                android:paddingHorizontal="5dp"
+                                                android:paddingVertical="2dp"
+                                                android:text="쉬움"
+                                                android:textAlignment="center"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                                android:textColor="@color/whiteColor" />
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:text="100"
+                                                android:textAlignment="textEnd"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                                android:textColor="@color/defaultTextColor"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="점"
+                                                android:textAlignment="center"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                                android:textColor="@color/defaultTextColor"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/dividerColor" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/view_game_level_small"
+                                                android:paddingHorizontal="5dp"
+                                                android:paddingVertical="2dp"
+                                                android:text="중간"
+                                                android:textAlignment="center"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                                android:textColor="@color/whiteColor" />
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:text="200"
+                                                android:textAlignment="textEnd"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                                android:textColor="@color/defaultTextColor"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="점"
+                                                android:textAlignment="center"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                                android:textColor="@color/defaultTextColor"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/dividerColor" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:paddingHorizontal="5dp"
+                                                android:paddingVertical="2dp"
+                                                android:background="@drawable/view_game_level_small"
+                                                android:text="어려움"
+                                                android:textAlignment="center"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                                                android:textColor="@color/whiteColor" />
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:text="100"
+                                                android:textAlignment="textEnd"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                                android:textColor="@color/defaultTextColor"
+                                                android:textStyle="bold" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="점"
+                                                android:textAlignment="center"
+                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                                android:textColor="@color/defaultTextColor"
+                                                android:textStyle="bold" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
+                            app:cardBackgroundColor="@color/whiteColor"
+                            app:cardCornerRadius="15dp"
+                            app:cardElevation="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <ImageView
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:adjustViewBounds="true"
+                                    app:srcCompat="@drawable/img_mypage_game2_best_score" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:paddingHorizontal="15dp"
+                                    android:layout_marginVertical="10dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingHorizontal="10dp"
+                                        android:paddingVertical="3dp"
+                                        android:layout_marginBottom="6dp"
+                                        android:text="간단 연산"
                                         android:textStyle="bold"
                                         android:textAlignment="center"
                                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
@@ -412,7 +663,7 @@
                                     android:layout_width="200dp"
                                     android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
-                                    app:srcCompat="@drawable/img_mypage_game2_best_score" />
+                                    app:srcCompat="@drawable/img_mypage_game3_best_score" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -428,7 +679,7 @@
                                         android:paddingHorizontal="10dp"
                                         android:paddingVertical="3dp"
                                         android:layout_marginBottom="6dp"
-                                        android:text="가위바위보"
+                                        android:text="카드 뒤집기"
                                         android:textStyle="bold"
                                         android:textAlignment="center"
                                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
@@ -583,7 +834,7 @@
                         </androidx.cardview.widget.CardView>
 
                     </LinearLayout>
-                </androidx.core.widget.NestedScrollView>
+                </HorizontalScrollView>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -595,7 +846,8 @@
             android:layout_marginVertical="5dp"
             app:cardBackgroundColor="@color/whiteColor"
             app:cardCornerRadius="15dp"
-            app:cardElevation="1dp">
+            app:cardElevation="1dp"
+            android:onClick="showAppDescriptionActivity">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -631,7 +883,8 @@
             android:layout_marginVertical="5dp"
             app:cardBackgroundColor="@color/whiteColor"
             app:cardCornerRadius="15dp"
-            app:cardElevation="1dp">
+            app:cardElevation="1dp"
+            android:onClick="showInitActivity">
 
             <LinearLayout
                 android:layout_width="match_parent"

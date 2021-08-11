@@ -2,10 +2,13 @@
     <string name="app_name">찬누리</string>
 
     <string name="title_activity_self_diagnosis">자가 진단하기</string>
+    <string name="title_activity_self_diagnosis_result">결과 확인</string>
     <string name="title_activity_health_info">건강 정보</string>
     <string name="title_activity_disease_info_select">질병 정보</string>
     <string name="title_activity_game">건강 게임</string>
     <string name="title_activity_mypage">마이페이지</string>
+    <string name="title_activity_init">초기화하기</string>
+    <string name="title_activity_app_description">찬누리 설명</string>
 
     <string name="btn_text_main_self_diagnosis">자가진단</string>
     <string name="btn_text_main_health_info">건강정보</string>
@@ -28,9 +31,7 @@
     <string name="tutorial_step_4">관련 있는 병이 있다면\n선택해 주세요.</string>
     <string name="tutorial_btn">다음으로</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_self_diagnosis_result">결과 확인</string>
+    <string name="complete_btn">완료</string>
 
     <string name="game_main_explain">건강게임은 집중력, 계산력, 기억력을 키워주고, 치매를 예방해요. 마음에 드는 게임을 선택하고 시작해 볼까요?</string>
     <string name="self_diagnosise_xplain">스스로 건강상태를 진단해 보세요.</string>
@@ -40,4 +41,5 @@
 
     <string name="self_diagnosis_answer_yes">네</string>
     <string name="self_diagnosis_answer_no">아니오</string>
+    <string name="title_activity_edit_disease">질병 수정하기</string>
 </resources>

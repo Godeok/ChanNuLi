@@ -29,6 +29,29 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="MypageTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorAccent">@color/primary2Color</item>
+        <item name="colorPrimaryDark">@color/defaultDarkColor</item>
+        <item name="actionBarStyle">@style/MypageTheme.ActionBar</item>
+        <item name="android:windowBackground">@color/whiteColor</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- mypage 액션바 테마 -->
+    <style name="MypageTheme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="elevation">0dp</item>
+        <item name="background">@color/primaryColor</item>
+        <item name="titleTextStyle">@style/MypageTheme.ActionBarTitle</item>
+    </style>
+
+    <!-- mypage 액션바 타이틀 테마 -->
+    <style name="MypageTheme.ActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/actionbar_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/whiteColor</item>
+    </style>
+
     <!-- main 화면 button textview 테마 -->
     <style name="AppTheme.Main.Button.TextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>

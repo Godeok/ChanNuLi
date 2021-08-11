@@ -62,13 +62,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     //게임
     public void showGame(View view) {
         intent = new Intent(getApplicationContext(), GameMainActivity.class);
         startActivity(intent);
     }
-
 
     //마이페이지
     public void showMyPage(View view){
