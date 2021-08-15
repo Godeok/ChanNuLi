@@ -39,15 +39,15 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_leftAttempts"
                     android:layout_width="wrap_content"
-                    android:layout_height="70dp"
-                    android:gravity="right"
-                    android:layout_gravity="right"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:layout_gravity="center"
                     android:text="100"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/defaultTextColor"
@@ -55,9 +55,9 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
                     android:gravity="bottom"
-                    android:layout_gravity="right"
+                    android:layout_gravity="bottom"
                     android:text="회"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/defaultTextColor"
@@ -88,25 +88,25 @@
                 android:textColor="@color/whiteColor" />
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tv_score"
                     android:layout_width="wrap_content"
-                    android:layout_height="70dp"
-                    android:gravity="right"
-                    android:layout_gravity="right"
-                    android:text="0"
+                    android:layout_height="match_parent"
+                    android:gravity="right|center_vertical"
+                    android:layout_gravity="center"
+                    android:text="100"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/defaultTextColor"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="70dp"
+                    android:layout_height="match_parent"
                     android:gravity="bottom"
-                    android:layout_gravity="right"
+                    android:layout_gravity="bottom"
                     android:text="점"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/defaultTextColor"
