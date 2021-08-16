@@ -21,6 +21,13 @@ public class GameResultPreferenceManager {
         editor.apply();
     }
 
+    public static void clearScore(Context context) {
+        SharedPreferences prefs = getPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.apply();
+    }
+
     public static int getBestScore(Context context, int game, int level) {
         String key = setGameAndLevel(game, level);
         SharedPreferences prefs = getPreferences(context);
