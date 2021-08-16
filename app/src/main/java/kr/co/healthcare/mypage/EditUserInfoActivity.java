@@ -88,21 +88,24 @@ public class EditUserInfoActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.toString().contains("#")) {
-                    nameInputLayout.setError("특수 문자는 사용할 수 없습니다.");
-                }else if(s.toString().length() == 0) {
-                    nameInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
-                }else if(s.toString().length() > 5){
-                    nameInputLayout.setError("최대 글자 수를 초과했습니다.");
-                } else {
-                    nameInputLayout.setError(null);
-                }
             }
         });
     }
 
     boolean checkNameValidation(EditText editText){
-        return !editText.getText().toString().equals("") && editText.getText().length() <= 5 &&editText.getText().toString().contains("#");
+        if (editText.getText().toString().contains("#")) {
+            nameInputLayout.setError("특수 문자는 사용할 수 없습니다.");
+            return false;
+        }else if(editText.getText().toString().length() == 0) {
+            nameInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
+            return false;
+        }else if(editText.getText().toString().length() > 5){
+            nameInputLayout.setError("최대 글자 수를 초과했습니다.");
+            return false;
+        } else {
+            nameInputLayout.setError(null);
+            return true;
+        }
     }
 
     //성별
