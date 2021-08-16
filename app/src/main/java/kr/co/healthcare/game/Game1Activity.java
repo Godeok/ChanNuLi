@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import java.util.Random;
+import java.util.logging.Level;
 
 import kr.co.healthcare.R;
 
@@ -179,9 +180,7 @@ public class Game1Activity extends AppCompatActivity{
     void check_lv(int level, int button_num){
         int p;
         if(level==1) p = set_rsp_difficulty(LEVEL_EASY);
-
         else if(level==2) p = set_rsp_difficulty(LEVEL_NORMAL);
-
         else p = set_rsp_difficulty(LEVEL_HARD);
 
         check_result(button_num, p);
@@ -282,6 +281,7 @@ public class Game1Activity extends AppCompatActivity{
             tv_try[CNT-1].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_draw));
             //승패 여부 배열에 저장
             try_result[CNT-1] = 3;
+            //set_comImg(0);
         }
 
         else if ((user==0 && com==2) || (user==1 && com==0) || (user==2 && com==1)) {
@@ -290,13 +290,33 @@ public class Game1Activity extends AppCompatActivity{
 
             tv_try[CNT-1].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_win));
             try_result[CNT-1] = 1;
+            //set_comImg(1);
         }
 
         else {
             tv_try[CNT-1].setBackground(ContextCompat.getDrawable(this, R.drawable.view_game_progress_lose));
             try_result[CNT-1] = 2;
+           // set_comImg(-1);
         }
     }
+
+    /*
+    //result : 승리1 동점0 패배-1
+    void set_comImg(int result){
+        if(level==1){
+            if(result==0) iv_character.setImageResource(R.drawable.);
+            else if(result==1) iv_character.setImageResource(R.drawable.);
+        }
+        else if(level==0){
+            if(result==0) iv_character.setImageResource(R.drawable.);
+            else if(result==1) iv_character.setImageResource(R.drawable.);
+        }
+        else if(level==-1) {
+            if (result == 0) iv_character.setImageResource(R.drawable.);
+            else if (result == 1) iv_character.setImageResource(R.drawable.);
+        }
+    }
+     */
 
 
     //컴퓨터가 랜덤으로 작동하는 메소드
