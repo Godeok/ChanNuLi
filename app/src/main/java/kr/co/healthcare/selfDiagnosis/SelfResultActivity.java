@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

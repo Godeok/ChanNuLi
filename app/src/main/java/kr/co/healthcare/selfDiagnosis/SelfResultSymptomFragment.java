@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,17 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.List;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
-import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
-import kr.co.healthcare.self_diagnosis.ResultRecycler.RecyclerAdapter;
+import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
+import kr.co.healthcare.selfDiagnosis.ResultRecycler.RecyclerAdapter;
 
 
 public class SelfResultSymptomFragment extends Fragment {

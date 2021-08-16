@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
-import kr.co.healthcare.self_diagnosis.ResultRecycler.RecyclerAdapter;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
+import kr.co.healthcare.selfDiagnosis.ResultRecycler.RecyclerAdapter;
+import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 
 
 public class SelfResultSymptomActivity extends AppCompatActivity {

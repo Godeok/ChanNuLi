@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis.MainRecycler;
+package kr.co.healthcare.selfDiagnosis.MainRecycler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.SelfDiagnosisActivity;
+import kr.co.healthcare.selfDiagnosis.SelfDiagnosisActivity;
 
 public class SelfMainAdapter extends RecyclerView.Adapter<SelfMainAdapter.MyViewHolderMain> {
 

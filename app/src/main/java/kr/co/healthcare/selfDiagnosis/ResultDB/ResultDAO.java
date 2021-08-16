@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis.ResultDB;
+package kr.co.healthcare.selfDiagnosis.ResultDB;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

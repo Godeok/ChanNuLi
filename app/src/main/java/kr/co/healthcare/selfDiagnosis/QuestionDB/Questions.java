@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis.QuestionDB;
+package kr.co.healthcare.selfDiagnosis.QuestionDB;
 
 //Contract
 public class Questions {

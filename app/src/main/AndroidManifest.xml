@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".self_diagnosis.SelfResultActivity"></activity>
+        <activity android:name=".selfDiagnosis.SelfResultActivity"></activity>
         <activity
             android:name=".mypage.EditUserInfoActivity"
             android:exported="true" />
@@ -66,28 +66,28 @@
             android:label="@string/title_activity_disease_info_select"
             android:parentActivityName=".MainActivity" /> <!-- 자가진단 -->
         <activity
-            android:name=".self_diagnosis.SelfMainActivity"
+            android:name=".selfDiagnosis.SelfMainActivity"
             android:label="@string/title_activity_self_diagnosis"
             android:noHistory="true"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".self_diagnosis.SelfDiagnosisActivity"
+            android:name=".selfDiagnosis.SelfDiagnosisActivity"
             android:noHistory="true"
-            android:parentActivityName=".self_diagnosis.SelfMainActivity" />
+            android:parentActivityName=".selfDiagnosis.SelfMainActivity" />
         <activity
-            android:name=".self_diagnosis.SelfShowResult"
+            android:name=".selfDiagnosis.SelfShowResult"
             android:noHistory="true"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".self_diagnosis.SelfResultDateActivity"
+            android:name=".selfDiagnosis.SelfResultDateActivity"
             android:label="@string/title_activity_self_diagnosis_result"
             android:noHistory="true"
-            android:parentActivityName=".self_diagnosis.SelfMainActivity" />
+            android:parentActivityName=".selfDiagnosis.SelfMainActivity" />
         <activity
-            android:name=".self_diagnosis.SelfResultSymptomActivity"
+            android:name=".selfDiagnosis.SelfResultSymptomActivity"
             android:label="@string/title_activity_self_diagnosis_result"
             android:noHistory="true"
-            android:parentActivityName=".self_diagnosis.SelfMainActivity" /> <!-- 게임 -->
+            android:parentActivityName=".selfDiagnosis.SelfMainActivity" /> <!-- 게임 -->
         <activity
             android:name=".game.GameMainActivity"
             android:label="@string/title_activity_game"

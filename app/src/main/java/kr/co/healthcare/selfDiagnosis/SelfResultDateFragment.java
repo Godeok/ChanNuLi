@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import android.os.Bundle;
 
@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
-import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
-import kr.co.healthcare.self_diagnosis.ResultRecycler.RecyclerAdapter;
+import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
+import kr.co.healthcare.selfDiagnosis.ResultRecycler.RecyclerAdapter;
 
 public class SelfResultDateFragment extends Fragment {
 

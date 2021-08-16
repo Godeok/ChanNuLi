@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
+import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 
-import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
+import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.*;
 
 
 public class SelfShowResult extends AppCompatActivity {

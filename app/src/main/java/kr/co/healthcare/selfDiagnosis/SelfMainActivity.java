@@ -1,15 +1,14 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.MainRecycler.SelfMainAdapter;
-import kr.co.healthcare.self_diagnosis.MainRecycler.SelfMainData;
-import kr.co.healthcare.self_diagnosis.QuestionDB.DataAdapter;
-import kr.co.healthcare.self_diagnosis.QuestionDB.Questions;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainAdapter;
+import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.DataAdapter;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -23,7 +22,6 @@ public class SelfMainActivity extends AppCompatActivity {
 
     Button btn_chkDate;
     ArrayList<SelfMainData> dataList;
-    List<Result> results;
     public List<Questions> questionsList;
 
     String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
@@ -38,12 +36,13 @@ public class SelfMainActivity extends AppCompatActivity {
 
         this.InitializeData();
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerview_selfmain);
+        //버튼 리사이클러뷰
+        RecyclerView recyclerView = findViewById(R.id.recyclerview_selfmain);
         GridLayoutManager manager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(manager); // LayoutManager 등록
         recyclerView.setAdapter(new SelfMainAdapter(getApplicationContext(), dataList));  // Adapter 등록
 
-        //결과확인 버튼 - 날짜별
+        //결과확인 버튼 연결
         btn_chkDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +54,6 @@ public class SelfMainActivity extends AppCompatActivity {
 
     public void InitializeData(){
         dataList = new ArrayList<>();
-
         for (int i=0; i<7; i++) {
             initLoadDB(i);
             dataList.add(new SelfMainData(i, disease_list[i], questionsList.size()));

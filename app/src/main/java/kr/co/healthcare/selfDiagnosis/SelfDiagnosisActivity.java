@@ -1,10 +1,9 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,19 +12,18 @@ import androidx.cardview.widget.CardView;
 
 import java.util.List;
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.QuestionDB.DataAdapter;
-import kr.co.healthcare.self_diagnosis.QuestionDB.Questions;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.DataAdapter;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 
 
 public class SelfDiagnosisActivity extends AppCompatActivity {
 
     int num=0, countYes=0, disease_num;
     String title="";
-    private kr.co.healthcare.self_diagnosis.CTextView tv_question;
+    private kr.co.healthcare.selfDiagnosis.CTextView tv_question;
     private TextView tv_number;
     private CardView btn_yes, btn_no;
     public List<Questions> questionsList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 //ResultDAO의 경우 직접 숫자 수정해주기
 

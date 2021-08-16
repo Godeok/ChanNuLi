@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis.ResultRecycler;
+package kr.co.healthcare.selfDiagnosis.ResultRecycler;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 
 import java.util.ArrayList;
 
-import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
-import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.getRange_warning;
+import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.*;
+import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.getRange_warning;
 
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
