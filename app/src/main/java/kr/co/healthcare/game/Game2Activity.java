@@ -200,7 +200,6 @@ public class Game2Activity extends AppCompatActivity{
 
                 //화면 전환 효과 없애기
                 overridePendingTransition(0, 0);
-                ActivityCompat.finishAffinity(Game2Activity.this);
             }
         }, 1000); // 1초후
     }
