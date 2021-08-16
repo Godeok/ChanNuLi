@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".self_diagnosis.SelfResultActivity"></activity>
         <activity
             android:name=".mypage.EditUserInfoActivity"
             android:exported="true" />
@@ -50,9 +51,9 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".mypage.MypageActivity"
-            android:theme="@style/MypageTheme"
             android:label="@string/title_activity_mypage"
-            android:parentActivityName=".MainActivity" /> <!-- 건강 정보 -->
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MypageTheme" /> <!-- 건강 정보 -->
         <activity
             android:name=".healthInfo.HealthInfoActivity"
             android:label="@string/title_activity_health_info"

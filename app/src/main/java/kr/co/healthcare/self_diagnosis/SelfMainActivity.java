@@ -47,7 +47,7 @@ public class SelfMainActivity extends AppCompatActivity {
         btn_chkDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SelfMainActivity.this, SelfResultDateActivity.class);
+                Intent intent = new Intent(SelfMainActivity.this, SelfResultActivity.class);
                 startActivity(intent);
             }
         });
