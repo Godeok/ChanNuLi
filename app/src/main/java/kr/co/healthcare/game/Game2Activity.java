@@ -74,7 +74,7 @@ public class Game2Activity extends AppCompatActivity{
     @Override
     public void onBackPressed() {
         // AlertDialog 빌더를 이용해 종료시 발생시킬 창을 띄운다
-        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this, R.style.AlertDialog);
         alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
 
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
