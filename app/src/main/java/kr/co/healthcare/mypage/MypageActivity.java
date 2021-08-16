@@ -126,8 +126,6 @@ public class MypageActivity extends AppCompatActivity {
                 new GameScore(2, 2, findViewById(R.id.tv_game2_level2_bestscore)),
                 new GameScore(2, 3, findViewById(R.id.tv_game2_level3_bestscore)),
                 new GameScore(3, 1, findViewById(R.id.tv_game3_level1_bestscore)),
-                new GameScore(3, 2, findViewById(R.id.tv_game3_level2_bestscore)),
-                new GameScore(3, 3, findViewById(R.id.tv_game3_level3_bestscore)),
         };
 
         for(GameScore gameScore : gameScores){
