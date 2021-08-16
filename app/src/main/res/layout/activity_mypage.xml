@@ -232,7 +232,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical">
-
                             </LinearLayout>
 
                             <LinearLayout
@@ -254,19 +253,6 @@
                     </LinearLayout>
                 </TabHost>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="자가 진단 기록 통계 입니다."
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/defaultTextColor" />
-
-                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
