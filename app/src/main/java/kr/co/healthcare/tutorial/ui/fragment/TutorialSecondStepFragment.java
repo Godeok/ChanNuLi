@@ -51,30 +51,30 @@ public class TutorialSecondStepFragment extends Fragment {
         manBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                womanBtn.setEnabled(false);
-                manBtn.setPressed(!manBtn.isPressed());
-                button.setEnabled(manBtn.isPressed() || womanBtn.isPressed());
+                womanBtn.setSelected(false);
+                manBtn.setSelected(!manBtn.isSelected());
+                button.setEnabled(manBtn.isSelected() || womanBtn.isSelected());
             }
         });
 
         womanBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                manBtn.setEnabled(false);
-                womanBtn.setPressed(!womanBtn.isPressed());
-                button.setEnabled(manBtn.isPressed() || womanBtn.isPressed());
+                manBtn.setSelected(false);
+                womanBtn.setSelected(!womanBtn.isSelected());
+                button.setEnabled(manBtn.isSelected() || womanBtn.isSelected());
             }
         });
     }
 
     public void setUserGender() {
-        if(womanBtn.isPressed())
+        if(womanBtn.isSelected())
             UserInfoPreferenceManger.setString(
                     context,
                     UserInfoPreferenceManger.PREF_KEY_USER_GENDER,
                     UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN);
 
-        if(manBtn.isPressed())
+        if(manBtn.isSelected())
             UserInfoPreferenceManger.setString(
                     context,
                     UserInfoPreferenceManger.PREF_KEY_USER_GENDER,

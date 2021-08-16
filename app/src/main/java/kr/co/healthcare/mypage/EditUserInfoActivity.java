@@ -52,11 +52,11 @@ public class EditUserInfoActivity extends AppCompatActivity {
         viewModel.setUserName(editUserInfoActivity,
                 nameEditText.getText().toString());
 
-        if(womanBtn.isPressed())
+        if(womanBtn.isSelected())
             viewModel.setUserGender(editUserInfoActivity,
                     UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN);
 
-        if(manBtn.isPressed())
+        if(manBtn.isSelected())
             viewModel.setUserGender(editUserInfoActivity,
                     UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN);
 
@@ -95,27 +95,27 @@ public class EditUserInfoActivity extends AppCompatActivity {
     //성별
     void setGender(){
         if(UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN.equals(viewModel.getUserGender(this).getValue()))
-            womanBtn.setPressed(true);
+            womanBtn.setSelected(true);
         else if(UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN.equals(viewModel.getUserGender(this).getValue()))
-            manBtn.setPressed(true);
+            manBtn.setSelected(true);
     }
 
     void addOnclickListenerToButtons(){
         manBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                womanBtn.setEnabled(false);
-                manBtn.setPressed(!manBtn.isPressed());
-                button.setEnabled(manBtn.isPressed() || womanBtn.isPressed());
+                womanBtn.setSelected(false);
+                manBtn.setSelected(!manBtn.isSelected());
+                button.setEnabled(manBtn.isSelected() || womanBtn.isSelected());
             }
         });
 
         womanBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                manBtn.setEnabled(false);
-                womanBtn.setPressed(!womanBtn.isPressed());
-                button.setEnabled(manBtn.isPressed() || womanBtn.isPressed());
+                manBtn.setSelected(false);
+                womanBtn.setSelected(!womanBtn.isSelected());
+                button.setEnabled(manBtn.isSelected() || womanBtn.isSelected());
             }
         });
     }

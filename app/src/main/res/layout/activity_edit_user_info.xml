@@ -152,5 +152,5 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textColor="@color/cbtn_text"
         android:text="@string/edit_btn"
-        android:enabled="false" />
+        android:onClick="saveUserInfo"/>
 </LinearLayout>

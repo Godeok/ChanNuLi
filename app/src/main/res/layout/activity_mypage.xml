@@ -45,7 +45,8 @@
                     android:layout_height="20dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/ic_baseline_edit_24"
-                    app:tint="@color/whiteColor" />
+                    app:tint="@color/whiteColor"
+                    android:onClick="showEditUserInfoActivity"/>
             </LinearLayout>
 
             <LinearLayout

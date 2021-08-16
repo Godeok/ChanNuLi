@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/activity_edit_disease.xml" value="0.21195652173913043" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/activity_edit_user_info.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/activity_mypage.xml" value="0.2" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/fragment_history_selfdiagnosis.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/fragment_tutorial_fourth_step.xml" value="0.21195652173913043" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/item_disease_info_select.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/item_self_diagnosis_result_container.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/item_self_main_container.xml" value="0.21195652173913043" />
+        <entry key="..\:/Users/yujin/Desktop/ChanNuLi/app/src/main/res/layout/item_youtube_video.xml" value="0.23802083333333332" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable-v24/btn_square_green.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_gender.xml" value="0.36666666666666664" />
