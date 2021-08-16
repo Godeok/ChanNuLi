@@ -28,11 +28,11 @@ public class EditGenderActivity extends AppCompatActivity {
         button = findViewById(R.id.editFinishBtn);
 
         if(viewModel.getUserGender(this).getValue().equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN)) {
-            womanBtn.setBackgroundResource(R.drawable.btn_round_selected);
+            womanBtn.setBackgroundResource(R.drawable.btn_square_selected);
             womanClicked = !womanClicked;
         }
         else if(viewModel.getUserGender(this).getValue().equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN)) {
-            manBtn.setBackgroundResource(R.drawable.btn_round_selected);
+            manBtn.setBackgroundResource(R.drawable.btn_square_selected);
             manClicked = !manClicked;
         }
 
@@ -40,14 +40,14 @@ public class EditGenderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(manClicked) {
-                    manBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                    manBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                 }
                 else {
                     if(womanClicked) {
-                        womanBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                        womanBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                         womanClicked = !womanClicked;
                     }
-                    manBtn.setBackgroundResource(R.drawable.btn_round_selected);
+                    manBtn.setBackgroundResource(R.drawable.btn_square_selected);
                 }
                 manClicked = !manClicked;
                 checkGenderBtnClicked();
@@ -57,14 +57,14 @@ public class EditGenderActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(womanClicked) {
-                    womanBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                    womanBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                 }
                 else {
                     if(manClicked) {
-                        manBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                        manBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                         manClicked = !manClicked;
                     }
-                    womanBtn.setBackgroundResource(R.drawable.btn_round_selected);
+                    womanBtn.setBackgroundResource(R.drawable.btn_square_selected);
                 }
                 womanClicked = !womanClicked;
                 checkGenderBtnClicked();

@@ -51,14 +51,14 @@ public class TutorialSecondStepFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(manClicked) {
-                    manBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                    manBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                 }
                 else {
                     if(womanClicked) {
-                        womanBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                        womanBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                         womanClicked = !womanClicked;
                     }
-                    manBtn.setBackgroundResource(R.drawable.btn_round_selected);
+                    manBtn.setBackgroundResource(R.drawable.btn_square_selected);
                 }
                 manClicked = !manClicked;
                 checkGenderBtnClicked();
@@ -68,14 +68,14 @@ public class TutorialSecondStepFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(womanClicked) {
-                    womanBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                    womanBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                 }
                 else {
                     if(manClicked) {
-                        manBtn.setBackgroundResource(R.drawable.btn_round_not_selected);
+                        manBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
                         manClicked = !manClicked;
                     }
-                    womanBtn.setBackgroundResource(R.drawable.btn_round_selected);
+                    womanBtn.setBackgroundResource(R.drawable.btn_square_selected);
                 }
                 womanClicked = !womanClicked;
                 checkGenderBtnClicked();

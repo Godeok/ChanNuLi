@@ -14,7 +14,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".mypage.EditUserInfoActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/title_activity_edit_userinfo"
+            android:parentActivityName=".mypage.MypageActivity"/>
         <activity
             android:name=".mypage.AppDescriptionActivity"
             android:exported="true"
