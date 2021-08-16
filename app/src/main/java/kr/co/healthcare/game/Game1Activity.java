@@ -17,6 +17,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import java.util.Random;
+
 import kr.co.healthcare.R;
 
 
@@ -175,32 +177,32 @@ public class Game1Activity extends AppCompatActivity{
 
     //레벨 확인 후 난이도 결정
     void check_lv(int level, int button_num){
-        int random = (int)(Math.random()*10);
         int p;
-        if(level==1){
-            //컴퓨터가 이길 경우를 선택하는 경우
-            if(random<LEVEL_EASY)
-                p = set_rsp_smart(rand1_com, rand2_com, rand3_user, rand4_user);
-            //컴퓨터가 랜덤 확률로 선택하는 경우
-            else
-                p = set_rsp_random(rand1_com, rand2_com);
-        }
+        if(level==1) p = set_rsp_difficulty(LEVEL_EASY);
 
-        else if(level==2){
-            if(random<LEVEL_NORMAL)
-                p = set_rsp_smart(rand1_com, rand2_com, rand3_user, rand4_user);
-            else
-                p = set_rsp_random(rand1_com, rand2_com);
-        }
+        else if(level==2) p = set_rsp_difficulty(LEVEL_NORMAL);
 
-        else{
-            if(random<LEVEL_HARD)
-                p = set_rsp_smart(rand1_com, rand2_com, rand3_user, rand4_user);
-            else
-                p = set_rsp_random(rand1_com, rand2_com);
-        }
+        else p = set_rsp_difficulty(LEVEL_HARD);
 
         check_result(button_num, p);
+    }
+
+    int set_rsp_difficulty(int lv_diff){
+        Random rnd = new Random();
+        int random = rnd.nextInt(10);
+        int p;
+        //컴퓨터가 이길 경우를 선택하는 경우
+        if(random<lv_diff)
+            p = set_rsp_smart(rand1_com, rand2_com, rand3_user, rand4_user);
+
+        //컴퓨터가 랜덤/패배할 확률로 선택
+        else{
+            if(rnd.nextBoolean())
+                p = set_rsp_dumb(rand1_com, rand2_com, rand3_user, rand4_user);
+            else
+                p = set_rsp_random(rand1_com, rand2_com);
+        }
+        return p;
     }
 
 
@@ -321,6 +323,24 @@ public class Game1Activity extends AppCompatActivity{
         int s2 = compare_rsp(com2, user1, user2);
 
         if (s1>s2){
+            iv_com1.startAnimation(animTransRight);
+            iv_com2.startAnimation(animAlpha);
+            return com1;
+        }
+        else{
+            iv_com2.startAnimation(animTransLeft);
+            iv_com1.startAnimation(animAlpha);
+            return com2;
+        }
+    }
+
+    //컴퓨터가 질 확률을 높이는 쪽으로 작동하는 메소드
+    int set_rsp_dumb(int com1, int com2, int user1, int user2){
+        //컴퓨터의 선택에 따른 이길 확률 계산
+        int s1 = compare_rsp(com1, user1, user2);
+        int s2 = compare_rsp(com2, user1, user2);
+
+        if (s1<s2){
             iv_com1.startAnimation(animTransRight);
             iv_com2.startAnimation(animAlpha);
             return com1;
