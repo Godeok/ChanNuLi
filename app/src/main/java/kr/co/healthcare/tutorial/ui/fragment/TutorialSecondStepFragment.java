@@ -22,14 +22,11 @@ public class TutorialSecondStepFragment extends Fragment {
 
     private ImageButton manBtn;
     private ImageButton womanBtn;
-    private final Button nextBtn;
+    private final Button button;
 
-    private Boolean manClicked = false;
-    private Boolean womanClicked = false;
-
-    public TutorialSecondStepFragment(Context context, Button btn) {
+    public TutorialSecondStepFragment(Context context, Button button) {
         this.context = context;
-        nextBtn = btn;
+        this.button = button;
     }
 
     @Override
@@ -47,50 +44,40 @@ public class TutorialSecondStepFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         manBtn = getView().findViewById(R.id.manBtn);
         womanBtn = getView().findViewById(R.id.womanBtn);
+        addOnclickListenerToButtons();
+    }
+
+    void addOnclickListenerToButtons(){
         manBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if(manClicked) {
-                    manBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
-                }
-                else {
-                    if(womanClicked) {
-                        womanBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
-                        womanClicked = !womanClicked;
-                    }
-                    manBtn.setBackgroundResource(R.drawable.btn_square_selected);
-                }
-                manClicked = !manClicked;
-                checkGenderBtnClicked();
+                womanBtn.setEnabled(false);
+                manBtn.setPressed(!manBtn.isPressed());
+                button.setEnabled(manBtn.isPressed() || womanBtn.isPressed());
             }
         });
+
         womanBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                if(womanClicked) {
-                    womanBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
-                }
-                else {
-                    if(manClicked) {
-                        manBtn.setBackgroundResource(R.drawable.btn_square_not_selected);
-                        manClicked = !manClicked;
-                    }
-                    womanBtn.setBackgroundResource(R.drawable.btn_square_selected);
-                }
-                womanClicked = !womanClicked;
-                checkGenderBtnClicked();
+                manBtn.setEnabled(false);
+                womanBtn.setPressed(!womanBtn.isPressed());
+                button.setEnabled(manBtn.isPressed() || womanBtn.isPressed());
             }
         });
     }
 
-    private void checkGenderBtnClicked(){
-        nextBtn.setEnabled(manClicked || womanClicked);
-    }
-
     public void setUserGender() {
-        if (womanClicked)
-            UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_GENDER, UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN);
-        else if (manClicked)
-            UserInfoPreferenceManger.setString(context, UserInfoPreferenceManger.PREF_KEY_USER_GENDER, UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN);
+        if(womanBtn.isPressed())
+            UserInfoPreferenceManger.setString(
+                    context,
+                    UserInfoPreferenceManger.PREF_KEY_USER_GENDER,
+                    UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN);
+
+        if(manBtn.isPressed())
+            UserInfoPreferenceManger.setString(
+                    context,
+                    UserInfoPreferenceManger.PREF_KEY_USER_GENDER,
+                    UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN);
     }
 }

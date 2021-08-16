@@ -22,7 +22,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/btn_square_not_selected"
+            android:background="@drawable/btn_gender"
             android:padding="30dp"
             android:scaleType="fitCenter"
             android:src="@drawable/img_person_man" />
@@ -51,7 +51,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/btn_square_not_selected"
+            android:background="@drawable/btn_gender"
             android:padding="25dp"
             android:scaleType="fitCenter"
             android:src="@drawable/img_person_woman" />
