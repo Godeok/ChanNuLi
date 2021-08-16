@@ -45,7 +45,8 @@
                     android:layout_height="20dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/ic_baseline_edit_24"
-                    app:tint="@color/whiteColor" />
+                    app:tint="@color/whiteColor"
+                    android:onClick="showEditUserInfoActivity"/>
             </LinearLayout>
 
             <LinearLayout
@@ -232,7 +233,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="vertical">
-
                             </LinearLayout>
 
                             <LinearLayout
@@ -254,19 +254,6 @@
                     </LinearLayout>
                 </TabHost>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="자가 진단 기록 통계 입니다."
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/defaultTextColor" />
-
-                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -379,6 +366,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game1_level1_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -428,6 +416,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game1_level2_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -477,6 +466,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game1_level3_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -567,6 +557,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game2_level1_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -616,6 +607,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game2_level2_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -665,6 +657,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game2_level3_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -754,6 +747,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game3_level1_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -803,6 +797,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game3_level2_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"
@@ -852,6 +847,7 @@
                                                 android:textColor="@color/whiteColor" />
 
                                             <TextView
+                                                android:id="@+id/tv_game3_level3_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"

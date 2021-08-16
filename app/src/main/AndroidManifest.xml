@@ -14,7 +14,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".mypage.EditUserInfoActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/title_activity_edit_userinfo"
+            android:parentActivityName=".mypage.MypageActivity"/>
         <activity
             android:name=".mypage.AppDescriptionActivity"
             android:exported="true"
@@ -34,13 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mypage.EditGenderActivity" />
         <activity
             android:name=".mypage.EditDiseaseActivity"
             android:label="@string/title_activity_edit_disease"
             android:parentActivityName=".mypage.MypageActivity" />
-        <activity android:name=".mypage.EditNameActivity" />
-        <activity android:name=".mypage.EditAgeActivity" />
         <activity
             android:name=".walkthrough.WalkthroughActivity"
             android:theme="@style/AppTheme.NoActionBar" />
