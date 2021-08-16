@@ -44,12 +44,14 @@ public class GameResultActivity extends AppCompatActivity {
         img_star_2 = findViewById(R.id.img_star_2);
         img_star_3 = findViewById(R.id.img_star_3);
 
-
         //이전 액티비티에서 점수와 레벨 받아오기
         score = getIntent().getIntExtra("score", -1);
         level = getIntent().getIntExtra("level", -1);
         game = getIntent().getIntExtra("game", -1);
-        save_score();
+
+        int lv = level;
+        if(game==3) lv=1;
+        save_score(lv);
 
         //게임 종류 보이기
         show_game_type();
@@ -81,12 +83,12 @@ public class GameResultActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() { }
 
-    void save_score(){
-        best_record = getBestScore(this, game, level);
+    void save_score(int lv){
+        best_record = getBestScore(this, game, lv);
 
         if(score > best_record){
             best_record = score;
-            saveBestScore(this, game, level, score);
+            saveBestScore(this, game, lv, score);
         }
 ;
         tv_showBest.setText(best_record +"");

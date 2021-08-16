@@ -243,10 +243,11 @@ public class Game3Activity extends AppCompatActivity {
     void check_game_over(){
         //게임 끝(lose)
         if(MAX_ATTEMPT == ATTEMPT_CNT){
-            reset_score();
             Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
+            intent.putExtra("game", 3);
             intent.putExtra("score", SCORE);
             intent.putExtra("level", LEVEL);
+            reset_score();
             startActivity(intent);
         }
 
@@ -259,15 +260,18 @@ public class Game3Activity extends AppCompatActivity {
                     @Override
                     public void run() {
                     Intent intent;
-                    if(LEVEL ==3) {
+                    if(LEVEL==3) {
                         intent = new Intent(getApplicationContext(), GameResultActivity.class);
+                        intent.putExtra("game", 3);
                         intent.putExtra("score", SCORE);
+                        intent.putExtra("level", LEVEL);
                         reset_score();
                     }
                     else {
                         intent = new Intent(getApplicationContext(), Game3Activity.class);
                         PREVIOUS_SCORE = SCORE;
-                        LEVEL +=1;
+                        LEVEL += 1;
+                        ATTEMPT_CNT = 0;
                     }
 
                     startActivity(intent);
