@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import kr.co.healthcare.R;
 import kr.co.healthcare.database.UserViewModel;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
@@ -17,6 +19,7 @@ import kr.co.healthcare.preference.UserInfoPreferenceManger;
 public class EditUserInfoActivity extends AppCompatActivity {
     private UserViewModel viewModel;
 
+    private TextInputLayout nameInputLayout;
     private EditText nameEditText;
     private EditText ageEditText;
     private ImageButton manBtn;
@@ -30,6 +33,7 @@ public class EditUserInfoActivity extends AppCompatActivity {
 
         viewModel = UserViewModel.getINSTANCE();
 
+        nameInputLayout = findViewById(R.id.nameTextInputLayout);
         nameEditText = findViewById(R.id.editTextTextPersonName);
         ageEditText = findViewById(R.id.editTextTextYear);
         manBtn = findViewById(R.id.manBtn);
@@ -83,13 +87,22 @@ public class EditUserInfoActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
+                if (s.toString().contains("#")) {
+                    nameInputLayout.setError("특수 문자는 사용할 수 없습니다.");
+                }else if(s.toString().length() == 0) {
+                    nameInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
+                }else if(s.toString().length() > 5){
+                    nameInputLayout.setError("최대 글자 수를 초과했습니다.");
+                } else {
+                    nameInputLayout.setError(null);
+                }
             }
         });
     }
 
     boolean checkNameValidation(EditText editText){
-        return !editText.getText().toString().equals("") && editText.getText().length() <= 5;
+        return !editText.getText().toString().equals("") && editText.getText().length() <= 5 &&editText.getText().toString().contains("#");
     }
 
     //성별

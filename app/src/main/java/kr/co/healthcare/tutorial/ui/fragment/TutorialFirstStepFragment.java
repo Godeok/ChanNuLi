@@ -56,7 +56,7 @@ public class TutorialFirstStepFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                nextBtn.setEnabled(!s.toString().contains("#") && s.toString().length() != 0);
+                nextBtn.setEnabled(checkNameValidation(editText));
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -71,6 +71,10 @@ public class TutorialFirstStepFragment extends Fragment {
                 }
             }
         });
+    }
+
+    boolean checkNameValidation(EditText editText){
+        return !editText.getText().toString().equals("") && editText.getText().length() <= 5 &&editText.getText().toString().contains("#");
     }
 
     public void setUserName(){
