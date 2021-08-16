@@ -492,21 +492,37 @@ public class Game2Activity extends AppCompatActivity{
 
     //레벨별 다른 함수를 실행
     void start_game(int level){
+        int diif = mix_difficulty();
         if(level==1){
-            if(CNT<STEP1) lv1_1();
-            else if(CNT<STEP2) lv1_2();
+            if(diif==1) lv1_1();
+            else if(diif==2) lv1_2();
             else lv1_3();
         }
         else if(level==2){
-            if(CNT<STEP1) lv2_1();
-            else if(CNT<STEP2) lv2_2();
+            if(diif==1) lv2_1();
+            else if(diif==2) lv2_2();
             else lv2_3();
         }
 
         else{
-            if(CNT<STEP1) lv3_1();
-            else if(CNT<STEP2) lv3_2();
+            if(diif==1) lv3_1();
+            else if(diif==2) lv3_2();
             else lv3_3();
+        }
+    }
+
+    int mix_difficulty(){
+        Random rnd = new Random();
+        if(CNT<STEP1) return 1;
+        else if(CNT<STEP2){
+            if(rnd.nextBoolean()) return 1;
+            else return 2;
+        }
+        else{
+            if(rnd.nextInt(10) < 3) return 1;
+            else
+                if(rnd.nextBoolean()) return 2;
+                else return 3;
         }
     }
 
