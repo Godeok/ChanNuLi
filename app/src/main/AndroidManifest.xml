@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".selfDiagnosis.SelfResultActivity"></activity>
         <activity
             android:name=".mypage.EditUserInfoActivity"
             android:exported="true" />
@@ -79,15 +78,9 @@
             android:noHistory="true"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".selfDiagnosis.SelfResultDateActivity"
-            android:label="@string/title_activity_self_diagnosis_result"
-            android:noHistory="true"
-            android:parentActivityName=".selfDiagnosis.SelfMainActivity" />
-        <activity
-            android:name=".selfDiagnosis.SelfResultSymptomActivity"
-            android:label="@string/title_activity_self_diagnosis_result"
-            android:noHistory="true"
-            android:parentActivityName=".selfDiagnosis.SelfMainActivity" /> <!-- 게임 -->
+            android:name=".selfDiagnosis.SelfResultActivity"
+            android:parentActivityName=".selfDiagnosis.SelfMainActivity"/>
+        <!-- 게임 -->
         <activity
             android:name=".game.GameMainActivity"
             android:label="@string/title_activity_game"

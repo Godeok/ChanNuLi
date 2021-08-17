@@ -18,6 +18,7 @@ import java.util.List;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.ResultDAO;
 import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
 import kr.co.healthcare.selfDiagnosis.ResultRecycler.RecyclerAdapter;
 
@@ -30,8 +31,6 @@ public class SelfResultSymptomFragment extends Fragment {
     private RecyclerAdapter recyclerAdapter;
     private List<Result> results;
 
-    private Spinner spinner;
-
     //질병 번호
     static int num;
 
@@ -43,18 +42,18 @@ public class SelfResultSymptomFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_self_result_date, container, false);
+        View v = inflater.inflate(R.layout.fragment_self_result_symptom, container, false);
 
         recyclerView = v.findViewById(R.id.rv_self_result);
-        spinner = v.findViewById(R.id.spinner);
         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        Spinner spinner = v.findViewById(R.id.spinner);
 
         //스피너
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //스피너 글자 색 변경
-                ((TextView) spinner.getChildAt(0)).setTextColor(Color.BLACK);
+                //((TextView)spinner.getChildAt(0)).setTextColor(Color.BLACK);
 
                 //결과 보여줄 리사이클러뷰 어뎁터 선언(새로운 정보 불러오면 항상 새로 선언)
                 recyclerAdapter = new RecyclerAdapter();
@@ -76,27 +75,23 @@ public class SelfResultSymptomFragment extends Fragment {
             }
         });
 
-
         return v;
     }
 
+
     //질병명 입력하면 숫자로 반환해주는 함수
     int return_disease_num(String string) {
-        if (string.equals("고혈압")) return 0;
-        else if (string.equals("골관절염")) return 1;
-        else if (string.equals("고지혈증")) return 2;
-        else if (string.equals("요통/좌골신경통")) return 3;
-        else if (string.equals("당뇨병")) return 4;
-        else if (string.equals("골다공증")) return 5;
-        else if (string.equals("치매")) return 6;
-        else return -1;
+        String[] disName = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
+        for(int i=0; i<7; i++)
+            if(string.equals(disName[i]))
+                return i;
+        return -1;
     }
 
     //질병에 해당하는 쿼리
     void check_query(int number) {
-        if(number>=0 || number<=6)
-            results = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO().getAllByDisease(number);
-        else
-            results = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO().getAllByDate();
+        ResultDAO dao = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO();
+        if(number>=0 || number<=6) results = dao.getAllByDisease(number);
+        else results = dao.getAllByDate();
     }
 }

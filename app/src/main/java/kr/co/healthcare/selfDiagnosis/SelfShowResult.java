@@ -62,7 +62,7 @@ public class SelfShowResult extends AppCompatActivity {
                 Result result = new Result(disease_num, count, date);
                 db.resultDAO().insert(result);
 
-                Intent intent = new Intent(SelfShowResult.this, SelfResultDateActivity.class);
+                Intent intent = new Intent(SelfShowResult.this, SelfResultActivity.class);
                 startActivity(intent);
             }
         });

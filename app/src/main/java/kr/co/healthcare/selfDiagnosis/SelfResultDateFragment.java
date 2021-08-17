@@ -19,6 +19,7 @@ import java.util.List;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.ResultDAO;
 import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
 import kr.co.healthcare.selfDiagnosis.ResultRecycler.RecyclerAdapter;
 
@@ -35,7 +36,7 @@ public class SelfResultDateFragment extends Fragment {
     //stacked bar graph
     StackedBarChart stackedBarChart;
 
-    View v;
+
 
     public SelfResultDateFragment() {
         // Required empty public constructor
@@ -74,7 +75,7 @@ public class SelfResultDateFragment extends Fragment {
 
         results = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO().getAllByDate();
         int size = results.size();
-        for (int i = 0; i < size; i++) {
+        for (int i=0; i<size; i++) {
             adapter.addItem(results.get(i));
         }
     }
@@ -89,9 +90,10 @@ public class SelfResultDateFragment extends Fragment {
         };
 
         for(int i=0; i<7; i++){
-            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO().countDiseaseDanger(i, getRange_warning(i)), 0xFFE61919));
-            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO().countDiseaseWarning(i, getRange_safe(i), getRange_warning(i)), 0xFFFFC107));
-            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO().countDiseaseSafe(i, getRange_safe(i)), 0xFF00AC00));
+            ResultDAO dao = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO();
+            StackBar[i].addBar(new BarModel(dao.countDiseaseDanger(i, getRange_warning(i)), 0xFFE61919));
+            StackBar[i].addBar(new BarModel(dao.countDiseaseWarning(i, getRange_safe(i), getRange_warning(i)), 0xFFFFC107));
+            StackBar[i].addBar(new BarModel(dao.countDiseaseSafe(i, getRange_safe(i)), 0xFF00AC00));
             stackedBarChart.addBar(StackBar[i]);
         }
 
