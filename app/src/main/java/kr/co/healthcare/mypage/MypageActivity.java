@@ -3,6 +3,7 @@ package kr.co.healthcare.mypage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,12 +18,14 @@ import java.util.Calendar;
 import kr.co.healthcare.database.UserViewModel;
 import kr.co.healthcare.mypage.gamehistory.GameScore;
 import kr.co.healthcare.R;
+import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class MypageActivity extends AppCompatActivity {
 
     //인적정보 및 질병 관련 위젯
     TextView name_TV;
     TextView age_TV;
+    ImageView avatar_img;
     UserViewModel viewModel;
 
     @Override
@@ -34,6 +37,7 @@ public class MypageActivity extends AppCompatActivity {
 
         name_TV = findViewById(R.id.userName_TV);
         age_TV = findViewById(R.id.userAge_TV);
+        avatar_img = findViewById(R.id.img_avatar);
 
         setObserverOnUserName();
         setObserverOnUserAge();
@@ -100,6 +104,17 @@ public class MypageActivity extends AppCompatActivity {
             }
         };
         viewModel.getUserBirthYear(this).observe(this, ageObserver);
+    }
+
+    private void setObserverOnUserGender(){
+        final Observer<String> genderObserver = new Observer<String>() {
+            @Override
+            public void onChanged(final String gender) {
+                if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN)) avatar_img.setImageResource(R.drawable.img_person_woman_round);
+                if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN)) avatar_img.setImageResource(R.drawable.img_person_man_round);
+            }
+        };
+        viewModel.getUserGender(this).observe(this, genderObserver);
     }
 
     private void setObserverOnUserDiseases(){
