@@ -4,6 +4,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -16,7 +17,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:lineSpacingExtra="10sp"
                 android:textColor="@color/defaultTextColor"
-                android:text="여기에는 테스트입니다"/>
+                android:text="질병 정보 설명이 들어가는 곳."/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

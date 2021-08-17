@@ -80,7 +80,7 @@ public class Game3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this, R.style.AlertDialog);
         alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
 
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
@@ -254,6 +254,7 @@ public class Game3Activity extends AppCompatActivity {
                 public void run() {
                     reset_score();
                     Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
+                    intent.putExtra("game", 3);
                     intent.putExtra("score", SCORE);
                     intent.putExtra("level", LEVEL);
                     startActivity(intent);
@@ -273,15 +274,18 @@ public class Game3Activity extends AppCompatActivity {
                     @Override
                     public void run() {
                     Intent intent;
-                    if(LEVEL ==3) {
+                    if(LEVEL==3) {
                         intent = new Intent(getApplicationContext(), GameResultActivity.class);
+                        intent.putExtra("game", 3);
                         intent.putExtra("score", SCORE);
+                        intent.putExtra("level", LEVEL);
                         reset_score();
                     }
                     else {
                         intent = new Intent(getApplicationContext(), Game3Activity.class);
                         PREVIOUS_SCORE = SCORE;
-                        LEVEL +=1;
+                        LEVEL += 1;
+                        ATTEMPT_CNT = 0;
                     }
 
                     startActivity(intent);

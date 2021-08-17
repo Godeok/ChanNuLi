@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import kr.co.healthcare.R;
+import static kr.co.healthcare.preference.GameResultPreferenceManager.*;
 
 public class GameResultActivity extends AppCompatActivity {
 
@@ -24,12 +25,7 @@ public class GameResultActivity extends AppCompatActivity {
     ImageButton btn_end;
     ImageView img_star_1, img_star_2, img_star_3;
 
-    //최고기록 저장용 shared preferences
-    SharedPreferences game_score_pref;
-    SharedPreferences.Editor editor;
-
     int score, level, game, best_record;
-    String best_record_str;
 
     Class[] activitys = {Game1Activity.class, Game2Activity.class, Game3Activity.class};
 
@@ -48,24 +44,20 @@ public class GameResultActivity extends AppCompatActivity {
         img_star_2 = findViewById(R.id.img_star_2);
         img_star_3 = findViewById(R.id.img_star_3);
 
-
-        //shared preference 초기화
-        game_score_pref = getSharedPreferences("game_score_pref", Activity.MODE_PRIVATE);
-        editor = game_score_pref.edit();
-
-
         //이전 액티비티에서 점수와 레벨 받아오기
         score = getIntent().getIntExtra("score", -1);
         level = getIntent().getIntExtra("level", -1);
         game = getIntent().getIntExtra("game", -1);
-        save_score();
+
+        int lv = level;
+        if(game==3) lv=1;
+        save_score(lv);
 
         //게임 종류 보이기
         show_game_type();
 
         //레벨에 따른 별 보이기
         show_level_by_star();
-
 
         //다시하기
         btn_restart.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +75,8 @@ public class GameResultActivity extends AppCompatActivity {
         //끝내기
         btn_end.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { finish();
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -91,14 +84,12 @@ public class GameResultActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() { }
 
-    void save_score(){
-        best_record_str = "best_score_game"+game+"_lv"+level;
-        best_record = game_score_pref.getInt(best_record_str, 0);
+    void save_score(int lv){
+        best_record = getBestScore(this, game, lv);
 
         if(score > best_record){
             best_record = score;
-            editor.putInt(best_record_str, best_record);
-            editor.apply(); //저장
+            saveBestScore(this, game, lv, score);
         }
 ;
         tv_showBest.setText(best_record +"");

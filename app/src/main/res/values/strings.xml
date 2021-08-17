@@ -42,4 +42,6 @@
     <string name="self_diagnosis_answer_yes">네</string>
     <string name="self_diagnosis_answer_no">아니오</string>
     <string name="title_activity_edit_disease">질병 수정하기</string>
+    <string name="edit_btn">변경하기</string>
+    <string name="title_activity_edit_userinfo">회원 정보 수정하기</string>
 </resources>
