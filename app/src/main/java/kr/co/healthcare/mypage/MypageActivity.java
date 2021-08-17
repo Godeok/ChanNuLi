@@ -1,11 +1,8 @@
 package kr.co.healthcare.mypage;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +16,6 @@ import java.util.Calendar;
 
 import kr.co.healthcare.database.UserViewModel;
 import kr.co.healthcare.mypage.gamehistory.GameScore;
-import kr.co.healthcare.preference.GameResultPreferenceManager;
-import kr.co.healthcare.preference.UserInfoPreferenceManger;
 import kr.co.healthcare.R;
 
 public class MypageActivity extends AppCompatActivity {
@@ -67,7 +62,7 @@ public class MypageActivity extends AppCompatActivity {
 
     //초기화 페이지 이동
     public void showInitActivity(View view){
-        Intent intent = new Intent(getApplicationContext(), InitActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ResetActivity.class);
         startActivity(intent);
     }
 

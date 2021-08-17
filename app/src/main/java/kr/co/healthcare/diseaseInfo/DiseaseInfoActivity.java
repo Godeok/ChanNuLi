@@ -49,7 +49,6 @@ public class DiseaseInfoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        System.out.println(item);
         if (item.getItemId() == R.id.reference) {
             AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
             alBuilder.setMessage("출처: 서울 아산 병원");

@@ -64,7 +64,7 @@ public class TutorialThirdStepFragment extends Fragment {
                 if(s.toString().length() == 0) {
                     yearTextInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
                 } else {
-                    yearTextInputLayout.setError(null); // null은 에러 메시지를 지워주는 기능
+                    yearTextInputLayout.setError(null);
                 }
             }
         });

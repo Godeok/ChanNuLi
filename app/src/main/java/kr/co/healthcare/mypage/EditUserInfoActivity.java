@@ -20,6 +20,7 @@ public class EditUserInfoActivity extends AppCompatActivity {
     private UserViewModel viewModel;
 
     private TextInputLayout nameInputLayout;
+    private TextInputLayout yearInputLayout;
     private EditText nameEditText;
     private EditText ageEditText;
     private ImageButton manBtn;
@@ -34,6 +35,7 @@ public class EditUserInfoActivity extends AppCompatActivity {
         viewModel = UserViewModel.getINSTANCE();
 
         nameInputLayout = findViewById(R.id.nameTextInputLayout);
+        yearInputLayout = findViewById(R.id.yearTextInputLayout);
         nameEditText = findViewById(R.id.editTextTextPersonName);
         ageEditText = findViewById(R.id.editTextTextYear);
         manBtn = findViewById(R.id.manBtn);
@@ -157,9 +159,17 @@ public class EditUserInfoActivity extends AppCompatActivity {
             }
         });
     }
-
-    boolean checkAgeValidation(String year){
-        String regExp = "^[0-9]+$";
-        return year.matches(regExp);
+    //TODO: 유효검사 수정 필요
+    boolean checkAgeValidation(String text){
+        if(text.length() == 0) {
+            yearInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
+            return false;
+        }else if(text.length() > 5){
+            yearInputLayout.setError("");
+            return false;
+        } else {
+            yearInputLayout.setError(null);
+            return true;
+        }
     }
 }
