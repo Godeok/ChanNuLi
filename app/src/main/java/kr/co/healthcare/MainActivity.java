@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import kr.co.healthcare.diseaseInfoSelect.DiseaseInfoSelectActivity;
@@ -20,8 +22,10 @@ import kr.co.healthcare.tutorial.ui.TutorialActivity;
 import kr.co.healthcare.database.UserViewModel;
 
 public class MainActivity extends AppCompatActivity {
-    public static Activity mainActivity;
+    public Activity mainActivity;
     private TextView userNameTV;
+    ImageButton avatarImgBtn;
+    UserViewModel viewModel;
     Intent intent;
 
     @Override
@@ -30,30 +34,44 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainActivity = MainActivity.this;
-        userNameTV = findViewById(R.id.userName);
+        viewModel = UserViewModel.getINSTANCE();
+        setLayout();
 
-        checkISTutorialFinished();
+        checkIfTutorialIsFinished();
     }
 
-    private void checkISTutorialFinished(){
-        //튜토리얼 정보 불러오기
-        boolean isTutorialFinished = UserInfoPreferenceManger.getBoolean(this, UserInfoPreferenceManger.PREF_KEY_TUTORIAL_FINISHED);
+    private void setLayout(){
+        userNameTV = findViewById(R.id.userName);
+        avatarImgBtn = findViewById(R.id.mypageBtn);
+    }
 
-        if (!isTutorialFinished) {  //튜토리얼 미완료 시
+    private void checkIfTutorialIsFinished(){
+        if (!UserInfoPreferenceManger.getBoolean(
+                this, UserInfoPreferenceManger.PREF_KEY_TUTORIAL_FINISHED)) {
             intent = new Intent(getApplicationContext(), TutorialActivity.class);
             startActivity(intent);
             mainActivity.finish();
-        }else{ // 튜토리얼 완료 시
-            userNameTV.setText(UserInfoPreferenceManger.getString(this, UserInfoPreferenceManger.PREF_KEY_USER_NAME));
-
-            UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
-            viewModel.getUserName(this).observe(this, new Observer<String>() {
-                @Override
-                public void onChanged(String name) {
-                    userNameTV.setText(name);
-                }
-            });
+        }else{
+            setUserName();
+            setAvatarImg();
         }
+    }
+
+    private void setUserName(){
+        viewModel.getUserGender(this).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(final String name) { userNameTV.setText(name); }
+        });
+    }
+
+    private void setAvatarImg(){
+        viewModel.getUserGender(this).observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(final String gender) {
+                if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_WOMAN)) avatarImgBtn.setImageResource(R.drawable.img_person_woman_round);
+                if(gender.equals(UserInfoPreferenceManger.PREF_VALUE_GENDER_MAN)) avatarImgBtn.setImageResource(R.drawable.img_person_man_round);
+            }
+        });
     }
 
     //자가진단

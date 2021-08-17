@@ -42,6 +42,7 @@ public class MypageActivity extends AppCompatActivity {
         setObserverOnUserName();
         setObserverOnUserAge();
         setObserverOnUserDiseases();
+        setObserverOnUserGender();
 
         setGameBestScore();
     }

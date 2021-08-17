@@ -84,6 +84,7 @@
         <item name="hintTextColor">@color/primaryDarkColor</item>
         <item name="errorTextColor">@color/redColor</item>
         <item name="boxStrokeErrorColor">@color/redColor</item>
+        <item name="errorIconTint">@color/redColor</item>
     </style>
 
     <!-- mypage 화면 chip 테마 -->

@@ -71,7 +71,7 @@ public class TutorialThirdStepFragment extends Fragment {
         if(text.length() == 0) {
             yearTextInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
             return false;
-        }else if(isYearDateBeforeThisYear(text)){
+        }else if(!isYearDateBeforeThisYear(text)){
             yearTextInputLayout.setError("생년은 올해보다 이전이어야 합니다.");
             return false;
         } else {
