@@ -21,6 +21,8 @@ import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
 import kr.co.healthcare.selfDiagnosis.ResultDB.*;
 import kr.co.healthcare.selfDiagnosis.ResultRecycler.RecyclerAdapter;
 
+import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.*;
+
 
 public class SelfResultDateActivity extends AppCompatActivity {
 
@@ -96,9 +98,9 @@ public class SelfResultDateActivity extends AppCompatActivity {
         };
 
         for(int i=0; i<7; i++){
-            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseDanger(i), 0xFFE61919));
-            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseWarning(i), 0xFFFFC107));
-            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseSafe(i), 0xFF00AC00));
+            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseDanger(i, getRange_warning(i)), 0xFFE61919));
+            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseWarning(i, getRange_safe(i), getRange_warning(i)), 0xFFFFC107));
+            StackBar[i].addBar(new BarModel(SelfDiagnosisResultDatabase.getInstance(this).resultDAO().countDiseaseSafe(i, getRange_safe(i)), 0xFF00AC00));
             stackedBarChart.addBar(StackBar[i]);
         }
 

@@ -19,8 +19,8 @@ public class ResultDBGlobal {
     }
 
     public static int getRange_warning(int diseaseNum) {
-        if(diseaseNum==4 || diseaseNum==6) return range_safe_15;
-        else if(diseaseNum==1) return range_safe_7;
-        else return range_safe_10;
+        if(diseaseNum==4 || diseaseNum==6) return range_warning_15;
+        else if(diseaseNum==1) return range_warning_7;
+        else return range_warning_10;
     }
 }

@@ -12,7 +12,7 @@ import androidx.cardview.widget.CardView;
 
 import java.util.List;
 import kr.co.healthcare.R;
-import kr.co.healthcare.selfDiagnosis.QuestionDB.DataAdapter;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 
 
@@ -86,7 +86,7 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
 
     //load DB
     private void initLoadDB(int n){
-        DataAdapter mDBHelper = new DataAdapter(getApplicationContext());
+        QuesDataAdapter mDBHelper = new QuesDataAdapter(getApplicationContext());
         mDBHelper.createDatabase();
         mDBHelper.open();
         questionsList = mDBHelper.getTableData(n);

@@ -62,16 +62,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
         public void onBind(final Result result, int position) {
             String s = "" + (position+1);
+            int diseaseNum = result.getDisease();
+
             tv_num.setText(""+s);
-            tv_disease.setText(""+disease_list[result.getDisease()]);
+            tv_disease.setText(""+disease_list[diseaseNum]);
             tv_date.setText(""+result.getDate());
 
             //검사 결과 텍스트뷰
-            if(result.getCount()>getRange_warning(result.getDisease())) {
+            if(result.getCount()>getRange_warning(diseaseNum)) {
                 tv_count.setBackgroundColor(Color.parseColor("#e61919"));
                 tv_count.setText("위험");
             }
-            else if(result.getCount()>getRange_safe(result.getDisease())) {
+            else if(result.getCount()>getRange_safe(diseaseNum)) {
                 tv_count.setBackgroundColor(Color.parseColor("#FFC107"));
                 tv_count.setText("주의");
             }

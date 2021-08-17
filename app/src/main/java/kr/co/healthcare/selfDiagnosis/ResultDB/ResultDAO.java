@@ -8,7 +8,7 @@ import androidx.room.Update;
 
 import java.util.List;
 
-
+//Data Access Object. DB에 실질적으로 접근하는 객체
 @Dao
 public interface ResultDAO {
 
@@ -18,13 +18,14 @@ public interface ResultDAO {
     @Update
     void update(Result results);
 
-    @Query("UPDATE Result_table SET Result_DISEASE = :di, Result_COUNT = :c, Result_DATE = :dt WHERE Result_num = :num")
+    @Query("UPDATE Result_table SET Result_DISEASE=:di, Result_COUNT=:c, Result_DATE=:dt WHERE Result_num=:num")
     void update(int di, int c, String dt, int num);
 
     @Delete
     void delete(Result results);
 
 
+    //가져오기
     @Query("SELECT * FROM Result_table")
     List<Result> getAll();
 
@@ -36,22 +37,24 @@ public interface ResultDAO {
     @Query("SELECT * FROM Result_table WHERE Result_DISEASE=:num ORDER BY Result_num DESC")
     List<Result> getAllByDisease(int num);
 
+
     //개수 반환 쿼리
-    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT<=3")
-    int countDiseaseSafe(int num);
+    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT<=:safeRange")
+    int countDiseaseSafe(int num, int safeRange);
 
-    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>3 AND Result_COUNT<=5")
-    int countDiseaseWarning(int num);
+    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>:safeRange AND Result_COUNT<=:warningRange")
+    int countDiseaseWarning(int num, int safeRange, int warningRange);
 
-    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>5")
-    int countDiseaseDanger(int num);
+    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>:warningRange")
+    int countDiseaseDanger(int num, int warningRange);
+
 
     //평균 반환 쿼리
     @Query("SELECT AVG(Result_COUNT) FROM Result_table WHERE Result_DISEASE=:num")
     int getAverageCountOfDisease(int num);
 
     @Query("DELETE FROM Result_table")
-    void deleteAll();
+    void deleteAllSelfDiagnosisResult();
 
     @Query("SELECT COUNT(*) as cnt FROM Result_table")
     int getDataCount();

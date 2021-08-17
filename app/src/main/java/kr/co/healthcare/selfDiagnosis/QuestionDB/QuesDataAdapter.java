@@ -10,24 +10,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataAdapter {
+public class QuesDataAdapter {
 
-    protected static final String TAG = "DataAdapter";
+    protected static final String TAG = "QuesDataAdapter";
     protected static final String TABLE_NAME = "disease_";
 
     private final Context mContext;
     private SQLiteDatabase mDB;
-    private DBHelper mDBHelper;
+    private QuesDBHelper mQuesDBHelper;
 
 
-    public DataAdapter(Context context){
+    public QuesDataAdapter(Context context){
         this.mContext = context;
-        mDBHelper = new DBHelper(mContext);
+        mQuesDBHelper = new QuesDBHelper(mContext);
     }
 
-    public DataAdapter createDatabase() throws SQLException {
+    public QuesDataAdapter createDatabase() throws SQLException {
         try{
-            mDBHelper.createDatBase();
+            mQuesDBHelper.createQuesDatabase();
         }catch (IOException mIOException){
             Log.e(TAG, mIOException.toString() + " UnableToCreateDatabase");
             throw new Error("UnableToCreateDatabase");
@@ -35,11 +35,11 @@ public class DataAdapter {
         return this;
     }
 
-    public DataAdapter open() throws SQLException {
+    public QuesDataAdapter open() throws SQLException {
         try{
-            mDBHelper.openDataBase();
-            mDBHelper.close();
-            mDB = mDBHelper.getReadableDatabase();
+            mQuesDBHelper.openQuesDatabase();
+            mQuesDBHelper.close();
+            mDB = mQuesDBHelper.getReadableDatabase();
         }catch (SQLException mSQLException){
             Log.e(TAG,"open>>"+mSQLException.toString());
             throw mSQLException;
@@ -48,7 +48,7 @@ public class DataAdapter {
     }
 
     public void close(){
-        mDBHelper.close();
+        mQuesDBHelper.close();
     }
 
     public List getTableData(int n){
