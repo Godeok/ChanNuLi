@@ -23,17 +23,17 @@ public final class DBHelper extends SQLiteOpenHelper {
     private final Context mContext;
 
 
+    //db 경로 설정
     public DBHelper(Context context) {
         super(context, DB_NAME, null, 1);
-        if (Build.VERSION.SDK_INT >= 17) {
+        if (Build.VERSION.SDK_INT >= 17)
             DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
-        } else {
+        else
             DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
-        }
         this.mContext = context;
     }
 
-
+    //db 생성
     public void createDatBase() throws IOException {
         boolean mDataBaseExist = checkDataBase();
         if (!mDataBaseExist) {
@@ -48,13 +48,11 @@ public final class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-
     //해당 경로에 데이터베이스 존재하는지 확인
     private boolean checkDataBase() {
         File dbFile = new File(DB_PATH + DB_NAME);
         return dbFile.exists();
     }
-
 
     //assets 폴더에서 데이터베이스 복사
     private void copyDataBase() throws IOException {
@@ -63,12 +61,12 @@ public final class DBHelper extends SQLiteOpenHelper {
         OutputStream mOutput = new FileOutputStream(outFileName);
         byte[] mBuffer = new byte[1024];
         int mLength;
-        while ((mLength = mInput.read(mBuffer)) > 0) mOutput.write(mBuffer, 0, mLength);
+        while((mLength = mInput.read(mBuffer)) > 0)
+            mOutput.write(mBuffer, 0, mLength);
         mOutput.flush();
         mOutput.close();
         mInput.close();
     }
-
 
     //데이터베이스 열어서 쿼리 쓸 수 있게 만듦
     public boolean openDataBase() throws SQLException {
@@ -77,11 +75,9 @@ public final class DBHelper extends SQLiteOpenHelper {
         return mDataBase != null;
     }
 
-
     @Override
     public synchronized void close() {
-        if (mDataBase != null)
-            mDataBase.close();
+        if (mDataBase != null) mDataBase.close();
         super.close();
     }
 

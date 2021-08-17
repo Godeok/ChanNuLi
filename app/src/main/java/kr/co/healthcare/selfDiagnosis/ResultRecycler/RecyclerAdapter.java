@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.*;
 import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.getRange_warning;
 
-
+//결과 화면 리사이클러뷰
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
     private ArrayList<Result> resultData = new ArrayList<>();
@@ -67,11 +67,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             tv_date.setText(""+result.getDate());
 
             //검사 결과 텍스트뷰
-            if(result.getCount()>getRange_warning()) {
+            if(result.getCount()>getRange_warning(result.getDisease())) {
                 tv_count.setBackgroundColor(Color.parseColor("#e61919"));
                 tv_count.setText("위험");
             }
-            else if(result.getCount()>getRange_safe()) {
+            else if(result.getCount()>getRange_safe(result.getDisease())) {
                 tv_count.setBackgroundColor(Color.parseColor("#FFC107"));
                 tv_count.setText("주의");
             }

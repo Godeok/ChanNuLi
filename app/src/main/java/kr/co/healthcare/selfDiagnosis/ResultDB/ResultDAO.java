@@ -33,27 +33,8 @@ public interface ResultDAO {
     List<Result> getAllByDate();
 
     //질병별 최신순
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=0 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease0();
-
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=1 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease1();
-
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=2 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease2();
-
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=3 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease3();
-
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=4 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease4();
-
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=5 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease5();
-
-    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=6 ORDER BY Result_num DESC")
-    List<Result> getAllByDisease6();
-
+    @Query("SELECT * FROM Result_table WHERE Result_DISEASE=:num ORDER BY Result_num DESC")
+    List<Result> getAllByDisease(int num);
 
     //개수 반환 쿼리
     @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT<=3")
@@ -65,17 +46,13 @@ public interface ResultDAO {
     @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT>5")
     int countDiseaseDanger(int num);
 
-
     //평균 반환 쿼리
     @Query("SELECT AVG(Result_COUNT) FROM Result_table WHERE Result_DISEASE=:num")
     int getAverageCountOfDisease(int num);
-
 
     @Query("DELETE FROM Result_table")
     void deleteAll();
 
     @Query("SELECT COUNT(*) as cnt FROM Result_table")
     int getDataCount();
-
-
 }

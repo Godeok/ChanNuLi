@@ -112,13 +112,9 @@ public class SelfResultSymptomActivity extends AppCompatActivity {
 
     //질병에 해당하는 쿼리
     void check_query(int number) {
-        if (number == 0) results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease0();
-        else if (number == 1) results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease1();
-        else if (number == 2) results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease2();
-        else if (number == 3) results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease3();
-        else if (number == 4) results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease4();
-        else if (number == 5) results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease5();
-        else if (number == 6) results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease6();
-        else results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDate();
+        if(number>=0 || number<=6)
+            results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDisease(number);
+        else
+            results = SelfDiagnosisResultDatabase.getInstance(this).resultDAO().getAllByDate();
     }
 }

@@ -60,43 +60,12 @@ public class SelfMainAdapter extends RecyclerView.Adapter<SelfMainAdapter.MyView
         return myDataList.size();
     }
 
-    /*
-    public void addItem(Result result) {
-        resultData.add(result);
-    }
-
-    public void addItems(ArrayList<Result> result) {
-        resultData = result;
-    }
-
-     */
-
     public class MyViewHolderMain extends RecyclerView.ViewHolder {
         private TextView tv_diseaseName, tv_numOfQuestions;
-
         public MyViewHolderMain(@NonNull View itemView) {
             super(itemView);
-
             tv_diseaseName = itemView.findViewById(R.id.tv_diseaseName);
             tv_numOfQuestions = itemView.findViewById(R.id.tv_numOfQuestions);
-
-            //리스너
-            /*
-            itemView.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    int pos = getAdapterPosition();
-                    if (pos != RecyclerView.NO_POSITION){
-                        // click event
-                        Intent intent = new Intent(context, SelfDiagnosisActivity.class);
-                        intent.putExtra("str", buttonText);
-                        intent.putExtra("disease_num", INDEX);
-                        startActivity(intent);
-                    }
-                }
-            });
-
-             */
         }
     }
 }
