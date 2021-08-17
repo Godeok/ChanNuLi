@@ -46,14 +46,15 @@ public class SelfResultSymptomFragment extends Fragment {
 
         recyclerView = v.findViewById(R.id.rv_self_result);
         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-        Spinner spinner = v.findViewById(R.id.spinner);
+        Spinner spinner = v.findViewById(R.id.spinner_self);
 
         //스피너
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //스피너 글자 색 변경
-                //((TextView)spinner.getChildAt(0)).setTextColor(Color.BLACK);
+                //((TextView)spinner.getChildAt(0)).setTextColor(getResources().getColor(R.color.defaultTextColor));
 
                 //결과 보여줄 리사이클러뷰 어뎁터 선언(새로운 정보 불러오면 항상 새로 선언)
                 recyclerAdapter = new RecyclerAdapter();
