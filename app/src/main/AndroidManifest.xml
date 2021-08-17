@@ -93,18 +93,22 @@
         <activity
             android:name=".game.GameResultActivity"
             android:noHistory="true"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".game.Game1Activity"
             android:noHistory="true"
+            android:parentActivityName=".game.GameMainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".game.Game2Activity"
             android:noHistory="true"
+            android:parentActivityName=".game.GameMainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".game.Game3Activity"
             android:noHistory="true"
+            android:parentActivityName=".game.GameMainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
     </application>
 

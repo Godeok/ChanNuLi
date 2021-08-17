@@ -109,6 +109,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="1"
                     android:textSize="50dp"/>
@@ -119,6 +120,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="2"
                     android:textSize="50dp"/>
@@ -138,6 +140,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="3"
                     android:textSize="50dp"/>
@@ -148,6 +151,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="4"
                     android:textSize="50dp"/>

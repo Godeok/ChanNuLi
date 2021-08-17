@@ -78,7 +78,7 @@ public class Game3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this, R.style.AlertDialog);
         alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
 
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
