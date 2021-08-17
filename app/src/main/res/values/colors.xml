@@ -8,6 +8,7 @@
 
     <!-- 텍스트 색상 -->
     <color name="defaultTextColor">#1D1D1D</color>
+    <color name="midDarkTextColor">#555555</color>
     <color name="midLightTextColor">#ADADAD</color>
     <color name="lightTextColor">#CDCDCD</color>
 

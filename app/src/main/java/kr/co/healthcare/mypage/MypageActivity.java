@@ -1,5 +1,6 @@
 package kr.co.healthcare.mypage;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import kr.co.healthcare.database.UserViewModel;
+import kr.co.healthcare.mypage.gamehistory.GameScore;
+import kr.co.healthcare.preference.GameResultPreferenceManager;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
 import kr.co.healthcare.R;
 
@@ -40,6 +43,8 @@ public class MypageActivity extends AppCompatActivity {
         setObserverOnUserName();
         setObserverOnUserAge();
         setObserverOnUserDiseases();
+
+        setGameBestScore();
     }
 
     //사용자 정보 수정 페이지로 가기
@@ -110,4 +115,24 @@ public class MypageActivity extends AppCompatActivity {
             }};
         viewModel.getUserDiseases(this).observe(this, diseaseObserver);
     }
+
+    private void setGameBestScore(){
+
+        GameScore[] gameScores = {
+                new GameScore(1, 1, findViewById(R.id.tv_game1_level1_bestscore)),
+                new GameScore(1, 2, findViewById(R.id.tv_game1_level2_bestscore)),
+                new GameScore(1, 3, findViewById(R.id.tv_game1_level3_bestscore)),
+                new GameScore(2, 1, findViewById(R.id.tv_game2_level1_bestscore)),
+                new GameScore(2, 2, findViewById(R.id.tv_game2_level2_bestscore)),
+                new GameScore(2, 3, findViewById(R.id.tv_game2_level3_bestscore)),
+                new GameScore(3, 1, findViewById(R.id.tv_game3_level1_bestscore)),
+                new GameScore(3, 2, findViewById(R.id.tv_game3_level2_bestscore)),
+                new GameScore(3, 3, findViewById(R.id.tv_game3_level3_bestscore)),
+        };
+
+        for(GameScore gameScore : gameScores){
+            gameScore.setBestScoreToTextView(this);
+        }
+    }
 }
+
