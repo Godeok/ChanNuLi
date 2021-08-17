@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis.ResultRecycler;
+package kr.co.healthcare.selfDiagnosis.ResultRecycler;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -9,14 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 
 import java.util.ArrayList;
 
-import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
-import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.getRange_warning;
+import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.*;
+import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.getRange_warning;
 
-
+//결과 화면 리사이클러뷰
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
     private ArrayList<Result> resultData = new ArrayList<>();
@@ -62,16 +62,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
         public void onBind(final Result result, int position) {
             String s = "" + (position+1);
+            int diseaseNum = result.getDisease();
+
             tv_num.setText(""+s);
-            tv_disease.setText(""+disease_list[result.getDisease()]);
+            tv_disease.setText(""+disease_list[diseaseNum]);
             tv_date.setText(""+result.getDate());
 
             //검사 결과 텍스트뷰
-            if(result.getCount()>getRange_warning()) {
+            if(result.getCount()>getRange_warning(diseaseNum)) {
                 tv_count.setBackgroundColor(Color.parseColor("#e61919"));
                 tv_count.setText("위험");
             }
-            else if(result.getCount()>getRange_safe()) {
+            else if(result.getCount()>getRange_safe(diseaseNum)) {
                 tv_count.setBackgroundColor(Color.parseColor("#FFC107"));
                 tv_count.setText("주의");
             }

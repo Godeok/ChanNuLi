@@ -14,7 +14,7 @@ import kr.co.healthcare.diseaseInfoSelect.DiseaseInfoSelectActivity;
 import kr.co.healthcare.game.GameMainActivity;
 import kr.co.healthcare.healthInfo.HealthInfoActivity;
 import kr.co.healthcare.mypage.MypageActivity;
-import kr.co.healthcare.self_diagnosis.SelfMainActivity;
+import kr.co.healthcare.selfDiagnosis.SelfMainActivity;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
 import kr.co.healthcare.tutorial.ui.TutorialActivity;
 import kr.co.healthcare.database.UserViewModel;
