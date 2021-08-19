@@ -58,7 +58,7 @@ public class TutorialFirstStepFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                nextBtn.setEnabled(checkNameValidation(editText));
+                nextBtn.setEnabled(checkNameValidation(editText.getText().toString()));
             }
             @Override
             public void afterTextChanged(Editable s) {
@@ -66,14 +66,14 @@ public class TutorialFirstStepFragment extends Fragment {
         });
     }
 
-    boolean checkNameValidation(EditText editText){
-        if (editText.getText().toString().matches("[!@#$%^&*(),.?\":{}|<>]")) {
+    boolean checkNameValidation(String name){
+        if (name.matches("^.*[!@#$%^&*(),.?\":{}|<>]+.*$")) {
             nameInputLayout.setError("특수 문자는 사용할 수 없습니다.");
             return false;
-        }else if(editText.getText().toString().length() == 0) {
+        }else if(name.length() == 0) {
             nameInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
             return false;
-        }else if(editText.getText().toString().length() > 5){
+        }else if(name.length() > 5){
             nameInputLayout.setError("최대 글자 수를 초과했습니다.");
             return false;
         } else {
