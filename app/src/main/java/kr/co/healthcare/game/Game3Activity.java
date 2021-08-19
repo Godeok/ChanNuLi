@@ -267,9 +267,8 @@ public class Game3Activity extends AppCompatActivity {
             if(check_card[i]!=1)
                 break;
 
-            show_notice(LEVEL);
-
             if(i==number_of_cards-1) {
+                show_notice(LEVEL);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
