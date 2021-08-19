@@ -14,6 +14,7 @@
         android:paddingVertical="10dp"
         android:entries="@array/DISEASES_LABEL"
         android:spinnerMode="dialog"
+        android:background="@drawable/spinner_self_result"
         android:theme="@style/AppTheme.SelfDiagnosis.SpinnerTheme"/>
 
     <ScrollView
