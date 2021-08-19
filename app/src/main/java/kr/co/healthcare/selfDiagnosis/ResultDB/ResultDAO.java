@@ -58,4 +58,7 @@ public interface ResultDAO {
 
     @Query("SELECT COUNT(*) as cnt FROM Result_table")
     int getDataCount();
+
+    @Query("DELETE FROM Result_Table")
+    void deleteAllSelfResult();
 }

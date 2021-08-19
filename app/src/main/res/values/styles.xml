@@ -107,23 +107,10 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
     </style>
 
-
-    <style name="SpinnerDivideStyle" parent="android:style/Widget.ListView.DropDown">
-        <item name="android:divider">@color/dividerColor</item>     <!-- divider 색 -->
-        <item name="android:dividerHeight">3dp</item>   <!-- divider 높이 -->
-    </style>
-
     <!-- 자가진단 결과 spinner 테마 -->
     <style name="AppTheme.SelfDiagnosis.SpinnerTheme" parent="Theme.MaterialComponents">
         <item name="android:textColor">@color/defaultTextColor</item>
         <item name="colorBackgroundFloating">@color/whiteColor</item>
     </style>
 
-
-
-    <style name="spinnerTheme">
-        <item name="android:textColorPrimary">#000000</item>
-        <item name="android:textColorSecondary">#00E676</item>
-        <item name="android:textSize">@dimen/number_picker_text_size</item>
-    </style>
 </resources>
