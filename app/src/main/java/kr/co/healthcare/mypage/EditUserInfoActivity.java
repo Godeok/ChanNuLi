@@ -97,7 +97,7 @@ public class EditUserInfoActivity extends AppCompatActivity {
     }
 
     boolean checkNameValidation(String name){
-        if (name.matches("[!@#$%^&*(),.?\":{}|<>]")) {
+        if (name.matches("^[^a-zA-Z0-9ㄱ-ㅎㅏ-ㅣ가-힣]+$")) {
             nameInputLayout.setError("특수 문자는 사용할 수 없습니다.");
             return false;
         }else if(name.length() == 0) {
