@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setUserName(){
-        viewModel.getUserGender(this).observe(this, new Observer<String>() {
+        viewModel.getUserName(this).observe(this, new Observer<String>() {
             @Override
             public void onChanged(final String name) { userNameTV.setText(name); }
         });
