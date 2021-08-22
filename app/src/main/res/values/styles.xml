@@ -85,6 +85,7 @@
         <item name="errorTextColor">@color/redColor</item>
         <item name="boxStrokeErrorColor">@color/redColor</item>
         <item name="errorIconTint">@color/redColor</item>
+        <item name="singleLine">true</item>
     </style>
 
     <!-- mypage 화면 chip 테마 -->
@@ -95,6 +96,13 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
         <item name="android:textColor">@color/primary2Color</item>
         <item name="chipMinTouchTargetSize">43dp</item>
+    </style>
+
+    <!-- reset dialog 테마 -->
+    <style name="AppTheme.ResetDialog" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="android:textColor">@color/defaultDarkColor</item>
+        <item name="android:textColorPrimary">@color/midLightTextColor</item>
+        <item name="android:colorAccent">@color/redColor</item>
     </style>
 
     <!-- 체크박스 테마 -->

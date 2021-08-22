@@ -13,7 +13,8 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:onClick="showDialogResetDiagnosisHistory">
 
         <TextView
             android:layout_width="0dp"
@@ -39,7 +40,8 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:onClick="showDialogResetGameHistory">
 
         <TextView
             android:layout_width="0dp"
@@ -65,7 +67,8 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:onClick="showDialogResetAccount">
 
         <TextView
             android:layout_width="0dp"

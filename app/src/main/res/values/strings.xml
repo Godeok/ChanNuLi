@@ -9,6 +9,8 @@
     <string name="title_activity_mypage">마이페이지</string>
     <string name="title_activity_init">초기화하기</string>
     <string name="title_activity_app_description">찬누리 설명</string>
+    <string name="title_activity_edit_disease">질병 수정하기</string>
+    <string name="title_activity_edit_userinfo">회원 정보 수정하기</string>
 
     <string name="btn_text_main_self_diagnosis">자가진단</string>
     <string name="btn_text_main_health_info">건강정보</string>
@@ -32,16 +34,25 @@
     <string name="tutorial_btn">다음으로</string>
 
     <string name="complete_btn">완료</string>
+    <string name="edit_btn">변경하기</string>
 
     <string name="game_main_explain">건강게임은 집중력, 계산력, 기억력을 키워주고, 치매를 예방해요. 마음에 드는 게임을 선택하고 시작해 볼까요?</string>
     <string name="self_diagnosise_xplain">스스로 건강상태를 진단해 보세요.</string>
+
+
     <string name="woman">여자</string>
     <string name="man">남자</string>
+
     <string name="greeting">찬누리 가입을 환영합니다</string>
 
     <string name="self_diagnosis_answer_yes">네</string>
     <string name="self_diagnosis_answer_no">아니오</string>
-    <string name="title_activity_edit_disease">질병 수정하기</string>
-    <string name="edit_btn">변경하기</string>
-    <string name="title_activity_edit_userinfo">회원 정보 수정하기</string>
+    <string name="dialog_title_game_reset">게임 기록을 초기화하시겠습니까?</string>
+    <string name="dialog_message_game_reset"><![CDATA[남아있는 게임 기록 데이터가 모두 삭제되고 다시 복구할 수 없습니다.<br/>정말 초기화하시겠습니까?]]></string>
+    <string name="dialog_btn_positive">초기화하기</string>
+    <string name="dialog_title_self_diagnosis_reset">자가진단 기록을 초기화하시겠습니까?</string>
+    <string name="dialog_message_self_diagnosis_reset"><![CDATA[남아있는 자가진단 결과 데이터가 모두 삭제되고 다시 복구할 수 없습니다.<br/>정말 초기화하시겠습니까?]]></string>
+    <string name="dialog_btn_negative">취소</string>
+    <string name="dialog_title_account_reset">계정을 초기화하시겠습니까?</string>
+    <string name="dialog_message_account_reset"><![CDATA[입력하신 사용자 정보가 모두 삭제되고 다시 복구할 수 없습니다.<br/>삭제가 완료되면 어플 초기 화면으로 돌아갑니다.<br/>정말 초기화하시겠습니까?]]></string>
 </resources>

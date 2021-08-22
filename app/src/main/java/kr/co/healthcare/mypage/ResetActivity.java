@@ -1,103 +1,112 @@
 package kr.co.healthcare.mypage;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+
+import java.util.function.Function;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.preference.GameResultPreferenceManager;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
+import kr.co.healthcare.self_diagnosis.ResultDB.ResultDAO;
+import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
+import kr.co.healthcare.tutorial.ui.TutorialActivity;
 
 public class ResetActivity extends AppCompatActivity {
+    private enum ResetType {
+        GAME_HISTORY,
+        SELF_DIAGNOSIS_HISTORY,
+        ACCOUNT
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_init);
-    }
-
-    private void setDialogDefault(ResetDialog dialog){
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.setCancelable(true);
-        dialog.getWindow().setLayout(
-                WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT);
+        setContentView(R.layout.activity_reset);
     }
 
     public void showDialogResetGameHistory(View view){
-        ResetDialog dialog = new ResetDialog(this, new ResetDialogClickListener() {
-            @Override
-            public void yesClick() {
-                //게임 기록 초기화
-                GameResultPreferenceManager.clearScore(ResetActivity.this);
-                //TODO: 밑에 확인 알람창
-            }
-
-            @Override
-            public void noClick() {
-                //취소하기
-            }
-        });
-        dialog.setDialogText(
-                "게임 기록 초기화",
-                "게임 기록이 모두 초기화 됩니다.<br/>그래도 진행하시겠습니까?",
-                "초기화하기",
-                "취소"
-        );
-
-        setDialogDefault(dialog);
-        dialog.show();
+        getAlertDialog(
+                R.string.dialog_title_game_reset,
+                R.string.dialog_message_game_reset,
+                ResetType.GAME_HISTORY
+        ).show();
     }
 
     public void showDialogResetDiagnosisHistory(View view){
-        ResetDialog dialog = new ResetDialog(this, new ResetDialogClickListener() {
-            @Override
-            public void yesClick() {
-                //자가진단 기록 초기화
-            }
-
-            @Override
-            public void noClick() {
-                //취소하기
-            }
-        });
-        dialog.setDialogText(
-                "자가진단 기록 초기화",
-                "자가진단 기록이 모두 초기화됩니다.<br/>그래도 진행하시겠습니까?",
-                "초기화하기",
-                "취소"
-        );
-
-        setDialogDefault(dialog);
-        dialog.show();
+        getAlertDialog(
+                R.string.dialog_title_self_diagnosis_reset,
+                R.string.dialog_message_self_diagnosis_reset,
+                ResetType.SELF_DIAGNOSIS_HISTORY
+        ).show();
     }
 
     public void showDialogResetAccount(View view){
-        ResetDialog dialog = new ResetDialog(this, new ResetDialogClickListener() {
-            @Override
-            public void yesClick() {
-                //계정 초기화
-                UserInfoPreferenceManger.clear(ResetActivity.this);
-            }
+        getAlertDialog(
+                R.string.dialog_title_account_reset,
+                R.string.dialog_message_account_reset,
+                ResetType.ACCOUNT
+        ).show();
+    }
 
+    private void resetGameResult(){
+        GameResultPreferenceManager.clearScore(ResetActivity.this);
+    }
+
+    private void resetSelfDiagnosisResult(){
+        //SelfDiagnosisResultDatabase.getInstance(ResetActivity.this).resultDAO().deleteAllSelfResult();
+    }
+
+    private void resetAccount(){
+        UserInfoPreferenceManger.clear(ResetActivity.this);
+    }
+
+    private void backToStartPage(){
+        Intent intent = new Intent(ResetActivity.this, TutorialActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
+    }
+
+    private AlertDialog.Builder getAlertDialog(int title, int message, ResetType type){
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
+
+        alBuilder.setView(R.style.AppTheme_ResetDialog)
+        .setTitle(title)
+        .setMessage(message)
+        .setPositiveButton(R.string.dialog_btn_positive, new DialogInterface.OnClickListener() {
             @Override
-            public void noClick() {
-                //취소하기
+            public void onClick(DialogInterface dialog, int which) {
+                switch (type) {
+                    case GAME_HISTORY:
+                        resetGameResult();
+                        break;
+
+                    case SELF_DIAGNOSIS_HISTORY:
+                        resetSelfDiagnosisResult();
+                        break;
+
+                    case ACCOUNT:
+                        resetAccount();
+                        backToStartPage();
+                        break;
+
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + type);
+                }
+            }
+        }).setNegativeButton(R.string.dialog_btn_negative, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
             }
         });
-        dialog.setDialogText(
-                "계정 초기화",
-                "모든 사용자 정보가 초기화됩니다.<br/>정말 초기화하시겠습니까?",
-                "초기화하기",
-                "취소"
-        );
 
-        setDialogDefault(dialog);
-        dialog.show();
+        return alBuilder;
     }
 }
 
