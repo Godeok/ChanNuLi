@@ -99,7 +99,7 @@
     </style>
 
     <!-- reset dialog 테마 -->
-    <style name="AppTheme.ResetDialog" parent="Theme.MaterialComponents.DayNight.Dialog">
+    <style name="AppTheme.ResetDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:textColor">@color/defaultDarkColor</item>
         <item name="android:textColorPrimary">@color/midLightTextColor</item>
         <item name="android:colorAccent">@color/redColor</item>
