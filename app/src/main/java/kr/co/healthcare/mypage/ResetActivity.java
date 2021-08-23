@@ -15,8 +15,8 @@ import java.util.function.Function;
 import kr.co.healthcare.R;
 import kr.co.healthcare.preference.GameResultPreferenceManager;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
-import kr.co.healthcare.self_diagnosis.ResultDB.ResultDAO;
-import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
+import kr.co.healthcare.selfDiagnosis.ResultDB.ResultDAO;
+import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
 import kr.co.healthcare.tutorial.ui.TutorialActivity;
 
 public class ResetActivity extends AppCompatActivity {

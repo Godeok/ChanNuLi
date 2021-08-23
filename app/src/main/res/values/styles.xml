@@ -105,6 +105,11 @@
         <item name="android:colorAccent">@color/redColor</item>
     </style>
 
+    <!-- alertDialog 테마 -->
+    <style name="AlertDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:background">@color/whiteColor</item>
+    </style>
+
     <!-- 체크박스 테마 -->
     <style name="checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
         <item name="android:colorControlNormal">@color/primaryColor</item>

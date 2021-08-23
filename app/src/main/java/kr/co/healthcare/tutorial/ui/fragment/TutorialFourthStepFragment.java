@@ -34,7 +34,6 @@ public class TutorialFourthStepFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //todo: DB에서 질병 이름 불러오기
         tagNames = getResources().getStringArray(R.array.DISEASES_LABEL);
         checkBoxes = new ArrayList<CheckBox>();
     }
