@@ -16,7 +16,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="35dp"
+            android:paddingTop="25dp"
             android:paddingHorizontal="35dp"
             android:paddingBottom="25dp"
             android:layout_marginBottom="10dp"
@@ -56,7 +56,7 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/img_avatar"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_marginEnd="10dp"
@@ -209,50 +209,26 @@
                         android:textColor="@color/midLightTextColor" />
                 </LinearLayout>
 
-                <TabHost
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:tabMode="scrollable"
+                    app:tabPaddingStart="15dp"
+                    app:tabPaddingEnd="15dp"
+                    android:minHeight="2dp"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabIndicatorAnimationDuration="@integer/material_motion_duration_medium_2"
+                    app:tabBackground="@drawable/tab_diagnosis_selector"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
 
-                        <TabWidget
-                            android:id="@android:id/tabs"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                </androidx.viewpager2.widget.ViewPager2>
 
-                        <FrameLayout
-                            android:id="@android:id/tabcontent"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <LinearLayout
-                                android:id="@+id/tab1"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/tab2"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/tab3"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="vertical">
-
-                            </LinearLayout>
-                        </FrameLayout>
-                    </LinearLayout>
-                </TabHost>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -736,118 +712,7 @@
                                             android:orientation="horizontal">
 
                                             <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:background="@drawable/view_game_level_small"
-                                                android:paddingHorizontal="5dp"
-                                                android:paddingVertical="2dp"
-                                                android:text="쉬움"
-                                                android:textAlignment="center"
-                                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                                android:textColor="@color/whiteColor" />
-
-                                            <TextView
                                                 android:id="@+id/tv_game3_level1_bestscore"
-                                                android:layout_width="0dp"
-                                                android:layout_height="wrap_content"
-                                                android:layout_weight="1"
-                                                android:text="100"
-                                                android:textAlignment="textEnd"
-                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                                android:textColor="@color/defaultTextColor"
-                                                android:textStyle="bold" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="점"
-                                                android:textAlignment="center"
-                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                                android:textColor="@color/defaultTextColor"
-                                                android:textStyle="bold" />
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-
-                                    <View
-                                        android:layout_width="match_parent"
-                                        android:layout_height="1dp"
-                                        android:background="@color/dividerColor" />
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="center"
-                                            android:orientation="horizontal">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:background="@drawable/view_game_level_small"
-                                                android:paddingHorizontal="5dp"
-                                                android:paddingVertical="2dp"
-                                                android:text="중간"
-                                                android:textAlignment="center"
-                                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                                android:textColor="@color/whiteColor" />
-
-                                            <TextView
-                                                android:id="@+id/tv_game3_level2_bestscore"
-                                                android:layout_width="0dp"
-                                                android:layout_height="wrap_content"
-                                                android:layout_weight="1"
-                                                android:text="200"
-                                                android:textAlignment="textEnd"
-                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                                android:textColor="@color/defaultTextColor"
-                                                android:textStyle="bold" />
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:text="점"
-                                                android:textAlignment="center"
-                                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                                                android:textColor="@color/defaultTextColor"
-                                                android:textStyle="bold" />
-                                        </LinearLayout>
-
-                                    </LinearLayout>
-
-                                    <View
-                                        android:layout_width="match_parent"
-                                        android:layout_height="1dp"
-                                        android:background="@color/dividerColor" />
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:gravity="center"
-                                            android:orientation="horizontal">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:paddingHorizontal="5dp"
-                                                android:paddingVertical="2dp"
-                                                android:background="@drawable/view_game_level_small"
-                                                android:text="어려움"
-                                                android:textAlignment="center"
-                                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                                                android:textColor="@color/whiteColor" />
-
-                                            <TextView
-                                                android:id="@+id/tv_game3_level3_bestscore"
                                                 android:layout_width="0dp"
                                                 android:layout_height="wrap_content"
                                                 android:layout_weight="1"

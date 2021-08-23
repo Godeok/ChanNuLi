@@ -6,13 +6,15 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/diagnosis_history_reset"
         android:focusable="true"
         android:clickable="true"
         android:minHeight="?attr/actionBarSize"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:onClick="showDialogResetDiagnosisHistory">
 
         <TextView
             android:layout_width="0dp"
@@ -31,13 +33,15 @@
         android:background="@color/dividerColor" />
 
     <LinearLayout
+        android:id="@+id/game_history_reset"
         android:focusable="true"
         android:clickable="true"
         android:minHeight="?attr/actionBarSize"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:onClick="showDialogResetGameHistory">
 
         <TextView
             android:layout_width="0dp"
@@ -56,13 +60,15 @@
         android:background="@color/dividerColor" />
 
     <LinearLayout
+        android:id="@+id/account_reset"
         android:focusable="true"
         android:clickable="true"
         android:minHeight="?attr/actionBarSize"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:onClick="showDialogResetAccount">
 
         <TextView
             android:layout_width="0dp"

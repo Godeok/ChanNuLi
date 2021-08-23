@@ -17,6 +17,8 @@ import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Calendar;
+
 import kr.co.healthcare.R;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
@@ -57,22 +59,29 @@ public class TutorialThirdStepFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                nextBtn.setEnabled(s.toString().length() != 0);
+                nextBtn.setEnabled(checkAgeValidation(editText.getText().toString()));
             }
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.toString().length() == 0) {
-                    yearTextInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
-                } else {
-                    yearTextInputLayout.setError(null); // null은 에러 메시지를 지워주는 기능
-                }
             }
         });
-        /*
-                Calendar calendar = Calendar.getInstance();
-        yearTextInputLayout.setMaxDate(calendar.getTimeInMillis());
-        calendar.add(Calendar.YEAR, -130);
-         */
+    }
+
+    boolean checkAgeValidation(String text){
+        if(text.length() == 0) {
+            yearTextInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
+            return false;
+        }else if(!isYearDateBeforeThisYear(text)){
+            yearTextInputLayout.setError("생년은 올해보다 이전이어야 합니다.");
+            return false;
+        } else {
+            yearTextInputLayout.setError(null);
+            return true;
+        }
+    }
+
+    boolean isYearDateBeforeThisYear(String input){
+        return Integer.parseInt(input) < Calendar.getInstance().get(Calendar.YEAR);
     }
 
     public void setUserYearOfBirth() {

@@ -23,7 +23,7 @@
             android:label="@string/title_activity_app_description"
             android:parentActivityName=".mypage.MypageActivity" />
         <activity
-            android:name=".mypage.InitActivity"
+            android:name=".mypage.ResetActivity"
             android:exported="true"
             android:label="@string/title_activity_init"
             android:parentActivityName=".mypage.MypageActivity" />
