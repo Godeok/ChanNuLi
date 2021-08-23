@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:orientation="vertical"
-    tools:context="self_diagnosis.SelfShowResult">
+    tools:context="selfDiagnosis.SelfShowResult">
 
     <TextView
         android:id="@+id/tv_title"

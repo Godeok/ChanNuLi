@@ -2,6 +2,7 @@ package kr.co.healthcare.game;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +27,7 @@ public class Game3Activity extends AppCompatActivity {
 
     int points, number_of_cards;
     LinearLayout layout_lv2, layout_lv3;
+    ConstraintLayout layout_nextLv;
     TextView tv_level, tv_score, tv_leftAttempts;
     Animation anim_scale_bigger1, anim_scale_bigger2;
 
@@ -78,7 +80,7 @@ public class Game3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this, R.style.AlertDialog);
         alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
 
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
@@ -108,6 +110,7 @@ public class Game3Activity extends AppCompatActivity {
         tv_leftAttempts = findViewById(R.id.tv_leftAttempts);
         layout_lv2 = findViewById(R.id.layout_lv2);
         layout_lv3 = findViewById(R.id.layout_lv3);
+        layout_nextLv = findViewById(R.id.layout_nextLv);
         anim_scale_bigger1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger);
         anim_scale_bigger2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger);
 
@@ -127,6 +130,8 @@ public class Game3Activity extends AppCompatActivity {
 
         tv_score.setText(SCORE +"");
         tv_leftAttempts.setText(MAX_ATTEMPT+"");
+
+        close_notice();
     }
 
     void setting(int numOfCards, int pts, int maxAttempt, String strLevel){
@@ -243,18 +248,27 @@ public class Game3Activity extends AppCompatActivity {
     void check_game_over(){
         //게임 끝(lose)
         if(MAX_ATTEMPT == ATTEMPT_CNT){
-            Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
-            intent.putExtra("game", 3);
-            intent.putExtra("score", SCORE);
-            intent.putExtra("level", LEVEL);
-            reset_score();
-            startActivity(intent);
+            show_notice(3);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    reset_score();
+                    Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
+                    intent.putExtra("game", 3);
+                    intent.putExtra("score", SCORE);
+                    intent.putExtra("level", LEVEL);
+                    startActivity(intent);
+                }
+            }, 1000);
         }
 
         //게임 끝(win)
         for(int i=0; i<number_of_cards; i++){
             if(check_card[i]!=1)
                 break;
+
+            show_notice(LEVEL);
+
             if(i==number_of_cards-1) {
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -284,5 +298,18 @@ public class Game3Activity extends AppCompatActivity {
         for (int j=0; j<number_of_cards; j++)
             if(check_card[j]!=1)
                 cards[j].setEnabled(true);
+    }
+
+    void show_notice(int level){
+        layout_nextLv.setVisibility(View.VISIBLE);
+        TextView tv_nextLv = findViewById(R.id.tv_nextLv);
+        if(level==3)
+            tv_nextLv.setText("결과 화면으로!");
+        else
+            tv_nextLv.setText("다음 단계로!");
+    }
+
+    void close_notice(){
+        layout_nextLv.setVisibility(View.GONE);
     }
 }

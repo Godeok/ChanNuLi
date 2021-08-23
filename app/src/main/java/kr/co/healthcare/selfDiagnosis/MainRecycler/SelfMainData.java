@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis.MainRecycler;
+package kr.co.healthcare.selfDiagnosis.MainRecycler;
 
 public class SelfMainData {
     private int ID;

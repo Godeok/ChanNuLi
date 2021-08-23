@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/defaultColor"
     android:orientation="vertical"
-    tools:context="self_diagnosis.SelfDiagnosisActivity"
+    tools:context="selfDiagnosis.SelfDiagnosisActivity"
     android:padding="16dp">
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="300dp">
 
-        <kr.co.healthcare.self_diagnosis.CTextView
+        <kr.co.healthcare.selfDiagnosis.CTextView
             android:id="@+id/tv_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

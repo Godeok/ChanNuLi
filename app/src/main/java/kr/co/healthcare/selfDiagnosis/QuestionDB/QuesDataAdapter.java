@@ -1,5 +1,4 @@
-package kr.co.healthcare.self_diagnosis.QuestionDB;
-
+package kr.co.healthcare.selfDiagnosis.QuestionDB;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -11,82 +10,65 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataAdapter {
+public class QuesDataAdapter {
 
-    protected static final String TAG = "DataAdapter";
-
+    protected static final String TAG = "QuesDataAdapter";
     protected static final String TABLE_NAME = "disease_";
 
     private final Context mContext;
     private SQLiteDatabase mDB;
-    private DBHelper mDBHelper;
+    private QuesDBHelper mQuesDBHelper;
 
-    public DataAdapter(Context context){
+
+    public QuesDataAdapter(Context context){
         this.mContext = context;
-        mDBHelper = new DBHelper(mContext);
+        mQuesDBHelper = new QuesDBHelper(mContext);
     }
 
-    public DataAdapter createDatabase() throws SQLException {
+    public QuesDataAdapter createDatabase() throws SQLException {
         try{
-            mDBHelper.createDatBase();
-        }
-        catch (IOException mIOException){
+            mQuesDBHelper.createQuesDatabase();
+        }catch (IOException mIOException){
             Log.e(TAG, mIOException.toString() + " UnableToCreateDatabase");
             throw new Error("UnableToCreateDatabase");
         }
         return this;
     }
 
-    public DataAdapter open() throws SQLException {
+    public QuesDataAdapter open() throws SQLException {
         try{
-            mDBHelper.openDataBase();
-            mDBHelper.close();
-            mDB = mDBHelper.getReadableDatabase();
-        }
-        catch (SQLException mSQLException){
+            mQuesDBHelper.openQuesDatabase();
+            mQuesDBHelper.close();
+            mDB = mQuesDBHelper.getReadableDatabase();
+        }catch (SQLException mSQLException){
             Log.e(TAG,"open>>"+mSQLException.toString());
             throw mSQLException;
         }
         return this;
     }
 
-
     public void close(){
-        mDBHelper.close();
+        mQuesDBHelper.close();
     }
-
 
     public List getTableData(int n){
         try{
-            String sql = "SELECT * FROM " + TABLE_NAME + n;
+            String query = "SELECT * FROM " + TABLE_NAME + n;
             List questionList = new ArrayList();
             Questions questions = null;
-            Cursor mCur = mDB.rawQuery(sql, null);
-            if (mCur!=null){
+            Cursor mCur = mDB.rawQuery(query, null);
+            if(mCur!=null){
                 while(mCur.moveToNext()){
                     questions = new Questions();
-
                     questions.setNum(mCur.getString(0));
                     questions.setQuestions(mCur.getString(1));
-
                     questionList.add(questions);
                 }
             }
             return questionList;
-        }
-        catch (SQLException mSQLException){
+        }catch (SQLException mSQLException){
             Log.e(TAG, "getTestData>>"+ mSQLException.toString());
             throw mSQLException;
-        }
-    }
-
-    //이 코드는 안 씀
-    public void getTableData2(){
-        Cursor c = mDB.rawQuery("SELECT * FROM "+TABLE_NAME, null);
-        while(c.moveToNext()) {
-            int num = c.getColumnIndex(TABLE_NAME);
-            String ques = c.getString(num);
-            System.out.println(ques);
         }
     }
 }

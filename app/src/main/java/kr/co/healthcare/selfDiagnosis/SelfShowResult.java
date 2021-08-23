@@ -1,4 +1,4 @@
-package kr.co.healthcare.self_diagnosis;
+package kr.co.healthcare.selfDiagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,10 +12,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.self_diagnosis.ResultDB.SelfDiagnosisResultDatabase;
-import kr.co.healthcare.self_diagnosis.ResultDB.Result;
+import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
+import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 
-import static kr.co.healthcare.self_diagnosis.ResultDBGlobal.*;
+import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.*;
 
 
 public class SelfShowResult extends AppCompatActivity {
@@ -45,8 +45,8 @@ public class SelfShowResult extends AppCompatActivity {
         tv_title.setText(title);
         tv_result.setText("검사 결과 총 "+count+"개의 항목에서 '예'라고 답했습니다.");
 
-        if (count<=getRange_safe()) tv_desc.setText("정상 단계입니다.");
-        else if (count<=getRange_warning()) tv_desc.setText("주의 단계입니다.");
+        if (count<=getRange_safe(disease_num)) tv_desc.setText("정상 단계입니다.");
+        else if (count<=getRange_warning(disease_num)) tv_desc.setText("주의 단계입니다.");
         else tv_desc.setText("위험 단계입니다.");
 
         //검사 날짜
@@ -62,7 +62,7 @@ public class SelfShowResult extends AppCompatActivity {
                 Result result = new Result(disease_num, count, date);
                 db.resultDAO().insert(result);
 
-                Intent intent = new Intent(SelfShowResult.this, SelfResultDateActivity.class);
+                Intent intent = new Intent(SelfShowResult.this, SelfResultActivity.class);
                 startActivity(intent);
             }
         });

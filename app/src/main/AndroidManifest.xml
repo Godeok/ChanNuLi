@@ -49,9 +49,9 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".mypage.MypageActivity"
-            android:theme="@style/MypageTheme"
             android:label="@string/title_activity_mypage"
-            android:parentActivityName=".MainActivity" /> <!-- 건강 정보 -->
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/MypageTheme" /> <!-- 건강 정보 -->
         <activity
             android:name=".healthInfo.HealthInfoActivity"
             android:label="@string/title_activity_health_info"
@@ -64,28 +64,22 @@
             android:label="@string/title_activity_disease_info_select"
             android:parentActivityName=".MainActivity" /> <!-- 자가진단 -->
         <activity
-            android:name=".self_diagnosis.SelfMainActivity"
+            android:name=".selfDiagnosis.SelfMainActivity"
             android:label="@string/title_activity_self_diagnosis"
             android:noHistory="true"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".self_diagnosis.SelfDiagnosisActivity"
+            android:name=".selfDiagnosis.SelfDiagnosisActivity"
             android:noHistory="true"
-            android:parentActivityName=".self_diagnosis.SelfMainActivity" />
+            android:parentActivityName=".selfDiagnosis.SelfMainActivity" />
         <activity
-            android:name=".self_diagnosis.SelfShowResult"
+            android:name=".selfDiagnosis.SelfShowResult"
             android:noHistory="true"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
-            android:name=".self_diagnosis.SelfResultDateActivity"
-            android:label="@string/title_activity_self_diagnosis_result"
-            android:noHistory="true"
-            android:parentActivityName=".self_diagnosis.SelfMainActivity" />
-        <activity
-            android:name=".self_diagnosis.SelfResultSymptomActivity"
-            android:label="@string/title_activity_self_diagnosis_result"
-            android:noHistory="true"
-            android:parentActivityName=".self_diagnosis.SelfMainActivity" /> <!-- 게임 -->
+            android:name=".selfDiagnosis.SelfResultActivity"
+            android:parentActivityName=".selfDiagnosis.SelfMainActivity"/>
+        <!-- 게임 -->
         <activity
             android:name=".game.GameMainActivity"
             android:label="@string/title_activity_game"
@@ -93,18 +87,22 @@
         <activity
             android:name=".game.GameResultActivity"
             android:noHistory="true"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".game.Game1Activity"
             android:noHistory="true"
+            android:parentActivityName=".game.GameMainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".game.Game2Activity"
             android:noHistory="true"
+            android:parentActivityName=".game.GameMainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".game.Game3Activity"
             android:noHistory="true"
+            android:parentActivityName=".game.GameMainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
     </application>
 
