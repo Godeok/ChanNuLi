@@ -8,9 +8,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,11 +26,13 @@ import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class MypageActivity extends AppCompatActivity {
 
-    //인적정보 및 질병 관련 위젯
-    TextView name_TV;
-    TextView age_TV;
-    ImageView avatar_img;
-    UserViewModel viewModel;
+    private TextView name_TV;
+    private TextView age_TV;
+    private ImageView avatar_img;
+    private UserViewModel viewModel;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager;
+    private SectionsPagerAdapter sectionsPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +40,9 @@ public class MypageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mypage);
 
         viewModel = UserViewModel.getINSTANCE();
+        sectionsPagerAdapter = new SectionsPagerAdapter(this);
 
-        name_TV = findViewById(R.id.userName_TV);
-        age_TV = findViewById(R.id.userAge_TV);
-        avatar_img = findViewById(R.id.img_avatar);
+        setResource();
 
         setObserverOnUserName();
         setObserverOnUserAge();
@@ -45,6 +50,20 @@ public class MypageActivity extends AppCompatActivity {
         setObserverOnUserGender();
 
         setGameBestScore();
+
+        viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager.setPageTransformer(new DepthPageTransformer());
+
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText(sectionsPagerAdapter.getTabTitle(position))).attach();
+    }
+
+    private void setResource(){
+        name_TV = findViewById(R.id.userName_TV);
+        age_TV = findViewById(R.id.userAge_TV);
+        avatar_img = findViewById(R.id.img_avatar);
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tab_layout);
     }
 
     //사용자 정보 수정 페이지로 가기

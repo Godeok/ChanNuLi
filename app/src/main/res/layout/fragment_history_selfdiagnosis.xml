@@ -13,6 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
             android:orientation="horizontal">
 
             <TextView
@@ -23,12 +24,13 @@
                 android:textColor="@color/defaultTextColor" />
 
             <TextView
+                android:id="@+id/tv_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="7"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textStyle="bold"
-                android:textColor="@color/primaryColor" />
+                android:textColor="@color/defaultTextColor" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +43,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="40dp"
             android:orientation="horizontal"
             android:gravity="center_vertical">
 
@@ -53,6 +55,7 @@
                 android:textColor="@color/defaultTextColor" />
 
             <TextView
+                android:id="@+id/tv_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="보통"
@@ -72,13 +75,11 @@
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/progressbar_diagnosis_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progress="12"
-            android:max="20"
-            android:backgroundTint="@color/greenColor"
-            android:foregroundTint="@color/defaultDarkColor"
-            android:background="@color/redColor"/>
-
+            android:minHeight="7dp"
+            android:progress="3"
+            android:max="20" />
     </LinearLayout>
 </FrameLayout>

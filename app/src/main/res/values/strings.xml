@@ -54,5 +54,9 @@
     <string name="dialog_title_self_diagnosis_reset">자가진단 기록을 초기화하시겠습니까?</string>
     <string name="dialog_message_self_diagnosis_reset">남아있는 자가진단 결과 데이터가 모두 삭제되고 다시 복구할 수 없습니다. 정말 초기화하시겠습니까?</string>
     <string name="dialog_title_account_reset">계정을 초기화하시겠습니까?</string>
-    <string name="dialog_message_account_reset">CDATA[입력하신 사용자 정보가 모두 삭제되고 다시 복구할 수 없습니다. 삭제가 완료되면 어플 초기 화면으로 돌아갑니다. 정말 초기화하시겠습니까?</string>
+    <string name="dialog_message_account_reset">입력하신 사용자 정보가 모두 삭제되고 다시 복구할 수 없습니다. 삭제가 완료되면 어플 초기 화면으로 돌아갑니다. 정말 초기화하시겠습니까?</string>
+
+    <string name="health_safe">안전</string>
+    <string name="health_warning">보통</string>
+    <string name="health_danger">위험</string>
 </resources>
