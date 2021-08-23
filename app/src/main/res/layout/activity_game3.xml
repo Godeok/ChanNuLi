@@ -31,15 +31,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/view_game_level"
-                android:paddingHorizontal="25dp"
-                android:paddingVertical="3dp"
+                android:paddingHorizontal="@dimen/game_notice_paddingHorizontal"
+                android:paddingVertical="@dimen/game_notice_paddingVertical"
                 android:text="@string/game_leftAttempts"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 android:textColor="@color/whiteColor" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_height="@dimen/game_3_info_layout_height"
                 android:orientation="horizontal">
 
                 <TextView
@@ -48,7 +48,7 @@
                     android:layout_height="match_parent"
                     android:gravity="right|center_vertical"
                     android:layout_gravity="center"
-                    android:text="100"
+                    android:text="20"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/defaultTextColor"
                     android:textStyle="bold" />
@@ -61,7 +61,7 @@
                     android:text="회"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/defaultTextColor"
-                    android:textSize="40dp"
+                    android:textSize="@dimen/game_3_info_textView_unit"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -81,14 +81,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/view_game_level"
-                android:paddingHorizontal="25dp"
-                android:paddingVertical="3dp"
+                android:paddingHorizontal="@dimen/game_notice_paddingHorizontal"
+                android:paddingVertical="@dimen/game_notice_paddingVertical"
                 android:text="@string/game_difficulty"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 android:textColor="@color/whiteColor" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_height="@dimen/game_3_info_layout_height"
                 android:orientation="horizontal">
 
                 <TextView
@@ -110,7 +111,7 @@
                     android:text="점"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display3"
                     android:textColor="@color/defaultTextColor"
-                    android:textSize="40dp"
+                    android:textSize="@dimen/game_3_info_textView_unit"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -174,33 +175,33 @@
 
             <ImageView
                 android:id="@+id/card21"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card22"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card23"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card24"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
@@ -216,33 +217,33 @@
 
             <ImageView
                 android:id="@+id/card17"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card18"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card19"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card20"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
@@ -256,33 +257,33 @@
 
             <ImageView
                 android:id="@+id/card1"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card2"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card3"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card4"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
         </LinearLayout>
@@ -295,33 +296,33 @@
 
             <ImageView
                 android:id="@+id/card5"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card6"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card7"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card8"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
         </LinearLayout>
@@ -334,33 +335,33 @@
 
             <ImageView
                 android:id="@+id/card9"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card10"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card11"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card12"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
         </LinearLayout>
@@ -373,33 +374,33 @@
 
             <ImageView
                 android:id="@+id/card13"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card14"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card15"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 
             <ImageView
                 android:id="@+id/card16"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/game_3_imageView_width_0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/game_3_imageView_margin"
                 android:layout_weight="1"
                 android:adjustViewBounds="true" />
 

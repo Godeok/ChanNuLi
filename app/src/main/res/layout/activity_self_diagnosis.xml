@@ -15,8 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_weight="0"
         android:text="자가진단 문항 번호"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="@dimen/self_diagnosis_layout_margin"
         android:textColor="@color/midLightTextColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,13 +25,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
 
         <kr.co.healthcare.selfDiagnosis.CTextView
             android:id="@+id/tv_question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/self_diagnosis_layout_margin"
             android:text="자가진단 문항 내용"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/defaultTextColor"
@@ -42,16 +44,10 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    출처: https://zluoy.tistory.com/28 [Eunjiiiii]
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         android:orientation="horizontal"
         android:gravity="bottom">
 
@@ -60,10 +56,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="5dp"
-
+            android:layout_margin="@dimen/self_diagnosis_button_margin"
             app:cardBackgroundColor="@color/whiteColor"
-            app:cardCornerRadius="20dp"
+            app:cardCornerRadius="@dimen/self_diagnosis_button_radius"
             app:cardElevation="0dp">
 
             <LinearLayout
@@ -71,12 +66,12 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:layout_marginVertical="50dp">
+                android:layout_marginVertical="@dimen/self_diagnosis_button_marginVertical">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_width="@dimen/self_diagnosis_button_imageView_width_height"
+                    android:layout_height="@dimen/self_diagnosis_button_imageView_width_height"
+                    android:layout_marginBottom="@dimen/self_diagnosis_button_imageView_marginBottom"
                     android:src="@drawable/ic_baseline_check_24"
                     app:tint="@color/primaryColor" />
 
@@ -96,10 +91,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="5dp"
-
+            android:layout_margin="@dimen/self_diagnosis_button_margin"
             app:cardBackgroundColor="@color/whiteColor"
-            app:cardCornerRadius="20dp"
+            app:cardCornerRadius="@dimen/self_diagnosis_button_radius"
             app:cardElevation="0dp">
 
             <LinearLayout
@@ -107,14 +101,14 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:layout_marginVertical="50dp">
+                android:layout_marginVertical="@dimen/self_diagnosis_button_marginVertical">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/self_diagnosis_button_imageView_width_height"
+                    android:layout_height="@dimen/self_diagnosis_button_imageView_width_height"
                     android:src="@drawable/ic_baseline_close_24"
                     app:tint="@color/redColor"
-                    android:layout_marginBottom="5dp"/>
+                    android:layout_marginBottom="@dimen/self_diagnosis_button_imageView_marginBottom"/>
 
                 <TextView
                     android:layout_width="match_parent"

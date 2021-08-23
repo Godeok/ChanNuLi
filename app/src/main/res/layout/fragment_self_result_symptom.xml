@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/self_result_symptom_layout_margin"
         android:paddingVertical="10dp"
         android:entries="@array/DISEASES_LABEL"
         android:spinnerMode="dialog"
@@ -30,7 +30,7 @@
                 android:id="@+id/rv_self_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="@dimen/self_result_symptom_layout_margin"
                 tools:listitem="@layout/item_self_diagnosis_result_container" />
 
         </RelativeLayout>

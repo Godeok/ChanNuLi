@@ -32,8 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/view_game_level"
-            android:paddingHorizontal="25dp"
-            android:paddingVertical="3dp"
+            android:paddingHorizontal="@dimen/game_notice_paddingHorizontal"
+            android:paddingVertical="@dimen/game_notice_paddingVertical"
             android:text="@string/game_difficulty"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:textColor="@color/whiteColor" />
@@ -99,62 +99,62 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/game_2_layout_marginTop"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btn_opt1"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/game_2_button_width"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="@dimen/game_2_button_margin"
                     android:layout_weight="1"
                     android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="1"
-                    android:textSize="50dp"/>
+                    android:textSize="@dimen/game_2_button_textSize"/>
 
                 <Button
                     android:id="@+id/btn_opt2"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/game_2_button_width"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="@dimen/game_2_button_margin"
                     android:layout_weight="1"
                     android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="2"
-                    android:textSize="50dp"/>
+                    android:textSize="@dimen/game_2_button_textSize"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/game_2_layout_marginTop"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btn_opt3"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/game_2_button_width"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="@dimen/game_2_button_margin"
                     android:layout_weight="1"
                     android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="3"
-                    android:textSize="50dp"/>
+                    android:textSize="@dimen/game_2_button_textSize"/>
 
                 <Button
                     android:id="@+id/btn_opt4"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/game_2_button_width"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="@dimen/game_2_button_margin"
                     android:layout_weight="1"
                     android:fontFamily="@font/fontblackboard"
                     android:background="@drawable/btn_game2"
                     android:text="4"
-                    android:textSize="50dp"/>
+                    android:textSize="@dimen/game_2_button_textSize"/>
 
             </LinearLayout>
 

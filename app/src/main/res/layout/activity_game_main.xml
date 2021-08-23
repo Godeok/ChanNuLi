@@ -55,17 +55,17 @@
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
-                            android:layout_marginBottom="20dp"
+                            android:layout_marginBottom="@dimen/game_main_textView_marginBottom"
                             android:text="@string/game_main_game1"
                             android:textColor="#F1F8E9"
-                            android:textSize="32dp"
+                            android:textSize="@dimen/game_main_textView_size"
                             android:textStyle="bold" />
 
                         <Button
                             android:id="@+id/btn_toast1"
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
                             android:elevation="0dp"
@@ -73,7 +73,7 @@
                             android:textStyle="bold"
                             android:onClick="OnClickHandler"
                             android:textColor="#689F38"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -85,13 +85,13 @@
                             android:id="@+id/btn_to_game1_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
-                            android:elevation="0dp"
+                            android:elevation="@dimen/game_main_button_elevation"
                             android:text="@string/game_main_lv1"
                             android:textColor="#689F38"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
 
                         <Button
                             android:id="@+id/btn_to_game1_lv2"
@@ -101,7 +101,7 @@
                             android:background="@drawable/btn_game_menu"
                             android:text="@string/game_main_lv2"
                             android:textColor="#689F38"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
 
                         <Button
                             android:id="@+id/btn_to_game1_lv3"
@@ -112,7 +112,7 @@
                             android:background="@drawable/btn_game_menu"
                             android:text="@string/game_main_lv3"
                             android:textColor="#689F38"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -145,17 +145,17 @@
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
-                            android:layout_marginBottom="20dp"
+                            android:layout_marginBottom="@dimen/game_main_textView_marginBottom"
                             android:text="@string/game_main_game2"
                             android:textColor="#F1F8E9"
-                            android:textSize="32dp"
+                            android:textSize="@dimen/game_main_textView_size"
                             android:textStyle="bold" />
 
                         <Button
                             android:id="@+id/btn_toast2"
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
                             android:elevation="0dp"
@@ -163,12 +163,8 @@
                             android:textStyle="bold"
                             android:onClick="OnClickHandler"
                             android:textColor="#689F38"
-                            android:textSize="16dp" />
-
-
+                            android:textSize="@dimen/game_main_button_size"/>
                     </LinearLayout>
-
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -179,13 +175,13 @@
                             android:id="@+id/btn_to_game2_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
                             android:elevation="0dp"
                             android:text="@string/game_main_lv1"
                             android:textColor="#4CAF50"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
 
                         <Button
                             android:id="@+id/btn_to_game2_lv2"
@@ -195,7 +191,7 @@
                             android:background="@drawable/btn_game_menu"
                             android:text="@string/game_main_lv2"
                             android:textColor="#4CAF50"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
 
                         <Button
                             android:id="@+id/btn_to_game2_lv3"
@@ -206,7 +202,7 @@
                             android:background="@drawable/btn_game_menu"
                             android:text="@string/game_main_lv3"
                             android:textColor="#4CAF50"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -239,17 +235,17 @@
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
                             android:layout_weight="4"
-                            android:layout_marginBottom="20dp"
+                            android:layout_marginBottom="@dimen/game_main_textView_marginBottom"
                             android:text="@string/game_main_game3"
                             android:textColor="#F1F8E9"
-                            android:textSize="32dp"
+                            android:textSize="@dimen/game_main_textView_size"
                             android:textStyle="bold" />
 
                         <Button
                             android:id="@+id/btn_toast3"
                             android:layout_width="0px"
                             android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
                             android:background="@drawable/btn_game_menu"
                             android:elevation="0dp"
@@ -257,6 +253,7 @@
                             android:textStyle="bold"
                             android:onClick="OnClickHandler"
                             android:textColor="#689F38"
+                            android:textSize="@dimen/game_main_button_size"/>
                             android:textSize="16dp" />
                     </LinearLayout>
 
@@ -274,7 +271,7 @@
                             android:background="@drawable/btn_game_menu"
                             android:text="@string/game_main_start"
                             android:textColor="#009688"
-                            android:textSize="16dp" />
+                            android:textSize="@dimen/game_main_button_size"/>
                     </LinearLayout>
 
                 </LinearLayout>

@@ -25,4 +25,36 @@
 
     <dimen name="view_game_process_size">35dp</dimen>
 
+    <!-- 게임 -->
+    <dimen name="game_main_textView_size">32dp</dimen>
+    <dimen name="game_main_textView_marginBottom">20dp</dimen>
+    <dimen name="game_main_button_size">16dp</dimen>
+    <dimen name="game_main_button_marginEnd">5dp</dimen>
+    <dimen name="game_main_button_elevation">0dp</dimen>
+
+    <dimen name="game_notice_paddingHorizontal">25dp</dimen>
+    <dimen name="game_notice_paddingVertical">3dp</dimen>
+
+    <dimen name="game_1_image_margin">3dp</dimen>
+    <dimen name="game_1_try_margin">2dp</dimen>
+    <dimen name="game_2_layout_marginTop">10dp</dimen>
+    <dimen name="game_2_button_margin">5dp</dimen>
+    <dimen name="game_2_button_width">0dp</dimen>
+    <dimen name="game_2_button_textSize">50dp</dimen>
+    <dimen name="game_3_info_layout_height">70dp</dimen>
+    <dimen name="game_3_info_textView_unit">40dp</dimen>
+    <dimen name="game_3_imageView_width_0dp">0dp</dimen>
+    <dimen name="game_3_imageView_margin">10dp</dimen>
+
+    <dimen name="game_result_star_width_height">12dp</dimen>
+
+    <!-- 자가진단 -->
+    <dimen name="self_diagnosis_layout_margin">10dp</dimen>
+    <dimen name="self_diagnosis_button_margin">5dp</dimen>
+    <dimen name="self_diagnosis_button_radius">20dp</dimen>
+    <dimen name="self_diagnosis_button_marginVertical">50dp</dimen>
+    <dimen name="self_diagnosis_button_imageView_width_height">80dp</dimen>
+    <dimen name="self_diagnosis_button_imageView_marginBottom">5dp</dimen>
+    <dimen name="self_result_symptom_layout_margin">20dp</dimen>
+
 </resources>

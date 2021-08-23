@@ -79,22 +79,22 @@
 
                         <ImageView
                             android:id="@+id/img_star_1"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="@dimen/game_result_star_width_height"
+                            android:layout_height="@dimen/game_result_star_width_height"
                             android:layout_weight="1"
                             app:srcCompat="@drawable/img_star" />
 
                         <ImageView
                             android:id="@+id/img_star_2"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="@dimen/game_result_star_width_height"
+                            android:layout_height="@dimen/game_result_star_width_height"
                             android:layout_weight="1"
                             app:srcCompat="@drawable/img_star"/>
 
                         <ImageView
                             android:id="@+id/img_star_3"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
+                            android:layout_width="@dimen/game_result_star_width_height"
+                            android:layout_height="@dimen/game_result_star_width_height"
                             android:layout_weight="1"
                             app:srcCompat="@drawable/img_star"/>
                     </LinearLayout>
