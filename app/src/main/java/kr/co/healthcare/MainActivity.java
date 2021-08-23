@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
     //게임
     public void showGame(View view) {
-        intent = new Intent(getApplicationContext(), GameMainActivity.class);
+        intent = new Intent(getApplicationContext(), WebActivity.class);
         startActivity(intent);
     }
 

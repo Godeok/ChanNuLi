@@ -11,12 +11,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".mypage.EditUserInfoActivity"
             android:exported="true"
             android:label="@string/title_activity_edit_userinfo"
-            android:parentActivityName=".mypage.MypageActivity"/>
+            android:parentActivityName=".mypage.MypageActivity" />
         <activity
             android:name=".mypage.AppDescriptionActivity"
             android:exported="true"
@@ -78,8 +79,7 @@
             android:theme="@style/Theme.Design.NoActionBar" />
         <activity
             android:name=".selfDiagnosis.SelfResultActivity"
-            android:parentActivityName=".selfDiagnosis.SelfMainActivity"/>
-        <!-- 게임 -->
+            android:parentActivityName=".selfDiagnosis.SelfMainActivity" /> <!-- 게임 -->
         <activity
             android:name=".game.GameMainActivity"
             android:label="@string/title_activity_game"
@@ -104,6 +104,9 @@
             android:noHistory="true"
             android:parentActivityName=".game.GameMainActivity"
             android:theme="@style/Theme.Design.NoActionBar" />
+
+
+        <activity android:name=".WebActivity"></activity>
     </application>
 
 </manifest>
