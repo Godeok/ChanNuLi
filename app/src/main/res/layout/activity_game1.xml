@@ -21,7 +21,7 @@
             android:paddingHorizontal="25dp"
             android:paddingVertical="3dp"
             android:background="@drawable/view_game_level"
-            android:text="난이도"
+            android:text="@string/game_difficulty"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
             android:textColor="@color/whiteColor"/>
 

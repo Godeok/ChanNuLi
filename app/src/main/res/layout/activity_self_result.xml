@@ -15,12 +15,12 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="날짜순"/>
+            android:text="@string/self_diagnosis_resultByDate"/>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="질병별"/>
+            android:text="@string/self_diagnosis_resultBySymptom"/>
 
     </com.google.android.material.tabs.TabLayout>
 

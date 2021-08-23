@@ -25,7 +25,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="#AEF8F8F8"
                 android:padding="20dp"
-                android:text="@string/self_diagnosise_xplain"
+                android:text="@string/self_diagnosis_explain"
                 android:textColor="#050B35"
                 android:textSize="18dp" />
 
@@ -48,7 +48,7 @@
                     android:id="@+id/btn_chkDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="결과 확인" />
+                    android:text="@string/self_diagnosis_chkResult" />
             </LinearLayout>
 
             <ScrollView
