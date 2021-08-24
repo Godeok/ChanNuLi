@@ -16,6 +16,7 @@
     <color name="dividerColor">#F2F2F2</color>
 
     <!-- 기타 색상 -->
+    <color name="transparent">#00FFFFFF</color>
     <color name="defaultColor">#FBFBFB</color>
     <color name="defaultDarkColor">#222222</color>
     <color name="disableColor">#F1F1F1</color>

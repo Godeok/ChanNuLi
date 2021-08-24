@@ -10,6 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Calendar;
+
 import kr.co.healthcare.R;
 import kr.co.healthcare.database.UserViewModel;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
@@ -17,6 +21,8 @@ import kr.co.healthcare.preference.UserInfoPreferenceManger;
 public class EditUserInfoActivity extends AppCompatActivity {
     private UserViewModel viewModel;
 
+    private TextInputLayout nameInputLayout;
+    private TextInputLayout yearInputLayout;
     private EditText nameEditText;
     private EditText ageEditText;
     private ImageButton manBtn;
@@ -30,6 +36,8 @@ public class EditUserInfoActivity extends AppCompatActivity {
 
         viewModel = UserViewModel.getINSTANCE();
 
+        nameInputLayout = findViewById(R.id.nameTextInputLayout);
+        yearInputLayout = findViewById(R.id.yearTextInputLayout);
         nameEditText = findViewById(R.id.editTextTextPersonName);
         ageEditText = findViewById(R.id.editTextTextYear);
         manBtn = findViewById(R.id.manBtn);
@@ -79,17 +87,29 @@ public class EditUserInfoActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                button.setEnabled(checkNameValidation(nameEditText));
+                button.setEnabled(checkNameValidation(nameEditText.getText().toString()));
             }
 
             @Override
-            public void afterTextChanged(Editable editable) {
+            public void afterTextChanged(Editable s) {
             }
         });
     }
 
-    boolean checkNameValidation(EditText editText){
-        return !editText.getText().toString().equals("") && editText.getText().length() <= 5;
+    boolean checkNameValidation(String name){
+        if (name.matches("^.*[!@#$%^&*(),.?\":{}|<>]+.*$")) {
+            nameInputLayout.setError("특수 문자는 사용할 수 없습니다.");
+            return false;
+        }else if(name.length() == 0) {
+            nameInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
+            return false;
+        }else if(name.length() > 5){
+            nameInputLayout.setError("최대 글자 수를 초과했습니다.");
+            return false;
+        } else {
+            nameInputLayout.setError(null);
+            return true;
+        }
     }
 
     //성별
@@ -142,8 +162,20 @@ public class EditUserInfoActivity extends AppCompatActivity {
         });
     }
 
-    boolean checkAgeValidation(String year){
-        String regExp = "^[0-9]+$";
-        return year.matches(regExp);
+    boolean checkAgeValidation(String text){
+        if(text.length() == 0) {
+            yearInputLayout.setError("최소 1글자 이상 입력해야 합니다.");
+            return false;
+        }else if(!isYearDateBeforeThisYear(text)){
+            yearInputLayout.setError("생년은 올해보다 이전이어야 합니다.");
+            return false;
+        } else {
+            yearInputLayout.setError(null);
+            return true;
+        }
+    }
+
+    boolean isYearDateBeforeThisYear(String input){
+        return Integer.parseInt(input) < Calendar.getInstance().get(Calendar.YEAR);
     }
 }
