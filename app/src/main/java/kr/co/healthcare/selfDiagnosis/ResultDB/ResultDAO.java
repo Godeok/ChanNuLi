@@ -39,6 +39,9 @@ public interface ResultDAO {
 
 
     //개수 반환 쿼리
+    @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num")
+    int countDisease(int num);
+
     @Query("SELECT COUNT(*) FROM Result_table WHERE Result_DISEASE=:num AND Result_COUNT<=:safeRange")
     int countDiseaseSafe(int num, int safeRange);
 
