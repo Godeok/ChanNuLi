@@ -56,5 +56,6 @@
     <dimen name="self_diagnosis_button_imageView_width_height">80dp</dimen>
     <dimen name="self_diagnosis_button_imageView_marginBottom">5dp</dimen>
     <dimen name="self_result_symptom_layout_margin">20dp</dimen>
+    <dimen name="self_result_notice_textSize">30dp</dimen>
 
 </resources>

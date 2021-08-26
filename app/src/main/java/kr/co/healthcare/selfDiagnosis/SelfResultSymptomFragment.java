@@ -3,6 +3,7 @@ package kr.co.healthcare.selfDiagnosis;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -31,6 +33,9 @@ public class SelfResultSymptomFragment extends Fragment {
     private RecyclerAdapter recyclerAdapter;
     private List<Result> results;
 
+    ConstraintLayout layout_notice;
+    ScrollView scrollView;
+
     //질병 번호
     static int num;
 
@@ -44,6 +49,8 @@ public class SelfResultSymptomFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_self_result_symptom, container, false);
 
+        layout_notice = v.findViewById(R.id.layout_notice);
+        scrollView = v.findViewById(R.id.scrollView_self_symptom);
         recyclerView = v.findViewById(R.id.rv_self_result);
         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         Spinner spinner = v.findViewById(R.id.spinner_self);
@@ -63,6 +70,9 @@ public class SelfResultSymptomFragment extends Fragment {
                 num = return_disease_num(parent.getItemAtPosition(position).toString());
                 check_query(num);
                 int size = results.size();
+
+                setVisibility(size);
+
                 for (int i=0; i<size; i++)
                     recyclerAdapter.addItem(results.get(i));
 
@@ -94,5 +104,16 @@ public class SelfResultSymptomFragment extends Fragment {
         ResultDAO dao = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO();
         if(number>=0 || number<=6) results = dao.getAllByDisease(number);
         else results = dao.getAllByDate();
+    }
+
+    void setVisibility(int size){
+        if(size==0){
+            scrollView.setVisibility(View.GONE);
+            layout_notice.setVisibility(View.VISIBLE);
+        }
+        else{
+            scrollView.setVisibility(View.VISIBLE);
+            layout_notice.setVisibility(View.GONE);
+        }
     }
 }
