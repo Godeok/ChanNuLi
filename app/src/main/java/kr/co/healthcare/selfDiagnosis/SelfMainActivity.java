@@ -24,7 +24,7 @@ public class SelfMainActivity extends AppCompatActivity {
     ArrayList<SelfMainData> dataList;           //
     public List<Questions> questionsList;       //
 
-    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
+    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통", "당뇨병", "골다공증", "치매"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

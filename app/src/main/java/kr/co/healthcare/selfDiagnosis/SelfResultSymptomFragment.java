@@ -92,7 +92,7 @@ public class SelfResultSymptomFragment extends Fragment {
 
     //질병명 입력하면 숫자로 반환해주는 함수
     int return_disease_num(String string) {
-        String[] disName = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
+        String[] disName = {"고혈압", "골관절염", "고지혈증", "요통", "당뇨병", "골다공증", "치매"};
         for(int i=0; i<7; i++)
             if(string.equals(disName[i]))
                 return i;
