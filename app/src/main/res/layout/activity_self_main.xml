@@ -41,14 +41,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textSize="20dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/midLightTextColor"
                     android:text="종류" />
 
                 <Button
                     android:id="@+id/btn_chkDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/self_diagnosis_chkResult" />
+                    android:text="@string/self_diagnosis_chkResult"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                    android:textStyle="bold"/>
             </LinearLayout>
 
             <ScrollView

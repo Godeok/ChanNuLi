@@ -10,12 +10,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_margin="4dp"
         android:layout_marginBottom="12dp"
 
-        app:cardBackgroundColor="#F1F8E9"
+        app:cardBackgroundColor="@color/defaultColor"
         app:cardCornerRadius="20dp"
-        app:cardElevation="5dp"
+        app:cardElevation="0dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -35,8 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
                 android:text="질병명"
-                android:textColor="#474747"
-                android:textSize="20dp"
+                android:textColor="@color/defaultTextColor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textStyle="bold" />
 
             <TextView
@@ -44,8 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="문항 수"
-                android:textColor="#777777"
-                android:textSize="14dp" />
+                android:textColor="@color/midLightTextColor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

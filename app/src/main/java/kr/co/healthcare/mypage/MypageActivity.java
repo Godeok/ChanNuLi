@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.chip.Chip;
@@ -22,6 +21,7 @@ import java.util.Calendar;
 import kr.co.healthcare.database.UserViewModel;
 import kr.co.healthcare.mypage.gamehistory.GameScore;
 import kr.co.healthcare.R;
+import kr.co.healthcare.mypage.selfdiagnosishistory.SectionsPagerAdapter;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
 
 public class MypageActivity extends AppCompatActivity {
@@ -52,7 +52,6 @@ public class MypageActivity extends AppCompatActivity {
         setGameBestScore();
 
         viewPager.setAdapter(sectionsPagerAdapter);
-        viewPager.setPageTransformer(new DepthPageTransformer());
 
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> tab.setText(sectionsPagerAdapter.getTabTitle(position))).attach();

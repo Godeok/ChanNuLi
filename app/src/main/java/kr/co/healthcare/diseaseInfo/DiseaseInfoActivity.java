@@ -41,30 +41,6 @@ public class DiseaseInfoActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_disease_info, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.reference) {
-            AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
-            alBuilder.setMessage("출처: 서울 아산 병원");
-
-            alBuilder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    return;
-                }
-            });
-            alBuilder.show();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     //선택한 질병 정보 초기화
     private void initDiseaseInfo() {
         Intent intent = getIntent();

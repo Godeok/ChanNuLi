@@ -17,7 +17,7 @@
 
     <!-- 기타 색상 -->
     <color name="transparent">#00FFFFFF</color>
-    <color name="defaultColor">#FBFBFB</color>
+    <color name="defaultColor">#F6F8FA</color>
     <color name="defaultDarkColor">#222222</color>
     <color name="disableColor">#F1F1F1</color>
     <color name="whiteColor">#FFFFFF</color>
