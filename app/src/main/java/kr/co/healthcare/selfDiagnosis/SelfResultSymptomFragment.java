@@ -1,5 +1,6 @@
 package kr.co.healthcare.selfDiagnosis;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -12,13 +13,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.healthcare.R;
+import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
 import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 import kr.co.healthcare.selfDiagnosis.ResultDB.ResultDAO;
 import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
@@ -35,6 +40,9 @@ public class SelfResultSymptomFragment extends Fragment {
 
     ConstraintLayout layout_notice;
     ScrollView scrollView;
+    Button btn_go_to;
+
+    //연결 코드
 
     //질병 번호
     static int num;
@@ -106,12 +114,13 @@ public class SelfResultSymptomFragment extends Fragment {
         else results = dao.getAllByDate();
     }
 
-    void setVisibility(int size){
-        if(size==0){
+    void setVisibility(int size) {
+        if (size == 0) {
             scrollView.setVisibility(View.GONE);
             layout_notice.setVisibility(View.VISIBLE);
-        }
-        else{
+
+            btn_go_to.findViewById(R.id.btn_go_to);
+        } else {
             scrollView.setVisibility(View.VISIBLE);
             layout_notice.setVisibility(View.GONE);
         }
