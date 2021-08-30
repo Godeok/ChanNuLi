@@ -24,6 +24,7 @@ import java.util.List;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.LoadDbClass;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
@@ -99,9 +100,8 @@ public class SelfResultSymptomFragment extends Fragment {
             }
         });
 
-        //자가진단 페이지 연결
-        InitializeData();
-
+        //검사 결과 없을 시 자가진단 페이지 연결
+        dataList = LoadDbClass.InitializeData(getActivity().getApplicationContext());
         btn_go_to.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +114,6 @@ public class SelfResultSymptomFragment extends Fragment {
 
         return v;
     }
-
 
     //질병명 입력하면 숫자로 반환해주는 함수
     int return_disease_num(String string) {
@@ -140,22 +139,5 @@ public class SelfResultSymptomFragment extends Fragment {
             scrollView.setVisibility(View.VISIBLE);
             layout_notice.setVisibility(View.GONE);
         }
-    }
-
-    public void InitializeData(){
-        dataList = new ArrayList<>();
-        for (int i=0; i<7; i++) {
-            initLoadDB(i);
-            //dataList에 질병 id, 질병명, 자가진단 문항 수(질문 개수) 저장
-            dataList.add(new SelfMainData(i, disease_list[i], questionsList.size()));
-        }
-    }
-
-    private void initLoadDB(int n){
-        QuesDataAdapter mDBHelper = new QuesDataAdapter(getActivity().getApplicationContext());
-        mDBHelper.createDatabase();
-        mDBHelper.open();
-        questionsList = mDBHelper.getTableData(n);
-        mDBHelper.close();
     }
 }
