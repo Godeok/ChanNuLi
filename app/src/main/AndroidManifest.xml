@@ -76,7 +76,7 @@
         <activity
             android:name=".selfDiagnosis.SelfShowResult"
             android:noHistory="true"
-            android:theme="@style/Theme.Design.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".selfDiagnosis.SelfResultActivity"
             android:parentActivityName=".selfDiagnosis.SelfMainActivity" /> <!-- 게임 -->

@@ -19,6 +19,7 @@
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_round_selected.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_square_not_selected.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_square_selected.xml" value="0.36666666666666664" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_square_unchecked.xml" value="0.28802083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/progressbar_diagnosis_history.xml" value="0.25416666666666665" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_diagnosis_selected.xml" value="0.3776041666666667" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_diagnosis_unselected.xml" value="0.38229166666666664" />
@@ -37,6 +38,7 @@
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_self_diagnosis.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_self_main.xml" value="0.25" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_self_result.xml" value="0.36614583333333334" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_self_show_result.xml" value="0.27291666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_tutorial_main.xml" value="0.5" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_web.xml" value="0.26132246376811596" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_diagnosis_history.xml" value="0.36614583333333334" />
