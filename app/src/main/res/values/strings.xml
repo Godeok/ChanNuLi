@@ -17,8 +17,8 @@
     <string name="btn_text_main_disease_info">질병정보</string>
     <string name="btn_text_main_game">건강게임</string>
 
-    <string name="health_info_tab_text_1">자기관리/운동법</string>
-    <string name="health_info_tab_text_2">식이요법</string>
+    <string name="health_info_tab_text_1">정보 검색</string>
+    <string name="health_info_tab_text_2">영상</string>
 
     <string name="disease_info_tab_text_1">정의</string>
     <string name="disease_info_tab_text_2">원인</string>

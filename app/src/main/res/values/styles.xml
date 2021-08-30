@@ -98,6 +98,19 @@
         <item name="chipMinTouchTargetSize">43dp</item>
     </style>
 
+    <!-- mypage 화면 chip 테마 -->
+    <style name="AppTheme.SearchKeywordChip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/transparent</item>
+        <item name="chipStrokeColor">@color/midLightTextColor</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="colorAccent">@color/redColor</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/midDarkTextColor</item>
+        <item name="chipMinTouchTargetSize">48dp</item>
+        <item name="chipMinHeight">38dp</item>
+    </style>
+
+
     <!-- reset dialog 테마 -->
     <style name="AppTheme.ResetDialog" parent="Theme.AppCompat.Dialog">
         <item name="android:textColor">@color/defaultDarkColor</item>

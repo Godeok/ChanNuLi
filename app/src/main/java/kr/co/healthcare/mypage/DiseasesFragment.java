@@ -42,7 +42,7 @@ public class DiseasesFragment extends Fragment {
             assert diseases != null;
             diseases.forEach(diseaseName -> {
                 final Chip chip = (Chip) this.getLayoutInflater().inflate(
-                        R.layout.item_chip, chipGroup, false);
+                        R.layout.item_chip_disease, chipGroup, false);
                 chip.setText(diseaseName);
                 chipGroup.addView(chip);
             });

@@ -9,4 +9,13 @@
         <item>골다공증</item>
         <item>치매</item>
     </string-array>
+
+    <string-array name="SEARCH_KEYWORD_LABEL">
+        <item>자기관리</item>
+        <item>식이요법</item>
+        <item>키워드2</item>
+        <item>또 다른 키워드</item>
+        <item>이번에는 또 새로운 키워드</item>
+        <item>아싸 키워드</item>
+    </string-array>
 </resources>

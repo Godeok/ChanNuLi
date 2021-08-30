@@ -52,8 +52,8 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     public void addFragment(){
         fragments = new ArrayList<>();
+        fragments.add(new Search());
         fragments.add(new Exercise());
-        fragments.add(new Diet());
     }
 
 }
