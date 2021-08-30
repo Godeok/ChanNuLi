@@ -1,5 +1,6 @@
 package kr.co.healthcare.selfDiagnosis;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import java.util.List;
 import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 import kr.co.healthcare.selfDiagnosis.ResultDB.ResultDAO;
 import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
@@ -43,6 +45,9 @@ public class SelfResultSymptomFragment extends Fragment {
     Button btn_go_to;
 
     //연결 코드
+    ArrayList<SelfMainData> dataList = new ArrayList<>();;
+    public List<Questions> questionsList;
+    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통", "당뇨병", "골다공증", "치매"};
 
     //질병 번호
     static int num;
@@ -62,10 +67,10 @@ public class SelfResultSymptomFragment extends Fragment {
         recyclerView = v.findViewById(R.id.rv_self_result);
         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         Spinner spinner = v.findViewById(R.id.spinner_self);
+        btn_go_to = v.findViewById(R.id.btn_go_to);
 
         //스피너
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //스피너 글자 색 변경
@@ -94,6 +99,19 @@ public class SelfResultSymptomFragment extends Fragment {
             }
         });
 
+        //자가진단 페이지 연결
+        InitializeData();
+
+        btn_go_to.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity().getApplicationContext(), SelfDiagnosisActivity.class);
+                intent.putExtra("str", dataList.get(num).getDisease_name());
+                intent.putExtra("disease_num", dataList.get(num).getID());
+                startActivity(intent);
+            }
+        });
+
         return v;
     }
 
@@ -118,11 +136,26 @@ public class SelfResultSymptomFragment extends Fragment {
         if (size == 0) {
             scrollView.setVisibility(View.GONE);
             layout_notice.setVisibility(View.VISIBLE);
-
-            btn_go_to.findViewById(R.id.btn_go_to);
         } else {
             scrollView.setVisibility(View.VISIBLE);
             layout_notice.setVisibility(View.GONE);
         }
+    }
+
+    public void InitializeData(){
+        dataList = new ArrayList<>();
+        for (int i=0; i<7; i++) {
+            initLoadDB(i);
+            //dataList에 질병 id, 질병명, 자가진단 문항 수(질문 개수) 저장
+            dataList.add(new SelfMainData(i, disease_list[i], questionsList.size()));
+        }
+    }
+
+    private void initLoadDB(int n){
+        QuesDataAdapter mDBHelper = new QuesDataAdapter(getActivity().getApplicationContext());
+        mDBHelper.createDatabase();
+        mDBHelper.open();
+        questionsList = mDBHelper.getTableData(n);
+        mDBHelper.close();
     }
 }
