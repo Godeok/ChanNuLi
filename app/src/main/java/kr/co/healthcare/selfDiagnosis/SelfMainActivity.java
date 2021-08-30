@@ -8,15 +8,12 @@ import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainAdapter;
 import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.LoadDbClass;
-import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
-import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class SelfMainActivity extends AppCompatActivity {

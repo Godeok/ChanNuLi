@@ -1,8 +1,6 @@
 package kr.co.healthcare.selfDiagnosis;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -17,7 +15,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +22,6 @@ import java.util.List;
 import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.LoadDbClass;
-import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
-import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 import kr.co.healthcare.selfDiagnosis.ResultDB.Result;
 import kr.co.healthcare.selfDiagnosis.ResultDB.ResultDAO;
 import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
@@ -46,9 +41,7 @@ public class SelfResultSymptomFragment extends Fragment {
     Button btn_go_to;
 
     //연결 코드
-    ArrayList<SelfMainData> dataList = new ArrayList<>();;
-    public List<Questions> questionsList;
-    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통", "당뇨병", "골다공증", "치매"};
+    ArrayList<SelfMainData> dataList = new ArrayList<>();
 
     //질병 번호
     static int num;

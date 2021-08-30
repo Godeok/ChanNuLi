@@ -13,7 +13,6 @@ import androidx.cardview.widget.CardView;
 import java.util.List;
 import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.LoadDbClass;
-import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 
 
