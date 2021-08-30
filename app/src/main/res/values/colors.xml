@@ -26,4 +26,5 @@
     <color name="greenColor">#327134</color>
     <color name="grayColor">#979797</color>
     <color name="transparentColor">#00FFFFFF</color>
+    <color name="darkTintColor">#A6A6A6</color>
 </resources>

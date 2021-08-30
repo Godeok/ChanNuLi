@@ -45,11 +45,11 @@ public class EditDiseaseActivity extends AppCompatActivity {
     }
 
     private void setCheckbox(){
-        ArrayList<String> diseases = loadCheckedDisease();
+        ArrayList<String> diseases = viewModel.getUserDiseases(this).getValue();
         final LinearLayout linearLayout = findViewById(R.id.linearLayout);
 
         for (String tagName : tagNames) {
-            final CheckBox checkBox = (CheckBox) this.getLayoutInflater()
+            final CheckBox checkBox = (CheckBox) getLayoutInflater()
                     .inflate(R.layout.item_checkbox, linearLayout, false);
 
             checkBox.setText(tagName);
@@ -57,10 +57,6 @@ public class EditDiseaseActivity extends AppCompatActivity {
             checkBoxes.add(checkBox);
             linearLayout.addView(checkBox);
         }
-    }
-
-    private ArrayList<String> loadCheckedDisease(){
-        return viewModel.getUserDiseases(this).getValue();
     }
 
     private void saveCheckedDisease(){

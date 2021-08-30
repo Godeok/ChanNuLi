@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재 앓고 있는 질병은"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/defaultTextColor" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/CHIPGROUP_diseases"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="입니다."
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/defaultTextColor" />
+</LinearLayout>

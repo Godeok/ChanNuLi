@@ -6,7 +6,7 @@
             <solid android:color="@color/disableColor" />
         </shape>
     </item>
-    <item>
+    <item android:id="@+id/progressbar_line">
         <clip>
             <shape>
                 <corners android:radius="20dp" />

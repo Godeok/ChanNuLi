@@ -26,10 +26,10 @@
     <dimen name="view_game_process_size">35dp</dimen>
 
     <!-- 게임 -->
-    <dimen name="game_main_textView_size">32dp</dimen>
+    <dimen name="game_main_textView_size">28dp</dimen>
     <dimen name="game_main_textView_marginBottom">20dp</dimen>
     <dimen name="game_main_button_size">16dp</dimen>
-    <dimen name="game_main_button_marginEnd">5dp</dimen>
+    <dimen name="game_main_button_marginEnd">0dp</dimen>
     <dimen name="game_main_button_elevation">0dp</dimen>
 
     <dimen name="game_notice_paddingHorizontal">25dp</dimen>

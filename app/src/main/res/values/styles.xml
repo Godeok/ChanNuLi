@@ -111,11 +111,11 @@
     </style>
 
     <!-- 체크박스 테마 -->
-    <style name="checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
+    <style name="AppTheme.Checkbox" parent="@style/Widget.AppCompat.CompoundButton.CheckBox">
         <item name="android:colorControlNormal">@color/primaryColor</item>
         <item name="android:colorControlActivated">@color/primaryDarkColor</item>
         <item name="android:colorControlHighlight">@color/primary2Color</item>
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Menu</item>
     </style>
 
     <!-- 자가진단 결과 spinner 테마 -->
@@ -123,5 +123,4 @@
         <item name="android:textColor">@color/defaultTextColor</item>
         <item name="colorBackgroundFloating">@color/whiteColor</item>
     </style>
-
 </resources>

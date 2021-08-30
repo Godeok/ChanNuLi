@@ -124,8 +124,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="10dp"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="0dp"
@@ -138,40 +138,19 @@
                         android:textColor="@color/midLightTextColor" />
 
                     <ImageView
-                        android:src="@drawable/ic_baseline_edit_24"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:adjustViewBounds="true"
-                        app:tint="@color/grayColor"
-                        android:onClick="showEditDiseaseActivity"/>
+                        android:onClick="showEditDiseaseActivity"
+                        android:src="@drawable/ic_baseline_edit_24"
+                        app:tint="@color/grayColor" />
                 </LinearLayout>
 
-                <LinearLayout
+                <FrameLayout
+                    android:id="@+id/diseasesFrameLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="현재 앓고 있는 질병은"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/defaultTextColor" />
-
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/CHIPGROUP_diseases"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginVertical="4dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="입니다."
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        android:textColor="@color/defaultTextColor" />
-
-                </LinearLayout>
+                    android:layout_height="wrap_content">
+                </FrameLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -297,7 +276,7 @@
                                     android:layout_width="200dp"
                                     android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
-                                    app:srcCompat="@drawable/img_mypage_game1_best_score" />
+                                    app:srcCompat="@drawable/img_mypage_game1_main" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -488,7 +467,7 @@
                                     android:layout_width="200dp"
                                     android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
-                                    app:srcCompat="@drawable/img_mypage_game2_best_score" />
+                                    app:srcCompat="@drawable/img_mypage_game2_main" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -678,7 +657,7 @@
                                     android:layout_width="200dp"
                                     android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
-                                    app:srcCompat="@drawable/img_mypage_game3_best_score" />
+                                    app:srcCompat="@drawable/img_mypage_game3_main" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"

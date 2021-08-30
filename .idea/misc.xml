@@ -8,12 +8,18 @@
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable-v24/tab_diagnosis_selector.xml" value="0.38229166666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_do_self_diagnosis.xml" value="0.38229166666666664" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_game_help.xml" value="0.38125" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_game_menu.xml" value="0.38125" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_game_menu_lv1.xml" value="0.38229166666666664" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_game_menu_lv2.xml" value="0.38229166666666664" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_game_menu_lv3.xml" value="0.38229166666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_gender.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_mypage_modify.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_round_not_selected.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_round_selected.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_square_not_selected.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_square_selected.xml" value="0.36666666666666664" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/progressbar_diagnosis_history.xml" value="0.25416666666666665" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_diagnosis_selected.xml" value="0.3776041666666667" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_diagnosis_unselected.xml" value="0.38229166666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_history.xml" value="0.21666666666666667" />
@@ -23,6 +29,7 @@
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_edit_disease.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_edit_name.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_edit_user_info.xml" value="0.35052083333333334" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_game_main.xml" value="0.2" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_health_info.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_init.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_main.xml" value="0.35052083333333334" />
@@ -31,17 +38,23 @@
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_self_main.xml" value="0.25" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_self_result.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_tutorial_main.xml" value="0.5" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/activity_web.xml" value="0.26132246376811596" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_diagnosis_history.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_diet.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_exercise.xml" value="0.36614583333333334" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_history_diagnosis.xml" value="0.33" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_history_diagnosis_no_data.xml" value="0.25" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_history_selfdiagnosis.xml" value="0.5" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_info.xml" value="0.36614583333333334" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_mypage_diseases.xml" value="0.35190217391304346" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_mypage_diseases_no.xml" value="0.17755825734549138" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_mypage_dsease_no.xml" value="0.35190217391304346" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_mypage_selfdiagnosis_history.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_tutorial_first_step.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_tutorial_fourth_step.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_tutorial_second_step.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_tutorial_third_step.xml" value="0.35052083333333334" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/item_checkbox.xml" value="0.33" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/item_chip.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/item_diet.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/item_disease_info_select.xml" value="0.35052083333333334" />

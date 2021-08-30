@@ -31,7 +31,7 @@ public class SectionsPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        if ((dao.countDisease(position) != 0)) return new DiagnosisHistoryFragment(position);
+        if ((dao.countDisease(position) != 0)) return new DiagnosisHistoryFragment(fragmentActivity, position);
         else return new DiagnosisHistoryNoDataFragment(position, fragmentActivity);
     }
 

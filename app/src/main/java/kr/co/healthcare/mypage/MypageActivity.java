@@ -3,10 +3,12 @@ package kr.co.healthcare.mypage;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -23,6 +25,10 @@ import kr.co.healthcare.mypage.gamehistory.GameScore;
 import kr.co.healthcare.R;
 import kr.co.healthcare.mypage.selfdiagnosishistory.SectionsPagerAdapter;
 import kr.co.healthcare.preference.UserInfoPreferenceManger;
+import kr.co.healthcare.tutorial.ui.fragment.TutorialFirstStepFragment;
+import kr.co.healthcare.tutorial.ui.fragment.TutorialFourthStepFragment;
+import kr.co.healthcare.tutorial.ui.fragment.TutorialSecondStepFragment;
+import kr.co.healthcare.tutorial.ui.fragment.TutorialThirdStepFragment;
 
 public class MypageActivity extends AppCompatActivity {
 
@@ -89,19 +95,6 @@ public class MypageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void setChip(){
-        ChipGroup chipGroup = findViewById(R.id.CHIPGROUP_diseases);
-        chipGroup.removeAllViews();
-        ArrayList<String> diseases = viewModel.getUserDiseases(this).getValue();
-        assert diseases != null;
-        diseases.forEach(diseaseName -> {
-            final Chip chip = (Chip) this.getLayoutInflater().inflate(
-                    R.layout.item_chip, chipGroup, false);
-            chip.setText(diseaseName);
-            chipGroup.addView(chip);
-        });
-    }
-
     private void setObserverOnUserName(){
         final Observer<String> nameObserver = new Observer<String>() {
             @Override
@@ -140,7 +133,7 @@ public class MypageActivity extends AppCompatActivity {
         final Observer<ArrayList> diseaseObserver = new Observer<ArrayList>() {
             @Override
             public void onChanged(ArrayList arrayList) {
-                setChip();
+                getSupportFragmentManager().beginTransaction().replace(R.id.diseasesFrameLayout, new DiseasesFragment(MypageActivity.this, viewModel)).commit();
             }};
         viewModel.getUserDiseases(this).observe(this, diseaseObserver);
     }

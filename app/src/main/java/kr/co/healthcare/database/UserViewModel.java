@@ -122,5 +122,10 @@ public class UserViewModel extends ViewModel {
         return UserInfoPreferenceManger.getStringArrayList(context, UserInfoPreferenceManger.PREF_KEY_USER_DISEASES);
     }
 
+    public int getUserDiseasesCount() {
+        if (diseases == null) return 0;
+        else return diseases.getValue().size();
+    }
+
 }
 

@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
     tools:context=".game.GameMainActivity"
     android:orientation="vertical">
 
@@ -32,177 +31,224 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="35dp"
-                app:cardBackgroundColor="#9CCC65"
+                app:cardBackgroundColor="@color/primaryLightColor"
                 app:cardCornerRadius="25dp"
-                app:cardElevation="10dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="30dp"
-                    android:paddingVertical="25dp">
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_mypage_game1_main"
+                            android:tintMode="multiply"
+                            app:tint="@color/darkTintColor" />
 
                         <TextView
                             android:id="@+id/tv_gameTitle2"
-                            android:layout_width="0px"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:layout_marginBottom="@dimen/game_main_textView_marginBottom"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="5dp"
                             android:text="@string/game_main_game1"
-                            android:textColor="#F1F8E9"
+                            android:textColor="@color/primaryLightColor"
                             android:textSize="@dimen/game_main_textView_size"
-                            android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/btn_toast1"
-                            android:layout_width="0px"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
-                            android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
-                            android:elevation="0dp"
-                            android:text="\?"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_toast1"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="0dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/btn_game_help"
+                            android:elevation="20dp"
                             android:onClick="OnClickHandler"
-                            android:textColor="#689F38"
-                            android:textSize="@dimen/game_main_button_size"/>
-                    </LinearLayout>
+                            android:text="\?"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textSize="@dimen/game_main_button_size"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_to_game1_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
                             android:elevation="@dimen/game_main_button_elevation"
+                            android:stateListAnimator="@null"
+                            android:background="@drawable/btn_game_menu_lv1"
                             android:text="@string/game_main_lv1"
-                            android:textColor="#689F38"
-                            android:textSize="@dimen/game_main_button_size"/>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                            android:textColor="@color/primaryLightColor"
+                            android:textStyle="bold"/>
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_to_game1_lv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
+                            android:elevation="@dimen/game_main_button_elevation"
+                            android:stateListAnimator="@null"
+                            android:background="@drawable/btn_game_menu_lv2"
                             android:text="@string/game_main_lv2"
-                            android:textColor="#689F38"
-                            android:textSize="@dimen/game_main_button_size"/>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                            android:textColor="@color/primaryLightColor"
+                            android:textStyle="bold"/>
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_to_game1_lv3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
                             android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
+                            android:elevation="@dimen/game_main_button_elevation"
+                            android:stateListAnimator="@null"
+                            android:background="@drawable/btn_game_menu_lv3"
                             android:text="@string/game_main_lv3"
-                            android:textColor="#689F38"
-                            android:textSize="@dimen/game_main_button_size"/>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                            android:textColor="@color/primaryLightColor"
+                            android:textStyle="bold"/>
                     </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
-                android:layout_marginBottom="30dp"
-                app:cardBackgroundColor="#66BB6A"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="35dp"
+                app:cardBackgroundColor="@color/primaryLightColor"
                 app:cardCornerRadius="25dp"
-                app:cardElevation="10dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="35dp"
-                    android:paddingVertical="25dp">
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_mypage_game2_main"
+                            android:tintMode="multiply"
+                            app:tint="@color/darkTintColor" />
 
                         <TextView
                             android:id="@+id/tv_gameTitle"
-                            android:layout_width="0px"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:layout_marginBottom="@dimen/game_main_textView_marginBottom"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="5dp"
                             android:text="@string/game_main_game2"
-                            android:textColor="#F1F8E9"
+                            android:textColor="@color/primaryLightColor"
                             android:textSize="@dimen/game_main_textView_size"
-                            android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/btn_toast2"
-                            android:layout_width="0px"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
-                            android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
-                            android:elevation="0dp"
-                            android:text="\?"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_toast2"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="0dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/btn_game_help"
+                            android:elevation="20dp"
                             android:onClick="OnClickHandler"
-                            android:textColor="#689F38"
-                            android:textSize="@dimen/game_main_button_size"/>
-                    </LinearLayout>
+                            android:text="\?"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textSize="@dimen/game_main_button_size"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_to_game2_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
-                            android:elevation="0dp"
+                            android:elevation="@dimen/game_main_button_elevation"
+                            android:stateListAnimator="@null"
+                            android:background="@drawable/btn_game_menu_lv1"
                             android:text="@string/game_main_lv1"
-                            android:textColor="#4CAF50"
-                            android:textSize="@dimen/game_main_button_size"/>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                            android:textColor="@color/primaryLightColor"
+                            android:textStyle="bold"/>
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_to_game2_lv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
+                            android:elevation="@dimen/game_main_button_elevation"
+                            android:stateListAnimator="@null"
+                            android:background="@drawable/btn_game_menu_lv2"
                             android:text="@string/game_main_lv2"
-                            android:textColor="#4CAF50"
-                            android:textSize="@dimen/game_main_button_size"/>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                            android:textColor="@color/primaryLightColor"
+                            android:textStyle="bold"/>
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_to_game2_lv3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
                             android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
+                            android:elevation="@dimen/game_main_button_elevation"
+                            android:stateListAnimator="@null"
+                            android:background="@drawable/btn_game_menu_lv3"
                             android:text="@string/game_main_lv3"
-                            android:textColor="#4CAF50"
-                            android:textSize="@dimen/game_main_button_size"/>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                            android:textColor="@color/primaryLightColor"
+                            android:textStyle="bold"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -212,66 +258,84 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#26A69A"
-                android:layout_marginHorizontal="40dp"
+                android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="70dp"
+                app:cardBackgroundColor="@color/primaryLightColor"
                 app:cardCornerRadius="25dp"
-                app:cardElevation="10dp">
+                app:cardElevation="3dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="30dp"
-                    android:paddingVertical="25dp">
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_mypage_game3_main"
+                            android:tintMode="multiply"
+                            app:tint="@color/darkTintColor" />
 
                         <TextView
                             android:id="@+id/tv_gameTitle3"
-                            android:layout_width="0px"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="4"
-                            android:layout_marginBottom="@dimen/game_main_textView_marginBottom"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginBottom="5dp"
                             android:text="@string/game_main_game3"
-                            android:textColor="#F1F8E9"
+                            android:textColor="@color/primaryLightColor"
                             android:textSize="@dimen/game_main_textView_size"
-                            android:textStyle="bold" />
-
-                        <Button
-                            android:id="@+id/btn_toast3"
-                            android:layout_width="0px"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
-                            android:layout_weight="1"
-                            android:background="@drawable/btn_game_menu"
-                            android:elevation="0dp"
-                            android:text="\?"
                             android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_toast3"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:padding="0dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/btn_game_help"
+                            android:elevation="20dp"
                             android:onClick="OnClickHandler"
-                            android:textColor="#689F38"
-                            android:textSize="@dimen/game_main_button_size"/>
-                            android:textSize="16dp" />
-                    </LinearLayout>
+                            android:text="\?"
+                            android:textColor="@color/primaryDarkColor"
+                            android:textSize="@dimen/game_main_button_size"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="4dp">
 
-                        <Button
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/btn_to_game3_lv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="@dimen/game_main_button_marginEnd"
                             android:layout_weight="1"
+                            android:elevation="@dimen/game_main_button_elevation"
+                            android:stateListAnimator="@null"
                             android:background="@drawable/btn_game_menu"
                             android:text="@string/game_main_start"
-                            android:textColor="#009688"
-                            android:textSize="@dimen/game_main_button_size"/>
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
+                            android:textColor="@color/primaryLightColor"
+                            android:textStyle="bold"/>
+
                     </LinearLayout>
 
                 </LinearLayout>
