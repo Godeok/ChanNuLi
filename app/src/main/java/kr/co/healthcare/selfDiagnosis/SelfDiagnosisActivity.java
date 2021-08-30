@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 
 import java.util.List;
 import kr.co.healthcare.R;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.LoadDbClass;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 
@@ -39,7 +40,9 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
 
         this.setTitle(title + " 자가 진단하기");
 
-        initLoadDB(disease_num);
+        //initLoadDB(disease_num);
+        questionsList = LoadDbClass.initLoadDB(disease_num, getApplicationContext());
+
         showQuestions(num);
 
         btn_yes.setOnClickListener(new View.OnClickListener() {
@@ -82,15 +85,6 @@ public class SelfDiagnosisActivity extends AppCompatActivity {
 
         alBuilder.setTitle("자가진단 종료");
         alBuilder.show(); //AlertDialog.Bulider로 만든 AlertDialog 보여줌
-    }
-
-    //load DB
-    private void initLoadDB(int n){
-        QuesDataAdapter mDBHelper = new QuesDataAdapter(getApplicationContext());
-        mDBHelper.createDatabase();
-        mDBHelper.open();
-        questionsList = mDBHelper.getTableData(n);
-        mDBHelper.close();
     }
 
     //화면에 질문 띄우는 함수

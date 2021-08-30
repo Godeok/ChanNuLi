@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:text="저장된 기록이 없습니다."
             android:textColor="@color/midLightTextColor"
-            android:textSize="30dp"
+            android:textSize="@dimen/self_result_notice_textSize"
             android:layout_gravity="center"/>
     </FrameLayout>
 

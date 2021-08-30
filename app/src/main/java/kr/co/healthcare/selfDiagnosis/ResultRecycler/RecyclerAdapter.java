@@ -20,7 +20,7 @@ import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.getRange_warning;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
     private ArrayList<Result> resultData = new ArrayList<>();
-    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
+    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통", "당뇨병", "골다공증", "치매"};
 
     @NonNull
     @Override

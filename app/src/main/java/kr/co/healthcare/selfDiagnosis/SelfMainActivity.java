@@ -7,6 +7,7 @@ import android.widget.Button;
 import kr.co.healthcare.R;
 import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainAdapter;
 import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.LoadDbClass;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.QuesDataAdapter;
 import kr.co.healthcare.selfDiagnosis.QuestionDB.Questions;
 
@@ -21,10 +22,7 @@ import java.util.List;
 public class SelfMainActivity extends AppCompatActivity {
 
     Button btn_chkDate;
-    ArrayList<SelfMainData> dataList;           //
-    public List<Questions> questionsList;       //
-
-    String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통/좌골신경통", "당뇨병", "골다공증", "치매"};
+    ArrayList<SelfMainData> dataList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +31,7 @@ public class SelfMainActivity extends AppCompatActivity {
 
         btn_chkDate = findViewById(R.id.btn_chkDate);
 
-        this.InitializeData();
+        dataList = LoadDbClass.InitializeData(getApplicationContext());
 
         //버튼 리사이클러뷰
         RecyclerView recyclerView = findViewById(R.id.recyclerview_selfmain);
@@ -49,23 +47,5 @@ public class SelfMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    public void InitializeData(){
-        dataList = new ArrayList<>();
-        for (int i=0; i<7; i++) {
-            initLoadDB(i);
-            //dataList에 질병 id, 질병명, 자가진단 문항 수(질문 개수) 저장
-            dataList.add(new SelfMainData(i, disease_list[i], questionsList.size()));
-        }
-    }
-
-    //load DB (Question db 함께 사용함)
-    private void initLoadDB(int n){
-        QuesDataAdapter mDBHelper = new QuesDataAdapter(getApplicationContext());
-        mDBHelper.createDatabase();
-        mDBHelper.open();
-        questionsList = mDBHelper.getTableData(n);
-        mDBHelper.close();
     }
 }
