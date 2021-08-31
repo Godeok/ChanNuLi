@@ -41,7 +41,7 @@
 </div>
 <br>
 대표적인 노인 질병 정보와 건강 관리에 필요한 정보를 직접 검색하고 확인할 수 있습니다.<br>
-노인분들이 검색 엔진을 사용할 때 검색 키워드 선택의 어려움을 줄이고자 건강 관리 추천 검색 키워드를 제공합니다. 추가로, 노인분들께 추천하는 건강 관리 영상 또한 볼 수 있습니다.
+노인분들이 검색 엔진을 사용할 때 검색 키워드 선택의 어려움을 줄이고자 건강 관리 추천 검색 키워드를 제공합니다. 추가로, 노인분들께 추천하는 건강 관리 영상 또한 볼 수 있습니다.<br>
 - 제공하는 질병 정보 종류: 고혈압, 골관절염, 류마티스 관절염, 고지혈증, 요통, 좌골신경통, 당뇨병, 골다공증<br><br>
 
 #### 3. 치매 예방 게임하기
@@ -56,7 +56,7 @@
 
 #### 4. 기타
 <div align="center">
-<img src="https://user-images.githubusercontent.com/40076944/131533926-1dc70a18-50c4-4b09-b631-9a24b36c2b46.png" alt="drawing" width="700"/>
+<img src="https://user-images.githubusercontent.com/40076944/131539367-237c90e3-434e-4eae-b4e8-2d38dff08280.png" alt="drawing" width="700"/>
 </div>
 <br>
 어플을 처음 실행하면 사용자의 정보를 입력 받습니다. 이후에는 마이페이지에서 정보 수정이 가능합니다.<br/>
@@ -76,6 +76,12 @@
  <br/><br/><br/>
 
 ## 4. 프로젝트 설계
+### 구성도
+<div align="center">
+<img src="https://user-images.githubusercontent.com/40076944/131539532-b12a665b-3ddd-475d-945c-e9851571f6ab.png" alt="drawing" width="700"/>
+</div>
+<br><br>
+
 ### 프로젝트 구조
 ```
 ChanNuLi  
