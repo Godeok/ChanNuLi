@@ -39,8 +39,6 @@ import java.util.List;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.dialog.LoadingDialog;
-import kr.co.healthcare.game.Game1Activity;
-import kr.co.healthcare.healthInfo.ui.main.Exercise;
 import kr.co.healthcare.healthInfo.ui.main.HealthInfoVideoAdapter;
 import kr.co.healthcare.healthInfo.ui.main.YoutubeVideo;
 
