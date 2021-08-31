@@ -399,7 +399,6 @@ ChanNuLi
   - [당뇨-매일경제](https://www.mk.co.kr/news/it/view/2017/04/229635/)
   - [골다공증-헬스인뉴스](https://www.healthinnews.co.kr/news/articleView.html?idxno=15007)
   - [치매-헬스인뉴스](https://www.healthinnews.co.kr/news/articleView.html?idxno=23136)
-<br/>
 #### 2. 질병 정보
   - [고혈압-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31322)
   - [골관절염-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=30828)
@@ -409,6 +408,5 @@ ChanNuLi
   - [좌골신경통-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31919)
   - [당뇨병-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31596)
   - [골다공증-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31611)
- <br/>
 #### 3. 건강 정보
   - [유튜브-노인 건강관리](https://www.youtube.com/results?search_query=%EB%85%B8%EC%9D%B8+%EA%B1%B4%EA%B0%95%EA%B4%80%EB%A6%AC)
