@@ -46,13 +46,13 @@
 ### - 자료 출처
 #### 1. 자가 진단
 #### 2. 질병 정보
-    - [고혈압-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31322)
-    - [골관절염-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=30828)
-    - [류마티스 관절염-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=30822)
-    - [고지혈증-삼성서울병원](http://www.samsunghospital.com/home/healthInfo/content/contenView.do?CONT_SRC=CMS&CONT_SRC_ID=09a4727a8000f39a&CONT_CLS_CD=001020001010&CONT_ID=2141)
-    - [요통-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31705)
-    - [좌골신경통-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31919)
-    - [당뇨병-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31596)
-    - [골다공증-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31611)
+  - [고혈압-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31322)
+  - [골관절염-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=30828)
+  - [류마티스 관절염-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=30822)
+  - [고지혈증-삼성서울병원](http://www.samsunghospital.com/home/healthInfo/content/contenView.do?CONT_SRC=CMS&CONT_SRC_ID=09a4727a8000f39a&CONT_CLS_CD=001020001010&CONT_ID=2141)
+  - [요통-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31705)
+  - [좌골신경통-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31919)
+  - [당뇨병-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31596)
+  - [골다공증-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31611)
 #### 3. 건강 정보
-    - [유튜브-노인 건강관리](https://www.youtube.com/results?search_query=%EB%85%B8%EC%9D%B8+%EA%B1%B4%EA%B0%95%EA%B4%80%EB%A6%AC)
+  - [유튜브-노인 건강관리](https://www.youtube.com/results?search_query=%EB%85%B8%EC%9D%B8+%EA%B1%B4%EA%B0%95%EA%B4%80%EB%A6%AC)
