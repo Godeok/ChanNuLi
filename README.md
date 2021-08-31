@@ -78,7 +78,7 @@
 - SQLite
  <br/><br/><br/>
 
-## 4. 프로젝트 설계
+## 4. 📄 프로젝트 설계 📄
 ### 구성도
 <div align="center">
 <img src="https://user-images.githubusercontent.com/40076944/131539532-b12a665b-3ddd-475d-945c-e9851571f6ab.png" alt="drawing" width="700"/>
