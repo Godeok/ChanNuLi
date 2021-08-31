@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 
 import kr.co.healthcare.MainActivity;
 import kr.co.healthcare.R;
-import kr.co.healthcare.tutorial.ui.TutorialActivity;
 
 public class WalkthroughActivity extends AppCompatActivity {
 
@@ -35,7 +34,7 @@ public class WalkthroughActivity extends AppCompatActivity {
 
     private void loadAnimation(){
         final LinearLayout linearLayout = findViewById(R.id.linearLayout);
-        final Animation popUpAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        final Animation popUpAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_tutorial_fade_in);
         linearLayout.setAnimation(popUpAnimation);
     }
 }

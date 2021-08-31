@@ -23,8 +23,6 @@ import kr.co.healthcare.tutorial.ui.fragment.TutorialSecondStepFragment;
 import kr.co.healthcare.tutorial.ui.fragment.TutorialThirdStepFragment;
 import kr.co.healthcare.walkthrough.WalkthroughActivity;
 
-
-//ToDo: 2,3번째 페이지 문구에 사람 이름 추가 ex. a멍멍멍님!
 public class TutorialActivity extends AppCompatActivity {
 
     public static Activity tutorialActivity;
@@ -49,7 +47,7 @@ public class TutorialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial_main);
-        this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        this.overridePendingTransition(R.anim.anim_tutorial_fade_in, R.anim.anim_tutorial_fade_out);
 
         tutorialActivity = TutorialActivity.this;
 
@@ -90,7 +88,7 @@ public class TutorialActivity extends AppCompatActivity {
         if(progressNum<4) {
             changeTutorial(++progressNum);
             nextBtn.setEnabled(false);
-            nextBtn.setBackgroundResource(R.drawable.btn);
+            nextBtn.setBackgroundResource(R.drawable.btn_default);
         }else{
             UserInfoPreferenceManger.setBoolean(this, UserInfoPreferenceManger.PREF_KEY_TUTORIAL_FINISHED, true);
             Intent intent = new Intent(getApplicationContext(), WalkthroughActivity.class);
@@ -128,8 +126,8 @@ public class TutorialActivity extends AppCompatActivity {
 
     //애니메이션 효과
     private void loadAnimation(){
-        final Animation popUpAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in_and_pop_up);
-        final Animation progressBarAnimation = AnimationUtils.loadAnimation(this, R.anim.progressbar);
+        final Animation popUpAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_tutorial_fade_in_and_pop_up);
+        final Animation progressBarAnimation = AnimationUtils.loadAnimation(this, R.anim.anim_tutorial_progressbar);
         subTitle.startAnimation(popUpAnimation);
         subTitleEtc.startAnimation(popUpAnimation);
         title.startAnimation(popUpAnimation);
