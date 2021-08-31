@@ -5,6 +5,8 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebBackForwardList;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -24,6 +26,7 @@ import kr.co.healthcare.R;
 import kr.co.healthcare.WebActivity;
 import kr.co.healthcare.healthInfo.HealthInfoActivity;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
 import static android.view.KeyEvent.KEYCODE_ENTER;
 
 public class Search extends Fragment {
@@ -50,27 +53,32 @@ public class Search extends Fragment {
         textInput = view.findViewById(R.id.textInput);
         webView = view.findViewById(R.id.webView);
 
+        //chip
         for(String keyword : keywords){
             final Chip chip = (Chip) this.getLayoutInflater().inflate(
                     R.layout.item_chip_search_keyword, chipGroup, false);
             chip.setText(keyword);
             chipGroup.addView(chip);
 
+            //chip 선택 했을 경우
             chip.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     url = "https://www.google.com/search?q=" + keyword + "&tbm=nws";
+                    initSearch();
                     setWebView();
                 }
             });
         }
 
+        //검색어 입력 후 엔터 눌렀을 경우
         textInput.setOnKeyListener(new View.OnKeyListener(){
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 switch (keyCode){
                     case  KeyEvent.KEYCODE_ENTER:
                         url = "https://www.google.com/search?q=" + textInput.getText() + "&tbm=nws";
+                        initSearch();
                         setWebView();
                         break;
                 }
@@ -78,31 +86,11 @@ public class Search extends Fragment {
             }
         });
 
-//        webView = view.findViewById(R.id.webView);
-//        webView.getSettings().setJavaScriptEnabled(true);
-//        webView.loadUrl(url);
-//        webView.setWebChromeClient(new WebChromeClient());
-//        webView.setWebViewClient(new WebActivity.WebViewClientClass());
-//        webView.setOnKeyListener(new View.OnKeyListener() {
-//            @Override
-//            public boolean onKey(View v, int keyCode, KeyEvent event) {
-//                if (event.getAction()!=KeyEvent.ACTION_DOWN)
-//                    return true;
-//                if(keyCode == KeyEvent.KEYCODE_BACK) {
-//                    if (webView.canGoBack()) webView.goBack();
-//                    else((HealthInfoActivity)getActivity()).onBackPressed();
-//                    return true;
-//                }
-//                return false;
-//            }
-//        });
         return view;
     }
 
+    //webView 설정 및 화면 레이아웃 구성 변경
     void setWebView(){
-        layout_init.setVisibility(View.GONE);
-        webView.setVisibility(View.VISIBLE);
-
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(url);
         webView.setWebChromeClient(new WebChromeClient());
@@ -114,7 +102,7 @@ public class Search extends Fragment {
                     return true;
                 if(keyCode == KeyEvent.KEYCODE_BACK) {
                     if (webView.canGoBack()) webView.goBack();
-                    else((HealthInfoActivity)getActivity()).onBackPressed();
+                    else initLayout();
                     return true;
                 }
                 return false;
@@ -122,22 +110,12 @@ public class Search extends Fragment {
         });
     }
 
-
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
-//            webView.goBack();
-//            return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-//
-//
-//    private class WebViewClientClass extends WebViewClient {
-//        @Override
-//        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-//            view.loadUrl(url);
-//            return true;
-//        }
-//    }
+    void initSearch(){
+        layout_init.setVisibility(View.GONE);
+        webView.setVisibility(View.VISIBLE);
+    }
+    void initLayout(){
+        webView.setVisibility(View.GONE);
+        layout_init.setVisibility(View.VISIBLE);
+    }
 }
