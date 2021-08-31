@@ -3,7 +3,6 @@ package kr.co.healthcare.healthInfo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import kr.co.healthcare.R;
-import kr.co.healthcare.WebActivity;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -28,7 +27,7 @@ public class HealthInfoSearchActivity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(url);
         webView.setWebChromeClient(new WebChromeClient());
-        webView.setWebViewClient(new WebActivity.WebViewClientClass());
+        webView.setWebViewClient(new WebViewClientClass());
     }
 
     @Override
