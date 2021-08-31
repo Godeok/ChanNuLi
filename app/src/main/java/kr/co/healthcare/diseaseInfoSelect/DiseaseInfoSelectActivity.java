@@ -35,7 +35,7 @@ public class DiseaseInfoSelectActivity extends AppCompatActivity {
 
     private ArrayList<DiseaseInfoSelectData> setArrayListData(){
         String [] diseaseName = {
-                "고혈압", "골관절염", "류마티스 관절염", "고지혈증", "요통", "당뇨병", "골다공증", "치매"
+                "고혈압", "골관절염", "류마티스 관절염", "고지혈증", "요통", "좌골신경통", "당뇨병", "골다공증"
         };
 
         for(String name : diseaseName) {
