@@ -80,7 +80,7 @@ public class Game3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this, R.style.AlertDialog);
+        AlertDialog.Builder alBuilder = new AlertDialog.Builder(this);
         alBuilder.setMessage("종료 시 점수가 저장되지 않습니다.");
 
         alBuilder.setPositiveButton("예", new DialogInterface.OnClickListener() {
@@ -114,6 +114,8 @@ public class Game3Activity extends AppCompatActivity {
         anim_scale_bigger1 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger);
         anim_scale_bigger2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_game3_scale_bigger);
 
+        close_notice();
+
         //레벨 설정
         if(LEVEL ==1)
             setting(16, 20, 20, "쉬움");
@@ -130,8 +132,6 @@ public class Game3Activity extends AppCompatActivity {
 
         tv_score.setText(SCORE +"");
         tv_leftAttempts.setText(MAX_ATTEMPT+"");
-
-        close_notice();
     }
 
     void setting(int numOfCards, int pts, int maxAttempt, String strLevel){
@@ -252,11 +252,11 @@ public class Game3Activity extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    reset_score();
                     Intent intent = new Intent(getApplicationContext(), GameResultActivity.class);
                     intent.putExtra("game", 3);
                     intent.putExtra("score", SCORE);
                     intent.putExtra("level", LEVEL);
+                    reset_score();
                     startActivity(intent);
                 }
             }, 1000);
@@ -267,29 +267,28 @@ public class Game3Activity extends AppCompatActivity {
             if(check_card[i]!=1)
                 break;
 
-            show_notice(LEVEL);
-
             if(i==number_of_cards-1) {
+                show_notice(LEVEL);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                    Intent intent;
-                    if(LEVEL==3) {
-                        intent = new Intent(getApplicationContext(), GameResultActivity.class);
-                        intent.putExtra("game", 3);
-                        intent.putExtra("score", SCORE);
-                        intent.putExtra("level", LEVEL);
-                        reset_score();
-                    }
-                    else {
-                        intent = new Intent(getApplicationContext(), Game3Activity.class);
-                        PREVIOUS_SCORE = SCORE;
-                        LEVEL += 1;
-                        ATTEMPT_CNT = 0;
-                    }
+                        Intent intent;
+                        if(LEVEL==3) {
+                            intent = new Intent(getApplicationContext(), GameResultActivity.class);
+                            intent.putExtra("game", 3);
+                            intent.putExtra("score", SCORE);
+                            intent.putExtra("level", LEVEL);
+                            reset_score();
+                        }
+                        else {
+                            intent = new Intent(getApplicationContext(), Game3Activity.class);
+                            PREVIOUS_SCORE = SCORE;
+                            LEVEL += 1;
+                            ATTEMPT_CNT = 0;
+                        }
 
-                    startActivity(intent);
-                    overridePendingTransition(0, 0);
+                        startActivity(intent);
+                        overridePendingTransition(0, 0);
                     }
                 }, 1000);
             }
