@@ -372,6 +372,13 @@ ChanNuLi
 ## 6. 기타
 ### - 자료 출처
 #### 1. 자가 진단
+  - [고혈압-서울동부고용노동부청](http://www.moel.go.kr/local/seouldongbu/info/dataroom/view.do;jsessionid=C6SZ5jpq27fLezvfFzHd6wFD6diK2EvQPtdEw7JhdNm9aaeg0yPgcKpvHm21wcx3.moel_was_outside_servlet_wwwlocal?bbs_seq=1186720313180)
+  - [골관절염-헬스조선](https://m.health.chosun.com/svc/news_view.html?contid=2018050201725)
+  - [고지혈증-김용기내과](https://blog.naver.com/8799982/221438863613)
+  - [요통-인슈넷](https://www.insunet.co.kr/)
+  - [당뇨-매일경제](https://www.mk.co.kr/news/it/view/2017/04/229635/)
+  - [골다공증-헬스인뉴스](https://www.healthinnews.co.kr/news/articleView.html?idxno=15007)
+  - [치매-헬스인뉴스](https://www.healthinnews.co.kr/news/articleView.html?idxno=23136)
 #### 2. 질병 정보
   - [고혈압-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31322)
   - [골관절염-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=30828)
