@@ -85,7 +85,7 @@ public class ResetActivity extends AppCompatActivity {
     }
 
     private void resetSelfDiagnosisResult(){
-        //SelfDiagnosisResultDatabase.getInstance(ResetActivity.this).resultDAO().deleteAllSelfResult();
+        SelfDiagnosisResultDatabase.getInstance(ResetActivity.this).resultDAO().deleteAllSelfResult();
     }
 
     private void resetAccount(){
@@ -94,7 +94,7 @@ public class ResetActivity extends AppCompatActivity {
 
     private void backToStartPage(){
         Intent intent = new Intent(ResetActivity.this, TutorialActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
     }

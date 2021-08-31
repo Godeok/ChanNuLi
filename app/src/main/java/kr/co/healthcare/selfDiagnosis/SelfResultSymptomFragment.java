@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,12 +65,14 @@ public class SelfResultSymptomFragment extends Fragment {
         Spinner spinner = v.findViewById(R.id.spinner_self);
         btn_go_to = v.findViewById(R.id.btn_go_to);
 
+
+
         //스피너
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //스피너 글자 색 변경
-                //((TextView)spinner.getChildAt(0)).setTextColor(getResources().getColor(R.color.defaultTextColor));
+                ((TextView)spinner.getChildAt(0)).setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 
                 //결과 보여줄 리사이클러뷰 어뎁터 선언(새로운 정보 불러오면 항상 새로 선언)
                 recyclerAdapter = new RecyclerAdapter(getActivity().getApplicationContext());

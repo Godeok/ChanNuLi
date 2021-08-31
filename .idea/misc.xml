@@ -24,7 +24,10 @@
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_square_selected.xml" value="0.36666666666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/btn_square_unchecked.xml" value="0.28802083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/game2_progressbar.xml" value="0.38125" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.38229166666666664" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/ic_baseline_keyboard_arrow_up_24.xml" value="0.38229166666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/progressbar_diagnosis_history.xml" value="0.25416666666666665" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/spinner_self_result.xml" value="0.38229166666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_diagnosis_selected.xml" value="0.3776041666666667" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_diagnosis_unselected.xml" value="0.38229166666666664" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/drawable/tab_history.xml" value="0.21666666666666667" />
@@ -65,6 +68,7 @@
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_mypage_dsease_no.xml" value="0.35190217391304346" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_mypage_selfdiagnosis_history.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_search.xml" value="0.33" />
+        <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_self_result_symptom.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_tutorial_first_step.xml" value="0.35052083333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_tutorial_fourth_step.xml" value="0.36614583333333334" />
         <entry key="..\:/src/android/ChanNuLi/app/src/main/res/layout/fragment_tutorial_second_step.xml" value="0.35052083333333334" />

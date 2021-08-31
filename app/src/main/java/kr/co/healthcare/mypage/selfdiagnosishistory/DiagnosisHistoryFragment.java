@@ -21,6 +21,8 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 
 import kr.co.healthcare.R;
+import kr.co.healthcare.selfDiagnosis.MainRecycler.SelfMainData;
+import kr.co.healthcare.selfDiagnosis.QuestionDB.LoadDbClass;
 import kr.co.healthcare.selfDiagnosis.ResultDB.ResultDAO;
 import kr.co.healthcare.selfDiagnosis.ResultDB.SelfDiagnosisResultDatabase;
 
@@ -36,6 +38,7 @@ public class DiagnosisHistoryFragment extends Fragment {
     private int max;
 
     private ArrayList<History> diagnosisHistoryArr;
+    private ArrayList<SelfMainData> dataList = new ArrayList<>();
 
     DiagnosisHistoryFragment(Context context, int index) {
         this.context = context;
@@ -46,6 +49,7 @@ public class DiagnosisHistoryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         diagnosisHistoryArr = new ArrayList<>();
+        dataList = LoadDbClass.InitializeData(context);
     }
 
     @Override
@@ -77,8 +81,7 @@ public class DiagnosisHistoryFragment extends Fragment {
                 ));
 
         int count = dao.getAverageCountOfDisease(index);
-        max = 20;
-
+        max = dataList.get(index).getNum_of_questions();
         count_TV.setText("자가 진단을 총 "+ Integer.toString(dao.countDisease(index)) + "회 진행하셨습니다.");
 
         History mostItem = new History(R.string.health_safe, dao.countDiseaseSafe(index, getRange_safe(index)),ContextCompat.getColor(context, R.color.primaryColor));
@@ -89,8 +92,8 @@ public class DiagnosisHistoryFragment extends Fragment {
 
         level_TV.setText("검사 결과로 "+getResources().getString(mostItem.getLabel())+ "이(가) 가장 많이 나왔습니다.");
         progressBar.setProgressTintList(ColorStateList.valueOf(mostItem.getColor()));
-        progressBar.setProgress(count);
-        progressBar.setMax(max);
+        progressBar.setProgress(count+1);
+        progressBar.setMax(max+1);
 
         return view;
     }
