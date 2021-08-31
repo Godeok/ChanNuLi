@@ -1,25 +1,24 @@
 
 # 찬누리
 
-## 목차
+## 📖 목차
 [1. 프로젝트 설명](#1-프로젝트-설명)<br>
-[2. 제작 기간 & 참여 인원](https://github.com/Godeok/ChanNuLi/blob/master/README.md#2-%EC%A0%9C%EC%9E%91-%EA%B8%B0%EA%B0%84-%EB%B0%8F-%EC%B0%B8%EC%97%AC-%EC%9D%B8%EC%9B%90)<br>
+[2. 제작 기간 & 참여 인원](https://github.com/Godeok/ChanNuLi/blob/master/README.md#2-%EC%A0%9C%EC%9E%91-%EA%B8%B0%EA%B0%84--%EC%B0%B8%EC%97%AC-%EC%9D%B8%EC%9B%90)<br>
 [3. 사용한 기술](#3-사용한-기술)<br>
 [4. 프로젝트 설계](#4-프로젝트-설계)<br>
-[5. 주의 사항](#5-주의-사항)<br>
-[6. 기타](#6-기타)  <br/><br/><br/>
+[5. 기타](#5-기타)  <br/><br/><br/>
 
 ## 1. 프로젝트 설명
-### 어플 이름
+### 💊 어플 이름
 <div align="center">
   <h3>찬누리</h3>
 <img src="https://user-images.githubusercontent.com/40076944/131518766-374ec45f-b2a7-4b9a-9618-6b07f12afec5.png" width="200" height="200">
 </div>
 
-### 어플 소개 및 목적
-찬누리는 **노인 건강 관리 어플**입니다. 노인분들은 찬누리를 사용하면서 스스로 건강 상태를 진단하고, 다양한 질병과 건강 정보를 얻고, 간단한 게임을 통해 치매도 예방할 수 있습니다. 또한, 찬누리는 노인분들이 어플을 쉽게 사용하실 수 있도록 간편한 화면 구성과 조작 방법 제공합니다.
+### ✨ 어플 소개 및 목적
+찬누리는 **노인 건강 관리 어플**입니다. 노인분들은 찬누리를 사용하면서 스스로 건강 상태를 진단하고, 다양한 질병과 건강 정보를 얻고, 간단한 게임을 통해 치매도 예방할 수 있습니다. 또한, 찬누리는 노인분들이 어플을 쉽게 사용하실 수 있도록 간편한 화면 구성과 조작 방법을 제공합니다.
 
-### 어플 기능 소개
+### 🛠 어플 기능 소개
 찬누리 어플의 주요 기능으로는 자가 진단, 질병/건강 정보, 치매 예방 게임이 있습니다. 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/40076944/131536575-9c01337b-6bb6-431b-b1a9-cef0d5df9dad.png" alt="drawing" width="300"/>
@@ -31,9 +30,10 @@
 <img src="https://user-images.githubusercontent.com/40076944/131531526-0cdd8940-5cd0-4e22-952d-5747b310e4fa.png" alt="drawing" width="700"/>
 </div>
 <br>
-총 7 종류의 대표적인 노인 질병을 사용자 스스로 진단하고 예방합니다.<br>
+65세 이상 노인에게 나타나는 대표적인 7 종류의 질병을 사용자 스스로 진단하고 예방합니다.<br>
 자가 진단 후 결과를 저장하고 결과 확인 페이지에서 진단을 한 날짜 순이나 질병 종류 별로 결과를 확인할 수 있습니다.<br>
-- 자가 진단 종류: 고혈압, 골관절염, 고지혈증, 요통, 당뇨병, 골다공증, 치매<br><br>
+- 자가 진단 종류: 고혈압, 골관절염, 고지혈증, 요통, 당뇨병, 골다공증, 치매
+<br><br>
 
 #### 2. 질병/건강 정보 보기
 <div align="center">
@@ -43,6 +43,7 @@
 대표적인 노인 질병 정보와 건강 관리에 필요한 정보를 직접 검색하고 확인할 수 있습니다.<br>
 노인분들이 검색 엔진을 사용할 때 검색 키워드 선택의 어려움을 줄이고자 건강 관리 추천 검색 키워드를 제공합니다. 추가로, 노인분들께 추천하는 건강 관리 영상 또한 볼 수 있습니다.<br>
 - 제공하는 질병 정보 종류: 고혈압, 골관절염, 류마티스 관절염, 고지혈증, 요통, 좌골신경통, 당뇨병, 골다공증<br><br>
+- 제공하는 건강 관리 추천 검색 키워드 : 자기관리, 식이요법, 허리 관리, 관절 통증, 무릎 관리, 코로나19
 
 #### 3. 치매 예방 게임하기
 <div align="center">
@@ -78,13 +79,13 @@
  <br/><br/><br/>
 
 ## 4. 프로젝트 설계
-### 구성도
+### 📄 구성도
 <div align="center">
 <img src="https://user-images.githubusercontent.com/40076944/131539532-b12a665b-3ddd-475d-945c-e9851571f6ab.png" alt="drawing" width="700"/>
 </div>
 <br><br>
 
-### 프로젝트 구조
+### 📁 프로젝트 구조
 ```
 ChanNuLi  
 ├─ Tutorial  
@@ -94,7 +95,7 @@ ChanNuLi
 │  │  ├─ EditDiseaseStatus  
 │  │  ├─ SelfDisgnosisHistory  
 │  │  ├─ GameHistory  
-│  │  ├─ ApplicationDescription  
+│  │  ├─ ApplicationDescription
 │  │  └─ ResetApplication  
 │  ├─ SelfDiagnosisMain  
 │  │  ├─ SelfDiagnosis  
@@ -118,7 +119,7 @@ ChanNuLi
 ```
 <br/><br/>
 
-### 데이터베이스 스키마
+### ✏ 데이터베이스 스키마
 
 #### 1. 자가진단 질문 저장 DB (SQLite) 
 
@@ -286,7 +287,7 @@ ChanNuLi
 </table>
 <br/><br/>
 
-### shared-preference 스키마
+### ✏ shared-preference 스키마
 
 #### 1. 사용자 정보 preference
 <table>
@@ -393,25 +394,20 @@ ChanNuLi
 <br/><br/><br/>
 
 
-## 5. Target API 수준
-Minimum SDK version : 24
-Target SDK 수준 : 30
-
-<br/><br/><br/>
 
 ## 5. 기타
-### SDK version
-Minimum SDK version : 24
-Target SDK version : 30
+### 🔧 SDK version
+- Minimum SDK version : 24 <br/>
+- Target SDK version : 30
 
-### - 주의 사항
+### 📣 주의 사항
 - 해당 어플리케이션은 스마트폰만을 대상으로 합니다. 패드 등의 다른 디바이스는 고려되지 않습니다.
 - 해당 어플리케이션 구축에 필요한 모든 콘텐츠-이미지, 음성 파일 등-는 프로젝트 용도 외의 사용이나 무단 복제가 불가합니다.
 - 해당 어플리케이션의 저작권은 제작자에게 있습니다
 - 자가진단은 병원에 가지 않고 건강 상태를 점검하기 위한 기능으로, 보다 정확한 진단은 전문가와 상담 후 알 수 있습니다.
 - 건강을 위해 게임은 하루 30분 미만으로 즐기세요.
 
-### - 자료 출처
+### 📃 자료 출처
 #### 1. 자가 진단
   - [고혈압-서울동부고용노동부청](http://www.moel.go.kr/local/seouldongbu/info/dataroom/view.do;jsessionid=C6SZ5jpq27fLezvfFzHd6wFD6diK2EvQPtdEw7JhdNm9aaeg0yPgcKpvHm21wcx3.moel_was_outside_servlet_wwwlocal?bbs_seq=1186720313180)
   - [골관절염-헬스조선](https://m.health.chosun.com/svc/news_view.html?contid=2018050201725)
@@ -432,6 +428,6 @@ Target SDK version : 30
 #### 3. 건강 정보
   - [유튜브-노인 건강관리](https://www.youtube.com/results?search_query=%EB%85%B8%EC%9D%B8+%EA%B1%B4%EA%B0%95%EA%B4%80%EB%A6%AC)
 
-### - 폰트
+### 🖌 폰트
 - [DK Cool Crayon](https://www.dafont.com/dk-cool-crayon.font)
 - [개미 똥구멍](https://sangsangfont.com/21/?idx=101)

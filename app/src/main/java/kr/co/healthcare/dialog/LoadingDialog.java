@@ -27,7 +27,7 @@ public class LoadingDialog extends ProgressDialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.item_loader);
         ImageView imageView = (ImageView) findViewById(R.id.loader);
-        Animation anim = AnimationUtils.loadAnimation(context, R.anim.loading);
+        Animation anim = AnimationUtils.loadAnimation(context, R.anim.anim_loading_dialog_loading);
         imageView.setAnimation(anim);
     }
 

@@ -19,7 +19,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginHorizontal="20dp"
         android:max="60"
-        android:progressDrawable="@drawable/game2_progressbar"
+        android:progressDrawable="@drawable/progressbar_game2"
         tools:layout_editor_absoluteX="0dp" />
 
     <LinearLayout

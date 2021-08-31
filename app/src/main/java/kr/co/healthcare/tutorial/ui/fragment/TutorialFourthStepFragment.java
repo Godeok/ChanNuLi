@@ -49,7 +49,7 @@ public class TutorialFourthStepFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         setCheckbox();
         nextBtn.setEnabled(true);
-        nextBtn.setBackgroundResource(R.drawable.btn);
+        nextBtn.setBackgroundResource(R.drawable.btn_default);
     }
 
     private void setCheckbox(){
