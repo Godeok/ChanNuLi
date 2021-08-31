@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.diseaseInfo.DiseaseInfoActivity;
-import kr.co.healthcare.healthInfo.ui.main.DietData;
 
 public class DiseaseInfoSelectAdapter extends RecyclerView.Adapter<DiseaseInfoSelectAdapter.ItemViewHolder> {
     private ArrayList<DiseaseInfoSelectData> arrayList;

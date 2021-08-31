@@ -39,14 +39,12 @@ public class HealthInfoVideoAdapter extends RecyclerView.Adapter<HealthInfoVideo
     @NonNull
     @Override
     public HealthInfoVideoAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        System.out.println("onCreateViewHolder");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_youtube_video,parent,false);
         return new ItemViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final HealthInfoVideoAdapter.ItemViewHolder holder, final int position) {
-        System.out.println("onBindViewHolder");
         holder.videoTitle.setText(arrayList.get(position).getVideoTitle());
         Glide.with(context).load(arrayList.get(position).getVideoThumbnail()).into(holder.videoView);
         holder.linearLayout.setOnClickListener(

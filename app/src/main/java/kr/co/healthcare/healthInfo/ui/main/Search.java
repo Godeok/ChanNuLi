@@ -31,11 +31,13 @@ import static android.view.KeyEvent.KEYCODE_ENTER;
 
 public class Search extends Fragment {
 
+    /*
     private WebView webView;
     private String url;
+
+
     private String[] keywords;
 
-    LinearLayout layout_init;
     TextInputEditText textInput;
 
     @Override
@@ -49,7 +51,6 @@ public class Search extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         ChipGroup chipGroup = view.findViewById(R.id.CHIPGROUP_keywords);
-        layout_init = view.findViewById(R.id.layout_init);
         textInput = view.findViewById(R.id.textInput);
         webView = view.findViewById(R.id.webView);
 
@@ -118,4 +119,6 @@ public class Search extends Fragment {
         webView.setVisibility(View.GONE);
         layout_init.setVisibility(View.VISIBLE);
     }
+
+     */
 }

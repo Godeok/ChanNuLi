@@ -5,7 +5,7 @@ public class YoutubeVideo{
     private final String videoTitle;
     private final String videoThumbnail;
 
-    YoutubeVideo(String videoId, String videoTitle, String videoThumbnail){
+    public YoutubeVideo(String videoId, String videoTitle, String videoThumbnail){
         this.videoId = videoId;
         this.videoTitle = videoTitle;
         this.videoThumbnail = videoThumbnail;
