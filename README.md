@@ -21,7 +21,16 @@
 
 ### 어플 기능 소개
 #### 1. 자가 진단하기
-총 7 종류의 대표적인 노인 질병을 스스로 진단하고 예방합니다.
+총 7 종류의 대표적인 노인 질병을 스스로 진단하고 예방합니다.<br>
+자가 진단 후 결과를 저장하고 결과 확인 페이지에서 진단을 한 날짜 순이나 질병 종류 별로 결과를 확인할 수 있습니다.<br>
+- **자가 진단 종류**: 고혈압, 골관절염, 고지혈증, 요통, 당뇨병, 골다공증, 치매<br>
+
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/40076944/131525315-c75159c6-67ea-44ac-b38f-07c88dddda71.png">
+  <img src="https://user-images.githubusercontent.com/40076944/131525498-81f2cd9f-db29-4138-adb4-0a8cb6f677b2.png">
+  <img src="https://user-images.githubusercontent.com/40076944/131526710-999e7615-2cee-461a-ad70-7550ba135fa5.png">
+  <img src="https://user-images.githubusercontent.com/40076944/131526745-4b53e543-3efc-41c6-8f11-38f60eb6e4df.png">
+</div>
 
 #### 2. 질병/건강 정보 보기
 
