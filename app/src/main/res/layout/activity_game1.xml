@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/game_notice_paddingHorizontal"
             android:paddingVertical="@dimen/game_notice_paddingVertical"
+            android:layout_marginBottom="@dimen/game_notice_marginBottom"
             android:background="@drawable/view_game_level"
             android:text="@string/game_difficulty"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:textColor="@color/defaultTextColor"
             android:textStyle="bold"/>
     </LinearLayout>

@@ -109,7 +109,7 @@ public class Game2Activity extends AppCompatActivity{
         set_textView(tv_question, "", 70, R.color.whiteColor);
 
         for(int i=0; i<4; i++)
-            set_button(btn_opt[i], R.drawable.btn_game2, R.color.whiteColor);
+            set_button(btn_opt[i], R.drawable.btn_game2, R.color.midDarkTextColor);
 
         show_level(LEVEL);
         start_game(LEVEL);

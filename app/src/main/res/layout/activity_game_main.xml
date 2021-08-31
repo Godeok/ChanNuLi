@@ -22,10 +22,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/game_main_explain"
-                android:padding="30dp"
-                android:textColor="#050B35"
-                android:background="#AEF8F8F8"
-                android:textSize="18dp"
+                android:paddingVertical="30dp"
+                android:paddingHorizontal="20dp"
+                android:textColor="@color/defaultTextColor"
+                android:background="@color/defaultColor"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:layout_marginBottom="40dp"/>
 
             <androidx.cardview.widget.CardView
@@ -66,7 +67,7 @@
                             android:layout_marginBottom="5dp"
                             android:text="@string/game_main_game1"
                             android:textColor="@color/primaryLightColor"
-                            android:textSize="@dimen/game_main_textView_size"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
@@ -83,8 +84,7 @@
                             android:onClick="OnClickHandler"
                             android:text="\?"
                             android:textColor="@color/primaryDarkColor"
-                            android:textSize="@dimen/game_main_button_size"
-                            android:textStyle="bold"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"                            android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -180,7 +180,7 @@
                             android:layout_marginBottom="5dp"
                             android:text="@string/game_main_game2"
                             android:textColor="@color/primaryLightColor"
-                            android:textSize="@dimen/game_main_textView_size"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
@@ -197,7 +197,7 @@
                             android:onClick="OnClickHandler"
                             android:text="\?"
                             android:textColor="@color/primaryDarkColor"
-                            android:textSize="@dimen/game_main_button_size"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
@@ -293,7 +293,7 @@
                             android:layout_marginBottom="5dp"
                             android:text="@string/game_main_game3"
                             android:textColor="@color/primaryLightColor"
-                            android:textSize="@dimen/game_main_textView_size"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
@@ -310,8 +310,7 @@
                             android:onClick="OnClickHandler"
                             android:text="\?"
                             android:textColor="@color/primaryDarkColor"
-                            android:textSize="@dimen/game_main_button_size"
-                            android:textStyle="bold"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button"                            android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>

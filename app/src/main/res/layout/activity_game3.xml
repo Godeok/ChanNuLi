@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/yellowColor"
+    android:background="@drawable/img_game3_background"
     tools:context=".game.Game3Activity">
 
     <LinearLayout
@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/whiteColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:paddingHorizontal="30dp"
         android:paddingBottom="30dp">
 
         <LinearLayout
@@ -33,6 +33,7 @@
                 android:background="@drawable/view_game_level"
                 android:paddingHorizontal="@dimen/game_notice_paddingHorizontal"
                 android:paddingVertical="@dimen/game_notice_paddingVertical"
+                android:layout_marginBottom="@dimen/game_notice_marginBottom"
                 android:text="@string/game_leftAttempts"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 android:textColor="@color/whiteColor" />
@@ -46,22 +47,19 @@
                     android:id="@+id/tv_leftAttempts"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="right|center_vertical"
                     android:layout_gravity="center"
                     android:text="20"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@color/defaultTextColor"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="bottom"
                     android:layout_gravity="bottom"
                     android:text="회"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@color/defaultTextColor"
-                    android:textSize="@dimen/game_3_info_textView_unit"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -83,6 +81,7 @@
                 android:background="@drawable/view_game_level"
                 android:paddingHorizontal="@dimen/game_notice_paddingHorizontal"
                 android:paddingVertical="@dimen/game_notice_paddingVertical"
+                android:layout_marginBottom="@dimen/game_notice_marginBottom"
                 android:text="@string/game_difficulty"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                 android:textColor="@color/whiteColor" />
@@ -96,22 +95,19 @@
                     android:id="@+id/tv_score"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="right|center_vertical"
                     android:layout_gravity="center"
                     android:text="100"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@color/defaultTextColor"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="bottom"
                     android:layout_gravity="bottom"
                     android:text="점"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                     android:textColor="@color/defaultTextColor"
-                    android:textSize="@dimen/game_3_info_textView_unit"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -420,7 +416,7 @@
             android:id="@+id/tv_nextLv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="50dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display3"
             android:textColor="@color/defaultDarkColor"
             android:fontFamily="@font/font_sangsangant"
             android:text="다음 게임으로"
