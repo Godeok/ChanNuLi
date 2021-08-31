@@ -36,6 +36,7 @@
 - Java
 - Gradle
 - roomDB
+- SQLite
 
 ## 4. 프로젝트 설계
 
