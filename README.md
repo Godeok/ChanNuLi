@@ -7,7 +7,7 @@
 [3. 사용한 기술](#3-사용한-기술)<br>
 [4. 프로젝트 설계](#4-프로젝트-설계)<br>
 [5. 주의 사항](#5-주의-사항)<br>
-[6. 기타](#6-기타)
+[6. 기타](#6-기타)  <br/><br/><br/>
 
 ## 1. 프로젝트 설명
 ### 어플 이름
@@ -20,7 +20,7 @@
 찬누리는 **노인 건강 관리 어플**입니다. 노인분들은 찬누리를 사용하면서 스스로 건강 상태를 진단하고, 다양한 질병과 건강 정보를 얻고, 간단한 게임을 통해 치매도 예방할 수 있습니다. 또한, 찬누리는 노인분들이 어플을 쉽게 사용하실 수 있도록 간편한 화면 구성과 조작 방법 제공합니다.
 
 ### 어플 기능 소개
-찬누리 어플은 3가지 기능을 제공합니다.
+찬누리 어플의 주요 기능으로는 자가 진단, 질병/건강 정보, 치매 예방 게임이 있습니다. 
 <div align="center">
 <img src="https://user-images.githubusercontent.com/40076944/131536575-9c01337b-6bb6-431b-b1a9-cef0d5df9dad.png" alt="drawing" width="300"/>
 </div>
@@ -31,20 +31,20 @@
 <img src="https://user-images.githubusercontent.com/40076944/131531526-0cdd8940-5cd0-4e22-952d-5747b310e4fa.png" alt="drawing" width="700"/>
 </div>
 <br>
-총 7 종류의 대표적인 노인 질병을 노인분들 스스로 진단하고 예방합니다.<br>
+총 7 종류의 대표적인 노인 질병을 사용자 스스로 진단하고 예방합니다.<br>
 자가 진단 후 결과를 저장하고 결과 확인 페이지에서 진단을 한 날짜 순이나 질병 종류 별로 결과를 확인할 수 있습니다.<br>
-- *자가 진단 종류: 고혈압, 골관절염, 고지혈증, 요통, 당뇨병, 골다공증, 치매*<br><br>
+- 자가 진단 종류: 고혈압, 골관절염, 고지혈증, 요통, 당뇨병, 골다공증, 치매<br><br>
 
 #### 2. 질병/건강 정보 보기
 <div align="center">
 <img src="https://user-images.githubusercontent.com/40076944/131533748-c6226c77-ae74-46a8-a641-83e90b328019.png" alt="drawing" width="700"/>
 </div>
 <br>
-대표적인 노인 질병 정보와 건강 관리에 필요한 정보를 검색하고 확인할 수 있습니다.<br>
+대표적인 노인 질병 정보와 건강 관리에 필요한 정보를 직접 검색하고 확인할 수 있습니다.<br>
 노인분들이 검색 엔진을 사용할 때 검색 키워드 선택의 어려움을 줄이고자 건강 관리 추천 검색 키워드를 제공합니다. 추가로, 노인분들께 추천하는 건강 관리 영상 또한 볼 수 있습니다.
-- *제공하는 질병 정보 종류: 고혈압, 골관절염, 류마티스 관절염, 고지혈증, 요통, 좌골신경통, 당뇨병, 골다공증*<br><br>
+- 제공하는 질병 정보 종류: 고혈압, 골관절염, 류마티스 관절염, 고지혈증, 요통, 좌골신경통, 당뇨병, 골다공증<br><br>
 
-#### 3. 건강 게임하기
+#### 3. 치매 예방 게임하기
 <div align="center">
 <img src="https://user-images.githubusercontent.com/40076944/131533810-7ad57c8a-2690-4d68-9639-3874b8b253ad.png" alt="drawing" width="700"/><br/>
 <img src="https://user-images.githubusercontent.com/40076944/131533873-6761532c-1c72-42c6-a482-c93506d3974a.png" alt="drawing" width="700"/>
@@ -52,7 +52,7 @@
 <br>
 건강 게임에는 하나빼기, 간단 연산, 카드 뒤집기 총 3가지 게임이 있습니다.<br>
 노인분들은 건강 게임으로 두뇌를 활발히 만들고 치매를 예방합니다.<br>
-- *몇 가지 게임은 난이도를 조절해서 플레이할 수 있습니다.*<br><br>
+- 특정 게임은 난이도를 조절해서 플레이할 수 있습니다.<br><br>
 
 #### 4. 기타
 <div align="center">
@@ -60,17 +60,20 @@
 </div>
 <br>
 어플을 처음 실행하면 사용자의 정보를 입력 받습니다. 이후에는 마이페이지에서 정보 수정이 가능합니다.<br/>
-마이페이지에서는 자가 진단 결과 통계와 건강 게임 최고 기록을 한 눈에 확인할 수 있습니다.
+마이페이지에서는 자가 진단 결과 통계와 건강 게임 최고 기록을 한 눈에 확인할 수 있습니다. <br/>
+자가진단 결과 초기화, 게임 결과 초기화, 계정 초기화가 각각 가능합니다. <br/><br/><br/>
 
 ## 2. 제작 기간 & 참여 인원
 - 제작 기간: 2020.9.18 ~ 2021.08.31
-- 제작자: [이유진](https://github.com/Ujaa), [홍진서](https://github.com/Hong-Jinseo)
+- 제작자: [이유진](https://github.com/Ujaa), [홍진서](https://github.com/Hong-Jinseo) 
+<br/><br/><br/>
 
 ## 3. 사용한 기술
 - Java
 - Gradle
 - roomDB
 - SQLite
+ <br/><br/><br/>
 
 ## 4. 프로젝트 설계
 ### 프로젝트 구조
@@ -105,6 +108,7 @@ ChanNuLi
 │  │  ├─ Game2  
 └─ └─ └─ Game3 
 ```
+<br/><br/>
 
 ### 데이터베이스 스키마
 
@@ -272,6 +276,7 @@ ChanNuLi
         </tr>
     </tbody>
 </table>
+<br/><br/>
 
 ### shared-preference 스키마
 
@@ -377,10 +382,12 @@ ChanNuLi
     </tbody>
 </table>
 
-
+<br/><br/><br/>
 
 
 ## 5. 주의 사항
+
+<br/><br/><br/>
 
 ## 6. 기타
 ### - 자료 출처
@@ -392,6 +399,7 @@ ChanNuLi
   - [당뇨-매일경제](https://www.mk.co.kr/news/it/view/2017/04/229635/)
   - [골다공증-헬스인뉴스](https://www.healthinnews.co.kr/news/articleView.html?idxno=15007)
   - [치매-헬스인뉴스](https://www.healthinnews.co.kr/news/articleView.html?idxno=23136)
+<br/>
 #### 2. 질병 정보
   - [고혈압-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31322)
   - [골관절염-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=30828)
@@ -401,5 +409,6 @@ ChanNuLi
   - [좌골신경통-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31919)
   - [당뇨병-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31596)
   - [골다공증-서울아산병원](http://www.amc.seoul.kr/asan/healthinfo/disease/diseaseDetail.do?contentId=31611)
+  - <br/>
 #### 3. 건강 정보
   - [유튜브-노인 건강관리](https://www.youtube.com/results?search_query=%EB%85%B8%EC%9D%B8+%EA%B1%B4%EA%B0%95%EA%B4%80%EB%A6%AC)
