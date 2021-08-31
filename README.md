@@ -396,9 +396,9 @@ ChanNuLi
 
 
 ## 5. 기타
-### SDK version
-Minimum SDK version : 24 <br/>
-Target SDK version : 30
+### - SDK version
+- Minimum SDK version : 24 <br/>
+- Target SDK version : 30
 
 ### - 주의 사항
 - 해당 어플리케이션은 스마트폰만을 대상으로 합니다. 패드 등의 다른 디바이스는 고려되지 않습니다.
