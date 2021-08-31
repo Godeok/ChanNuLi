@@ -55,7 +55,7 @@
     <string name="health_danger">위험</string>
 
     <!--자가진단-->
-    <string name="self_diagnosis_explain">스스로 건강상태를 진단해 보세요.</string>
+    <string name="self_diagnosis_explain">스스로 건강상태를 진단해 보세요.\n보다 정확한 진단은 전문가와의 상담 후에 진행하시길 바랍니다.</string>
     <string name="self_diagnosis_chkResult">결과 확인</string>
     <string name="self_diagnosis_resultByDate">날짜순</string>
     <string name="self_diagnosis_resultBySymptom">질병별</string>
@@ -65,7 +65,7 @@
     <string name="self_diagnosis_finish">종료</string>
 
     <!--게임-->
-    <string name="game_main_explain">건강게임은 집중력, 계산력, 기억력을 키워주고, 치매를 예방해요. 마음에 드는 게임을 선택하고 시작해 볼까요?</string>
+    <string name="game_main_explain">건강게임은 집중력, 계산력, 기억력을 키워주고, 치매를 예방해요. \n마음에 드는 게임을 선택하고 시작해 볼까요?</string>
     <string name="game_main_game1">하나빼기</string>
     <string name="game_main_game2">간단 연산</string>
     <string name="game_main_game3">카드 뒤집기</string>
