@@ -1,11 +1,13 @@
 package kr.co.healthcare.selfDiagnosis.ResultRecycler;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import kr.co.healthcare.R;
@@ -19,8 +21,13 @@ import static kr.co.healthcare.selfDiagnosis.ResultDBGlobal.getRange_warning;
 //결과 화면 리사이클러뷰
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
 
+    private Context context;
     private ArrayList<Result> resultData = new ArrayList<>();
     String[] disease_list = {"고혈압", "골관절염", "고지혈증", "요통", "당뇨병", "골다공증", "치매"};
+
+    public RecyclerAdapter(Context context){
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -70,15 +77,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
             //검사 결과 텍스트뷰
             if(result.getCount()>getRange_warning(diseaseNum)) {
-                tv_count.setBackgroundColor(Color.parseColor("#e61919"));
+                tv_count.setBackgroundColor(ContextCompat.getColor(context, R.color.redColor));
                 tv_count.setText("위험");
             }
             else if(result.getCount()>getRange_safe(diseaseNum)) {
-                tv_count.setBackgroundColor(Color.parseColor("#FFC107"));
+                tv_count.setBackgroundColor(ContextCompat.getColor(context, R.color.yellowColor));
                 tv_count.setText("주의");
             }
             else {
-                tv_count.setBackgroundColor(Color.parseColor("#00ac00"));
+                tv_count.setBackgroundColor(ContextCompat.getColor(context, R.color.primaryColor));
                 tv_count.setText("건강");
             }
         }

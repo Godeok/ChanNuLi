@@ -2,6 +2,7 @@ package kr.co.healthcare.selfDiagnosis;
 
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -71,7 +72,7 @@ public class SelfResultDateFragment extends Fragment {
 
     private void initialized() {
         linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-        adapter = new RecyclerAdapter();
+        adapter = new RecyclerAdapter(getActivity().getApplicationContext());
 
         results = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO().getAllByDate();
         int size = results.size();
@@ -91,9 +92,9 @@ public class SelfResultDateFragment extends Fragment {
 
         for(int i=0; i<7; i++){
             ResultDAO dao = SelfDiagnosisResultDatabase.getInstance(getActivity().getApplicationContext()).resultDAO();
-            StackBar[i].addBar(new BarModel(dao.countDiseaseDanger(i, getRange_warning(i)), 0xFFE61919));
-            StackBar[i].addBar(new BarModel(dao.countDiseaseWarning(i, getRange_safe(i), getRange_warning(i)), 0xFFFFC107));
-            StackBar[i].addBar(new BarModel(dao.countDiseaseSafe(i, getRange_safe(i)), 0xFF00AC00));
+            StackBar[i].addBar(new BarModel(dao.countDiseaseDanger(i, getRange_warning(i)), ContextCompat.getColor(getActivity().getApplicationContext(), R.color.redColor)));
+            StackBar[i].addBar(new BarModel(dao.countDiseaseWarning(i, getRange_safe(i), getRange_warning(i)), ContextCompat.getColor(getActivity().getApplicationContext(), R.color.yellowColor)));
+            StackBar[i].addBar(new BarModel(dao.countDiseaseSafe(i, getRange_safe(i)), ContextCompat.getColor(getActivity().getApplicationContext(), R.color.primaryColor)));
             stackedBarChart.addBar(StackBar[i]);
         }
 

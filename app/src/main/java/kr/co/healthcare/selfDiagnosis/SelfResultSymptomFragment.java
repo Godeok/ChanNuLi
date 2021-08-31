@@ -71,7 +71,7 @@ public class SelfResultSymptomFragment extends Fragment {
                 //((TextView)spinner.getChildAt(0)).setTextColor(getResources().getColor(R.color.defaultTextColor));
 
                 //결과 보여줄 리사이클러뷰 어뎁터 선언(새로운 정보 불러오면 항상 새로 선언)
-                recyclerAdapter = new RecyclerAdapter();
+                recyclerAdapter = new RecyclerAdapter(getActivity().getApplicationContext());
 
                 //스피너에서 선택된 질병명 -> 숫자로 변환 -> 해당 쿼리 불러오기 -> 리사이클러뷰 어뎁터에 데이터 추가
                 num = return_disease_num(parent.getItemAtPosition(position).toString());
