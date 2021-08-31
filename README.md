@@ -65,7 +65,9 @@
 
 ## 2. 제작 기간 & 참여 인원
 - 제작 기간: 2020.9.18 ~ 2021.08.31
-- 제작자: [이유진](https://github.com/Ujaa), [홍진서](https://github.com/Hong-Jinseo) 
+- 제작자
+  1. [이유진](https://github.com/Ujaa) : 마이페이지, 튜토리얼, 건강/질병 정보 구현
+  2. [홍진서](https://github.com/Hong-Jinseo) : 자가진단, 게임 구현
 <br/><br/><br/>
 
 ## 3. 사용한 기술
@@ -391,11 +393,24 @@ ChanNuLi
 <br/><br/><br/>
 
 
-## 5. 주의 사항
+## 5. Target API 수준
+Minimum SDK version : 24
+Target SDK 수준 : 30
 
 <br/><br/><br/>
 
-## 6. 기타
+## 5. 기타
+### SDK version
+Minimum SDK version : 24
+Target SDK version : 30
+
+### - 주의 사항
+- 해당 어플리케이션은 스마트폰만을 대상으로 합니다. 패드 등의 다른 디바이스는 고려되지 않습니다.
+- 해당 어플리케이션 구축에 필요한 모든 콘텐츠-이미지, 음성 파일 등-는 프로젝트 용도 외의 사용이나 무단 복제가 불가합니다.
+- 해당 어플리케이션의 저작권은 제작자에게 있습니다
+- 자가진단은 병원에 가지 않고 건강 상태를 점검하기 위한 기능으로, 보다 정확한 진단은 전문가와 상담 후 알 수 있습니다.
+- 건강을 위해 게임은 하루 30분 미만으로 즐기세요.
+
 ### - 자료 출처
 #### 1. 자가 진단
   - [고혈압-서울동부고용노동부청](http://www.moel.go.kr/local/seouldongbu/info/dataroom/view.do;jsessionid=C6SZ5jpq27fLezvfFzHd6wFD6diK2EvQPtdEw7JhdNm9aaeg0yPgcKpvHm21wcx3.moel_was_outside_servlet_wwwlocal?bbs_seq=1186720313180)
