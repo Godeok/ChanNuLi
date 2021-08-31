@@ -394,15 +394,10 @@ ChanNuLi
 <br/><br/><br/>
 
 
-## 5. Target API 수준
-Minimum SDK version : 24
-Target SDK 수준 : 30
-
-<br/><br/><br/>
 
 ## 5. 기타
 ### SDK version
-Minimum SDK version : 24
+Minimum SDK version : 24 <br/>
 Target SDK version : 30
 
 ### - 주의 사항
