@@ -169,6 +169,9 @@ public class EditUserInfoActivity extends AppCompatActivity {
         }else if(!isYearDateBeforeThisYear(text)){
             yearInputLayout.setError("생년은 올해보다 이전이어야 합니다.");
             return false;
+        }else if(Integer.parseInt(text) >= 1901){
+            yearInputLayout.setError("생년은 1901년부터 가능합니다.");
+            return false;
         } else {
             yearInputLayout.setError(null);
             return true;
