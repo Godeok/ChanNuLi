@@ -72,7 +72,7 @@ public class SelfResultSymptomFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //스피너 글자 색 변경
-                ((TextView)spinner.getChildAt(0)).setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                //((TextView)spinner.getChildAt(0)).setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
 
                 //결과 보여줄 리사이클러뷰 어뎁터 선언(새로운 정보 불러오면 항상 새로 선언)
                 recyclerAdapter = new RecyclerAdapter(getActivity().getApplicationContext());
