@@ -85,7 +85,7 @@
 </div>
 <br><br>
 
-### 프로젝트 구조
+### 📁 프로젝트 구조
 ```
 ChanNuLi  
 ├─ Tutorial  
@@ -396,7 +396,7 @@ ChanNuLi
 
 
 ## 5. 기타
-### - SDK version
+### 🔧 SDK version
 - Minimum SDK version : 24 <br/>
 - Target SDK version : 30
 
@@ -407,7 +407,7 @@ ChanNuLi
 - 자가진단은 병원에 가지 않고 건강 상태를 점검하기 위한 기능으로, 보다 정확한 진단은 전문가와 상담 후 알 수 있습니다.
 - 건강을 위해 게임은 하루 30분 미만으로 즐기세요.
 
-### - 자료 출처
+### 📃 자료 출처
 #### 1. 자가 진단
   - [고혈압-서울동부고용노동부청](http://www.moel.go.kr/local/seouldongbu/info/dataroom/view.do;jsessionid=C6SZ5jpq27fLezvfFzHd6wFD6diK2EvQPtdEw7JhdNm9aaeg0yPgcKpvHm21wcx3.moel_was_outside_servlet_wwwlocal?bbs_seq=1186720313180)
   - [골관절염-헬스조선](https://m.health.chosun.com/svc/news_view.html?contid=2018050201725)
@@ -428,6 +428,6 @@ ChanNuLi
 #### 3. 건강 정보
   - [유튜브-노인 건강관리](https://www.youtube.com/results?search_query=%EB%85%B8%EC%9D%B8+%EA%B1%B4%EA%B0%95%EA%B4%80%EB%A6%AC)
 
-### - 폰트
+### 🖌 폰트
 - [DK Cool Crayon](https://www.dafont.com/dk-cool-crayon.font)
 - [개미 똥구멍](https://sangsangfont.com/21/?idx=101)
