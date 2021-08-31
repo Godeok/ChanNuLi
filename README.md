@@ -86,6 +86,9 @@ ChanNuLi
 ```
 
 ### 데이터베이스 스키마
+
+#### 1. 자가진단 질문 저장 DB (SQLite) 
+
 <table>
     <thead>
         <tr>
@@ -121,7 +124,7 @@ ChanNuLi
     </tbody>
 </table>
 
-
+#### 2. 질병 정보 저장 DB (SQLite) 
 <table>
     <thead>
         <tr>
@@ -197,7 +200,7 @@ ChanNuLi
     </tbody>
 </table>
 
-
+#### 3. 자가진단 결과 저장 DB (Room Database)
 <table>
     <thead>
         <tr>
@@ -249,7 +252,9 @@ ChanNuLi
     </tbody>
 </table>
 
+### shared-preference 스키마
 
+#### 1. 사용자 정보 preference
 <table>
     <thead>
         <tr>
@@ -291,7 +296,7 @@ ChanNuLi
     </tbody>
 </table>
 
-
+#### 2. 게임 결과 preference
 <table>
     <thead>
         <tr>
