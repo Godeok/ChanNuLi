@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.AppDescriptionActivity">
+    android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="30dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="어플 설명"
+            android:layout_marginBottom="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/defaultTextColor"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/midDarkTextColor"
+            android:text="찬누리는 노인 건강 관리 어플입니다. 노인분들은 찬누리를 사용하면서 스스로 건강 상태를 진단하고, 다양한 질병과 건강 정보를 얻고, 간단한 게임을 통해 치매도 예방할 수 있습니다. 또한, 찬누리는 노인분들이 어플을 쉽게 사용하실 수 있도록 간편한 화면 구성과 조작 방법 제공합니다." />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="출처"
+            android:layout_marginBottom="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/defaultTextColor"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/midDarkTextColor"
+            android:text="
+1. 자가 진단\n
+고혈압-서울동부고용노동부청\n
+골관절염-헬스조선\n
+고지혈증-김용기내과\n
+요통-인슈넷\n
+당뇨-매일경제\n
+골다공증-헬스인뉴스\n
+치매-헬스인뉴스\n\n
+2. 질병 정보\n
+고혈압-서울아산병원\n
+골관절염-서울아산병원\n
+류마티스 관절염-서울아산병원\n
+고지혈증-삼성서울병원\n
+요통-서울아산병원\n
+좌골신경통-서울아산병원\n
+당뇨병-서울아산병원\n
+골다공증-서울아산병원\n\n
+3. 건강 정보\n
+유튜브-노인 건강관리" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="제작자"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/defaultTextColor"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="이유진, 홍진서"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/midDarkTextColor"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+
+
+
