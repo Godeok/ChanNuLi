@@ -4,10 +4,13 @@ import static android.content.ContentValues.TAG;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +39,7 @@ import java.util.List;
 
 import kr.co.healthcare.R;
 import kr.co.healthcare.dialog.LoadingDialog;
+import kr.co.healthcare.game.Game1Activity;
 import kr.co.healthcare.healthInfo.ui.main.Exercise;
 import kr.co.healthcare.healthInfo.ui.main.HealthInfoVideoAdapter;
 import kr.co.healthcare.healthInfo.ui.main.YoutubeVideo;
@@ -56,7 +60,6 @@ public class HealthInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_info);
 
         setResourses();
-        setKeywords();
 
         // 네트워크 연결상태 체크
         if (!NetworkConnection())
@@ -68,7 +71,44 @@ public class HealthInfoActivity extends AppCompatActivity {
         recyclerViewAdapter = new HealthInfoVideoAdapter(this);
         videoRecyclerView.setAdapter(recyclerViewAdapter);
         videoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    };
+
+
+        //chip 배치 및 리스너
+        for(String keyword : keywords){
+            final Chip chip = (Chip) this.getLayoutInflater().inflate(
+                    R.layout.item_chip_search_keyword, chipGroup, false);
+            chip.setText(keyword);
+            chipGroup.addView(chip);
+
+            //chip 선택 했을 경우
+            chip.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), HealthInfoSearchActivity.class);
+                    intent.putExtra("keyword", keyword);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                }
+            });
+        }
+
+        //검색어 입력 후 엔터 눌렀을 경우
+        textInput.setOnKeyListener(new View.OnKeyListener(){
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                String keyword = textInput.getText().toString();
+                switch (keyCode){
+                    case  KeyEvent.KEYCODE_ENTER:
+                        Intent intent = new Intent(getApplicationContext(), HealthInfoSearchActivity.class);
+                        intent.putExtra("keyword", keyword);
+                        startActivity(intent);
+                        overridePendingTransition(0, 0);
+                        break;
+                }
+                return true;
+            }
+        });
+    }
 
     private void setResourses(){
         keywords = getResources().getStringArray(R.array.SEARCH_KEYWORD_LABEL);
@@ -77,15 +117,6 @@ public class HealthInfoActivity extends AppCompatActivity {
         chipGroup = findViewById(R.id.CHIPGROUP_keywords);
         textInput = findViewById(R.id.textInput);
         videoRecyclerView = findViewById(R.id.videoRecyclerView);
-    }
-
-    private void setKeywords() {
-        for(String keyword : keywords) {
-            final Chip chip = (Chip) this.getLayoutInflater().inflate(
-                    R.layout.item_chip_search_keyword, chipGroup, false);
-            chip.setText(keyword);
-            chipGroup.addView(chip);
-        }
     }
 
     private boolean NetworkConnection() {

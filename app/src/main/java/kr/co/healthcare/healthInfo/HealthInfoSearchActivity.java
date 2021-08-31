@@ -1,6 +1,8 @@
-package kr.co.healthcare;
+package kr.co.healthcare.healthInfo;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import kr.co.healthcare.R;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -8,15 +10,18 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class WebActivity extends AppCompatActivity {
+public class HealthInfoSearchActivity extends AppCompatActivity {
 
     private WebView webView;
-    private String url = "https://www.google.com/search?q=허리관리&tbm=nws";
+    private String url, keyword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
+        setContentView(R.layout.activity_health_info_search);
+
+        keyword = getIntent().getStringExtra("keyword");
+        url = "https://www.google.com/search?q=" + keyword + "&tbm=nws";
 
         webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -32,6 +37,12 @@ public class WebActivity extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(0, 0);
     }
 
     public static class WebViewClientClass extends WebViewClient {
