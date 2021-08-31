@@ -52,6 +52,40 @@
 - SQLite
 
 ## 4. 프로젝트 설계
+### 프로젝트 구조
+```
+ChanNuLi  
+├─ Tutorial  
+├─ Main  
+│  ├─ MyPage  
+│  │  ├─ EditUserInfo  
+│  │  ├─ EditDiseaseStatus  
+│  │  ├─ SelfDisgnosisHistory  
+│  │  ├─ GameHistory  
+│  │  ├─ ApplicationDescription  
+│  │  └─ ResetApplication  
+│  ├─ SelfDiagnosisMain  
+│  │  ├─ SelfDiagnosis  
+│  │  ├─ CheckResult  
+│  │  │  ├─ OrderByDate  
+│  │  │  └─ OrderBySymtpom  
+│  ├─ HealthInfo  
+│  │  ├─ Search  
+│  │  └─ Video  
+│  ├─ DiseaseInfo  
+│  │  ├─ Name  
+│  │  ├─ Definition  
+│  │  ├─ Cause  
+│  │  ├─ Symptom  
+│  │  ├─ treatment  
+│  │  └─ precaution  
+│  ├─ GameMain  
+│  │  ├─ Game1  
+│  │  ├─ Game2  
+└─ └─ └─ Game3 
+```
+
+
 
 ## 5. 주의 사항
 
