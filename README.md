@@ -85,6 +85,273 @@ ChanNuLi
 └─ └─ └─ Game3 
 ```
 
+### 데이터베이스 스키마
+<table>
+    <thead>
+        <tr>
+            <th colspan=3>테이블 이름</th>
+            <th colspan=3>disease_n</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>속성 이름</td>
+            <td>데이터 타입</td>
+            <td>널 허용 여부</td>
+            <td>기본값</td>
+            <td>기본키</td>
+            <td>외래키</td>
+        </tr>
+        <tr>
+            <td>num</td>
+            <td>INTEGER</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td>PK</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>question</td>
+            <td>TEXT</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <tr>
+            <th colspan=3>테이블 이름</th>
+            <th colspan=3>diseaseinfo</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>속성 이름</td>
+            <td>데이터 타입</td>
+            <td>널 허용 여부</td>
+            <td>기본값</td>
+            <td>기본키</td>
+            <td>외래키</td>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>INTEGER</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td>PK</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>TEXT</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>definition</td>
+            <td>TEXT</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>cause</td>
+            <td>TEXT</td>
+            <td>NULL</td>
+            <td>없음.</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>symptom</td>
+            <td>TEXT</td>
+            <td>NULL</td>
+            <td>없음.</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>treatment</td>
+            <td>TEXT</td>
+            <td>NULL</td>
+            <td>없음.</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>precaution</td>
+            <td>TEXT</td>
+            <td>NULL</td>
+            <td>없음.</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <tr>
+            <th colspan=3>테이블 이름</th>
+            <th colspan=3>Result_table</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>속성 이름</td>
+            <td>데이터 타입</td>
+            <td>널 허용 여부</td>
+            <td>기본값</td>
+            <td>기본키</td>
+            <td>외래키</td>
+        </tr>
+        <tr>
+            <td>id</td>
+            <td>INT</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td>PK</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>disease</td>
+            <td>INT</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>count</td>
+            <td>INT</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>date</td>
+            <td>STRING</td>
+            <td>NOT NULL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <tr>
+            <th colspan=2>preference 이름</th>
+            <th colspan=2>USER_INFOMATION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>속성 이름</td>
+            <td>데이터 타입</td>
+            <td>기본값</td>
+            <td>비고</td>
+        </tr>
+        <tr>
+            <td>USER_NAME</td>
+            <td>STRING</td>
+            <td></td>
+            <td>1~5자리 문자 입력</td>
+        </tr>
+        <tr>
+            <td>USER_BIRTH</td>
+            <td>INT</td>
+            <td></td>
+            <td>1901~2021 사이 숫자 입력</td>
+        </tr>
+        <tr>
+            <td>USER_GENDER</td>
+            <td>STRING</td>
+            <td></td>
+            <td>MAN, WOMAN</td>
+        </tr>
+        <tr>
+            <td>USER_DISEASE</td>
+            <td>STRING</td>
+            <td>NULL</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <tr>
+            <th colspan=2>preference 이름</th>
+            <th colspan=2>game_score_pref</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>속성 이름</td>
+            <td>데이터 타입</td>
+            <td>기본값</td>
+            <td>비고</td>
+        </tr>
+        <tr>
+            <td>best_score_game1_lv1</td>
+            <td>INT</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>best_score_game1_lv2</td>
+            <td>INT</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>best_score_game1_lv3</td>
+            <td>INT</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>best_score_game2_lv1</td>
+            <td>INT</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>best_score_game2_lv2</td>
+            <td>INT</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>best_score_game2_lv3</td>
+            <td>INT</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>best_score_game3_lv0</td>
+            <td>INT</td>
+            <td>0</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
 
 
 ## 5. 주의 사항
