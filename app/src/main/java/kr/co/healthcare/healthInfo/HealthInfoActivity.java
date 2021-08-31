@@ -60,7 +60,6 @@ public class HealthInfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_info);
 
         setResourses();
-        //setKeywords();
 
         // 네트워크 연결상태 체크
         if (!NetworkConnection())
@@ -74,7 +73,7 @@ public class HealthInfoActivity extends AppCompatActivity {
         videoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        //chip
+        //chip 배치 및 리스너
         for(String keyword : keywords){
             final Chip chip = (Chip) this.getLayoutInflater().inflate(
                     R.layout.item_chip_search_keyword, chipGroup, false);
